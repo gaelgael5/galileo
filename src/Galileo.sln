@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Black.Beard.Galileo.Models", "Black.Beard.Galileo.Models\Black.Beard.Galileo.Models.csproj", "{00F84763-CE68-43B4-A564-F5F79CAE0496}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Black.Beard.Galileo", "Black.Beard.Galileo\Black.Beard.Galileo.csproj", "{1388604B-89AC-47C5-9CCD-FA4D1100D794}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00F84763-CE68-43B4-A564-F5F79CAE0496}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00F84763-CE68-43B4-A564-F5F79CAE0496}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00F84763-CE68-43B4-A564-F5F79CAE0496}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00F84763-CE68-43B4-A564-F5F79CAE0496}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1388604B-89AC-47C5-9CCD-FA4D1100D794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1388604B-89AC-47C5-9CCD-FA4D1100D794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1388604B-89AC-47C5-9CCD-FA4D1100D794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1388604B-89AC-47C5-9CCD-FA4D1100D794}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8CCFEB7-FDB9-496A-9037-A5077851F3E4}
+	EndGlobalSection
+EndGlobal
