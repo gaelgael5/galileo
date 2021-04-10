@@ -1,0 +1,17 @@
+﻿<!--DSL Tools Language Template-->
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TemplateData>
+		<TemplateID>{7cb554fb-e5df-41e8-8c8f-4dec914a3d64}</TemplateID>
+		<Name Package="{6113886b-339d-4d50-9d9a-05cec44810af}" ID="103"/>
+		<Description Package="{6113886b-339d-4d50-9d9a-05cec44810af}" ID="102"/>
+		<Icon Package="{6113886b-339d-4d50-9d9a-05cec44810af}" ID="201" />
+		<ProjectType>CSharp</ProjectType>
+		<SortOrder>360</SortOrder>
+		<DefaultName>ApplicationCooperationViewPoint.covp</DefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectItem TargetFileName="$fileinputname$.covp">covp.covp</ProjectItem>
+		<ProjectItem TargetFileName="$fileinputname$.covp.diagram">covp.diagram</ProjectItem>
+	</TemplateContent>
+</VSTemplate>
+
