@@ -1,11 +1,14 @@
 ﻿using Bb.CommandLine.Validators;
 using Bb.Galileo.Files;
 using Bb.Galileo.Files.Schemas;
+using Bb.Galileo.Models;
 using Black.Beard.Galileo;
 using Microsoft.Extensions.CommandLineUtils;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace Bb.Commands
@@ -54,32 +57,50 @@ namespace Bb.Commands
                     using (var rep = new ModelRepository(argSource.Value, new Diagnostic()))
                     {
 
-                        rep.ItemFileHasChanged = (r, i) =>
+                        rep.ItemFileHasChanged = (repository, transaction) =>
                         {
 
-                            bool result = false;
-                            // Génerate definition from file has changed
-                            if (!string.IsNullOrEmpty(argSchemaTarget.Value))
-                                result = r.SchemaManager.GenerateDefinition(i, new DirectoryInfo(argSchemaTarget.Value));
-                            else
-                                result = r.SchemaManager.GenerateDefinition(i);
+                            switch (transaction.File.Schema.Kind)
+                            {
+                                
+                                case Galileo.KindSchemaEnum.Entity:
+                                    break;
+                                
 
-                            if (result)
-                                r.Diagnostic.Append(new Galileo.DiagnositcMessage()
-                                {
-                                    Text = $"Schema {i.Name} is refreshed",
-                                });
+                                case Galileo.KindSchemaEnum.Relationship:
+                                    break;
 
+
+                                case Galileo.KindSchemaEnum.SchemaDefinitions:
+                                    
+                                    List<ModelDefinition> _items = transaction.Added.OfType<ModelDefinition>().ToList();
+                                    _items.AddRange(transaction.Updated.OfType<ModelDefinition>());
+                                    if (!string.IsNullOrEmpty(argSchemaTarget.Value))
+                                        repository.SchemaManager.GenerateDefinition(_items, new DirectoryInfo(argSchemaTarget.Value));
+                                    else
+                                        repository.SchemaManager.GenerateDefinition(_items);
+
+
+                                    if (!string.IsNullOrEmpty(argSchemaTarget.Value))
+                                        rep.SchemaManager.GenerateSchemas(new DirectoryInfo(argSchemaTarget.Value));
+                                    else
+                                        rep.SchemaManager.GenerateSchemas();
+                                    break;
+
+                                case Galileo.KindSchemaEnum.Definition:
+                                case Galileo.KindSchemaEnum.Schema:
+                                case Galileo.KindSchemaEnum.CooperationViewpoint:
+                                case Galileo.KindSchemaEnum.SchemaLayerDefinitions:
+                                case Galileo.KindSchemaEnum.Undefined:
+                                default:
+                                    break;
+                            }
+
+
+                      
                         };
 
                         rep.Initialize();
-
-
-                        // Génerate meta shemas
-                        if (!string.IsNullOrEmpty(argSchemaTarget.Value))
-                            rep.SchemaManager.GenerateSchemas(new DirectoryInfo(argSchemaTarget.Value));
-                        else
-                            rep.SchemaManager.GenerateSchemas();
 
 
                         if (optHold.HasValue())

@@ -1,25 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<cooperationModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="703331d4-7111-4fd6-9570-72abd079abb4" xmlns="http://schemas.microsoft.com/dsltools/ApplicationCooperationViewPoint">
+<model xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="2cb7036e-a0d6-4a79-ae4e-3b0ef4908f93" xmlns="http://schemas.microsoft.com/dsltools/ApplicationCooperationViewPoint">
   <elements>
-    <cooperationElement Id="cd4a778c-0373-4090-978f-2413391a1092" sourceReference="Colis 21">
-      <cooperationSubElement>
-        <cooperationElementHasCooperationSubElement Id="08c52ca9-b9e4-4270-a8f8-4ea547b59264">
-          <cooperationSubElement Id="e4104a73-f7e8-4f87-a9a6-3c56ccb5441d" referenceSource="Monitoring">
-            <targetCooperationSubElement>
-              <cooperationSubElementReferencesTargetCooperationSubElement Id="750ad107-d18f-4e64-a913-3209360b96e1">
-                <cooperationSubElementMoniker Id="13a84175-19b2-4332-9478-fc2d86d4bdcb" />
-              </cooperationSubElementReferencesTargetCooperationSubElement>
-            </targetCooperationSubElement>
-          </cooperationSubElement>
-        </cooperationElementHasCooperationSubElement>
-      </cooperationSubElement>
-    </cooperationElement>
-    <cooperationElement Id="50c8429e-953c-4749-9c64-4b5628383d6d" sourceReference="anomaly21">
-      <cooperationSubElement>
-        <cooperationElementHasCooperationSubElement Id="8d35efd7-5e3b-4c1c-955e-2e2565840681">
-          <cooperationSubElement Id="13a84175-19b2-4332-9478-fc2d86d4bdcb" referenceSource="Module adapter" />
-        </cooperationElementHasCooperationSubElement>
-      </cooperationSubElement>
-    </cooperationElement>
+    <modelElement Id="1ddf29b6-47db-4f37-bc74-2b1c3747a98c" referenceSource="ModelElement1">
+      <parent>
+        <modelElementHasParent Id="34fc6ffd-7361-4e32-972f-98ae5a0faa20">
+          <subElement Id="50860a3e-41e7-407c-b2e2-80a711d393f0" referenceSource="SubElement1" />
+        </modelElementHasParent>
+      </parent>
+    </modelElement>
   </elements>
-</cooperationModel>
+  <concept>
+    <modelHasConcept Id="354e4039-e46d-4d35-b8d3-76c4e5eb8f44">
+      <concept Id="57d54fbb-7ae4-4d1d-b0e3-0856e2547314" referenceSource="Concept1">
+        <conceptElement>
+          <conceptHasConceptElement Id="6297d838-7771-4fe6-a6cd-ac0781c724a1">
+            <conceptElement Id="a8325e0f-f8d7-4756-b251-2b19371a4e88" referenceSource="ConceptElement1">
+              <conceptSubElement>
+                <conceptElementHasConceptSubElement Id="a867eb3e-872e-4b71-9c4b-71382f6f40c5">
+                  <conceptSubElement Id="1f122b45-d0be-4f47-8ad0-4e6df8d016ad" referenceSource="ConceptSubElement1" />
+                </conceptElementHasConceptSubElement>
+              </conceptSubElement>
+            </conceptElement>
+          </conceptHasConceptElement>
+        </conceptElement>
+      </concept>
+    </modelHasConcept>
+  </concept>
+  <relationships>
+    <modelHasRelationships Id="9d5e45b2-6fdb-4d8a-9499-f10805f735e7">
+      <relationship Id="b255d892-9aa3-4555-a132-d0f2acab29f0" referenceSource="Relationship1" name="rel" />
+    </modelHasRelationships>
+  </relationships>
+</model>

@@ -1,34 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xsd:schema id="ApplicationCooperationViewPointSchema" targetNamespace="http://schemas.microsoft.com/dsltools/ApplicationCooperationViewPoint" elementFormDefault="qualified" xmlns="http://schemas.microsoft.com/dsltools/ApplicationCooperationViewPoint" xmlns:core="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <xsd:import id="CoreSchema" namespace="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" />
-  <!-- CooperationModel -->
-  <xsd:element name="cooperationModel" type="CooperationModel" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="CooperationModel">
+  <!-- Model -->
+  <xsd:element name="model" type="Model" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="Model">
     <xsd:annotation>
       <xsd:documentation>The root in which all other elements are embedded. Appears as a diagram.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
-          <!-- Relationship: CooperationModelHasElements -->
+          <!-- Relationship: ModelHasElements -->
           <xsd:element name="elements" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-              <xsd:documentation>Instances of CooperationModelHasElements</xsd:documentation>
+              <xsd:documentation>Instances of ModelHasElements</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
               <xsd:sequence>
                 <xsd:choice minOccurs="0" maxOccurs="unbounded" >
-                  <xsd:element ref="cooperationModelHasElements">
+                  <xsd:element ref="modelHasElements">
                     <xsd:annotation>
-                      <xsd:documentation>[Relationship deriving from CooperationModelHasElements needs to be serialized in full-form]</xsd:documentation>
+                      <xsd:documentation>[Relationship deriving from ModelHasElements needs to be serialized in full-form]</xsd:documentation>
                     </xsd:annotation>
                   </xsd:element>
-                  <xsd:element ref="cooperationElement" >
+                  <xsd:element ref="modelElement" >
                     <xsd:annotation>
                       <xsd:documentation>[Target role-player]</xsd:documentation>
                     </xsd:annotation>
                   </xsd:element>
                 </xsd:choice>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <!-- Relationship: ModelHasConcept -->
+          <xsd:element name="concept" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instances of ModelHasConcept</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="modelHasConcept" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of ModelHasConcept needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <!-- Relationship: ModelHasRelationships -->
+          <xsd:element name="relationships" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instances of ModelHasRelationships</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="modelHasRelationships" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of ModelHasRelationships needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
               </xsd:sequence>
             </xsd:complexType>
           </xsd:element>
@@ -49,17 +79,17 @@
         <xsd:attribute name="name" type="xsd:string" />
         <!-- Property: Target -->
         <xsd:attribute name="target" type="xsd:string" />
-        <!-- Property: Type -->
-        <xsd:attribute name="type" type="xsd:string" />
+        <!-- Property: ViewpointType -->
+        <xsd:attribute name="viewpointType" type="xsd:string" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- CooperationModel Moniker -->
-  <xsd:element name="cooperationModelMoniker" type="CooperationModelMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="CooperationModelMoniker">
+  <!-- Model Moniker -->
+  <xsd:element name="modelMoniker" type="ModelMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ModelMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for CooperationModel instance.</xsd:documentation>
+      <xsd:documentation>Moniker for Model instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
@@ -72,47 +102,25 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- CooperationElement -->
-  <xsd:element name="cooperationElement" type="CooperationElement" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="CooperationElement">
+  <!-- ModelElement -->
+  <xsd:element name="modelElement" type="ModelElement" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ModelElement">
     <xsd:annotation>
       <xsd:documentation>Elements embedded in the model. Appear as boxes on the diagram.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
-          <!-- Relationship: CooperationElementReferencesTargets -->
-          <xsd:element name="targets" minOccurs="0" maxOccurs="1">
+          <!-- Relationship: ModelElementHasParent -->
+          <xsd:element name="parent" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-              <xsd:documentation>Instances of CooperationElementReferencesTargets</xsd:documentation>
+              <xsd:documentation>Instances of ModelElementHasParent</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:choice minOccurs="0" maxOccurs="unbounded" >
-                  <xsd:element ref="cooperationElementReferencesTargets">
-                    <xsd:annotation>
-                      <xsd:documentation>[Relationship deriving from CooperationElementReferencesTargets needs to be serialized in full-form]</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element ref="cooperationElementMoniker" >
-                    <xsd:annotation>
-                      <xsd:documentation>[Target role-player]</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                </xsd:choice>
-              </xsd:sequence>
-            </xsd:complexType>
-          </xsd:element>
-          <!-- Relationship: CooperationElementHasCooperationSubElement -->
-          <xsd:element name="cooperationSubElement" minOccurs="0" maxOccurs="1">
-            <xsd:annotation>
-              <xsd:documentation>Instances of CooperationElementHasCooperationSubElement</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element ref="cooperationElementHasCooperationSubElement" minOccurs="0" maxOccurs="unbounded">
+                <xsd:element ref="modelElementHasParent" minOccurs="0" maxOccurs="unbounded">
                   <xsd:annotation>
-                    <xsd:documentation>[Instance of CooperationElementHasCooperationSubElement needs to be serialized in full-form]</xsd:documentation>
+                    <xsd:documentation>[Instance of ModelElementHasParent needs to be serialized in full-form]</xsd:documentation>
                   </xsd:annotation>
                 </xsd:element>
               </xsd:sequence>
@@ -125,25 +133,29 @@
             <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <!-- Property: SourceReference -->
-        <xsd:attribute name="sourceReference" type="xsd:string" use="required" >
+        <!-- Property: ReferenceSource -->
+        <xsd:attribute name="referenceSource" type="xsd:string" use="required" >
           <xsd:annotation>
             <xsd:documentation>Description for Bb.ApplicationCooperationViewPoint.ExampleElement.Name</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <!-- Property: Type -->
+        <xsd:attribute name="type" type="xsd:string" />
+        <!-- Property: Name -->
+        <xsd:attribute name="name" type="xsd:string" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- CooperationElement Moniker -->
-  <xsd:element name="cooperationElementMoniker" type="CooperationElementMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="CooperationElementMoniker">
+  <!-- ModelElement Moniker -->
+  <xsd:element name="modelElementMoniker" type="ModelElementMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ModelElementMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for CooperationElement instance.</xsd:documentation>
+      <xsd:documentation>Moniker for ModelElement instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
-        <xsd:attribute name="sourceReference" type="xsd:string" >
+        <xsd:attribute name="referenceSource" type="xsd:string" >
           <xsd:annotation>
             <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
           </xsd:annotation>
@@ -152,22 +164,22 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- CooperationSubElement -->
-  <xsd:element name="cooperationSubElement" type="CooperationSubElement" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="CooperationSubElement">
+  <!-- SubElement -->
+  <xsd:element name="subElement" type="SubElement" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="SubElement">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
-          <!-- Relationship: CooperationSubElementReferencesTargetCooperationSubElement -->
-          <xsd:element name="targetCooperationSubElement" minOccurs="0" maxOccurs="1">
+          <!-- Relationship: SubElementReferencesRelationship -->
+          <xsd:element name="relationship" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-              <xsd:documentation>Instances of CooperationSubElementReferencesTargetCooperationSubElement</xsd:documentation>
+              <xsd:documentation>Instances of SubElementReferencesRelationship</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element ref="cooperationSubElementReferencesTargetCooperationSubElement" minOccurs="0" maxOccurs="unbounded">
+                <xsd:element ref="subElementReferencesRelationship" minOccurs="0" maxOccurs="unbounded">
                   <xsd:annotation>
-                    <xsd:documentation>[Instance of CooperationSubElementReferencesTargetCooperationSubElement needs to be serialized in full-form]</xsd:documentation>
+                    <xsd:documentation>[Instance of SubElementReferencesRelationship needs to be serialized in full-form]</xsd:documentation>
                   </xsd:annotation>
                 </xsd:element>
               </xsd:sequence>
@@ -182,15 +194,19 @@
         </xsd:attribute>
         <!-- Property: ReferenceSource -->
         <xsd:attribute name="referenceSource" type="xsd:string" />
+        <!-- Property: Type -->
+        <xsd:attribute name="type" type="xsd:string" />
+        <!-- Property: Name -->
+        <xsd:attribute name="name" type="xsd:string" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- CooperationSubElement Moniker -->
-  <xsd:element name="cooperationSubElementMoniker" type="CooperationSubElementMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="CooperationSubElementMoniker">
+  <!-- SubElement Moniker -->
+  <xsd:element name="subElementMoniker" type="SubElementMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="SubElementMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for CooperationSubElement instance.</xsd:documentation>
+      <xsd:documentation>Moniker for SubElement instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
@@ -203,17 +219,246 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- CooperationModelHasElements -->
-  <xsd:element name="cooperationModelHasElements" abstract="true" type="CooperationModelHasElements" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="CooperationModelHasElements" abstract="true" >
+  <!-- Concept -->
+  <xsd:element name="concept" type="Concept" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="Concept">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Relationship: ConceptHasConceptElement -->
+          <xsd:element name="conceptElement" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instances of ConceptHasConceptElement</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="conceptHasConceptElement" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of ConceptHasConceptElement needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <!-- Relationship: ConceptReferencesRelationship -->
+          <xsd:element name="relationship" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instances of ConceptReferencesRelationship</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="conceptReferencesRelationship" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of ConceptReferencesRelationship needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: ReferenceSource -->
+        <xsd:attribute name="referenceSource" type="xsd:string" />
+        <!-- Property: Name -->
+        <xsd:attribute name="name" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Concept Moniker -->
+  <xsd:element name="conceptMoniker" type="ConceptMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ConceptMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Concept instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ConceptElement -->
+  <xsd:element name="conceptElement" type="ConceptElement" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ConceptElement">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Relationship: ConceptElementHasConceptSubElement -->
+          <xsd:element name="conceptSubElement" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instances of ConceptElementHasConceptSubElement</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="conceptElementHasConceptSubElement" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of ConceptElementHasConceptSubElement needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <!-- Relationship: ConceptElementReferencesRelationship -->
+          <xsd:element name="relationship" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instances of ConceptElementReferencesRelationship</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="conceptElementReferencesRelationship" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of ConceptElementReferencesRelationship needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: ReferenceSource -->
+        <xsd:attribute name="referenceSource" type="xsd:string" />
+        <!-- Property: Type -->
+        <xsd:attribute name="type" type="xsd:string" />
+        <!-- Property: Name -->
+        <xsd:attribute name="name" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ConceptElement Moniker -->
+  <xsd:element name="conceptElementMoniker" type="ConceptElementMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ConceptElementMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for ConceptElement instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ConceptSubElement -->
+  <xsd:element name="conceptSubElement" type="ConceptSubElement" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ConceptSubElement">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Relationship: ConceptSubElementReferencesRelationship -->
+          <xsd:element name="relationship" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instances of ConceptSubElementReferencesRelationship</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="conceptSubElementReferencesRelationship" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of ConceptSubElementReferencesRelationship needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: ReferenceSource -->
+        <xsd:attribute name="referenceSource" type="xsd:string" />
+        <!-- Property: Type -->
+        <xsd:attribute name="type" type="xsd:string" />
+        <!-- Property: Name -->
+        <xsd:attribute name="name" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ConceptSubElement Moniker -->
+  <xsd:element name="conceptSubElementMoniker" type="ConceptSubElementMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ConceptSubElementMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for ConceptSubElement instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Relationship -->
+  <xsd:element name="relationship" type="Relationship" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="Relationship">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: ReferenceSource -->
+        <xsd:attribute name="referenceSource" type="xsd:string" />
+        <!-- Property: Name -->
+        <xsd:attribute name="name" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Relationship Moniker -->
+  <xsd:element name="relationshipMoniker" type="RelationshipMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="RelationshipMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Relationship instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ModelHasElements -->
+  <xsd:element name="modelHasElements" abstract="true" type="ModelHasElements" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ModelHasElements" abstract="true" >
     <xsd:annotation>
       <xsd:documentation>Embedding relationship between the Model and Elements</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
-          <!-- Target end CooperationElement -->
-          <xsd:element ref="cooperationElement" minOccurs="1" maxOccurs="1">
+          <!-- Target end ModelElement -->
+          <xsd:element ref="modelElement" minOccurs="1" maxOccurs="1">
             <xsd:annotation>
               <xsd:documentation>[Target role-player]</xsd:documentation>
             </xsd:annotation>
@@ -229,11 +474,11 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- CooperationModelHasElements Moniker -->
-  <xsd:element name="cooperationModelHasElementsMoniker" type="CooperationModelHasElementsMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="CooperationModelHasElementsMoniker">
+  <!-- ModelHasElements Moniker -->
+  <xsd:element name="modelHasElementsMoniker" type="ModelHasElementsMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ModelHasElementsMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for CooperationModelHasElements instance.</xsd:documentation>
+      <xsd:documentation>Moniker for ModelHasElements instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
@@ -246,17 +491,14 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- CooperationElementReferencesTargets -->
-  <xsd:element name="cooperationElementReferencesTargets" abstract="true" type="CooperationElementReferencesTargets" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="CooperationElementReferencesTargets" abstract="true" >
-    <xsd:annotation>
-      <xsd:documentation>Reference relationship between Elements.</xsd:documentation>
-    </xsd:annotation>
+  <!-- ModelElementHasParent -->
+  <xsd:element name="modelElementHasParent" type="ModelElementHasParent" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ModelElementHasParent">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
-          <!-- Target end CooperationElement -->
-          <xsd:element ref="cooperationElementMoniker" minOccurs="1" maxOccurs="1">
+          <!-- Target end SubElement -->
+          <xsd:element ref="subElement" minOccurs="1" maxOccurs="1">
             <xsd:annotation>
               <xsd:documentation>[Target role-player]</xsd:documentation>
             </xsd:annotation>
@@ -272,11 +514,11 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- CooperationElementReferencesTargets Moniker -->
-  <xsd:element name="cooperationElementReferencesTargetsMoniker" type="CooperationElementReferencesTargetsMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="CooperationElementReferencesTargetsMoniker">
+  <!-- ModelElementHasParent Moniker -->
+  <xsd:element name="modelElementHasParentMoniker" type="ModelElementHasParentMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ModelElementHasParentMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for CooperationElementReferencesTargets instance.</xsd:documentation>
+      <xsd:documentation>Moniker for ModelElementHasParent instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
@@ -289,14 +531,14 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- CooperationElementHasCooperationSubElement -->
-  <xsd:element name="cooperationElementHasCooperationSubElement" type="CooperationElementHasCooperationSubElement" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="CooperationElementHasCooperationSubElement">
+  <!-- ModelHasConcept -->
+  <xsd:element name="modelHasConcept" type="ModelHasConcept" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ModelHasConcept">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
-          <!-- Target end CooperationSubElement -->
-          <xsd:element ref="cooperationSubElement" minOccurs="1" maxOccurs="1">
+          <!-- Target end Concept -->
+          <xsd:element ref="concept" minOccurs="1" maxOccurs="1">
             <xsd:annotation>
               <xsd:documentation>[Target role-player]</xsd:documentation>
             </xsd:annotation>
@@ -312,11 +554,11 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- CooperationElementHasCooperationSubElement Moniker -->
-  <xsd:element name="cooperationElementHasCooperationSubElementMoniker" type="CooperationElementHasCooperationSubElementMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="CooperationElementHasCooperationSubElementMoniker">
+  <!-- ModelHasConcept Moniker -->
+  <xsd:element name="modelHasConceptMoniker" type="ModelHasConceptMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ModelHasConceptMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for CooperationElementHasCooperationSubElement instance.</xsd:documentation>
+      <xsd:documentation>Moniker for ModelHasConcept instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
@@ -329,14 +571,14 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- CooperationSubElementReferencesTargetCooperationSubElement -->
-  <xsd:element name="cooperationSubElementReferencesTargetCooperationSubElement" type="CooperationSubElementReferencesTargetCooperationSubElement" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="CooperationSubElementReferencesTargetCooperationSubElement">
+  <!-- ConceptHasConceptElement -->
+  <xsd:element name="conceptHasConceptElement" type="ConceptHasConceptElement" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ConceptHasConceptElement">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
-          <!-- Target end CooperationSubElement -->
-          <xsd:element ref="cooperationSubElementMoniker" minOccurs="1" maxOccurs="1">
+          <!-- Target end ConceptElement -->
+          <xsd:element ref="conceptElement" minOccurs="1" maxOccurs="1">
             <xsd:annotation>
               <xsd:documentation>[Target role-player]</xsd:documentation>
             </xsd:annotation>
@@ -352,11 +594,251 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- CooperationSubElementReferencesTargetCooperationSubElement Moniker -->
-  <xsd:element name="cooperationSubElementReferencesTargetCooperationSubElementMoniker" type="CooperationSubElementReferencesTargetCooperationSubElementMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="CooperationSubElementReferencesTargetCooperationSubElementMoniker">
+  <!-- ConceptHasConceptElement Moniker -->
+  <xsd:element name="conceptHasConceptElementMoniker" type="ConceptHasConceptElementMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ConceptHasConceptElementMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for CooperationSubElementReferencesTargetCooperationSubElement instance.</xsd:documentation>
+      <xsd:documentation>Moniker for ConceptHasConceptElement instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ConceptElementHasConceptSubElement -->
+  <xsd:element name="conceptElementHasConceptSubElement" type="ConceptElementHasConceptSubElement" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ConceptElementHasConceptSubElement">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end ConceptSubElement -->
+          <xsd:element ref="conceptSubElement" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ConceptElementHasConceptSubElement Moniker -->
+  <xsd:element name="conceptElementHasConceptSubElementMoniker" type="ConceptElementHasConceptSubElementMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ConceptElementHasConceptSubElementMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for ConceptElementHasConceptSubElement instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ModelHasRelationships -->
+  <xsd:element name="modelHasRelationships" type="ModelHasRelationships" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ModelHasRelationships">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end Relationship -->
+          <xsd:element ref="relationship" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ModelHasRelationships Moniker -->
+  <xsd:element name="modelHasRelationshipsMoniker" type="ModelHasRelationshipsMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ModelHasRelationshipsMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for ModelHasRelationships instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- SubElementReferencesRelationship -->
+  <xsd:element name="subElementReferencesRelationship" type="SubElementReferencesRelationship" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="SubElementReferencesRelationship">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end Relationship -->
+          <xsd:element ref="relationshipMoniker" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- SubElementReferencesRelationship Moniker -->
+  <xsd:element name="subElementReferencesRelationshipMoniker" type="SubElementReferencesRelationshipMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="SubElementReferencesRelationshipMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for SubElementReferencesRelationship instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ConceptReferencesRelationship -->
+  <xsd:element name="conceptReferencesRelationship" type="ConceptReferencesRelationship" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ConceptReferencesRelationship">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end Relationship -->
+          <xsd:element ref="relationshipMoniker" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ConceptReferencesRelationship Moniker -->
+  <xsd:element name="conceptReferencesRelationshipMoniker" type="ConceptReferencesRelationshipMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ConceptReferencesRelationshipMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for ConceptReferencesRelationship instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ConceptElementReferencesRelationship -->
+  <xsd:element name="conceptElementReferencesRelationship" type="ConceptElementReferencesRelationship" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ConceptElementReferencesRelationship">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end Relationship -->
+          <xsd:element ref="relationshipMoniker" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ConceptElementReferencesRelationship Moniker -->
+  <xsd:element name="conceptElementReferencesRelationshipMoniker" type="ConceptElementReferencesRelationshipMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ConceptElementReferencesRelationshipMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for ConceptElementReferencesRelationship instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ConceptSubElementReferencesRelationship -->
+  <xsd:element name="conceptSubElementReferencesRelationship" type="ConceptSubElementReferencesRelationship" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ConceptSubElementReferencesRelationship">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end Relationship -->
+          <xsd:element ref="relationshipMoniker" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ConceptSubElementReferencesRelationship Moniker -->
+  <xsd:element name="conceptSubElementReferencesRelationshipMoniker" type="ConceptSubElementReferencesRelationshipMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ConceptSubElementReferencesRelationshipMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for ConceptSubElementReferencesRelationship instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">

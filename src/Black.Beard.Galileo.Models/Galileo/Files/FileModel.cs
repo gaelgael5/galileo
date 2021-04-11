@@ -18,7 +18,7 @@ namespace Bb.Galileo.Files
 
 
         public FileRepository Parent { get; private set; }
-
+        public SchemaReference Schema { get; internal set; }
 
         public virtual FileModel Initialize(FileInfo file, FileRepository parent)
         {
@@ -35,6 +35,7 @@ namespace Bb.Galileo.Files
      
         internal Newtonsoft.Json.Linq.JObject Load()
         {
+            _file.WaitForFile(new TimeSpan(0,0,0,2));
             return (Newtonsoft.Json.Linq.JObject)_file
                 .LoadContentFromFile()
                 .ConvertToJson()

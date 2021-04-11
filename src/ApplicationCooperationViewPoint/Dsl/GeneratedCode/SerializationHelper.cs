@@ -309,10 +309,10 @@ namespace Bb.ApplicationCooperationViewPoint
 	{
 	
 		/// <summary>
-		/// Loads a CooperationModel instance into the default partition of the given store, and ignore serialization result.
+		/// Loads a Model instance into the default partition of the given store, and ignore serialization result.
 		/// </summary>
-		/// <param name="store">The new CooperationModel instance will be created into the default partition of this store.</param>
-		/// <param name="fileName">Name of the file from which the CooperationModel instance will be deserialized.</param>
+		/// <param name="store">The new Model instance will be created into the default partition of this store.</param>
+		/// <param name="fileName">Name of the file from which the Model instance will be deserialized.</param>
 		/// <param name="schemaResolver">
 		/// An ISchemaResolver that allows the serializer to do schema validation on the root element (and everything inside it).
 		/// If null is passed, schema validation will not be performed.
@@ -324,8 +324,8 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="serializerLocator">
 		/// An ISerializerLocator that will be used to locate any additional domain model types required to load the model. Can be null.
 		/// </param>
-		/// <returns>The loaded CooperationModel instance.</returns>
-		public virtual CooperationModel LoadModel(DslModeling::Store store, string fileName, DslModeling::ISchemaResolver schemaResolver, DslValidation::ValidationController validationController, DslModeling::ISerializerLocator serializerLocator)
+		/// <returns>The loaded Model instance.</returns>
+		public virtual Model LoadModel(DslModeling::Store store, string fileName, DslModeling::ISchemaResolver schemaResolver, DslValidation::ValidationController validationController, DslModeling::ISerializerLocator serializerLocator)
 		{
 			#region Check Parameters
 			if (store == null) 
@@ -336,11 +336,11 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		
 		/// <summary>
-		/// Loads a CooperationModel instance into the default partition of the given store.
+		/// Loads a Model instance into the default partition of the given store.
 		/// </summary>
 		/// <param name="serializationResult">Stores serialization result from the load operation.</param>
-		/// <param name="store">The new CooperationModel instance will be created into the default partition of this store.</param>
-		/// <param name="fileName">Name of the file from which the CooperationModel instance will be deserialized.</param>
+		/// <param name="store">The new Model instance will be created into the default partition of this store.</param>
+		/// <param name="fileName">Name of the file from which the Model instance will be deserialized.</param>
 		/// <param name="schemaResolver">
 		/// An ISchemaResolver that allows the serializer to do schema validation on the root element (and everything inside it).
 		/// If null is passed, schema validation will not be performed.
@@ -352,8 +352,8 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="serializerLocator">
 		/// An ISerializerLocator that will be used to locate any additional domain model types required to load the model. Can be null.
 		/// </param>
-		/// <returns>The loaded CooperationModel instance.</returns>
-		public virtual CooperationModel LoadModel(DslModeling::SerializationResult serializationResult, DslModeling::Store store, string fileName, DslModeling::ISchemaResolver schemaResolver, DslValidation::ValidationController validationController, DslModeling::ISerializerLocator serializerLocator)
+		/// <returns>The loaded Model instance.</returns>
+		public virtual Model LoadModel(DslModeling::SerializationResult serializationResult, DslModeling::Store store, string fileName, DslModeling::ISchemaResolver schemaResolver, DslValidation::ValidationController validationController, DslModeling::ISerializerLocator serializerLocator)
 		{
 			#region Check Parameters
 			if (store == null) 
@@ -364,11 +364,11 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// Loads a CooperationModel instance.
+		/// Loads a Model instance.
 		/// </summary>
 		/// <param name="serializationResult">Stores serialization result from the load operation.</param>
-		/// <param name="partition">Partition in which the new CooperationModel instance will be created.</param>
-		/// <param name="fileName">Name of the file from which the CooperationModel instance will be deserialized.</param>
+		/// <param name="partition">Partition in which the new Model instance will be created.</param>
+		/// <param name="fileName">Name of the file from which the Model instance will be deserialized.</param>
 		/// <param name="schemaResolver">
 		/// An ISchemaResolver that allows the serializer to do schema validation on the root element (and everything inside it).
 		/// If null is passed, schema validation will not be performed.
@@ -380,9 +380,9 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="serializerLocator">
 		/// An ISerializerLocator that will be used to locate any additional domain model types required to load the model. Can be null.
 		/// </param>
-		/// <returns>The loaded CooperationModel instance.</returns>
+		/// <returns>The loaded Model instance.</returns>
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability","CA1506:AvoidExcessiveClassCoupling", Justification="Generated code")]
-		public virtual CooperationModel LoadModel(DslModeling::SerializationResult serializationResult, DslModeling::Partition partition, string fileName, DslModeling::ISchemaResolver schemaResolver, DslValidation::ValidationController validationController, DslModeling::ISerializerLocator serializerLocator)
+		public virtual Model LoadModel(DslModeling::SerializationResult serializationResult, DslModeling::Partition partition, string fileName, DslModeling::ISchemaResolver schemaResolver, DslValidation::ValidationController validationController, DslModeling::ISerializerLocator serializerLocator)
 		{
 			#region Check Parameters
 			if (string.IsNullOrEmpty(fileName))
@@ -396,11 +396,11 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// Loads a CooperationModel instance from a stream.
+		/// Loads a Model instance from a stream.
 		/// </summary>
 		/// <param name="serializationResult">Stores serialization result from the load operation.</param>
-		/// <param name="partition">Partition in which the new CooperationModel instance will be created.</param>
-		/// <param name="location">Source location associated with stream from which the CooperationModel instance is to be loaded. Usually a file path, but can be any string, including null.</param>
+		/// <param name="partition">Partition in which the new Model instance will be created.</param>
+		/// <param name="location">Source location associated with stream from which the Model instance is to be loaded. Usually a file path, but can be any string, including null.</param>
 		/// <param name="schemaResolver">
 		/// An ISchemaResolver that allows the serializer to do schema validation on the root element (and everything inside it).
 		/// If null is passed, schema validation will not be performed.
@@ -412,10 +412,10 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="serializerLocator">
 		/// An ISerializerLocator that will be used to locate any additional domain model types required to load the model. Can be null.
 		/// </param>
-		/// <param name="stream">The Stream from which the CooperationModel will be deserialized.</param>
-		/// <returns>The loaded CooperationModel instance.</returns>
+		/// <param name="stream">The Stream from which the Model will be deserialized.</param>
+		/// <returns>The loaded Model instance.</returns>
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability","CA1506:AvoidExcessiveClassCoupling", Justification="Generated code")]
-		public virtual CooperationModel LoadModel(DslModeling::SerializationResult serializationResult, DslModeling::Partition partition, string location, DslModeling::ISchemaResolver schemaResolver, DslValidation::ValidationController validationController, DslModeling::ISerializerLocator serializerLocator, global::System.IO.Stream stream)
+		public virtual Model LoadModel(DslModeling::SerializationResult serializationResult, DslModeling::Partition partition, string location, DslModeling::ISchemaResolver schemaResolver, DslValidation::ValidationController validationController, DslModeling::ISerializerLocator serializerLocator, global::System.IO.Stream stream)
 		{
 			#region Check Parameters
 			if (serializationResult == null)
@@ -432,10 +432,10 @@ namespace Bb.ApplicationCooperationViewPoint
 				throw new global::System.InvalidOperationException(ApplicationCooperationViewPointDomainModel.SingletonResourceManager.GetString("MissingTransaction"));
 			}
 			
-			CooperationModel modelRoot = null;
+			Model modelRoot = null;
 			DslModeling::DomainXmlSerializerDirectory directory = this.GetDirectory(partition.Store);
-			DslModeling::DomainClassXmlSerializer modelRootSerializer = directory.GetSerializer(CooperationModel.DomainClassId);
-			global::System.Diagnostics.Debug.Assert(modelRootSerializer != null, "Cannot find serializer for CooperationModel!");
+			DslModeling::DomainClassXmlSerializer modelRootSerializer = directory.GetSerializer(Model.DomainClassId);
+			global::System.Diagnostics.Debug.Assert(modelRootSerializer != null, "Cannot find serializer for Model!");
 			if (modelRootSerializer != null)
 			{
 				DslModeling::SerializationContext serializationContext = new DslModeling::SerializationContext(directory, location, serializationResult);
@@ -466,7 +466,7 @@ namespace Bb.ApplicationCooperationViewPoint
 								
 								reader.MoveToContent();
 									
-								modelRoot = modelRootSerializer.TryCreateInstance(serializationContext, reader, partition) as CooperationModel;
+								modelRoot = modelRootSerializer.TryCreateInstance(serializationContext, reader, partition) as Model;
 								if (modelRoot != null && !serializationResult.Failed)
 								{
 									this.ReadRootElement(serializationContext, modelRoot, reader, schemaResolver);
@@ -535,9 +535,9 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// be written out.
 		/// </summary>
 		/// <param name="serializationResult">Stores serialization result from the save operation.</param>
-		/// <param name="modelRoot">CooperationModel instance to be saved.</param>
-		/// <param name="fileName">Name of the file in which the CooperationModel instance will be saved.</param>
-		public virtual void SaveModel(DslModeling::SerializationResult serializationResult, CooperationModel modelRoot, string fileName)
+		/// <param name="modelRoot">Model instance to be saved.</param>
+		/// <param name="fileName">Name of the file in which the Model instance will be saved.</param>
+		public virtual void SaveModel(DslModeling::SerializationResult serializationResult, Model modelRoot, string fileName)
 		{
 			this.SaveModel(serializationResult, modelRoot, fileName, global::System.Text.Encoding.UTF8, false);
 		}
@@ -546,10 +546,10 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// Saves the given model to the given file, with default encoding (UTF-8).
 		/// </summary>
 		/// <param name="serializationResult">Stores serialization result from the save operation.</param>
-		/// <param name="modelRoot">CooperationModel instance to be saved.</param>
-		/// <param name="fileName">Name of the file in which the CooperationModel instance will be saved.</param>
+		/// <param name="modelRoot">Model instance to be saved.</param>
+		/// <param name="fileName">Name of the file in which the Model instance will be saved.</param>
 		/// <param name="writeOptionalPropertiesWithDefaultValue">Whether optional properties with default value will be saved.</param>
-		public virtual void SaveModel(DslModeling::SerializationResult serializationResult, CooperationModel modelRoot, string fileName, bool writeOptionalPropertiesWithDefaultValue)
+		public virtual void SaveModel(DslModeling::SerializationResult serializationResult, Model modelRoot, string fileName, bool writeOptionalPropertiesWithDefaultValue)
 		{
 			this.SaveModel(serializationResult, modelRoot, fileName, global::System.Text.Encoding.UTF8, writeOptionalPropertiesWithDefaultValue);
 		}
@@ -558,12 +558,12 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// Saves the given model root to the given file, with specified encoding.
 		/// </summary>
 		/// <param name="serializationResult">Stores serialization result from the save operation.</param>
-		/// <param name="modelRoot">CooperationModel instance to be saved.</param>
-		/// <param name="fileName">Name of the file in which the CooperationModel instance will be saved.</param>
-		/// <param name="encoding">Encoding to use when saving the CooperationModel instance.</param>
+		/// <param name="modelRoot">Model instance to be saved.</param>
+		/// <param name="fileName">Name of the file in which the Model instance will be saved.</param>
+		/// <param name="encoding">Encoding to use when saving the Model instance.</param>
 		/// <param name="writeOptionalPropertiesWithDefaultValue">Whether optional properties with default value will be saved.</param>
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
-		public virtual void SaveModel(DslModeling::SerializationResult serializationResult, CooperationModel modelRoot, string fileName, global::System.Text.Encoding encoding, bool writeOptionalPropertiesWithDefaultValue)
+		public virtual void SaveModel(DslModeling::SerializationResult serializationResult, Model modelRoot, string fileName, global::System.Text.Encoding encoding, bool writeOptionalPropertiesWithDefaultValue)
 		{
 			#region Check Parameters
 			if (serializationResult == null)
@@ -598,13 +598,13 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// both can be saved without error before writing the content to disk, so we serialize the model into a in-memory stream first.
 		/// </summary>
 		/// <param name="serializationResult">Stores serialization result from the save operation.</param>
-		/// <param name="modelRoot">CooperationModel instance to be saved.</param>
-		/// <param name="fileName">Name of the file in which the CooperationModel instance will be saved.</param>
-		/// <param name="encoding">Encoding to use when saving the CooperationModel instance.</param>
+		/// <param name="modelRoot">Model instance to be saved.</param>
+		/// <param name="fileName">Name of the file in which the Model instance will be saved.</param>
+		/// <param name="encoding">Encoding to use when saving the Model instance.</param>
 		/// <param name="writeOptionalPropertiesWithDefaultValue">Whether optional properties with default value will be saved.</param>
-		/// <returns>In-memory stream containing the serialized CooperationModel instance.</returns>
+		/// <returns>In-memory stream containing the serialized Model instance.</returns>
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
-		internal global::System.IO.MemoryStream InternalSaveModel(DslModeling::SerializationResult serializationResult, CooperationModel modelRoot, string fileName, global::System.Text.Encoding encoding, bool writeOptionalPropertiesWithDefaultValue)
+		internal global::System.IO.MemoryStream InternalSaveModel(DslModeling::SerializationResult serializationResult, Model modelRoot, string fileName, global::System.Text.Encoding encoding, bool writeOptionalPropertiesWithDefaultValue)
 		{
 			#region Check Parameters
 			global::System.Diagnostics.Debug.Assert(serializationResult != null);
@@ -637,13 +637,13 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// both can be saved without error before writing the content to disk, so we serialize the model into a in-memory stream first.
 		/// </summary>
 		/// <param name="serializationResult">Stores serialization result from the save operation.</param>
-		/// <param name="diagram">ApplicationCooperationViewPointDiagram to be saved.</param>
+		/// <param name="diagram">CooperationViewPointDiagram to be saved.</param>
 		/// <param name="diagramFileName">Name of the file in which the diagram will be saved.</param>
 		/// <param name="encoding">Encoding to use when saving the diagram.</param>
 		/// <param name="writeOptionalPropertiesWithDefaultValue">Whether optional properties with default value will be saved.</param>
-		/// <returns>In-memory stream containing the serialized ApplicationCooperationViewPointDiagram instance.</returns>
+		/// <returns>In-memory stream containing the serialized CooperationViewPointDiagram instance.</returns>
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
-		internal global::System.IO.MemoryStream InternalSaveDiagram(DslModeling::SerializationResult serializationResult, ApplicationCooperationViewPointDiagram diagram, string diagramFileName, global::System.Text.Encoding encoding, bool writeOptionalPropertiesWithDefaultValue)
+		internal global::System.IO.MemoryStream InternalSaveDiagram(DslModeling::SerializationResult serializationResult, CooperationViewPointDiagram diagram, string diagramFileName, global::System.Text.Encoding encoding, bool writeOptionalPropertiesWithDefaultValue)
 		{
 			#region Check Parameters
 			global::System.Diagnostics.Debug.Assert(serializationResult != null);
@@ -670,20 +670,20 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// Helper method to create and initialize a new CooperationModel.
+		/// Helper method to create and initialize a new Model.
 		/// </summary>
-		internal protected virtual CooperationModel CreateModelHelper(DslModeling::Partition modelPartition)
+		internal protected virtual Model CreateModelHelper(DslModeling::Partition modelPartition)
 		{
-			CooperationModel model = new CooperationModel(modelPartition);
+			Model model = new Model(modelPartition);
 			return model;
 		}
 		
 		/// <summary>
-		/// Loads a CooperationModel instance and its associated diagram file into the default partition of the given store, and ignore serialization result.
+		/// Loads a Model instance and its associated diagram file into the default partition of the given store, and ignore serialization result.
 		/// </summary>
-		/// <param name="store">The new CooperationModel instance will be created into the default partition of this store.</param>
-		/// <param name="modelFileName">Name of the file from which the CooperationModel instance will be deserialized.</param>
-		/// <param name="diagramFileName">Name of the file from which the ApplicationCooperationViewPointDiagram instance will be deserialized.</param>
+		/// <param name="store">The new Model instance will be created into the default partition of this store.</param>
+		/// <param name="modelFileName">Name of the file from which the Model instance will be deserialized.</param>
+		/// <param name="diagramFileName">Name of the file from which the CooperationViewPointDiagram instance will be deserialized.</param>
 		/// <param name="schemaResolver">
 		/// An ISchemaResolver that allows the serializer to do schema validation on the root element (and everything inside it).
 		/// If null is passed, schema validation will not be performed.
@@ -695,19 +695,19 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="serializerLocator">
 		/// An ISerializerLocator that will be used to locate any additional domain model types required to load the model. Can be null.
 		/// </param>
-		/// <returns>The loaded CooperationModel instance.</returns>
-		public virtual CooperationModel LoadModelAndDiagram(DslModeling::Store store, string modelFileName, string diagramFileName, DslModeling::ISchemaResolver schemaResolver, DslValidation::ValidationController validationController, DslModeling::ISerializerLocator serializerLocator)
+		/// <returns>The loaded Model instance.</returns>
+		public virtual Model LoadModelAndDiagram(DslModeling::Store store, string modelFileName, string diagramFileName, DslModeling::ISchemaResolver schemaResolver, DslValidation::ValidationController validationController, DslModeling::ISerializerLocator serializerLocator)
 		{
 			return this.LoadModelAndDiagram(new DslModeling::SerializationResult(), store, modelFileName, diagramFileName, schemaResolver, validationController, serializerLocator);
 		}
 		
 		/// <summary>
-		/// Loads a CooperationModel instance and its associated diagram file into the default partition of the given store.
+		/// Loads a Model instance and its associated diagram file into the default partition of the given store.
 		/// </summary>
 		/// <param name="serializationResult">Stores serialization result from the load operation.</param>
-		/// <param name="store">The new CooperationModel instance will be created into the default partition of this store.</param>
-		/// <param name="modelFileName">Name of the file from which the CooperationModel instance will be deserialized.</param>
-		/// <param name="diagramFileName">Name of the file from which the ApplicationCooperationViewPointDiagram instance will be deserialized.</param>
+		/// <param name="store">The new Model instance will be created into the default partition of this store.</param>
+		/// <param name="modelFileName">Name of the file from which the Model instance will be deserialized.</param>
+		/// <param name="diagramFileName">Name of the file from which the CooperationViewPointDiagram instance will be deserialized.</param>
 		/// <param name="schemaResolver">
 		/// An ISchemaResolver that allows the serializer to do schema validation on the root element (and everything inside it).
 		/// If null is passed, schema validation will not be performed.
@@ -719,8 +719,8 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="serializerLocator">
 		/// An ISerializerLocator that will be used to locate any additional domain model types required to load the model. Can be null.
 		/// </param>
-		/// <returns>The loaded CooperationModel instance.</returns>
-		public virtual CooperationModel LoadModelAndDiagram(DslModeling::SerializationResult serializationResult, DslModeling::Store store, string modelFileName, string diagramFileName, DslModeling::ISchemaResolver schemaResolver, DslValidation::ValidationController validationController, DslModeling::ISerializerLocator serializerLocator)
+		/// <returns>The loaded Model instance.</returns>
+		public virtual Model LoadModelAndDiagram(DslModeling::SerializationResult serializationResult, DslModeling::Store store, string modelFileName, string diagramFileName, DslModeling::ISchemaResolver schemaResolver, DslValidation::ValidationController validationController, DslModeling::ISerializerLocator serializerLocator)
 		{
 			#region Check Parameters
 			if (store == null)
@@ -732,13 +732,13 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 			
 		/// <summary>
-		/// Loads a CooperationModel instance and its associated diagram file.
+		/// Loads a Model instance and its associated diagram file.
 		/// </summary>
 		/// <param name="serializationResult">Stores serialization result from the load operation.</param>
-		/// <param name="modelPartition">Partition in which the new CooperationModel instance will be created.</param>
-		/// <param name="modelFileName">Name of the file from which the CooperationModel instance will be deserialized.</param>
-		/// <param name="diagramPartition">Partition in which the new ApplicationCooperationViewPointDiagram instance will be created.</param>
-		/// <param name="diagramFileName">Name of the file from which the ApplicationCooperationViewPointDiagram instance will be deserialized.</param>
+		/// <param name="modelPartition">Partition in which the new Model instance will be created.</param>
+		/// <param name="modelFileName">Name of the file from which the Model instance will be deserialized.</param>
+		/// <param name="diagramPartition">Partition in which the new CooperationViewPointDiagram instance will be created.</param>
+		/// <param name="diagramFileName">Name of the file from which the CooperationViewPointDiagram instance will be deserialized.</param>
 		/// <param name="schemaResolver">
 		/// An ISchemaResolver that allows the serializer to do schema validation on the root element (and everything inside it).
 		/// If null is passed, schema validation will not be performed.
@@ -750,9 +750,9 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="serializerLocator">
 		/// An ISerializerLocator that will be used to locate any additional domain model types required to load the model. Can be null.
 		/// </param>
-		/// <returns>The loaded CooperationModel instance.</returns>
+		/// <returns>The loaded Model instance.</returns>
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1506:AvoidExcessiveClassCoupling", Justification = "Generated code.")]
-		public virtual CooperationModel LoadModelAndDiagram(DslModeling::SerializationResult serializationResult, DslModeling::Partition modelPartition, string modelFileName, DslModeling::Partition diagramPartition, string diagramFileName, DslModeling::ISchemaResolver schemaResolver, DslValidation::ValidationController validationController, DslModeling::ISerializerLocator serializerLocator)
+		public virtual Model LoadModelAndDiagram(DslModeling::SerializationResult serializationResult, DslModeling::Partition modelPartition, string modelFileName, DslModeling::Partition diagramPartition, string diagramFileName, DslModeling::ISchemaResolver schemaResolver, DslValidation::ValidationController validationController, DslModeling::ISerializerLocator serializerLocator)
 		{
 			#region Check Parameters
 			if (serializationResult == null)
@@ -765,7 +765,7 @@ namespace Bb.ApplicationCooperationViewPoint
 				throw new global::System.ArgumentNullException("diagramFileName");
 			#endregion
 	
-			CooperationModel modelRoot;
+			Model modelRoot;
 	
 			// Ensure there is an outer transaction spanning both model and diagram load, so moniker resolution works properly.
 			if (!diagramPartition.Store.TransactionActive)
@@ -781,10 +781,10 @@ namespace Bb.ApplicationCooperationViewPoint
 				return modelRoot;
 			}
 	
-			ApplicationCooperationViewPointDiagram diagram = null;
+			CooperationViewPointDiagram diagram = null;
 			DslModeling::DomainXmlSerializerDirectory directory = this.GetDirectory(diagramPartition.Store);
-			DslModeling::DomainClassXmlSerializer diagramSerializer = directory.GetSerializer(ApplicationCooperationViewPointDiagram.DomainClassId);
-			global::System.Diagnostics.Debug.Assert(diagramSerializer != null, "Cannot find serializer for ApplicationCooperationViewPointDiagram");
+			DslModeling::DomainClassXmlSerializer diagramSerializer = directory.GetSerializer(CooperationViewPointDiagram.DomainClassId);
+			global::System.Diagnostics.Debug.Assert(diagramSerializer != null, "Cannot find serializer for CooperationViewPointDiagram");
 			if (diagramSerializer != null)
 			{
 				if(!global::System.IO.File.Exists(diagramFileName))
@@ -813,7 +813,7 @@ namespace Bb.ApplicationCooperationViewPoint
 									using (global::System.Xml.XmlReader reader = global::System.Xml.XmlReader.Create(fileStream, settings))
 									{
 										reader.MoveToContent();
-										diagram = diagramSerializer.TryCreateInstance(serializationContext, reader, diagramPartition) as ApplicationCooperationViewPointDiagram;
+										diagram = diagramSerializer.TryCreateInstance(serializationContext, reader, diagramPartition) as CooperationViewPointDiagram;
 										if (diagram != null)
 										{
 											this.ReadRootElement(serializationContext, diagram, reader, schemaResolver);
@@ -875,12 +875,12 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// Helper method to create and initialize a new ApplicationCooperationViewPointDiagram.
+		/// Helper method to create and initialize a new CooperationViewPointDiagram.
 		/// </summary>
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId="modelRoot", Justification = "Signature enforced by caller.")]
-		internal protected virtual ApplicationCooperationViewPointDiagram CreateDiagramHelper(DslModeling::Partition diagramPartition, DslModeling::ModelElement modelRoot)
+		internal protected virtual CooperationViewPointDiagram CreateDiagramHelper(DslModeling::Partition diagramPartition, DslModeling::ModelElement modelRoot)
 		{
-			ApplicationCooperationViewPointDiagram diagram = new ApplicationCooperationViewPointDiagram(diagramPartition);
+			CooperationViewPointDiagram diagram = new CooperationViewPointDiagram(diagramPartition);
 			return diagram;
 		}
 		
@@ -890,11 +890,11 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// be written out.
 		/// </summary>
 		/// <param name="serializationResult">Stores serialization result from the save operation.</param>
-		/// <param name="modelRoot">CooperationModel instance to be saved.</param>
+		/// <param name="modelRoot">Model instance to be saved.</param>
 		/// <param name="modelFileName">Name of the file in which the CanonicalSampleRoot instance will be saved.</param>
-		/// <param name="diagram">ApplicationCooperationViewPointDiagram to be saved.</param>
+		/// <param name="diagram">CooperationViewPointDiagram to be saved.</param>
 		/// <param name="diagramFileName">Name of the file in which the diagram will be saved.</param>
-		public virtual void SaveModelAndDiagram(DslModeling::SerializationResult serializationResult, CooperationModel modelRoot, string modelFileName, ApplicationCooperationViewPointDiagram diagram, string diagramFileName)
+		public virtual void SaveModelAndDiagram(DslModeling::SerializationResult serializationResult, Model modelRoot, string modelFileName, CooperationViewPointDiagram diagram, string diagramFileName)
 		{
 			this.SaveModelAndDiagram(serializationResult, modelRoot, modelFileName, diagram, diagramFileName, global::System.Text.Encoding.UTF8, false);
 		}
@@ -903,28 +903,28 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// Saves the given diagram to the given file, with default encoding (UTF-8).
 		/// </summary>
 		/// <param name="serializationResult">Stores serialization result from the save operation.</param>
-		/// <param name="modelRoot">CooperationModel instance to be saved.</param>
+		/// <param name="modelRoot">Model instance to be saved.</param>
 		/// <param name="modelFileName">Name of the file in which the CanonicalSampleRoot instance will be saved.</param>
-		/// <param name="diagram">ApplicationCooperationViewPointDiagram to be saved.</param>
+		/// <param name="diagram">CooperationViewPointDiagram to be saved.</param>
 		/// <param name="diagramFileName">Name of the file in which the diagram will be saved.</param>
 		/// <param name="writeOptionalPropertiesWithDefaultValue">Whether optional properties with default value will be saved.</param>
-		public virtual void SaveModelAndDiagram(DslModeling::SerializationResult serializationResult, CooperationModel modelRoot, string modelFileName, ApplicationCooperationViewPointDiagram diagram, string diagramFileName, bool writeOptionalPropertiesWithDefaultValue)
+		public virtual void SaveModelAndDiagram(DslModeling::SerializationResult serializationResult, Model modelRoot, string modelFileName, CooperationViewPointDiagram diagram, string diagramFileName, bool writeOptionalPropertiesWithDefaultValue)
 		{
 			this.SaveModelAndDiagram(serializationResult, modelRoot, modelFileName, diagram, diagramFileName, global::System.Text.Encoding.UTF8, writeOptionalPropertiesWithDefaultValue);
 		}
 	
 		/// <summary>
-		/// Saves the given CooperationModel and ApplicationCooperationViewPointDiagram to the given files, with specified encoding.
+		/// Saves the given Model and CooperationViewPointDiagram to the given files, with specified encoding.
 		/// </summary>
 		/// <param name="serializationResult">Stores serialization result from the save operation.</param>
-		/// <param name="modelRoot">CooperationModel instance to be saved.</param>
+		/// <param name="modelRoot">Model instance to be saved.</param>
 		/// <param name="modelFileName">Name of the file in which the CanonicalSampleRoot instance will be saved.</param>
-		/// <param name="diagram">ApplicationCooperationViewPointDiagram to be saved.</param>
+		/// <param name="diagram">CooperationViewPointDiagram to be saved.</param>
 		/// <param name="diagramFileName">Name of the file in which the diagram will be saved.</param>
 		/// <param name="encoding">Encoding to use when saving the diagram.</param>
 		/// <param name="writeOptionalPropertiesWithDefaultValue">Whether optional properties with default value will be saved.</param>
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
-		public virtual void SaveModelAndDiagram(DslModeling::SerializationResult serializationResult, CooperationModel modelRoot, string modelFileName, ApplicationCooperationViewPointDiagram diagram, string diagramFileName, global::System.Text.Encoding encoding, bool writeOptionalPropertiesWithDefaultValue)
+		public virtual void SaveModelAndDiagram(DslModeling::SerializationResult serializationResult, Model modelRoot, string modelFileName, CooperationViewPointDiagram diagram, string diagramFileName, global::System.Text.Encoding encoding, bool writeOptionalPropertiesWithDefaultValue)
 		{
 			#region Check Parameters
 			if (serializationResult == null)
@@ -981,9 +981,9 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// be written out.
 		/// </summary>
 		/// <param name="serializationResult">Stores serialization result from the save operation.</param>
-		/// <param name="diagram">ApplicationCooperationViewPointDiagram to be saved.</param>
+		/// <param name="diagram">CooperationViewPointDiagram to be saved.</param>
 		/// <param name="diagramFileName">Name of the file in which the diagram will be saved.</param>
-		public virtual void SaveDiagram(DslModeling::SerializationResult serializationResult, ApplicationCooperationViewPointDiagram diagram, string diagramFileName)
+		public virtual void SaveDiagram(DslModeling::SerializationResult serializationResult, CooperationViewPointDiagram diagram, string diagramFileName)
 		{
 			this.SaveDiagram(serializationResult, diagram, diagramFileName, global::System.Text.Encoding.UTF8, false);
 		}
@@ -992,24 +992,24 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// Saves the given diagram to the given file, with default encoding (UTF-8).
 		/// </summary>
 		/// <param name="serializationResult">Stores serialization result from the save operation.</param>
-		/// <param name="diagram">ApplicationCooperationViewPointDiagram to be saved.</param>
+		/// <param name="diagram">CooperationViewPointDiagram to be saved.</param>
 		/// <param name="diagramFileName">Name of the file in which the diagram will be saved.</param>
 		/// <param name="writeOptionalPropertiesWithDefaultValue">Whether optional properties with default value will be saved.</param>
-		public virtual void SaveDiagram(DslModeling::SerializationResult serializationResult, ApplicationCooperationViewPointDiagram diagram, string diagramFileName, bool writeOptionalPropertiesWithDefaultValue)
+		public virtual void SaveDiagram(DslModeling::SerializationResult serializationResult, CooperationViewPointDiagram diagram, string diagramFileName, bool writeOptionalPropertiesWithDefaultValue)
 		{
 			this.SaveDiagram(serializationResult, diagram, diagramFileName, global::System.Text.Encoding.UTF8, writeOptionalPropertiesWithDefaultValue);
 		}
 	
 		/// <summary>
-		/// Saves the given ApplicationCooperationViewPointDiagram to the given file, with specified encoding.
+		/// Saves the given CooperationViewPointDiagram to the given file, with specified encoding.
 		/// </summary>
 		/// <param name="serializationResult">Stores serialization result from the save operation.</param>
-		/// <param name="diagram">ApplicationCooperationViewPointDiagram to be saved.</param>
+		/// <param name="diagram">CooperationViewPointDiagram to be saved.</param>
 		/// <param name="diagramFileName">Name of the file in which the diagram will be saved.</param>
 		/// <param name="encoding">Encoding to use when saving the diagram.</param>
 		/// <param name="writeOptionalPropertiesWithDefaultValue">Whether optional properties with default value will be saved.</param>
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
-		public virtual void SaveDiagram(DslModeling::SerializationResult serializationResult, ApplicationCooperationViewPointDiagram diagram, string diagramFileName, global::System.Text.Encoding encoding, bool writeOptionalPropertiesWithDefaultValue)
+		public virtual void SaveDiagram(DslModeling::SerializationResult serializationResult, CooperationViewPointDiagram diagram, string diagramFileName, global::System.Text.Encoding encoding, bool writeOptionalPropertiesWithDefaultValue)
 		{
 			#region Check Parameters
 			if (serializationResult == null)
@@ -1296,7 +1296,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="modelRoot">Root instance to be saved.</param>
 		/// <param name="encoding">Encoding to use when saving the root instance.</param>
 		/// <returns>Model in XML form</returns>
-		public virtual string GetSerializedModelString(global::Bb.ApplicationCooperationViewPoint.CooperationModel modelRoot, global::System.Text.Encoding encoding)
+		public virtual string GetSerializedModelString(global::Bb.ApplicationCooperationViewPoint.Model modelRoot, global::System.Text.Encoding encoding)
 		{
 			string result = string.Empty;
 			if (modelRoot == null)
@@ -1499,7 +1499,7 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	[DslValidation::ValidationState(DslValidation::ValidationState.Enabled)]
-	public partial class CooperationModel
+	public partial class Model
 	{
 		/// <summary>
 		/// Check to make sure all elements in the model will have unambiguous monikers when serialized.

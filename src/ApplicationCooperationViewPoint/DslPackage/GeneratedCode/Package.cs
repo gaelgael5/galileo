@@ -29,38 +29,6 @@ namespace Bb.ApplicationCooperationViewPoint
 	[VSShell::ProvideToolWindow(typeof(ApplicationCooperationViewPointExplorerToolWindow), MultiInstances = false, Style = VSShell::VsDockStyle.Tabbed, Orientation = VSShell::ToolWindowOrientation.Right, Window = "{3AE79031-E1BC-11D0-8F78-00A0C9110057}")]
 	[VSShell::ProvideToolWindowVisibility(typeof(ApplicationCooperationViewPointExplorerToolWindow), Constants.ApplicationCooperationViewPointEditorFactoryId)]
 	[VSShell::ProvideStaticToolboxGroup("@Cooperation ViewpointToolboxTab;Bb.ApplicationCooperationViewPoint.Dsl.dll", "Bb.ApplicationCooperationViewPoint.Cooperation ViewpointToolboxTab")]
-	[VSShell::ProvideStaticToolboxItem("Bb.ApplicationCooperationViewPoint.Cooperation ViewpointToolboxTab",
-					"@ElementToolboxItem;Bb.ApplicationCooperationViewPoint.Dsl.dll", 
-					"Bb.ApplicationCooperationViewPoint.ElementToolboxItem", 
-					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
-					"CreateExampleClassF1Keyword", 
-					"@ElementToolboxBitmap;Bb.ApplicationCooperationViewPoint.Dsl.dll", 
-					0xff00ff,
-					Index = 0)]
-	[VSShell::ProvideStaticToolboxItem("Bb.ApplicationCooperationViewPoint.Cooperation ViewpointToolboxTab",
-					"@ExampleRelationshipToolboxItem;Bb.ApplicationCooperationViewPoint.Dsl.dll", 
-					"Bb.ApplicationCooperationViewPoint.ExampleRelationshipToolboxItem", 
-					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
-					"ConnectExampleRelationF1Keyword", 
-					"@ExampleRelationshipToolboxBitmap;Bb.ApplicationCooperationViewPoint.Dsl.dll", 
-					0xff00ff,
-					Index = 1)]
-	[VSShell::ProvideStaticToolboxItem("Bb.ApplicationCooperationViewPoint.Cooperation ViewpointToolboxTab",
-					"@SubElementToolboxItem;Bb.ApplicationCooperationViewPoint.Dsl.dll", 
-					"Bb.ApplicationCooperationViewPoint.SubElementToolboxItem", 
-					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
-					"SubElement", 
-					"@SubElementToolboxBitmap;Bb.ApplicationCooperationViewPoint.Dsl.dll", 
-					0xff00ff,
-					Index = 2)]
-	[VSShell::ProvideStaticToolboxItem("Bb.ApplicationCooperationViewPoint.Cooperation ViewpointToolboxTab",
-					"@ConnectionTool1ToolboxItem;Bb.ApplicationCooperationViewPoint.Dsl.dll", 
-					"Bb.ApplicationCooperationViewPoint.ConnectionTool1ToolboxItem", 
-					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
-					"ConnectionTool1", 
-					"@ConnectionTool1ToolboxBitmap;Bb.ApplicationCooperationViewPoint.Dsl.dll", 
-					0xff00ff,
-					Index = 3)]
 	[VSShell::ProvideEditorFactory(typeof(ApplicationCooperationViewPointEditorFactory), 103, TrustLevel = VSShellInterop::__VSEDITORTRUSTLEVEL.ETL_AlwaysTrusted)]
 	[VSShell::ProvideEditorExtension(typeof(ApplicationCooperationViewPointEditorFactory), "." + Constants.DesignerFileExtension, 50)]
 	[VSShell::ProvideEditorLogicalView(typeof(ApplicationCooperationViewPointEditorFactory), "{7651A702-06E5-11D1-8EBD-00A0C90F26EA}")] // Designer logical view GUID i.e. VSConstants.LOGVIEWID_Designer

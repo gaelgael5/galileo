@@ -357,7 +357,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		protected override void Load(string fileName, bool isReload)
 		{
 			DslModeling::SerializationResult serializationResult = new DslModeling::SerializationResult();
-			global::Bb.ApplicationCooperationViewPoint.CooperationModel modelRoot = null;
+			global::Bb.ApplicationCooperationViewPoint.Model modelRoot = null;
 			DslModeling::ISchemaResolver schemaResolver = new DslShell::ModelingSchemaResolver(this.ServiceProvider);
 			//clear the current root element
 			this.SetRootElement(null);
@@ -494,7 +494,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		protected override void Save(string fileName)
 		{
 			DslModeling::SerializationResult serializationResult = new DslModeling::SerializationResult();
-			global::Bb.ApplicationCooperationViewPoint.CooperationModel modelRoot = (global::Bb.ApplicationCooperationViewPoint.CooperationModel)this.RootElement;
+			global::Bb.ApplicationCooperationViewPoint.Model modelRoot = (global::Bb.ApplicationCooperationViewPoint.Model)this.RootElement;
 
 			
 			// Only save the diagrams if
@@ -507,7 +507,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			global::System.Collections.Generic.IList<DslDiagrams::PresentationElement> diagrams = DslDiagrams::PresentationViewsSubject.GetPresentation(this.RootElement);
 			if (diagrams.Count > 0 && (!saveAs || this.diagramDocumentLockHolder == null))
 			{
-				global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDiagram diagram = diagrams[0] as global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDiagram;
+				global::Bb.ApplicationCooperationViewPoint.CooperationViewPointDiagram diagram = diagrams[0] as global::Bb.ApplicationCooperationViewPoint.CooperationViewPointDiagram;
 				if (diagram != null)
 				{
 					string diagramFileName = fileName + this.DiagramExtension;
@@ -579,7 +579,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			global::System.Collections.Generic.IList<DslDiagrams::PresentationElement> diagrams = DslDiagrams::PresentationViewsSubject.GetPresentation(this.RootElement);
 			if (diagrams.Count > 0)
 			{
-				global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDiagram diagram = diagrams[0] as global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDiagram;
+				global::Bb.ApplicationCooperationViewPoint.CooperationViewPointDiagram diagram = diagrams[0] as global::Bb.ApplicationCooperationViewPoint.CooperationViewPointDiagram;
 				if (diagram != null)
 				{
 					try
@@ -640,7 +640,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		{
 			get
 			{
-				global::Bb.ApplicationCooperationViewPoint.CooperationModel modelRoot = this.RootElement as global::Bb.ApplicationCooperationViewPoint.CooperationModel;
+				global::Bb.ApplicationCooperationViewPoint.Model modelRoot = this.RootElement as global::Bb.ApplicationCooperationViewPoint.Model;
 				string modelFile = string.Empty;
 				if (modelRoot != null)
 				{

@@ -11,21 +11,21 @@ using DslModeling = global::Microsoft.VisualStudio.Modeling;
 using DslDesign = global::Microsoft.VisualStudio.Modeling.Design;
 using DslDiagrams = global::Microsoft.VisualStudio.Modeling.Diagrams;
 
-[module: global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1506:AvoidExcessiveClassCoupling", Scope = "type", Target = "Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDiagram")]
+[module: global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1506:AvoidExcessiveClassCoupling", Scope = "type", Target = "Bb.ApplicationCooperationViewPoint.CooperationViewPointDiagram")]
 
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainClass ApplicationCooperationViewPointDiagram
+	/// DomainClass CooperationViewPointDiagram
 	/// Description for
 	/// Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDiagram
 	/// </summary>
-	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDiagram.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDiagram.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.CooperationViewPointDiagram.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.CooperationViewPointDiagram.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainObjectId("ca3f1951-3a94-4564-a805-02e3bfc91b8b")]
-	public partial class ApplicationCooperationViewPointDiagram : DslDiagrams::Diagram
+	public partial class CooperationViewPointDiagram : DslDiagrams::Diagram
 	{
 		#region Diagram boilerplate
 		private static DslDiagrams::StyleSet classStyleSet;
@@ -99,91 +99,6 @@ namespace Bb.ApplicationCooperationViewPoint
 			return true;
 		}
 		
-		/// <summary>
-		/// Called during view fixup to configure the given child element, after it has been created.
-		/// </summary>
-		/// <remarks>
-		/// Custom code for choosing the shapes attached to either end of a connector is called from here.
-		/// </remarks>
-		protected override void OnChildConfiguring(DslDiagrams::ShapeElement child, bool createdDuringViewFixup)
-		{
-			DslDiagrams::NodeShape sourceShape;
-			DslDiagrams::NodeShape targetShape;
-			DslDiagrams::BinaryLinkShape connector = child as DslDiagrams::BinaryLinkShape;
-			if(connector == null)
-			{
-				base.OnChildConfiguring(child, createdDuringViewFixup);
-				return;
-			}
-			this.GetSourceAndTargetForConnector(connector, out sourceShape, out targetShape);
-			
-			global::System.Diagnostics.Debug.Assert(sourceShape != null && targetShape != null, "Unable to find source and target shapes for connector.");
-			connector.Connect(sourceShape, targetShape);
-		}
-		
-		/// <summary>
-		/// helper method to find the shapes for either end of a connector, including calling the user's custom code
-		/// </summary>
-		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
-		internal void GetSourceAndTargetForConnector(DslDiagrams::BinaryLinkShape connector, out DslDiagrams::NodeShape sourceShape, out DslDiagrams::NodeShape targetShape)
-		{
-			sourceShape = null;
-			targetShape = null;
-			
-			if (sourceShape == null || targetShape == null)
-			{
-				DslDiagrams::NodeShape[] endShapes = GetEndShapesForConnector(connector);
-				if(sourceShape == null)
-				{
-					sourceShape = endShapes[0];
-				}
-				if(targetShape == null)
-				{
-					targetShape = endShapes[1];
-				}
-			}
-		}
-		
-		/// <summary>
-		/// Helper method to find shapes for either end of a connector by looking for shapes associated with either end of the relationship mapped to the connector.
-		/// </summary>
-		private DslDiagrams::NodeShape[] GetEndShapesForConnector(DslDiagrams::BinaryLinkShape connector)
-		{
-			DslModeling::ElementLink link = connector.ModelElement as DslModeling::ElementLink;
-			DslDiagrams::NodeShape sourceShape = null, targetShape = null;
-			if (link != null)
-			{
-				global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::ModelElement> linkedElements = link.LinkedElements;
-				if (linkedElements.Count == 2)
-				{
-					DslDiagrams::Diagram currentDiagram = this.Diagram;
-					DslModeling::LinkedElementCollection<DslDiagrams::PresentationElement> presentationElements = DslDiagrams::PresentationViewsSubject.GetPresentation(linkedElements[0]);
-					foreach (DslDiagrams::PresentationElement presentationElement in presentationElements)
-					{
-						DslDiagrams::NodeShape shape = presentationElement as DslDiagrams::NodeShape;
-						if (shape != null && shape.Diagram == currentDiagram)
-						{
-							sourceShape = shape;
-							break;
-						}
-					}
-					
-					presentationElements = DslDiagrams::PresentationViewsSubject.GetPresentation(linkedElements[1]);
-					foreach (DslDiagrams::PresentationElement presentationElement in presentationElements)
-					{
-						DslDiagrams::NodeShape shape = presentationElement as DslDiagrams::NodeShape;
-						if (shape != null && shape.Diagram == currentDiagram)
-						{
-							targetShape = shape;
-							break;
-						}
-					}
-		
-				}
-			}
-			
-			return new DslDiagrams::NodeShape[] { sourceShape, targetShape };
-		}
 		
 		/// <summary>
 		/// Creates a new shape for the given model element as part of view fixup
@@ -192,26 +107,40 @@ namespace Bb.ApplicationCooperationViewPoint
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1506:AvoidExcessiveClassCoupling", Justification = "Generated code.")]
 		protected override DslDiagrams::ShapeElement CreateChildShape(DslModeling::ModelElement element)
 		{
-			if(element is global::Bb.ApplicationCooperationViewPoint.CooperationElement)
+			if(element is global::Bb.ApplicationCooperationViewPoint.ModelElement)
 			{
 				global::Bb.ApplicationCooperationViewPoint.CooperationShape newShape = new global::Bb.ApplicationCooperationViewPoint.CooperationShape(this.Partition);
 				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
 				return newShape;
 			}
-			if(element is global::Bb.ApplicationCooperationViewPoint.CooperationSubElement)
+			if(element is global::Bb.ApplicationCooperationViewPoint.SubElement)
 			{
 				global::Bb.ApplicationCooperationViewPoint.CooperationSubShape newShape = new global::Bb.ApplicationCooperationViewPoint.CooperationSubShape(this.Partition);
 				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
 				return newShape;
 			}
-			if(element is global::Bb.ApplicationCooperationViewPoint.CooperationElementReferencesTargets)
+			if(element is global::Bb.ApplicationCooperationViewPoint.ConceptElement)
 			{
-				global::Bb.ApplicationCooperationViewPoint.ExampleConnector newShape = new global::Bb.ApplicationCooperationViewPoint.ExampleConnector(this.Partition);
+				global::Bb.ApplicationCooperationViewPoint.ConceptElementShape newShape = new global::Bb.ApplicationCooperationViewPoint.ConceptElementShape(this.Partition);
+				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
 				return newShape;
 			}
-			if(element is global::Bb.ApplicationCooperationViewPoint.CooperationSubElementReferencesTargetCooperationSubElement)
+			if(element is global::Bb.ApplicationCooperationViewPoint.ConceptSubElement)
 			{
-				global::Bb.ApplicationCooperationViewPoint.Connector1 newShape = new global::Bb.ApplicationCooperationViewPoint.Connector1(this.Partition);
+				global::Bb.ApplicationCooperationViewPoint.ConceptSubElementShape newShape = new global::Bb.ApplicationCooperationViewPoint.ConceptSubElementShape(this.Partition);
+				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
+				return newShape;
+			}
+			if(element is global::Bb.ApplicationCooperationViewPoint.Concept)
+			{
+				global::Bb.ApplicationCooperationViewPoint.ConceptShape newShape = new global::Bb.ApplicationCooperationViewPoint.ConceptShape(this.Partition);
+				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
+				return newShape;
+			}
+			if(element is global::Bb.ApplicationCooperationViewPoint.Relationship)
+			{
+				global::Bb.ApplicationCooperationViewPoint.RelationshipShape newShape = new global::Bb.ApplicationCooperationViewPoint.RelationshipShape(this.Partition);
+				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
 				return newShape;
 			}
 			return base.CreateChildShape(element);
@@ -227,6 +156,9 @@ namespace Bb.ApplicationCooperationViewPoint
 			base.InitializeShapeFields(shapeFields);
 			global::Bb.ApplicationCooperationViewPoint.CooperationShape.DecoratorsInitialized += CooperationShapeDecoratorMap.OnDecoratorsInitialized;
 			global::Bb.ApplicationCooperationViewPoint.CooperationSubShape.DecoratorsInitialized += CooperationSubShapeDecoratorMap.OnDecoratorsInitialized;
+			global::Bb.ApplicationCooperationViewPoint.ConceptSubElementShape.DecoratorsInitialized += ConceptSubElementShapeDecoratorMap.OnDecoratorsInitialized;
+			global::Bb.ApplicationCooperationViewPoint.ConceptShape.DecoratorsInitialized += ConceptShapeDecoratorMap.OnDecoratorsInitialized;
+			global::Bb.ApplicationCooperationViewPoint.RelationshipShape.DecoratorsInitialized += RelationshipShapeDecoratorMap.OnDecoratorsInitialized;
 		}
 		
 		/// <summary>
@@ -242,8 +174,11 @@ namespace Bb.ApplicationCooperationViewPoint
 				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
 				DslDiagrams::AssociatedPropertyInfo propertyInfo;
 				
-				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Bb.ApplicationCooperationViewPoint.CooperationElement.SourceReferenceDomainPropertyId);
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Bb.ApplicationCooperationViewPoint.ModelElement.NameDomainPropertyId);
 				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Bb.ApplicationCooperationViewPoint.ModelElement.TypeDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TypeDecorator").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		
@@ -260,135 +195,79 @@ namespace Bb.ApplicationCooperationViewPoint
 				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
 				DslDiagrams::AssociatedPropertyInfo propertyInfo;
 				
-				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Bb.ApplicationCooperationViewPoint.CooperationSubElement.ReferenceSourceDomainPropertyId);
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Bb.ApplicationCooperationViewPoint.SubElement.TypeDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TypeDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Bb.ApplicationCooperationViewPoint.SubElement.NameDomainPropertyId);
 				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TextName").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		
-		#endregion
-		
-		#region Connect actions
-		private bool changingMouseAction;
-		private global::Bb.ApplicationCooperationViewPoint.ExampleRelationshipConnectAction exampleRelationshipConnectAction;
-		private global::Bb.ApplicationCooperationViewPoint.ConnectionTool1ConnectAction connectionTool1ConnectAction;
 		/// <summary>
-		/// Virtual method to provide a filter when to select the mouse action
+		/// Class containing decorator path traversal methods for ConceptSubElementShape.
 		/// </summary>
-		/// <param name="activeView">Currently active view</param>
-		/// <param name="filter">filter string used to filter the toolbox items</param>
-		protected virtual bool SelectedToolboxItemSupportsFilterString(DslDiagrams::DiagramView activeView, string filter)
+		internal static partial class ConceptSubElementShapeDecoratorMap
 		{
-			return activeView.SelectedToolboxItemSupportsFilterString(filter);
-		}
-		/// <summary>
-		/// Override to provide the right mouse action when trying
-		/// to create links on the diagram
-		/// </summary>
-		/// <param name="pointArgs"></param>
-		public override void OnViewMouseEnter(DslDiagrams::DiagramPointEventArgs pointArgs)
-		{
-			if (pointArgs  == null) throw new global::System.ArgumentNullException("pointArgs");
-		
-			DslDiagrams::DiagramView activeView = this.ActiveDiagramView;
-			if(activeView != null)
+			/// <summary>
+			/// Event handler called when decorator initialization is complete for ConceptSubElementShape.  Adds decorator mappings for this shape or connector.
+			/// </summary>
+			public static void OnDecoratorsInitialized(object sender, global::System.EventArgs e)
 			{
-				DslDiagrams::MouseAction action = null;
-				if (SelectedToolboxItemSupportsFilterString(activeView, global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointToolboxHelper.ExampleRelationshipFilterString))
-				{
-					if (this.exampleRelationshipConnectAction == null)
-					{
-						this.exampleRelationshipConnectAction = new global::Bb.ApplicationCooperationViewPoint.ExampleRelationshipConnectAction(this);
-						this.exampleRelationshipConnectAction.MouseActionDeactivated += new DslDiagrams::MouseAction.MouseActionDeactivatedEventHandler(OnConnectActionDeactivated);
-					}
-					action = this.exampleRelationshipConnectAction;
-				} 
-				else if (SelectedToolboxItemSupportsFilterString(activeView, global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointToolboxHelper.ConnectionTool1FilterString))
-				{
-					if (this.connectionTool1ConnectAction == null)
-					{
-						this.connectionTool1ConnectAction = new global::Bb.ApplicationCooperationViewPoint.ConnectionTool1ConnectAction(this);
-						this.connectionTool1ConnectAction.MouseActionDeactivated += new DslDiagrams::MouseAction.MouseActionDeactivatedEventHandler(OnConnectActionDeactivated);
-					}
-					action = this.connectionTool1ConnectAction;
-				} 
-				else
-				{
-					action = null;
-				}
+				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
+				DslDiagrams::AssociatedPropertyInfo propertyInfo;
 				
-				if (pointArgs.DiagramClientView.ActiveMouseAction != action)
-				{
-					try
-					{
-						this.changingMouseAction = true;
-						pointArgs.DiagramClientView.ActiveMouseAction = action;
-					}
-					finally
-					{
-						this.changingMouseAction = false;
-					}
-				}
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Bb.ApplicationCooperationViewPoint.ConceptSubElement.NameDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Bb.ApplicationCooperationViewPoint.ConceptSubElement.TypeDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TypeDecorator").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		
 		/// <summary>
-		/// Snap toolbox selection back to regular pointer after using a custom connect action.
+		/// Class containing decorator path traversal methods for ConceptShape.
 		/// </summary>
-		private void OnConnectActionDeactivated(object sender, DslDiagrams::DiagramEventArgs e)
+		internal static partial class ConceptShapeDecoratorMap
 		{
-			OnMouseActionDeactivated();
-		}
-		
-		/// <summary>
-		/// Overridable method to manage the mouse deactivation. The default implementation snap stoolbox selection back to regular pointer 
-		/// after using a custom connect action.
-		/// </summary>
-		protected virtual void OnMouseActionDeactivated()
-		{
-			DslDiagrams::DiagramView activeView = this.ActiveDiagramView;
-		
-			if (activeView != null && activeView.Toolbox != null)
+			/// <summary>
+			/// Event handler called when decorator initialization is complete for ConceptShape.  Adds decorator mappings for this shape or connector.
+			/// </summary>
+			public static void OnDecoratorsInitialized(object sender, global::System.EventArgs e)
 			{
-				// If we're not changing mouse action due to changing toolbox selection change,
-				// reset toolbox selection.
-				if (!this.changingMouseAction)
-				{
-					activeView.Toolbox.SelectedToolboxItemUsed();
-				}
+				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
+				DslDiagrams::AssociatedPropertyInfo propertyInfo;
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Bb.ApplicationCooperationViewPoint.Concept.NameDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
+		
+		/// <summary>
+		/// Class containing decorator path traversal methods for RelationshipShape.
+		/// </summary>
+		internal static partial class RelationshipShapeDecoratorMap
+		{
+			/// <summary>
+			/// Event handler called when decorator initialization is complete for RelationshipShape.  Adds decorator mappings for this shape or connector.
+			/// </summary>
+			public static void OnDecoratorsInitialized(object sender, global::System.EventArgs e)
+			{
+				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
+				DslDiagrams::AssociatedPropertyInfo propertyInfo;
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Bb.ApplicationCooperationViewPoint.Relationship.NameDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Bb.ApplicationCooperationViewPoint.Relationship.NameDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
+			}
+		}
+		
 		#endregion
-		
-		/// <summary>
-		/// Dispose of connect actions.
-		/// </summary>
-		protected override void Dispose(bool disposing)
-		{
-			try
-			{
-				if(disposing)
-				{
-					if(this.exampleRelationshipConnectAction != null)
-					{
-						this.exampleRelationshipConnectAction.Dispose();
-						this.exampleRelationshipConnectAction = null;
-					}
-					if(this.connectionTool1ConnectAction != null)
-					{
-						this.connectionTool1ConnectAction.Dispose();
-						this.connectionTool1ConnectAction = null;
-					}
-				}
-			}
-			finally
-			{
-				base.Dispose(disposing);
-			}
-		}
 		#region Constructors, domain class Id
 	
 		/// <summary>
-		/// ApplicationCooperationViewPointDiagram domain class Id.
+		/// CooperationViewPointDiagram domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xca3f1951, 0x3a94, 0x4564, 0xa8, 0x05, 0x02, 0xe3, 0xbf, 0xc9, 0x1b, 0x8b);
 		/// <summary>
@@ -396,7 +275,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		/// <param name="store">Store where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public ApplicationCooperationViewPointDiagram(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		public CooperationViewPointDiagram(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
@@ -406,7 +285,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		/// <param name="partition">Partition where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public ApplicationCooperationViewPointDiagram(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		public CooperationViewPointDiagram(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, propertyAssignments)
 		{
 		}
@@ -431,10 +310,12 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Rule that initiates view fixup when an element that has an associated shape is added to the model. 
 		/// </summary>
-		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.CooperationElement), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
-		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.CooperationSubElement), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
-		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.CooperationElementReferencesTargets), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
-		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.CooperationSubElementReferencesTargetCooperationSubElement), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.ModelElement), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.SubElement), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.ConceptElement), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.ConceptSubElement), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.Concept), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.Relationship), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
 		internal sealed partial class FixUpDiagram : FixUpDiagramBase
 		{
 			[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
@@ -446,17 +327,29 @@ namespace Bb.ApplicationCooperationViewPoint
 				if (this.SkipFixup(childElement))
 					return;
 				DslModeling::ModelElement parentElement;
-				if(childElement is DslModeling::ElementLink)
+				if(childElement is global::Bb.ApplicationCooperationViewPoint.ModelElement)
 				{
-					parentElement = GetParentForRelationship((DslModeling::ElementLink)childElement);
+					parentElement = GetParentForModelElement((global::Bb.ApplicationCooperationViewPoint.ModelElement)childElement);
 				} else
-				if(childElement is global::Bb.ApplicationCooperationViewPoint.CooperationElement)
+				if(childElement is global::Bb.ApplicationCooperationViewPoint.SubElement)
 				{
-					parentElement = GetParentForCooperationElement((global::Bb.ApplicationCooperationViewPoint.CooperationElement)childElement);
+					parentElement = GetParentForSubElement((global::Bb.ApplicationCooperationViewPoint.SubElement)childElement);
 				} else
-				if(childElement is global::Bb.ApplicationCooperationViewPoint.CooperationSubElement)
+				if(childElement is global::Bb.ApplicationCooperationViewPoint.ConceptElement)
 				{
-					parentElement = GetParentForCooperationSubElement((global::Bb.ApplicationCooperationViewPoint.CooperationSubElement)childElement);
+					parentElement = GetParentForConceptElement((global::Bb.ApplicationCooperationViewPoint.ConceptElement)childElement);
+				} else
+				if(childElement is global::Bb.ApplicationCooperationViewPoint.ConceptSubElement)
+				{
+					parentElement = GetParentForConceptSubElement((global::Bb.ApplicationCooperationViewPoint.ConceptSubElement)childElement);
+				} else
+				if(childElement is global::Bb.ApplicationCooperationViewPoint.Concept)
+				{
+					parentElement = GetParentForConcept((global::Bb.ApplicationCooperationViewPoint.Concept)childElement);
+				} else
+				if(childElement is global::Bb.ApplicationCooperationViewPoint.Relationship)
+				{
+					parentElement = GetParentForRelationship((global::Bb.ApplicationCooperationViewPoint.Relationship)childElement);
 				} else
 				{
 					parentElement = null;
@@ -467,163 +360,61 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslDiagrams::Diagram.FixUpDiagram(parentElement, childElement);
 				}
 			}
-			public static global::Bb.ApplicationCooperationViewPoint.CooperationModel GetParentForCooperationElement( global::Bb.ApplicationCooperationViewPoint.CooperationElement root )
+			public static global::Bb.ApplicationCooperationViewPoint.Model GetParentForModelElement( global::Bb.ApplicationCooperationViewPoint.ModelElement root )
 			{
 				// Segments 0 and 1
-				global::Bb.ApplicationCooperationViewPoint.CooperationModel result = root.CooperationModel;
+				global::Bb.ApplicationCooperationViewPoint.Model result = root.Model;
 				if ( result == null ) return null;
 				return result;
 			}
-			public static global::Bb.ApplicationCooperationViewPoint.CooperationModel GetParentForCooperationSubElement( global::Bb.ApplicationCooperationViewPoint.CooperationSubElement root )
+			public static global::Bb.ApplicationCooperationViewPoint.Model GetParentForSubElement( global::Bb.ApplicationCooperationViewPoint.SubElement root )
 			{
 				// Segments 0 and 1
-				global::Bb.ApplicationCooperationViewPoint.CooperationElement root2 = root.Parent;
+				global::Bb.ApplicationCooperationViewPoint.ModelElement root2 = root.Children;
 				if ( root2 == null ) return null;
 				// Segments 2 and 3
-				global::Bb.ApplicationCooperationViewPoint.CooperationModel result = root2.CooperationModel;
+				global::Bb.ApplicationCooperationViewPoint.Model result = root2.Model;
 				if ( result == null ) return null;
 				return result;
 			}
-			private static DslModeling::ModelElement GetParentForRelationship(DslModeling::ElementLink elementLink)
+			public static global::Bb.ApplicationCooperationViewPoint.Model GetParentForConceptElement( global::Bb.ApplicationCooperationViewPoint.ConceptElement root )
 			{
-				global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::ModelElement> linkedElements = elementLink.LinkedElements;
-	
-				if (linkedElements.Count == 2)
-				{
-					DslDiagrams::ShapeElement sourceShape = linkedElements[0] as DslDiagrams::ShapeElement;
-					DslDiagrams::ShapeElement targetShape = linkedElements[1] as DslDiagrams::ShapeElement;
-	
-					if(sourceShape == null)
-					{
-						DslModeling::LinkedElementCollection<DslDiagrams::PresentationElement> presentationElements = DslDiagrams::PresentationViewsSubject.GetPresentation(linkedElements[0]);
-						foreach (DslDiagrams::PresentationElement presentationElement in presentationElements)
-						{
-							DslDiagrams::ShapeElement shape = presentationElement as DslDiagrams::ShapeElement;
-							if (shape != null)
-							{
-								sourceShape = shape;
-								break;
-							}
-						}
-					}
-					
-					if(targetShape == null)
-					{
-						DslModeling::LinkedElementCollection<DslDiagrams::PresentationElement> presentationElements = DslDiagrams::PresentationViewsSubject.GetPresentation(linkedElements[1]);
-						foreach (DslDiagrams::PresentationElement presentationElement in presentationElements)
-						{
-							DslDiagrams::ShapeElement shape = presentationElement as DslDiagrams::ShapeElement;
-							if (shape != null)
-							{
-								targetShape = shape;
-								break;
-							}
-						}
-					}
-					
-					if(sourceShape == null || targetShape == null)
-					{
-						global::System.Diagnostics.Debug.Fail("Unable to find source and/or target shape for view fixup.");
-						return null;
-					}
-	
-					DslDiagrams::ShapeElement sourceParent = sourceShape.ParentShape;
-					DslDiagrams::ShapeElement targetParent = targetShape.ParentShape;
-	
-					while (sourceParent != targetParent && sourceParent != null)
-					{
-						DslDiagrams::ShapeElement curParent = targetParent;
-						while (sourceParent != curParent && curParent != null)
-						{
-							curParent = curParent.ParentShape;
-						}
-	
-						if(sourceParent == curParent)
-						{
-							break;
-						}
-						else
-						{
-							sourceParent = sourceParent.ParentShape;
-						}
-					}
-	
-					while (sourceParent != null)
-					{
-						// ensure that the parent can parent connectors (i.e., a diagram or a swimlane).
-						if(sourceParent is DslDiagrams::Diagram || sourceParent is DslDiagrams::SwimlaneShape)
-						{
-							break;
-						}
-						else
-						{
-							sourceParent = sourceParent.ParentShape;
-						}
-					}
-	
-					global::System.Diagnostics.Debug.Assert(sourceParent != null && sourceParent.ModelElement != null, "Unable to find common parent for view fixup.");
-					return sourceParent.ModelElement;
-				}
-	
-				return null;
+				// Segments 0 and 1
+				global::Bb.ApplicationCooperationViewPoint.Concept root2 = root.Concept;
+				if ( root2 == null ) return null;
+				// Segments 2 and 3
+				global::Bb.ApplicationCooperationViewPoint.Model result = root2.Model;
+				if ( result == null ) return null;
+				return result;
+			}
+			public static global::Bb.ApplicationCooperationViewPoint.Model GetParentForConceptSubElement( global::Bb.ApplicationCooperationViewPoint.ConceptSubElement root )
+			{
+				// Segments 0 and 1
+				global::Bb.ApplicationCooperationViewPoint.ConceptElement root2 = root.ConceptElement;
+				if ( root2 == null ) return null;
+				// Segments 2 and 3
+				global::Bb.ApplicationCooperationViewPoint.Concept root4 = root2.Concept;
+				if ( root4 == null ) return null;
+				// Segments 4 and 5
+				global::Bb.ApplicationCooperationViewPoint.Model result = root4.Model;
+				if ( result == null ) return null;
+				return result;
+			}
+			public static global::Bb.ApplicationCooperationViewPoint.Model GetParentForConcept( global::Bb.ApplicationCooperationViewPoint.Concept root )
+			{
+				// Segments 0 and 1
+				global::Bb.ApplicationCooperationViewPoint.Model result = root.Model;
+				if ( result == null ) return null;
+				return result;
+			}
+			public static global::Bb.ApplicationCooperationViewPoint.Model GetParentForRelationship( global::Bb.ApplicationCooperationViewPoint.Relationship root )
+			{
+				// Segments 0 and 1
+				global::Bb.ApplicationCooperationViewPoint.Model result = root.Model;
+				if ( result == null ) return null;
+				return result;
 			}
 		}
 		
 	
-		/// <summary>
-		/// Reroute a connector when the role players of its underlying relationship change
-		/// </summary>
-		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.CooperationElementReferencesTargets), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
-		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.CooperationSubElementReferencesTargetCooperationSubElement), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
-		internal sealed class ConnectorRolePlayerChanged : DslModeling::RolePlayerChangeRule
-		{
-			/// <summary>
-			/// Reroute a connector when the role players of its underlying relationship change
-			/// </summary>
-			public override void RolePlayerChanged(DslModeling::RolePlayerChangedEventArgs e)
-			{
-				if (e == null) throw new global::System.ArgumentNullException("e");
-	
-				global::System.Collections.ObjectModel.ReadOnlyCollection<DslDiagrams::PresentationViewsSubject> connectorLinks = DslDiagrams::PresentationViewsSubject.GetLinksToPresentation(e.ElementLink);
-				foreach (DslDiagrams::PresentationViewsSubject connectorLink in connectorLinks)
-				{
-					// Fix up any binary link shapes attached to the element link.
-					DslDiagrams::BinaryLinkShape linkShape = connectorLink.Presentation as DslDiagrams::BinaryLinkShape;
-					if (linkShape != null)
-					{
-						global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDiagram diagram = linkShape.Diagram as global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDiagram;
-						if (diagram != null)
-						{
-							if (e.NewRolePlayer != null)
-							{
-								DslDiagrams::NodeShape fromShape;
-								DslDiagrams::NodeShape toShape;
-								diagram.GetSourceAndTargetForConnector(linkShape, out fromShape, out toShape);
-								if (fromShape != null && toShape != null)
-								{
-									if (!object.Equals(fromShape, linkShape.FromShape))
-									{
-										linkShape.FromShape = fromShape;
-									}
-									if (!object.Equals(linkShape.ToShape, toShape))
-									{
-										linkShape.ToShape = toShape;
-									}
-								}
-								else
-								{
-									// delete the connector if we cannot find an appropriate target shape.
-									linkShape.Delete();
-								}
-							}
-							else
-							{
-								// delete the connector if the new role player is null.
-								linkShape.Delete();
-							}
-						}
-					}
-				}
-			}
-		}
 	}

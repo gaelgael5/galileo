@@ -10,6 +10,7 @@
         Definition,
         Schema,
         SchemaDefinitions,
+        CooperationViewpoint,
         SchemaLayerDefinitions,
     }
 

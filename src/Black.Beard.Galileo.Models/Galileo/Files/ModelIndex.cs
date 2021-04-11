@@ -91,6 +91,16 @@ namespace Bb.Galileo.Files
 
         private volatile object _lock = new object();
 
+        internal void Remove(ReferentialBase item)
+        {
+
+            if (_items.ContainsKey("i:" + item.Id))
+                _items.Remove("i:" + item.Id);
+
+            if (_items.ContainsKey(":" + item.Name))
+                _items.Remove(item.Name);
+
+        }
     }
 
 

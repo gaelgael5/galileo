@@ -22,7 +22,6 @@ namespace Bb.Galileo.Files.Schemas
 
         [JsonRequired]
         public LinkDefinition Target { get; set; }
-        public FileModel File { get; internal set; }
     }
 
 }

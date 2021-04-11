@@ -1,1 +1,24 @@
-﻿ 
+﻿<?xml version="1.0" encoding="utf-8"?>
+<applicationCooperationViewPointDiagram dslVersion="1.0.0.0" Id="8a39b34b-28d0-4e47-911c-efa65579c2f6" absoluteBounds="0, 0, 12.125, 8.5" name="Test">
+  <cooperationModelMoniker Id="0c302325-b330-4720-abd2-b035f3d31ac4" />
+  <nestedChildShapes>
+    <cooperationShape Id="f11144f5-b64e-47ce-8a5a-3353aa521668" absoluteBounds="1.5, 1.375, 6, 4.625">
+      <cooperationElementMoniker referenceSource="/0c302325-b330-4720-abd2-b035f3d31ac4/Colis 21" />
+    </cooperationShape>
+    <cooperationSubShape Id="99ddf80e-4b27-4be9-be67-3b314cd57a09" absoluteBounds="2.125, 2.125, 4.75, 1.5">
+      <cooperationSubElementMoniker Id="00bd057f-acc5-44fc-bde3-bf67c68e8539" />
+    </cooperationSubShape>
+    <cooperationSubShape Id="7ac482b2-6f51-4874-9c34-ebc488eac8d8" absoluteBounds="2.125, 3.75, 4.75, 1.5">
+      <cooperationSubElementMoniker Id="77b10c34-2337-4f45-8bf2-241b53953686" />
+    </cooperationSubShape>
+    <cooperationShape Id="45b20ed8-a1e2-4fd7-bdee-c22e6e210126" absoluteBounds="7.875, 1.375, 4, 4.625">
+      <cooperationElementMoniker referenceSource="/0c302325-b330-4720-abd2-b035f3d31ac4/Anomaly 21" />
+    </cooperationShape>
+    <cooperationSubShape Id="59143c7d-9a3e-4eec-bcf2-127c5a258c75" absoluteBounds="8.5, 3.75, 2.75, 1.5">
+      <cooperationSubElementMoniker Id="e1148cb0-48ab-40fb-b417-37c159c88ef1" />
+    </cooperationSubShape>
+    <cooperationSubShape Id="86606d9f-d642-492a-93c8-af10a01cff88" absoluteBounds="8.5, 2.125, 2.75, 1.5">
+      <cooperationSubElementMoniker Id="bba8b1f6-c97c-4ccc-9d0e-4890b59ddd60" />
+    </cooperationSubShape>
+  </nestedChildShapes>
+</applicationCooperationViewPointDiagram>

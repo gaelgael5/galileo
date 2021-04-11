@@ -9,6 +9,38 @@ namespace Bb.Galileo
     public static class ContentHelper
     {
 
+
+        /// <summary>
+        /// Blocks until the file is not locked any more.
+        /// </summary>
+        /// <param name="file"></param>
+        public static bool WaitForFile(this FileInfo file, TimeSpan maxtime)
+        {
+            var nextStop = DateTime.Now.Add(maxtime);
+            while (true)
+            {
+                try
+                {
+                    // Attempt to open the file exclusively.
+                    using (FileStream fs = file.Open(FileMode.Open, FileAccess.ReadWrite, FileShare.None))
+                    {
+                        fs.ReadByte();
+                        // If we got this far the file is ready
+                        break;
+                    }
+                }
+                catch (System.IO.IOException)
+                {
+                    if (DateTime.Now < nextStop)    // Wait for the lock to be released
+                        System.Threading.Thread.Sleep(100);
+                    else
+                        return false;
+                }
+            }
+
+            return true;
+        }
+
         /// <summary>
         /// Loads the content of the file.
         /// </summary>

@@ -48,11 +48,11 @@ namespace Bb.Galileo.Files
         
 
 
-        internal void AddFile(FileModel item)
+        internal void AddFile(FileModel item, FileTracingEnum trace)
         {
             if (!this._items.ContainsKey(item.FullPath))
                 this._items.Add(item.FullPath, item);
-            Update(item);
+            Transactionfile transaction = Update(item, trace);
         }
 
         internal IEnumerable<FileModel> GetFiles()
@@ -61,16 +61,29 @@ namespace Bb.Galileo.Files
                 yield return item;
         }
 
-        internal void RemoveFile(FileModel item)
+        internal Transactionfile RemoveFile(FileModel item)
         {
             if (!this._items.ContainsKey(item.FullPath))
+            {
                 this._items.Remove(item.FullPath);
+                Transactionfile transaction = this.Models.RemoveFile(item);
+
+
+
+                return transaction;
+            }
+
+            return new Transactionfile() { File = item, Trace = FileTracingEnum.Deleted };
+
         }
 
-        internal void RemoveFile(string item)
+        internal Transactionfile RemoveFile(string item)
         {
-            if (!this._items.ContainsKey(item))
-                this._items.Remove(item);
+            var file = Getfile(item);
+            if (file != null)
+                return RemoveFile(file);
+
+            return null;
         }
 
 
@@ -80,9 +93,9 @@ namespace Bb.Galileo.Files
             return item;
         }
 
-        internal void Update(FileModel item)
+        internal Transactionfile Update(FileModel item, FileTracingEnum trace)
         {
-            this.Models.Add(item);
+            return this.Models.Add(item, trace);
         }
 
         private DirectoryInfo _folder;

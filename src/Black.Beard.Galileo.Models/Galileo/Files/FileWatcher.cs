@@ -66,17 +66,18 @@ namespace Bb.Galileo.Files
         public virtual void StopListen()
         {
 
-            if (this._watcher.EnableRaisingEvents)
-                lock (_lockFile)
-                    if (this._watcher.EnableRaisingEvents)
-                    {
-                        this._watcher.EnableRaisingEvents = false;
-                        this._watcher.Changed -= OnChanged;
-                        this._watcher.Created -= OnCreated;
-                        this._watcher.Deleted -= OnDeleted;
-                        this._watcher.Renamed -= OnRenamed;
-                        this._watcher.Error -= OnError;
-                    }
+            if (this._watcher != null)
+                if (this._watcher.EnableRaisingEvents)
+                    lock (_lockFile)
+                        if (this._watcher.EnableRaisingEvents)
+                        {
+                            this._watcher.EnableRaisingEvents = false;
+                            this._watcher.Changed -= OnChanged;
+                            this._watcher.Created -= OnCreated;
+                            this._watcher.Deleted -= OnDeleted;
+                            this._watcher.Renamed -= OnRenamed;
+                            this._watcher.Error -= OnError;
+                        }
 
         }
 
@@ -102,16 +103,16 @@ namespace Bb.Galileo.Files
 
                 foreach (var item in this._parent.Folder.GetFiles(_filter, SearchOption.AllDirectories))
                     if (_h2.Add(item.FullName))
-                        Add(item);
+                        Add(item, FileTracingEnum.Loading);
 
             }
 
         }
 
-        private void Add(FileInfo file)
+        private void Add(FileInfo file, FileTracingEnum trace)
         {
             _parent.AddFile(new FileModel()
-                .Initialize(file, this._parent));
+                .Initialize(file, this._parent), trace);
         }
 
         private void Remove(FileModel file)
@@ -127,24 +128,48 @@ namespace Bb.Galileo.Files
 
         private void OnRenamed(object sender, RenamedEventArgs e)
         {
+            _parent.Diagnostic.Append(new Galileo.DiagnositcMessage()
+            {
+                Text = $"update {e.FullPath} is renamed",
+            });
+
             _parent.RemoveFile(e.OldFullPath);
-            Add(new FileInfo(e.FullPath));
+            Add(new FileInfo(e.FullPath), FileTracingEnum.Renamed);
         }
 
         private void OnDeleted(object sender, FileSystemEventArgs e)
         {
+            _parent.Diagnostic.Append(new Galileo.DiagnositcMessage()
+            {
+                Text = $"update {e.FullPath} is deleted",
+            });
+
             _parent.RemoveFile(e.FullPath);
         }
 
         private void OnCreated(object sender, FileSystemEventArgs e)
         {
-            Add(new FileInfo(e.FullPath));
+            _parent.Diagnostic.Append(new Galileo.DiagnositcMessage()
+            {
+                Text = $"update {e.FullPath} is created",
+            });
+
+            Add(new FileInfo(e.FullPath), FileTracingEnum.OnCreated);
         }
 
         private void OnChanged(object sender, FileSystemEventArgs e)
         {
             if (e.ChangeType == WatcherChangeTypes.Changed)
-                _parent.Update(_parent.Getfile(e.FullPath));
+            {
+
+                _parent.Diagnostic.Append(new Galileo.DiagnositcMessage()
+                {
+                    Text = $"update {e.FullPath} is updated",
+                });
+
+                Transactionfile transaction = _parent.Update(_parent.Getfile(e.FullPath), FileTracingEnum.Changed);
+
+            }
         }
 
 
@@ -156,6 +181,16 @@ namespace Bb.Galileo.Files
 
     }
 
+
+
+    public enum FileTracingEnum
+    {
+        Loading,
+        Renamed,
+        OnCreated,
+        Changed,
+        Deleted,
+    }
 
 
 }

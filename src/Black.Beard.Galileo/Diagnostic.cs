@@ -15,15 +15,22 @@ namespace Black.Beard.Galileo
         public void Append(DiagnositcMessage message)
         {
 
-            if (message.Severity == SeverityEnum.Error)
+            string filepath = string.Empty;
+            string exception = string.Empty;
+
+            if (message.File != null)
             {
                 FileInfo file = new FileInfo(message.File);
-                Bb.CommandLine.Outs.Output.WriteLineError($"exception on file {file.Directory.Name}\\{file.Name}. {message.Text}");
+                filepath = $" file {file.Directory.Name}\\{file.Name}";
             }
+            if (message.Exception != null)
+                exception = $"exception {message.Exception.GetType().Name}.";
+
+            if (message.Severity == SeverityEnum.Error)
+                Bb.CommandLine.Outs.Output.WriteLineError($"{exception}{filepath}. {message.Text}");
+         
             else
-            {
                 Bb.CommandLine.Outs.Output.WriteLineStandard(message.Text);
-            }
         }
 
     }

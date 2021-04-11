@@ -47,14 +47,6 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// item filters.
 		/// </remarks>
 		public const string ToolboxFilterString = "ApplicationCooperationViewPoint.1.0";
-		/// <summary>
-		/// Toolbox item filter string used to identify ExampleRelationship connector tool.
-		/// </summary>
-		public const string ExampleRelationshipFilterString = "ExampleRelationship.1.0";
-		/// <summary>
-		/// Toolbox item filter string used to identify ConnectionTool1 connector tool.
-		/// </summary>
-		public const string ConnectionTool1FilterString = "ConnectionTool1.1.0";
 
 	
 		private global::System.Collections.Generic.Dictionary<string, DslDesign::ModelingToolboxItem> toolboxItemCache = new global::System.Collections.Generic.Dictionary<string, DslDesign::ModelingToolboxItem>();
@@ -102,7 +94,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		{
 			get
 			{
-				return 4;
+				return 0;
 			}
 		}
 		
@@ -151,74 +143,6 @@ namespace Bb.ApplicationCooperationViewPoint
 			global::System.Globalization.CultureInfo resourceCulture = global::System.Globalization.CultureInfo.CurrentUICulture;
 			switch(itemId)
 			{
-				case "Bb.ApplicationCooperationViewPoint.ElementToolboxItem":
-					// Add Element shape tool.
-					result = new DslDesign::ModelingToolboxItem(
-						"Bb.ApplicationCooperationViewPoint.ElementToolboxItem", // Unique identifier (non-localized) for the toolbox item.
-						1, // Position relative to other items in the same toolbox tab.
-						resourceManager.GetString("ElementToolboxItem", resourceCulture), // Localized display name for the item.
-						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("ElementToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.
-						"Bb.ApplicationCooperationViewPoint.Cooperation ViewpointToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
-						resourceManager.GetString("Cooperation ViewpointToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
-						"CreateExampleClassF1Keyword", // F1 help keyword for the toolbox item.
-						resourceManager.GetString("ElementToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
-						CreateElementToolPrototype(store, global::Bb.ApplicationCooperationViewPoint.CooperationElement.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
-						new global::System.ComponentModel.ToolboxItemFilterAttribute[] { // Collection of ToolboxItemFilterAttribute objects that determine visibility of the toolbox item.
-						new global::System.ComponentModel.ToolboxItemFilterAttribute(ToolboxFilterString, global::System.ComponentModel.ToolboxItemFilterType.Require) 
-						});
-					break;
-				case "Bb.ApplicationCooperationViewPoint.ExampleRelationshipToolboxItem":
-
-					// Add ExampleRelationship connector tool.
-					result = new DslDesign::ModelingToolboxItem(
-						"Bb.ApplicationCooperationViewPoint.ExampleRelationshipToolboxItem", // Unique identifier (non-localized) for the toolbox item.
-						2, // Position relative to other items in the same toolbox tab.
-						resourceManager.GetString("ExampleRelationshipToolboxItem", resourceCulture), // Localized display name for the item.
-						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("ExampleRelationshipToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.				
-						"Bb.ApplicationCooperationViewPoint.Cooperation ViewpointToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
-						resourceManager.GetString("Cooperation ViewpointToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
-						"ConnectExampleRelationF1Keyword", // F1 help keyword for the toolbox item.
-						resourceManager.GetString("ExampleRelationshipToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
-						null, // Connector toolbox items do not have an underlying data object.
-						new global::System.ComponentModel.ToolboxItemFilterAttribute[] { // Collection of ToolboxItemFilterAttribute objects that determine visibility of the toolbox item.
-							new global::System.ComponentModel.ToolboxItemFilterAttribute(ToolboxFilterString, global::System.ComponentModel.ToolboxItemFilterType.Require), 
-							new global::System.ComponentModel.ToolboxItemFilterAttribute(ExampleRelationshipFilterString)
-						});
-					break;
-				case "Bb.ApplicationCooperationViewPoint.SubElementToolboxItem":
-					// Add SubElement shape tool.
-					result = new DslDesign::ModelingToolboxItem(
-						"Bb.ApplicationCooperationViewPoint.SubElementToolboxItem", // Unique identifier (non-localized) for the toolbox item.
-						3, // Position relative to other items in the same toolbox tab.
-						resourceManager.GetString("SubElementToolboxItem", resourceCulture), // Localized display name for the item.
-						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("SubElementToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.
-						"Bb.ApplicationCooperationViewPoint.Cooperation ViewpointToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
-						resourceManager.GetString("Cooperation ViewpointToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
-						"SubElement", // F1 help keyword for the toolbox item.
-						resourceManager.GetString("SubElementToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
-						CreateElementToolPrototype(store, global::Bb.ApplicationCooperationViewPoint.CooperationSubElement.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
-						new global::System.ComponentModel.ToolboxItemFilterAttribute[] { // Collection of ToolboxItemFilterAttribute objects that determine visibility of the toolbox item.
-						new global::System.ComponentModel.ToolboxItemFilterAttribute(ToolboxFilterString, global::System.ComponentModel.ToolboxItemFilterType.Require) 
-						});
-					break;
-				case "Bb.ApplicationCooperationViewPoint.ConnectionTool1ToolboxItem":
-
-					// Add ConnectionTool1 connector tool.
-					result = new DslDesign::ModelingToolboxItem(
-						"Bb.ApplicationCooperationViewPoint.ConnectionTool1ToolboxItem", // Unique identifier (non-localized) for the toolbox item.
-						4, // Position relative to other items in the same toolbox tab.
-						resourceManager.GetString("ConnectionTool1ToolboxItem", resourceCulture), // Localized display name for the item.
-						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("ConnectionTool1ToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.				
-						"Bb.ApplicationCooperationViewPoint.Cooperation ViewpointToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
-						resourceManager.GetString("Cooperation ViewpointToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
-						"ConnectionTool1", // F1 help keyword for the toolbox item.
-						resourceManager.GetString("ConnectionTool1ToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
-						null, // Connector toolbox items do not have an underlying data object.
-						new global::System.ComponentModel.ToolboxItemFilterAttribute[] { // Collection of ToolboxItemFilterAttribute objects that determine visibility of the toolbox item.
-							new global::System.ComponentModel.ToolboxItemFilterAttribute(ToolboxFilterString, global::System.ComponentModel.ToolboxItemFilterType.Require), 
-							new global::System.ComponentModel.ToolboxItemFilterAttribute(ConnectionTool1FilterString)
-						});
-					break;
 				default:
 					break;
 			} // end switch

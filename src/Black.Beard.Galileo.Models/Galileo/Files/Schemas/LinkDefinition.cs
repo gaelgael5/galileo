@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Bb.Galileo.Files.Schemas
 {
@@ -11,6 +12,11 @@ namespace Bb.Galileo.Files.Schemas
         {
             this.Properties = new List<PropertyDefinition>();
         }
+
+        [Description("entity'reference")]
+        [JsonRequired]
+        public string Name { get; set; }
+
 
         public List<PropertyDefinition> Properties { get; set; }
 

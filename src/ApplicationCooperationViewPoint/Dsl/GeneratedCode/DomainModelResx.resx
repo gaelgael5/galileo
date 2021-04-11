@@ -125,197 +125,533 @@
     <value>ApplicationCooperationViewPoint</value>
     <comment>DisplayName for DslLibrary &apos;ApplicationCooperationViewPoint&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationModel.Description" xml:space="preserve">
+  <data name="Bb.ApplicationCooperationViewPoint.Model.Description" xml:space="preserve">
     <value>The root in which all other elements are embedded. Appears as a diagram.</value>
-    <comment>Description for DomainClass &apos;CooperationModel&apos;</comment>
+    <comment>Description for DomainClass &apos;Model&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationModel.DisplayName" xml:space="preserve">
-    <value>Cooperation Model</value>
-    <comment>DisplayName for DomainClass &apos;CooperationModel&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.Model.DisplayName" xml:space="preserve">
+    <value>Model</value>
+    <comment>DisplayName for DomainClass &apos;Model&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationModel/Name.Description" xml:space="preserve">
-    <value>Description de Bb.ApplicationCooperationViewPoint.CooperationModel.Name</value>
-    <comment>Description for DomainProperty &apos;Name&apos; on DomainClass &apos;CooperationModel&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.Model/Name.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.Model.Name</value>
+    <comment>Description for DomainProperty &apos;Name&apos; on DomainClass &apos;Model&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationModel/Name.DisplayName" xml:space="preserve">
+  <data name="Bb.ApplicationCooperationViewPoint.Model/Name.DisplayName" xml:space="preserve">
     <value>Name</value>
-    <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;CooperationModel&apos;</comment>
+    <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;Model&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationModel/Target.Description" xml:space="preserve">
-    <value>Description de Bb.ApplicationCooperationViewPoint.CooperationModel.Target</value>
-    <comment>Description for DomainProperty &apos;Target&apos; on DomainClass &apos;CooperationModel&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.Model/Target.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.Model.Target</value>
+    <comment>Description for DomainProperty &apos;Target&apos; on DomainClass &apos;Model&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationModel/Target.DisplayName" xml:space="preserve">
+  <data name="Bb.ApplicationCooperationViewPoint.Model/Target.DisplayName" xml:space="preserve">
     <value>Target</value>
-    <comment>DisplayName for DomainProperty &apos;Target&apos; on DomainClass &apos;CooperationModel&apos;</comment>
+    <comment>DisplayName for DomainProperty &apos;Target&apos; on DomainClass &apos;Model&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationModel/Type.Description" xml:space="preserve">
-    <value>Description de Bb.ApplicationCooperationViewPoint.CooperationModel.Type</value>
-    <comment>Description for DomainProperty &apos;Type&apos; on DomainClass &apos;CooperationModel&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.Model/ViewpointType.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.Model.Viewpoint Type</value>
+    <comment>Description for DomainProperty &apos;ViewpointType&apos; on DomainClass &apos;Model&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationModel/Type.DisplayName" xml:space="preserve">
-    <value>Type</value>
-    <comment>DisplayName for DomainProperty &apos;Type&apos; on DomainClass &apos;CooperationModel&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.Model/ViewpointType.DisplayName" xml:space="preserve">
+    <value>Viewpoint Type</value>
+    <comment>DisplayName for DomainProperty &apos;ViewpointType&apos; on DomainClass &apos;Model&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationElement.Description" xml:space="preserve">
+  <data name="Bb.ApplicationCooperationViewPoint.ModelElement.Description" xml:space="preserve">
     <value>Elements embedded in the model. Appear as boxes on the diagram.</value>
-    <comment>Description for DomainClass &apos;CooperationElement&apos;</comment>
+    <comment>Description for DomainClass &apos;ModelElement&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationElement.DisplayName" xml:space="preserve">
-    <value>Cooperation Element</value>
-    <comment>DisplayName for DomainClass &apos;CooperationElement&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelElement.DisplayName" xml:space="preserve">
+    <value>Model Element</value>
+    <comment>DisplayName for DomainClass &apos;ModelElement&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationElement/SourceReference.Description" xml:space="preserve">
+  <data name="Bb.ApplicationCooperationViewPoint.ModelElement/ReferenceSource.Description" xml:space="preserve">
     <value>Description for Bb.ApplicationCooperationViewPoint.ExampleElement.Name</value>
-    <comment>Description for DomainProperty &apos;SourceReference&apos; on DomainClass &apos;CooperationElement&apos;</comment>
+    <comment>Description for DomainProperty &apos;ReferenceSource&apos; on DomainClass &apos;ModelElement&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationElement/SourceReference.DisplayName" xml:space="preserve">
-    <value>Source Reference</value>
-    <comment>DisplayName for DomainProperty &apos;SourceReference&apos; on DomainClass &apos;CooperationElement&apos;</comment>
-  </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationSubElement.Description" xml:space="preserve">
-    <value>Description de Bb.ApplicationCooperationViewPoint.CooperationSubElement</value>
-    <comment>Description for DomainClass &apos;CooperationSubElement&apos;</comment>
-  </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationSubElement.DisplayName" xml:space="preserve">
-    <value>Cooperation Sub Element</value>
-    <comment>DisplayName for DomainClass &apos;CooperationSubElement&apos;</comment>
-  </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationSubElement/ReferenceSource.Description" xml:space="preserve">
-    <value>Description de Bb.ApplicationCooperationViewPoint.CooperationSubElement.Reference Source</value>
-    <comment>Description for DomainProperty &apos;ReferenceSource&apos; on DomainClass &apos;CooperationSubElement&apos;</comment>
-  </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationSubElement/ReferenceSource.DisplayName" xml:space="preserve">
+  <data name="Bb.ApplicationCooperationViewPoint.ModelElement/ReferenceSource.DisplayName" xml:space="preserve">
     <value>Reference Source</value>
-    <comment>DisplayName for DomainProperty &apos;ReferenceSource&apos; on DomainClass &apos;CooperationSubElement&apos;</comment>
+    <comment>DisplayName for DomainProperty &apos;ReferenceSource&apos; on DomainClass &apos;ModelElement&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationModelHasElements.Description" xml:space="preserve">
+  <data name="Bb.ApplicationCooperationViewPoint.ModelElement/Type.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ModelElement.Type</value>
+    <comment>Description for DomainProperty &apos;Type&apos; on DomainClass &apos;ModelElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelElement/Type.DisplayName" xml:space="preserve">
+    <value>Type</value>
+    <comment>DisplayName for DomainProperty &apos;Type&apos; on DomainClass &apos;ModelElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelElement/Name.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ModelElement.Name</value>
+    <comment>Description for DomainProperty &apos;Name&apos; on DomainClass &apos;ModelElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelElement/Name.DisplayName" xml:space="preserve">
+    <value>Name</value>
+    <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;ModelElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.SubElement.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.SubElement</value>
+    <comment>Description for DomainClass &apos;SubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.SubElement.DisplayName" xml:space="preserve">
+    <value>Sub Element</value>
+    <comment>DisplayName for DomainClass &apos;SubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.SubElement/ReferenceSource.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.SubElement.Reference Source</value>
+    <comment>Description for DomainProperty &apos;ReferenceSource&apos; on DomainClass &apos;SubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.SubElement/ReferenceSource.DisplayName" xml:space="preserve">
+    <value>Reference Source</value>
+    <comment>DisplayName for DomainProperty &apos;ReferenceSource&apos; on DomainClass &apos;SubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.SubElement/Type.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.SubElement.Type</value>
+    <comment>Description for DomainProperty &apos;Type&apos; on DomainClass &apos;SubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.SubElement/Type.DisplayName" xml:space="preserve">
+    <value>Type</value>
+    <comment>DisplayName for DomainProperty &apos;Type&apos; on DomainClass &apos;SubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.SubElement/Name.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.SubElement.Name</value>
+    <comment>Description for DomainProperty &apos;Name&apos; on DomainClass &apos;SubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.SubElement/Name.DisplayName" xml:space="preserve">
+    <value>Name</value>
+    <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;SubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.Concept.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.Concept</value>
+    <comment>Description for DomainClass &apos;Concept&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.Concept.DisplayName" xml:space="preserve">
+    <value>Concept</value>
+    <comment>DisplayName for DomainClass &apos;Concept&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.Concept/ReferenceSource.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.Concept.Reference Source</value>
+    <comment>Description for DomainProperty &apos;ReferenceSource&apos; on DomainClass &apos;Concept&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.Concept/ReferenceSource.DisplayName" xml:space="preserve">
+    <value>Reference Source</value>
+    <comment>DisplayName for DomainProperty &apos;ReferenceSource&apos; on DomainClass &apos;Concept&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.Concept/Name.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.Concept.Name</value>
+    <comment>Description for DomainProperty &apos;Name&apos; on DomainClass &apos;Concept&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.Concept/Name.DisplayName" xml:space="preserve">
+    <value>Name</value>
+    <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;Concept&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElement.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptElement</value>
+    <comment>Description for DomainClass &apos;ConceptElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElement.DisplayName" xml:space="preserve">
+    <value>Concept Element</value>
+    <comment>DisplayName for DomainClass &apos;ConceptElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElement/ReferenceSource.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptElement.Reference Source</value>
+    <comment>Description for DomainProperty &apos;ReferenceSource&apos; on DomainClass &apos;ConceptElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElement/ReferenceSource.DisplayName" xml:space="preserve">
+    <value>Reference Source</value>
+    <comment>DisplayName for DomainProperty &apos;ReferenceSource&apos; on DomainClass &apos;ConceptElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElement/Type.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptElement.Type</value>
+    <comment>Description for DomainProperty &apos;Type&apos; on DomainClass &apos;ConceptElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElement/Type.DisplayName" xml:space="preserve">
+    <value>Type</value>
+    <comment>DisplayName for DomainProperty &apos;Type&apos; on DomainClass &apos;ConceptElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElement/Name.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptElement.Name</value>
+    <comment>Description for DomainProperty &apos;Name&apos; on DomainClass &apos;ConceptElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElement/Name.DisplayName" xml:space="preserve">
+    <value>Name</value>
+    <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;ConceptElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptSubElement.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement</value>
+    <comment>Description for DomainClass &apos;ConceptSubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptSubElement.DisplayName" xml:space="preserve">
+    <value>Concept Sub Element</value>
+    <comment>DisplayName for DomainClass &apos;ConceptSubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptSubElement/ReferenceSource.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement.Reference Source</value>
+    <comment>Description for DomainProperty &apos;ReferenceSource&apos; on DomainClass &apos;ConceptSubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptSubElement/ReferenceSource.DisplayName" xml:space="preserve">
+    <value>Reference Source</value>
+    <comment>DisplayName for DomainProperty &apos;ReferenceSource&apos; on DomainClass &apos;ConceptSubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptSubElement/Type.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement.Type</value>
+    <comment>Description for DomainProperty &apos;Type&apos; on DomainClass &apos;ConceptSubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptSubElement/Type.DisplayName" xml:space="preserve">
+    <value>Type</value>
+    <comment>DisplayName for DomainProperty &apos;Type&apos; on DomainClass &apos;ConceptSubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptSubElement/Name.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement.Name</value>
+    <comment>Description for DomainProperty &apos;Name&apos; on DomainClass &apos;ConceptSubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptSubElement/Name.DisplayName" xml:space="preserve">
+    <value>Name</value>
+    <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;ConceptSubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.Relationship.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.Relationship</value>
+    <comment>Description for DomainClass &apos;Relationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.Relationship.DisplayName" xml:space="preserve">
+    <value>Relationship</value>
+    <comment>DisplayName for DomainClass &apos;Relationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.Relationship/ReferenceSource.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.Relationship.Reference Source</value>
+    <comment>Description for DomainProperty &apos;ReferenceSource&apos; on DomainClass &apos;Relationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.Relationship/ReferenceSource.DisplayName" xml:space="preserve">
+    <value>Reference Source</value>
+    <comment>DisplayName for DomainProperty &apos;ReferenceSource&apos; on DomainClass &apos;Relationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.Relationship/Name.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.Relationship.Name</value>
+    <comment>Description for DomainProperty &apos;Name&apos; on DomainClass &apos;Relationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.Relationship/Name.DisplayName" xml:space="preserve">
+    <value>Name</value>
+    <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;Relationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasElements.Description" xml:space="preserve">
     <value>Embedding relationship between the Model and Elements</value>
-    <comment>Description for DomainClass &apos;CooperationModelHasElements&apos;</comment>
+    <comment>Description for DomainClass &apos;ModelHasElements&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationModelHasElements.DisplayName" xml:space="preserve">
-    <value>Cooperation Model Has Elements</value>
-    <comment>DisplayName for DomainClass &apos;CooperationModelHasElements&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasElements.DisplayName" xml:space="preserve">
+    <value>Model Has Elements</value>
+    <comment>DisplayName for DomainClass &apos;ModelHasElements&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationModelHasElements/CooperationModel.Description" xml:space="preserve">
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasElements/Model.Description" xml:space="preserve">
     <value></value>
-    <comment>Description for DomainRole &apos;CooperationModel&apos; on DomainRelationship &apos;CooperationModelHasElements&apos;</comment>
+    <comment>Description for DomainRole &apos;Model&apos; on DomainRelationship &apos;ModelHasElements&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationModelHasElements/CooperationModel.DisplayName" xml:space="preserve">
-    <value>Cooperation Model</value>
-    <comment>DisplayName for DomainRole &apos;CooperationModel&apos; on DomainRelationship &apos;CooperationModelHasElements&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasElements/Model.DisplayName" xml:space="preserve">
+    <value>Model</value>
+    <comment>DisplayName for DomainRole &apos;Model&apos; on DomainRelationship &apos;ModelHasElements&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationModelHasElements/CooperationModel.PropertyDisplayName" xml:space="preserve">
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasElements/Model.PropertyDisplayName" xml:space="preserve">
     <value>Elements</value>
-    <comment>PropertyDisplayName for DomainRole &apos;CooperationModel&apos; on DomainRelationship &apos;CooperationModelHasElements&apos;</comment>
+    <comment>PropertyDisplayName for DomainRole &apos;Model&apos; on DomainRelationship &apos;ModelHasElements&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationModelHasElements/Element.Description" xml:space="preserve">
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasElements/Element.Description" xml:space="preserve">
     <value></value>
-    <comment>Description for DomainRole &apos;Element&apos; on DomainRelationship &apos;CooperationModelHasElements&apos;</comment>
+    <comment>Description for DomainRole &apos;Element&apos; on DomainRelationship &apos;ModelHasElements&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationModelHasElements/Element.DisplayName" xml:space="preserve">
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasElements/Element.DisplayName" xml:space="preserve">
     <value>Element</value>
-    <comment>DisplayName for DomainRole &apos;Element&apos; on DomainRelationship &apos;CooperationModelHasElements&apos;</comment>
+    <comment>DisplayName for DomainRole &apos;Element&apos; on DomainRelationship &apos;ModelHasElements&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationModelHasElements/Element.PropertyDisplayName" xml:space="preserve">
-    <value>Cooperation Model</value>
-    <comment>PropertyDisplayName for DomainRole &apos;Element&apos; on DomainRelationship &apos;CooperationModelHasElements&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasElements/Element.PropertyDisplayName" xml:space="preserve">
+    <value>Model</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Element&apos; on DomainRelationship &apos;ModelHasElements&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationElementReferencesTargets.Description" xml:space="preserve">
-    <value>Reference relationship between Elements.</value>
-    <comment>Description for DomainClass &apos;CooperationElementReferencesTargets&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelElementHasParent.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ModelElementHasParent</value>
+    <comment>Description for DomainClass &apos;ModelElementHasParent&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationElementReferencesTargets.DisplayName" xml:space="preserve">
-    <value>Cooperation Element References Targets</value>
-    <comment>DisplayName for DomainClass &apos;CooperationElementReferencesTargets&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelElementHasParent.DisplayName" xml:space="preserve">
+    <value>Model Element Has Parent</value>
+    <comment>DisplayName for DomainClass &apos;ModelElementHasParent&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationElementReferencesTargets/Source.Description" xml:space="preserve">
-    <value>Description for Bb.ApplicationCooperationViewPoint.ExampleRelationship.Target</value>
-    <comment>Description for DomainRole &apos;Source&apos; on DomainRelationship &apos;CooperationElementReferencesTargets&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelElementHasParent/ModelElement.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ModelElementHasParent.ModelElement</value>
+    <comment>Description for DomainRole &apos;ModelElement&apos; on DomainRelationship &apos;ModelElementHasParent&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationElementReferencesTargets/Source.DisplayName" xml:space="preserve">
-    <value>Source</value>
-    <comment>DisplayName for DomainRole &apos;Source&apos; on DomainRelationship &apos;CooperationElementReferencesTargets&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelElementHasParent/ModelElement.DisplayName" xml:space="preserve">
+    <value>Model Element</value>
+    <comment>DisplayName for DomainRole &apos;ModelElement&apos; on DomainRelationship &apos;ModelElementHasParent&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationElementReferencesTargets/Source.PropertyDisplayName" xml:space="preserve">
-    <value>Targets</value>
-    <comment>PropertyDisplayName for DomainRole &apos;Source&apos; on DomainRelationship &apos;CooperationElementReferencesTargets&apos;</comment>
-  </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationElementReferencesTargets/Target.Description" xml:space="preserve">
-    <value>Description for Bb.ApplicationCooperationViewPoint.ExampleRelationship.Source</value>
-    <comment>Description for DomainRole &apos;Target&apos; on DomainRelationship &apos;CooperationElementReferencesTargets&apos;</comment>
-  </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationElementReferencesTargets/Target.DisplayName" xml:space="preserve">
-    <value>Target</value>
-    <comment>DisplayName for DomainRole &apos;Target&apos; on DomainRelationship &apos;CooperationElementReferencesTargets&apos;</comment>
-  </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationElementReferencesTargets/Target.PropertyDisplayName" xml:space="preserve">
-    <value>Sources</value>
-    <comment>PropertyDisplayName for DomainRole &apos;Target&apos; on DomainRelationship &apos;CooperationElementReferencesTargets&apos;</comment>
-  </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationElementHasCooperationSubElement.Description" xml:space="preserve">
-    <value>Description de Bb.ApplicationCooperationViewPoint.CooperationElementHasCooperationSubElement</value>
-    <comment>Description for DomainClass &apos;CooperationElementHasCooperationSubElement&apos;</comment>
-  </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationElementHasCooperationSubElement.DisplayName" xml:space="preserve">
-    <value>Cooperation Element Has Cooperation Sub Element</value>
-    <comment>DisplayName for DomainClass &apos;CooperationElementHasCooperationSubElement&apos;</comment>
-  </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationElementHasCooperationSubElement/Parent.Description" xml:space="preserve">
-    <value>Description de Bb.ApplicationCooperationViewPoint.CooperationElementHasCooperationSubElement.Parent</value>
-    <comment>Description for DomainRole &apos;Parent&apos; on DomainRelationship &apos;CooperationElementHasCooperationSubElement&apos;</comment>
-  </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationElementHasCooperationSubElement/Parent.DisplayName" xml:space="preserve">
+  <data name="Bb.ApplicationCooperationViewPoint.ModelElementHasParent/ModelElement.PropertyDisplayName" xml:space="preserve">
     <value>Parent</value>
-    <comment>DisplayName for DomainRole &apos;Parent&apos; on DomainRelationship &apos;CooperationElementHasCooperationSubElement&apos;</comment>
+    <comment>PropertyDisplayName for DomainRole &apos;ModelElement&apos; on DomainRelationship &apos;ModelElementHasParent&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationElementHasCooperationSubElement/Parent.PropertyDisplayName" xml:space="preserve">
-    <value>Cooperation Sub Element</value>
-    <comment>PropertyDisplayName for DomainRole &apos;Parent&apos; on DomainRelationship &apos;CooperationElementHasCooperationSubElement&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelElementHasParent/SubElement.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ModelElementHasParent.SubElement</value>
+    <comment>Description for DomainRole &apos;SubElement&apos; on DomainRelationship &apos;ModelElementHasParent&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationElementHasCooperationSubElement/CooperationSubElement.Description" xml:space="preserve">
-    <value>Description de Bb.ApplicationCooperationViewPoint.CooperationElementHasCooperationSubElement.CooperationSubElement</value>
-    <comment>Description for DomainRole &apos;CooperationSubElement&apos; on DomainRelationship &apos;CooperationElementHasCooperationSubElement&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelElementHasParent/SubElement.DisplayName" xml:space="preserve">
+    <value>Sub Element</value>
+    <comment>DisplayName for DomainRole &apos;SubElement&apos; on DomainRelationship &apos;ModelElementHasParent&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationElementHasCooperationSubElement/CooperationSubElement.DisplayName" xml:space="preserve">
-    <value>Cooperation Sub Element</value>
-    <comment>DisplayName for DomainRole &apos;CooperationSubElement&apos; on DomainRelationship &apos;CooperationElementHasCooperationSubElement&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelElementHasParent/SubElement.PropertyDisplayName" xml:space="preserve">
+    <value>Children</value>
+    <comment>PropertyDisplayName for DomainRole &apos;SubElement&apos; on DomainRelationship &apos;ModelElementHasParent&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationElementHasCooperationSubElement/CooperationSubElement.PropertyDisplayName" xml:space="preserve">
-    <value>Parent</value>
-    <comment>PropertyDisplayName for DomainRole &apos;CooperationSubElement&apos; on DomainRelationship &apos;CooperationElementHasCooperationSubElement&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasConcept.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ModelHasConcept</value>
+    <comment>Description for DomainClass &apos;ModelHasConcept&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationSubElementReferencesTargetCooperationSubElement.Description" xml:space="preserve">
-    <value>Description de Bb.ApplicationCooperationViewPoint.CooperationSubElementReferencesTargetCooperationSubElement</value>
-    <comment>Description for DomainClass &apos;CooperationSubElementReferencesTargetCooperationSubElement&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasConcept.DisplayName" xml:space="preserve">
+    <value>Model Has Concept</value>
+    <comment>DisplayName for DomainClass &apos;ModelHasConcept&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationSubElementReferencesTargetCooperationSubElement.DisplayName" xml:space="preserve">
-    <value>Cooperation Sub Element References Target Cooperation Sub Element</value>
-    <comment>DisplayName for DomainClass &apos;CooperationSubElementReferencesTargetCooperationSubElement&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasConcept/Model.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ModelHasConcept.Model</value>
+    <comment>Description for DomainRole &apos;Model&apos; on DomainRelationship &apos;ModelHasConcept&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationSubElementReferencesTargetCooperationSubElement/SourceCooperationSubElement.Description" xml:space="preserve">
-    <value>Description de Bb.ApplicationCooperationViewPoint.CooperationSubElementReferencesTargetCooperationSubElement.SourceCooperationSubElement</value>
-    <comment>Description for DomainRole &apos;SourceCooperationSubElement&apos; on DomainRelationship &apos;CooperationSubElementReferencesTargetCooperationSubElement&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasConcept/Model.DisplayName" xml:space="preserve">
+    <value>Model</value>
+    <comment>DisplayName for DomainRole &apos;Model&apos; on DomainRelationship &apos;ModelHasConcept&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationSubElementReferencesTargetCooperationSubElement/SourceCooperationSubElement.DisplayName" xml:space="preserve">
-    <value>Source Cooperation Sub Element</value>
-    <comment>DisplayName for DomainRole &apos;SourceCooperationSubElement&apos; on DomainRelationship &apos;CooperationSubElementReferencesTargetCooperationSubElement&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasConcept/Model.PropertyDisplayName" xml:space="preserve">
+    <value>Concept</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Model&apos; on DomainRelationship &apos;ModelHasConcept&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationSubElementReferencesTargetCooperationSubElement/SourceCooperationSubElement.PropertyDisplayName" xml:space="preserve">
-    <value>Target Cooperation Sub Element</value>
-    <comment>PropertyDisplayName for DomainRole &apos;SourceCooperationSubElement&apos; on DomainRelationship &apos;CooperationSubElementReferencesTargetCooperationSubElement&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasConcept/Concept.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ModelHasConcept.Concept</value>
+    <comment>Description for DomainRole &apos;Concept&apos; on DomainRelationship &apos;ModelHasConcept&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationSubElementReferencesTargetCooperationSubElement/TargetCooperationSubElement.Description" xml:space="preserve">
-    <value>Description de Bb.ApplicationCooperationViewPoint.CooperationSubElementReferencesTargetCooperationSubElement.TargetCooperationSubElement</value>
-    <comment>Description for DomainRole &apos;TargetCooperationSubElement&apos; on DomainRelationship &apos;CooperationSubElementReferencesTargetCooperationSubElement&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasConcept/Concept.DisplayName" xml:space="preserve">
+    <value>Concept</value>
+    <comment>DisplayName for DomainRole &apos;Concept&apos; on DomainRelationship &apos;ModelHasConcept&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationSubElementReferencesTargetCooperationSubElement/TargetCooperationSubElement.DisplayName" xml:space="preserve">
-    <value>Target Cooperation Sub Element</value>
-    <comment>DisplayName for DomainRole &apos;TargetCooperationSubElement&apos; on DomainRelationship &apos;CooperationSubElementReferencesTargetCooperationSubElement&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasConcept/Concept.PropertyDisplayName" xml:space="preserve">
+    <value>Model</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Concept&apos; on DomainRelationship &apos;ModelHasConcept&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.CooperationSubElementReferencesTargetCooperationSubElement/TargetCooperationSubElement.PropertyDisplayName" xml:space="preserve">
-    <value>Source Cooperation Sub Element</value>
-    <comment>PropertyDisplayName for DomainRole &apos;TargetCooperationSubElement&apos; on DomainRelationship &apos;CooperationSubElementReferencesTargetCooperationSubElement&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement</value>
+    <comment>Description for DomainClass &apos;ConceptHasConceptElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.DisplayName" xml:space="preserve">
+    <value>Concept Has Concept Element</value>
+    <comment>DisplayName for DomainClass &apos;ConceptHasConceptElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement/Concept.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.Concept</value>
+    <comment>Description for DomainRole &apos;Concept&apos; on DomainRelationship &apos;ConceptHasConceptElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement/Concept.DisplayName" xml:space="preserve">
+    <value>Concept</value>
+    <comment>DisplayName for DomainRole &apos;Concept&apos; on DomainRelationship &apos;ConceptHasConceptElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement/Concept.PropertyDisplayName" xml:space="preserve">
+    <value>Concept Element</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Concept&apos; on DomainRelationship &apos;ConceptHasConceptElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement/ConceptElement.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.ConceptElement</value>
+    <comment>Description for DomainRole &apos;ConceptElement&apos; on DomainRelationship &apos;ConceptHasConceptElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement/ConceptElement.DisplayName" xml:space="preserve">
+    <value>Concept Element</value>
+    <comment>DisplayName for DomainRole &apos;ConceptElement&apos; on DomainRelationship &apos;ConceptHasConceptElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement/ConceptElement.PropertyDisplayName" xml:space="preserve">
+    <value>Concept</value>
+    <comment>PropertyDisplayName for DomainRole &apos;ConceptElement&apos; on DomainRelationship &apos;ConceptHasConceptElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement</value>
+    <comment>Description for DomainClass &apos;ConceptElementHasConceptSubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.DisplayName" xml:space="preserve">
+    <value>Concept Element Has Concept Sub Element</value>
+    <comment>DisplayName for DomainClass &apos;ConceptElementHasConceptSubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement/ConceptElement.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.ConceptElement</value>
+    <comment>Description for DomainRole &apos;ConceptElement&apos; on DomainRelationship &apos;ConceptElementHasConceptSubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement/ConceptElement.DisplayName" xml:space="preserve">
+    <value>Concept Element</value>
+    <comment>DisplayName for DomainRole &apos;ConceptElement&apos; on DomainRelationship &apos;ConceptElementHasConceptSubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement/ConceptElement.PropertyDisplayName" xml:space="preserve">
+    <value>Concept Sub Element</value>
+    <comment>PropertyDisplayName for DomainRole &apos;ConceptElement&apos; on DomainRelationship &apos;ConceptElementHasConceptSubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement/ConceptSubElement.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.ConceptSubElement</value>
+    <comment>Description for DomainRole &apos;ConceptSubElement&apos; on DomainRelationship &apos;ConceptElementHasConceptSubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement/ConceptSubElement.DisplayName" xml:space="preserve">
+    <value>Concept Sub Element</value>
+    <comment>DisplayName for DomainRole &apos;ConceptSubElement&apos; on DomainRelationship &apos;ConceptElementHasConceptSubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement/ConceptSubElement.PropertyDisplayName" xml:space="preserve">
+    <value>Concept Element</value>
+    <comment>PropertyDisplayName for DomainRole &apos;ConceptSubElement&apos; on DomainRelationship &apos;ConceptElementHasConceptSubElement&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasRelationships.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ModelHasRelationships</value>
+    <comment>Description for DomainClass &apos;ModelHasRelationships&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasRelationships.DisplayName" xml:space="preserve">
+    <value>Model Has Relationships</value>
+    <comment>DisplayName for DomainClass &apos;ModelHasRelationships&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasRelationships/Model.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ModelHasRelationships.Model</value>
+    <comment>Description for DomainRole &apos;Model&apos; on DomainRelationship &apos;ModelHasRelationships&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasRelationships/Model.DisplayName" xml:space="preserve">
+    <value>Model</value>
+    <comment>DisplayName for DomainRole &apos;Model&apos; on DomainRelationship &apos;ModelHasRelationships&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasRelationships/Model.PropertyDisplayName" xml:space="preserve">
+    <value>Relationships</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Model&apos; on DomainRelationship &apos;ModelHasRelationships&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasRelationships/Relationship.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ModelHasRelationships.Relationship</value>
+    <comment>Description for DomainRole &apos;Relationship&apos; on DomainRelationship &apos;ModelHasRelationships&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasRelationships/Relationship.DisplayName" xml:space="preserve">
+    <value>Relationship</value>
+    <comment>DisplayName for DomainRole &apos;Relationship&apos; on DomainRelationship &apos;ModelHasRelationships&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ModelHasRelationships/Relationship.PropertyDisplayName" xml:space="preserve">
+    <value>Model</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Relationship&apos; on DomainRelationship &apos;ModelHasRelationships&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship</value>
+    <comment>Description for DomainClass &apos;SubElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.DisplayName" xml:space="preserve">
+    <value>Sub Element References Relationship</value>
+    <comment>DisplayName for DomainClass &apos;SubElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship/SubElement.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.SubElement</value>
+    <comment>Description for DomainRole &apos;SubElement&apos; on DomainRelationship &apos;SubElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship/SubElement.DisplayName" xml:space="preserve">
+    <value>Sub Element</value>
+    <comment>DisplayName for DomainRole &apos;SubElement&apos; on DomainRelationship &apos;SubElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship/SubElement.PropertyDisplayName" xml:space="preserve">
+    <value>Relationship</value>
+    <comment>PropertyDisplayName for DomainRole &apos;SubElement&apos; on DomainRelationship &apos;SubElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship/Relationship.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.Relationship</value>
+    <comment>Description for DomainRole &apos;Relationship&apos; on DomainRelationship &apos;SubElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship/Relationship.DisplayName" xml:space="preserve">
+    <value>Relationship</value>
+    <comment>DisplayName for DomainRole &apos;Relationship&apos; on DomainRelationship &apos;SubElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship/Relationship.PropertyDisplayName" xml:space="preserve">
+    <value>Sub Element</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Relationship&apos; on DomainRelationship &apos;SubElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship</value>
+    <comment>Description for DomainClass &apos;ConceptReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.DisplayName" xml:space="preserve">
+    <value>Concept References Relationship</value>
+    <comment>DisplayName for DomainClass &apos;ConceptReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship/Concept.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.Concept</value>
+    <comment>Description for DomainRole &apos;Concept&apos; on DomainRelationship &apos;ConceptReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship/Concept.DisplayName" xml:space="preserve">
+    <value>Concept</value>
+    <comment>DisplayName for DomainRole &apos;Concept&apos; on DomainRelationship &apos;ConceptReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship/Concept.PropertyDisplayName" xml:space="preserve">
+    <value>Relationship</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Concept&apos; on DomainRelationship &apos;ConceptReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship/Relationship.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.Relationship</value>
+    <comment>Description for DomainRole &apos;Relationship&apos; on DomainRelationship &apos;ConceptReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship/Relationship.DisplayName" xml:space="preserve">
+    <value>Relationship</value>
+    <comment>DisplayName for DomainRole &apos;Relationship&apos; on DomainRelationship &apos;ConceptReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship/Relationship.PropertyDisplayName" xml:space="preserve">
+    <value>Concept</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Relationship&apos; on DomainRelationship &apos;ConceptReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship</value>
+    <comment>Description for DomainClass &apos;ConceptElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.DisplayName" xml:space="preserve">
+    <value>Concept Element References Relationship</value>
+    <comment>DisplayName for DomainClass &apos;ConceptElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship/ConceptElement.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.ConceptElement</value>
+    <comment>Description for DomainRole &apos;ConceptElement&apos; on DomainRelationship &apos;ConceptElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship/ConceptElement.DisplayName" xml:space="preserve">
+    <value>Concept Element</value>
+    <comment>DisplayName for DomainRole &apos;ConceptElement&apos; on DomainRelationship &apos;ConceptElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship/ConceptElement.PropertyDisplayName" xml:space="preserve">
+    <value>Relationship</value>
+    <comment>PropertyDisplayName for DomainRole &apos;ConceptElement&apos; on DomainRelationship &apos;ConceptElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship/Relationship.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.Relationship</value>
+    <comment>Description for DomainRole &apos;Relationship&apos; on DomainRelationship &apos;ConceptElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship/Relationship.DisplayName" xml:space="preserve">
+    <value>Relationship</value>
+    <comment>DisplayName for DomainRole &apos;Relationship&apos; on DomainRelationship &apos;ConceptElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship/Relationship.PropertyDisplayName" xml:space="preserve">
+    <value>Concept Element</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Relationship&apos; on DomainRelationship &apos;ConceptElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship</value>
+    <comment>Description for DomainClass &apos;ConceptSubElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.DisplayName" xml:space="preserve">
+    <value>Concept Sub Element References Relationship</value>
+    <comment>DisplayName for DomainClass &apos;ConceptSubElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship/ConceptSubElement.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.ConceptSubElement</value>
+    <comment>Description for DomainRole &apos;ConceptSubElement&apos; on DomainRelationship &apos;ConceptSubElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship/ConceptSubElement.DisplayName" xml:space="preserve">
+    <value>Concept Sub Element</value>
+    <comment>DisplayName for DomainRole &apos;ConceptSubElement&apos; on DomainRelationship &apos;ConceptSubElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship/ConceptSubElement.PropertyDisplayName" xml:space="preserve">
+    <value>Relationship</value>
+    <comment>PropertyDisplayName for DomainRole &apos;ConceptSubElement&apos; on DomainRelationship &apos;ConceptSubElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship/Relationship.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.Relationship</value>
+    <comment>Description for DomainRole &apos;Relationship&apos; on DomainRelationship &apos;ConceptSubElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship/Relationship.DisplayName" xml:space="preserve">
+    <value>Relationship</value>
+    <comment>DisplayName for DomainRole &apos;Relationship&apos; on DomainRelationship &apos;ConceptSubElementReferencesRelationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship/Relationship.PropertyDisplayName" xml:space="preserve">
+    <value>Concept Sub Element</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Relationship&apos; on DomainRelationship &apos;ConceptSubElementReferencesRelationship&apos;</comment>
   </data>
   <data name="Bb.ApplicationCooperationViewPoint.CooperationShape.Description" xml:space="preserve">
     <value>Shape used to represent ExampleElements on a Diagram.</value>
@@ -327,6 +663,10 @@
   </data>
   <data name="CooperationShapeNameDecoratorDefaultText" xml:space="preserve">
     <value>NameDecorator</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="CooperationShapeTypeDecoratorDefaultText" xml:space="preserve">
+    <value>TypeDecorator</value>
     <comment>Text decorator default text</comment>
   </data>
   <data name="Bb.ApplicationCooperationViewPoint.CooperationSubShape.Description" xml:space="preserve">
@@ -341,21 +681,65 @@
     <value>TextName</value>
     <comment>Text decorator default text</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.ExampleConnector.Description" xml:space="preserve">
-    <value>Connector between the ExampleShapes. Represents ExampleRelationships on the Diagram.</value>
-    <comment>Description for DomainClass &apos;ExampleConnector&apos;</comment>
+  <data name="CooperationSubShapeTypeDecoratorDefaultText" xml:space="preserve">
+    <value>TypeDecorator</value>
+    <comment>Text decorator default text</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.ExampleConnector.DisplayName" xml:space="preserve">
-    <value>Example Connector</value>
-    <comment>DisplayName for DomainClass &apos;ExampleConnector&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptShape.Description" xml:space="preserve">
+    <value>Shape used to represent ExampleElements on a Diagram.</value>
+    <comment>Description for DomainClass &apos;ConceptShape&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.Connector1.Description" xml:space="preserve">
-    <value>Description de Bb.ApplicationCooperationViewPoint.Connector1</value>
-    <comment>Description for DomainClass &apos;Connector1&apos;</comment>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptShape.DisplayName" xml:space="preserve">
+    <value>Concept Shape</value>
+    <comment>DisplayName for DomainClass &apos;ConceptShape&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.Connector1.DisplayName" xml:space="preserve">
-    <value>Connector1</value>
-    <comment>DisplayName for DomainClass &apos;Connector1&apos;</comment>
+  <data name="ConceptShapeNameDecoratorDefaultText" xml:space="preserve">
+    <value>NameDecorator</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElementShape.Description" xml:space="preserve">
+    <value>Shape used to represent ExampleElements on a Diagram.</value>
+    <comment>Description for DomainClass &apos;ConceptElementShape&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptElementShape.DisplayName" xml:space="preserve">
+    <value>Concept Element Shape</value>
+    <comment>DisplayName for DomainClass &apos;ConceptElementShape&apos;</comment>
+  </data>
+  <data name="ConceptElementShapeNameDecoratorDefaultText" xml:space="preserve">
+    <value>NameDecorator</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="ConceptElementShapeTypeDecoratorDefaultText" xml:space="preserve">
+    <value>TypeDecorator</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptSubElementShape.Description" xml:space="preserve">
+    <value>Shape used to represent ExampleElements on a Diagram.</value>
+    <comment>Description for DomainClass &apos;ConceptSubElementShape&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.ConceptSubElementShape.DisplayName" xml:space="preserve">
+    <value>Concept Sub Element Shape</value>
+    <comment>DisplayName for DomainClass &apos;ConceptSubElementShape&apos;</comment>
+  </data>
+  <data name="ConceptSubElementShapeNameDecoratorDefaultText" xml:space="preserve">
+    <value>NameDecorator</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="ConceptSubElementShapeTypeDecoratorDefaultText" xml:space="preserve">
+    <value>TypeDecorator</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.RelationshipShape.Description" xml:space="preserve">
+    <value>Shape used to represent ExampleElements on a Diagram.</value>
+    <comment>Description for DomainClass &apos;RelationshipShape&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.RelationshipShape.DisplayName" xml:space="preserve">
+    <value>Relationship Shape</value>
+    <comment>DisplayName for DomainClass &apos;RelationshipShape&apos;</comment>
+  </data>
+  <data name="RelationshipShapeNameDecoratorDefaultText" xml:space="preserve">
+    <value>NameDecorator</value>
+    <comment>Text decorator default text</comment>
   </data>
   <data name="FormatList" xml:space="preserve">
     <value>ApplicationCooperationViewPoint (*.covp)|*.covp</value>
@@ -365,49 +749,17 @@
     <value>ApplicationCooperationViewPoint Explorer</value>
     <comment>Model Explorer Toolwindow title</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDiagram.Description" xml:space="preserve">
+  <data name="Bb.ApplicationCooperationViewPoint.CooperationViewPointDiagram.Description" xml:space="preserve">
     <value>Description for Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDiagram</value>
-    <comment>Description for DomainClass &apos;ApplicationCooperationViewPointDiagram&apos;</comment>
+    <comment>Description for DomainClass &apos;CooperationViewPointDiagram&apos;</comment>
   </data>
-  <data name="Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDiagram.DisplayName" xml:space="preserve">
+  <data name="Bb.ApplicationCooperationViewPoint.CooperationViewPointDiagram.DisplayName" xml:space="preserve">
     <value>Minimal Language Diagram</value>
-    <comment>DisplayName for DomainClass &apos;ApplicationCooperationViewPointDiagram&apos;</comment>
+    <comment>DisplayName for DomainClass &apos;CooperationViewPointDiagram&apos;</comment>
   </data>
   <data name="Cooperation ViewpointToolboxTab" xml:space="preserve">
     <value>Cooperation Viewpoint</value>
     <comment>Toolbox item tab name</comment>
-  </data>
-  <data name="ElementToolboxItem" xml:space="preserve">
-    <value>Element</value>
-    <comment>Toolbox item name</comment>
-  </data>
-  <data name="ElementToolboxTooltip" xml:space="preserve">
-    <value>Create a root Element</value>
-    <comment>Toolbox tooltip text</comment>
-  </data>
-  <data name="ExampleRelationshipToolboxItem" xml:space="preserve">
-    <value>ExampleRelationship</value>
-    <comment>Toolbox item name</comment>
-  </data>
-  <data name="ExampleRelationshipToolboxTooltip" xml:space="preserve">
-    <value>Drag between ExampleElements to create an ExampleRelationship</value>
-    <comment>Toolbox tooltip text</comment>
-  </data>
-  <data name="SubElementToolboxItem" xml:space="preserve">
-    <value>SubElement</value>
-    <comment>Toolbox item name</comment>
-  </data>
-  <data name="SubElementToolboxTooltip" xml:space="preserve">
-    <value>Sub Element</value>
-    <comment>Toolbox tooltip text</comment>
-  </data>
-  <data name="ConnectionTool1ToolboxItem" xml:space="preserve">
-    <value>ConnectionTool1</value>
-    <comment>Toolbox item name</comment>
-  </data>
-  <data name="ConnectionTool1ToolboxTooltip" xml:space="preserve">
-    <value>Connection Tool1</value>
-    <comment>Toolbox tooltip text</comment>
   </data>
   <data name="UnresolvedToolboxItem" xml:space="preserve">
     <value>ToolboxItem {0} was not found</value>
@@ -532,23 +884,6 @@ A DomainClass can be serialized as a moniker only if
   <data name="UnloadableSaveValidationFailed" xml:space="preserve">
     <value>There were validation errors. Continuing to save may cause the file to become unloadable, do you want to continue?</value>
     <comment>Message when validation errors are found on save that will cause file to become unloadable</comment>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ElementToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
-    <value>..\resources\exampleshapetoolbitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Toolbox item image</comment>
-  </data>
-  <data name="ExampleRelationshipToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
-    <value>..\resources\exampleconnectortoolbitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Toolbox item image</comment>
-  </data>
-  <data name="SubElementToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
-    <value>..\resources\exampleshapetoolbitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Toolbox item image</comment>
-  </data>
-  <data name="ConnectionTool1ToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
-    <value>..\resources\exampleconnectortoolbitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Toolbox item image</comment>
   </data>
 </root>
 

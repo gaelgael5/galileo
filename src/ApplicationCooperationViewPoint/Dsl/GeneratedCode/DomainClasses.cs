@@ -12,20 +12,20 @@ using DslDesign = global::Microsoft.VisualStudio.Modeling.Design;
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainClass CooperationModel
+	/// DomainClass Model
 	/// The root in which all other elements are embedded. Appears as a diagram.
 	/// </summary>
-	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.CooperationModel.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.CooperationModel.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Model.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Model.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainObjectId("8be8ba93-37bd-430f-bab0-798cd8f43104")]
-	public partial class CooperationModel : DslModeling::ModelElement
+	public partial class Model : DslModeling::ModelElement
 	{
 		#region Constructors, domain class Id
 	
 		/// <summary>
-		/// CooperationModel domain class Id.
+		/// Model domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x8be8ba93, 0x37bd, 0x430f, 0xba, 0xb0, 0x79, 0x8c, 0xd8, 0xf4, 0x31, 0x04);
 		/// <summary>
@@ -33,7 +33,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		/// <param name="store">Store where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public CooperationModel(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		public Model(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
@@ -43,7 +43,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		/// <param name="partition">Partition where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public CooperationModel(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		public Model(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, propertyAssignments)
 		{
 		}
@@ -62,10 +62,10 @@ namespace Bb.ApplicationCooperationViewPoint
 		
 		/// <summary>
 		/// Gets or sets the value of Name domain property.
-		/// Description de Bb.ApplicationCooperationViewPoint.CooperationModel.Name
+		/// Description de Bb.ApplicationCooperationViewPoint.Model.Name
 		/// </summary>
-		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.CooperationModel/Name.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.CooperationModel/Name.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Model/Name.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Model/Name.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslModeling::DomainObjectId("048aa5a8-8536-4484-836c-7792c8e92d57")]
 		public global::System.String Name
 		{
@@ -81,19 +81,19 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 		}
 		/// <summary>
-		/// Value handler for the CooperationModel.Name domain property.
+		/// Value handler for the Model.Name domain property.
 		/// </summary>
-		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<CooperationModel, global::System.String>
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<Model, global::System.String>
 		{
 			private NamePropertyHandler() { }
 		
 			/// <summary>
-			/// Gets the singleton instance of the CooperationModel.Name domain property value handler.
+			/// Gets the singleton instance of the Model.Name domain property value handler.
 			/// </summary>
 			public static readonly NamePropertyHandler Instance = new NamePropertyHandler();
 		
 			/// <summary>
-			/// Gets the Id of the CooperationModel.Name domain property.
+			/// Gets the Id of the Model.Name domain property.
 			/// </summary>
 			public sealed override global::System.Guid DomainPropertyId
 			{
@@ -109,7 +109,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(CooperationModel element)
+			public override sealed global::System.String GetValue(Model element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.namePropertyStorage;
@@ -120,7 +120,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(CooperationModel element, global::System.String newValue)
+			public override sealed void SetValue(Model element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -149,10 +149,10 @@ namespace Bb.ApplicationCooperationViewPoint
 		
 		/// <summary>
 		/// Gets or sets the value of Target domain property.
-		/// Description de Bb.ApplicationCooperationViewPoint.CooperationModel.Target
+		/// Description de Bb.ApplicationCooperationViewPoint.Model.Target
 		/// </summary>
-		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.CooperationModel/Target.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.CooperationModel/Target.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Model/Target.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Model/Target.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslModeling::DomainObjectId("b963122b-9189-4127-ba26-23296661bba4")]
 		public global::System.String Target
 		{
@@ -168,19 +168,19 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 		}
 		/// <summary>
-		/// Value handler for the CooperationModel.Target domain property.
+		/// Value handler for the Model.Target domain property.
 		/// </summary>
-		internal sealed partial class TargetPropertyHandler : DslModeling::DomainPropertyValueHandler<CooperationModel, global::System.String>
+		internal sealed partial class TargetPropertyHandler : DslModeling::DomainPropertyValueHandler<Model, global::System.String>
 		{
 			private TargetPropertyHandler() { }
 		
 			/// <summary>
-			/// Gets the singleton instance of the CooperationModel.Target domain property value handler.
+			/// Gets the singleton instance of the Model.Target domain property value handler.
 			/// </summary>
 			public static readonly TargetPropertyHandler Instance = new TargetPropertyHandler();
 		
 			/// <summary>
-			/// Gets the Id of the CooperationModel.Target domain property.
+			/// Gets the Id of the Model.Target domain property.
 			/// </summary>
 			public sealed override global::System.Guid DomainPropertyId
 			{
@@ -196,7 +196,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(CooperationModel element)
+			public override sealed global::System.String GetValue(Model element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.targetPropertyStorage;
@@ -207,7 +207,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(CooperationModel element, global::System.String newValue)
+			public override sealed void SetValue(Model element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -222,12 +222,427 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		
 		#endregion
+		#region ViewpointType domain property code
+		
+		/// <summary>
+		/// ViewpointType domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ViewpointTypeDomainPropertyId = new global::System.Guid(0xa44053d4, 0x9afc, 0x469a, 0xa7, 0xb3, 0x83, 0xd4, 0xe0, 0x0f, 0xa1, 0x6f);
+		
+		/// <summary>
+		/// Storage for ViewpointType
+		/// </summary>
+		private global::System.String viewpointTypePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of ViewpointType domain property.
+		/// Description de Bb.ApplicationCooperationViewPoint.Model.Viewpoint Type
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Model/ViewpointType.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Model/ViewpointType.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("a44053d4-9afc-469a-a7b3-83d4e00fa16f")]
+		public global::System.String ViewpointType
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return viewpointTypePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ViewpointTypePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Model.ViewpointType domain property.
+		/// </summary>
+		internal sealed partial class ViewpointTypePropertyHandler : DslModeling::DomainPropertyValueHandler<Model, global::System.String>
+		{
+			private ViewpointTypePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Model.ViewpointType domain property value handler.
+			/// </summary>
+			public static readonly ViewpointTypePropertyHandler Instance = new ViewpointTypePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Model.ViewpointType domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ViewpointTypeDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(Model element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.viewpointTypePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(Model element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.viewpointTypePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Elements opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of Elements.
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<ModelElement> Elements
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<ModelElement>, ModelElement>(global::Bb.ApplicationCooperationViewPoint.ModelHasElements.ModelDomainRoleId);
+			}
+		}
+		#endregion
+		#region Concept opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of Concept.
+		/// Description de Bb.ApplicationCooperationViewPoint.ModelHasConcept.Model
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<Concept> Concept
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Concept>, Concept>(global::Bb.ApplicationCooperationViewPoint.ModelHasConcept.ModelDomainRoleId);
+			}
+		}
+		#endregion
+		#region Relationships opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of Relationships.
+		/// Description de Bb.ApplicationCooperationViewPoint.ModelHasRelationships.Model
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<Relationship> Relationships
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(global::Bb.ApplicationCooperationViewPoint.ModelHasRelationships.ModelDomainRoleId);
+			}
+		}
+		#endregion
+		#region ElementGroupPrototype Merge methods
+		/// <summary>
+		/// Returns a value indicating whether the source element represented by the
+		/// specified root ProtoElement can be added to this element.
+		/// </summary>
+		/// <param name="rootElement">
+		/// The root ProtoElement representing a source element.  This can be null, 
+		/// in which case the ElementGroupPrototype does not contain an ProtoElements
+		/// and the code should inspect the ElementGroupPrototype context information.
+		/// </param>
+		/// <param name="elementGroupPrototype">The ElementGroupPrototype that contains the root ProtoElement.</param>
+		/// <returns>true if the source element represented by the ProtoElement can be added to this target element.</returns>
+		protected override bool CanMerge(DslModeling::ProtoElementBase rootElement, DslModeling::ElementGroupPrototype elementGroupPrototype)
+		{
+			if ( elementGroupPrototype == null ) throw new global::System.ArgumentNullException("elementGroupPrototype");
+			
+			if (rootElement != null)
+			{
+				DslModeling::DomainClassInfo rootElementDomainInfo = this.Partition.DomainDataDirectory.GetDomainClass(rootElement.DomainClassId);
+				
+				if (rootElementDomainInfo.IsDerivedFrom(global::Bb.ApplicationCooperationViewPoint.ModelElement.DomainClassId)) 
+				{
+					return true;
+				}
+				
+				if (rootElementDomainInfo.IsDerivedFrom(global::Bb.ApplicationCooperationViewPoint.Concept.DomainClassId)) 
+				{
+					return true;
+				}
+				
+				if (rootElementDomainInfo.IsDerivedFrom(global::Bb.ApplicationCooperationViewPoint.Relationship.DomainClassId)) 
+				{
+					return true;
+				}
+			}
+			return base.CanMerge(rootElement, elementGroupPrototype);
+		}
+		
+		/// <summary>
+		/// Called by the Merge process to create a relationship between 
+		/// this target element and the specified source element. 
+		/// Typically, a parent-child relationship is established
+		/// between the target element (the parent) and the source element 
+		/// (the child), but any relationship can be established.
+		/// </summary>
+		/// <param name="sourceElement">The element that is to be related to this model element.</param>
+		/// <param name="elementGroup">The group of source ModelElements that have been rehydrated into the target store.</param>
+		/// <remarks>
+		/// This method is overriden to create the relationship between the target element and the specified source element.
+		/// The base method does nothing.
+		/// </remarks>
+		protected override void MergeRelate(DslModeling::ModelElement sourceElement, DslModeling::ElementGroup elementGroup)
+		{
+			// In general, sourceElement is allowed to be null, meaning that the elementGroup must be parsed for special cases.
+			// However this is not supported in generated code.  Use double-deriving on this class and then override MergeRelate completely if you 
+			// need to support this case.
+			if ( sourceElement == null ) throw new global::System.ArgumentNullException("sourceElement");
+		
+				
+			global::Bb.ApplicationCooperationViewPoint.ModelElement sourceModelElement1 = sourceElement as global::Bb.ApplicationCooperationViewPoint.ModelElement;
+			if (sourceModelElement1 != null)
+			{
+				// Create link for path ModelHasElements.Elements
+				this.Elements.Add(sourceModelElement1);
+
+				return;
+			}
+				
+			global::Bb.ApplicationCooperationViewPoint.Concept sourceConcept2 = sourceElement as global::Bb.ApplicationCooperationViewPoint.Concept;
+			if (sourceConcept2 != null)
+			{
+				// Create link for path ModelHasConcept.Concept
+				this.Concept.Add(sourceConcept2);
+
+				return;
+			}
+				
+			global::Bb.ApplicationCooperationViewPoint.Relationship sourceRelationship3 = sourceElement as global::Bb.ApplicationCooperationViewPoint.Relationship;
+			if (sourceRelationship3 != null)
+			{
+				// Create link for path ModelHasRelationships.Relationships
+				this.Relationships.Add(sourceRelationship3);
+
+				return;
+			}
+		
+			// Sdk workaround to runtime bug #879350 (DSL: can't copy and paste a MEL that has a MEX). Avoid MergeRelate on ModelElementExtension
+			// during a "Paste".
+			if (sourceElement is DslModeling::ExtensionElement
+				&& sourceElement.Store.TransactionManager.CurrentTransaction.TopLevelTransaction.Context.ContextInfo.ContainsKey("{9DAFD42A-DC0E-4d78-8C3F-8266B2CF8B33}"))
+			{
+				return;
+			}
+		
+			// Fall through to base class if this class hasn't handled the merge.
+			base.MergeRelate(sourceElement, elementGroup);
+		}
+		
+		/// <summary>
+		/// Performs operation opposite to MergeRelate - i.e. disconnects a given
+		/// element from the current one (removes links created by MergeRelate).
+		/// </summary>
+		/// <param name="sourceElement">Element to be unmerged/disconnected.</param>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		protected override void MergeDisconnect(DslModeling::ModelElement sourceElement)
+		{
+			if (sourceElement == null) throw new global::System.ArgumentNullException("sourceElement");
+				
+			global::Bb.ApplicationCooperationViewPoint.ModelElement sourceModelElement1 = sourceElement as global::Bb.ApplicationCooperationViewPoint.ModelElement;
+			if (sourceModelElement1 != null)
+			{
+				// Delete link for path ModelHasElements.Elements
+				
+				foreach (DslModeling::ElementLink link in global::Bb.ApplicationCooperationViewPoint.ModelHasElements.GetLinks((global::Bb.ApplicationCooperationViewPoint.Model)this, sourceModelElement1))
+				{
+					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
+					link.Delete(global::Bb.ApplicationCooperationViewPoint.ModelHasElements.ModelDomainRoleId, global::Bb.ApplicationCooperationViewPoint.ModelHasElements.ElementDomainRoleId);
+				}
+
+				return;
+			}
+				
+			global::Bb.ApplicationCooperationViewPoint.Concept sourceConcept2 = sourceElement as global::Bb.ApplicationCooperationViewPoint.Concept;
+			if (sourceConcept2 != null)
+			{
+				// Delete link for path ModelHasConcept.Concept
+				
+				foreach (DslModeling::ElementLink link in global::Bb.ApplicationCooperationViewPoint.ModelHasConcept.GetLinks((global::Bb.ApplicationCooperationViewPoint.Model)this, sourceConcept2))
+				{
+					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
+					link.Delete(global::Bb.ApplicationCooperationViewPoint.ModelHasConcept.ModelDomainRoleId, global::Bb.ApplicationCooperationViewPoint.ModelHasConcept.ConceptDomainRoleId);
+				}
+
+				return;
+			}
+				
+			global::Bb.ApplicationCooperationViewPoint.Relationship sourceRelationship3 = sourceElement as global::Bb.ApplicationCooperationViewPoint.Relationship;
+			if (sourceRelationship3 != null)
+			{
+				// Delete link for path ModelHasRelationships.Relationships
+				
+				foreach (DslModeling::ElementLink link in global::Bb.ApplicationCooperationViewPoint.ModelHasRelationships.GetLinks((global::Bb.ApplicationCooperationViewPoint.Model)this, sourceRelationship3))
+				{
+					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
+					link.Delete(global::Bb.ApplicationCooperationViewPoint.ModelHasRelationships.ModelDomainRoleId, global::Bb.ApplicationCooperationViewPoint.ModelHasRelationships.RelationshipDomainRoleId);
+				}
+
+				return;
+			}
+			// Fall through to base class if this class hasn't handled the unmerge.
+			base.MergeDisconnect(sourceElement);
+		}
+		#endregion
+	}
+}
+namespace Bb.ApplicationCooperationViewPoint
+{
+	/// <summary>
+	/// DomainClass ModelElement
+	/// Elements embedded in the model. Appear as boxes on the diagram.
+	/// </summary>
+	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ModelElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ModelElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {referenceSourcePropertyStorage})")]
+	[DslModeling::DomainObjectId("403a7c63-3a36-4881-b0d5-0eaf0dcad50e")]
+	public partial class ModelElement : DslModeling::ModelElement
+	{
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// ModelElement domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x403a7c63, 0x3a36, 0x4881, 0xb0, 0xd5, 0x0e, 0xaf, 0x0d, 0xca, 0xd5, 0x0e);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public ModelElement(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public ModelElement(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+		#region ReferenceSource domain property code
+		
+		/// <summary>
+		/// ReferenceSource domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ReferenceSourceDomainPropertyId = new global::System.Guid(0x97022f17, 0xf153, 0x4a51, 0x90, 0x2e, 0xc1, 0x88, 0x6c, 0x9a, 0x53, 0x3a);
+		
+		/// <summary>
+		/// Storage for ReferenceSource
+		/// </summary>
+		private global::System.String referenceSourcePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of ReferenceSource domain property.
+		/// Description for Bb.ApplicationCooperationViewPoint.ExampleElement.Name
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ModelElement/ReferenceSource.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ModelElement/ReferenceSource.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.DefaultValue("")]
+		[DslModeling::ElementName]
+		[DslModeling::DomainObjectId("97022f17-f153-4a51-902e-c1886c9a533a")]
+		public global::System.String ReferenceSource
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return referenceSourcePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ReferenceSourcePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the ModelElement.ReferenceSource domain property.
+		/// </summary>
+		internal sealed partial class ReferenceSourcePropertyHandler : DslModeling::DomainPropertyValueHandler<ModelElement, global::System.String>
+		{
+			private ReferenceSourcePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the ModelElement.ReferenceSource domain property value handler.
+			/// </summary>
+			public static readonly ReferenceSourcePropertyHandler Instance = new ReferenceSourcePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the ModelElement.ReferenceSource domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ReferenceSourceDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(ModelElement element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.referenceSourcePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(ModelElement element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.referenceSourcePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
 		#region Type domain property code
 		
 		/// <summary>
 		/// Type domain property Id.
 		/// </summary>
-		public static readonly global::System.Guid TypeDomainPropertyId = new global::System.Guid(0xa44053d4, 0x9afc, 0x469a, 0xa7, 0xb3, 0x83, 0xd4, 0xe0, 0x0f, 0xa1, 0x6f);
+		public static readonly global::System.Guid TypeDomainPropertyId = new global::System.Guid(0x186ee9fa, 0xb929, 0x4b89, 0x8b, 0x01, 0xff, 0x23, 0x98, 0x90, 0xad, 0x0d);
 		
 		/// <summary>
 		/// Storage for Type
@@ -236,11 +651,12 @@ namespace Bb.ApplicationCooperationViewPoint
 		
 		/// <summary>
 		/// Gets or sets the value of Type domain property.
-		/// Description de Bb.ApplicationCooperationViewPoint.CooperationModel.Type
+		/// Description de Bb.ApplicationCooperationViewPoint.ModelElement.Type
 		/// </summary>
-		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.CooperationModel/Type.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.CooperationModel/Type.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainObjectId("a44053d4-9afc-469a-a7b3-83d4e00fa16f")]
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ModelElement/Type.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ModelElement/Type.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.ReadOnly(true)]
+		[DslModeling::DomainObjectId("186ee9fa-b929-4b89-8b01-ff239890ad0d")]
 		public global::System.String Type
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
@@ -255,19 +671,19 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 		}
 		/// <summary>
-		/// Value handler for the CooperationModel.Type domain property.
+		/// Value handler for the ModelElement.Type domain property.
 		/// </summary>
-		internal sealed partial class TypePropertyHandler : DslModeling::DomainPropertyValueHandler<CooperationModel, global::System.String>
+		internal sealed partial class TypePropertyHandler : DslModeling::DomainPropertyValueHandler<ModelElement, global::System.String>
 		{
 			private TypePropertyHandler() { }
 		
 			/// <summary>
-			/// Gets the singleton instance of the CooperationModel.Type domain property value handler.
+			/// Gets the singleton instance of the ModelElement.Type domain property value handler.
 			/// </summary>
 			public static readonly TypePropertyHandler Instance = new TypePropertyHandler();
 		
 			/// <summary>
-			/// Gets the Id of the CooperationModel.Type domain property.
+			/// Gets the Id of the ModelElement.Type domain property.
 			/// </summary>
 			public sealed override global::System.Guid DomainPropertyId
 			{
@@ -283,7 +699,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(CooperationModel element)
+			public override sealed global::System.String GetValue(ModelElement element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.typePropertyStorage;
@@ -294,7 +710,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(CooperationModel element, global::System.String newValue)
+			public override sealed void SetValue(ModelElement element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -309,214 +725,60 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		
 		#endregion
-		#region Elements opposite domain role accessor
+		#region Name domain property code
 		
 		/// <summary>
-		/// Gets a list of Elements.
+		/// Name domain property Id.
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<CooperationElement> Elements
+		public static readonly global::System.Guid NameDomainPropertyId = new global::System.Guid(0x8e7d1b12, 0x3853, 0x4cd0, 0x94, 0x3b, 0x7c, 0x2f, 0x36, 0xe6, 0xca, 0xb7);
+		
+		/// <summary>
+		/// Storage for Name
+		/// </summary>
+		private global::System.String namePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Name domain property.
+		/// Description de Bb.ApplicationCooperationViewPoint.ModelElement.Name
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ModelElement/Name.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ModelElement/Name.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.ReadOnly(true)]
+		[DslModeling::DomainObjectId("8e7d1b12-3853-4cd0-943b-7c2f36e6cab7")]
+		public global::System.String Name
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<CooperationElement>, CooperationElement>(global::Bb.ApplicationCooperationViewPoint.CooperationModelHasElements.CooperationModelDomainRoleId);
-			}
-		}
-		#endregion
-		#region ElementGroupPrototype Merge methods
-		/// <summary>
-		/// Returns a value indicating whether the source element represented by the
-		/// specified root ProtoElement can be added to this element.
-		/// </summary>
-		/// <param name="rootElement">
-		/// The root ProtoElement representing a source element.  This can be null, 
-		/// in which case the ElementGroupPrototype does not contain an ProtoElements
-		/// and the code should inspect the ElementGroupPrototype context information.
-		/// </param>
-		/// <param name="elementGroupPrototype">The ElementGroupPrototype that contains the root ProtoElement.</param>
-		/// <returns>true if the source element represented by the ProtoElement can be added to this target element.</returns>
-		protected override bool CanMerge(DslModeling::ProtoElementBase rootElement, DslModeling::ElementGroupPrototype elementGroupPrototype)
-		{
-			if ( elementGroupPrototype == null ) throw new global::System.ArgumentNullException("elementGroupPrototype");
-			
-			if (rootElement != null)
-			{
-				DslModeling::DomainClassInfo rootElementDomainInfo = this.Partition.DomainDataDirectory.GetDomainClass(rootElement.DomainClassId);
-				
-				if (rootElementDomainInfo.IsDerivedFrom(global::Bb.ApplicationCooperationViewPoint.CooperationElement.DomainClassId)) 
-				{
-					return true;
-				}
-			}
-			return base.CanMerge(rootElement, elementGroupPrototype);
-		}
-		
-		/// <summary>
-		/// Called by the Merge process to create a relationship between 
-		/// this target element and the specified source element. 
-		/// Typically, a parent-child relationship is established
-		/// between the target element (the parent) and the source element 
-		/// (the child), but any relationship can be established.
-		/// </summary>
-		/// <param name="sourceElement">The element that is to be related to this model element.</param>
-		/// <param name="elementGroup">The group of source ModelElements that have been rehydrated into the target store.</param>
-		/// <remarks>
-		/// This method is overriden to create the relationship between the target element and the specified source element.
-		/// The base method does nothing.
-		/// </remarks>
-		protected override void MergeRelate(DslModeling::ModelElement sourceElement, DslModeling::ElementGroup elementGroup)
-		{
-			// In general, sourceElement is allowed to be null, meaning that the elementGroup must be parsed for special cases.
-			// However this is not supported in generated code.  Use double-deriving on this class and then override MergeRelate completely if you 
-			// need to support this case.
-			if ( sourceElement == null ) throw new global::System.ArgumentNullException("sourceElement");
-		
-				
-			global::Bb.ApplicationCooperationViewPoint.CooperationElement sourceCooperationElement1 = sourceElement as global::Bb.ApplicationCooperationViewPoint.CooperationElement;
-			if (sourceCooperationElement1 != null)
-			{
-				// Create link for path CooperationModelHasElements.Elements
-				this.Elements.Add(sourceCooperationElement1);
-
-				return;
-			}
-		
-			// Sdk workaround to runtime bug #879350 (DSL: can't copy and paste a MEL that has a MEX). Avoid MergeRelate on ModelElementExtension
-			// during a "Paste".
-			if (sourceElement is DslModeling::ExtensionElement
-				&& sourceElement.Store.TransactionManager.CurrentTransaction.TopLevelTransaction.Context.ContextInfo.ContainsKey("{9DAFD42A-DC0E-4d78-8C3F-8266B2CF8B33}"))
-			{
-				return;
-			}
-		
-			// Fall through to base class if this class hasn't handled the merge.
-			base.MergeRelate(sourceElement, elementGroup);
-		}
-		
-		/// <summary>
-		/// Performs operation opposite to MergeRelate - i.e. disconnects a given
-		/// element from the current one (removes links created by MergeRelate).
-		/// </summary>
-		/// <param name="sourceElement">Element to be unmerged/disconnected.</param>
-		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
-		protected override void MergeDisconnect(DslModeling::ModelElement sourceElement)
-		{
-			if (sourceElement == null) throw new global::System.ArgumentNullException("sourceElement");
-				
-			global::Bb.ApplicationCooperationViewPoint.CooperationElement sourceCooperationElement1 = sourceElement as global::Bb.ApplicationCooperationViewPoint.CooperationElement;
-			if (sourceCooperationElement1 != null)
-			{
-				// Delete link for path CooperationModelHasElements.Elements
-				
-				foreach (DslModeling::ElementLink link in global::Bb.ApplicationCooperationViewPoint.CooperationModelHasElements.GetLinks((global::Bb.ApplicationCooperationViewPoint.CooperationModel)this, sourceCooperationElement1))
-				{
-					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
-					link.Delete(global::Bb.ApplicationCooperationViewPoint.CooperationModelHasElements.CooperationModelDomainRoleId, global::Bb.ApplicationCooperationViewPoint.CooperationModelHasElements.ElementDomainRoleId);
-				}
-
-				return;
-			}
-			// Fall through to base class if this class hasn't handled the unmerge.
-			base.MergeDisconnect(sourceElement);
-		}
-		#endregion
-	}
-}
-namespace Bb.ApplicationCooperationViewPoint
-{
-	/// <summary>
-	/// DomainClass CooperationElement
-	/// Elements embedded in the model. Appear as boxes on the diagram.
-	/// </summary>
-	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.CooperationElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.CooperationElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
-	[global::System.CLSCompliant(true)]
-	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (SourceReference = {sourceReferencePropertyStorage})")]
-	[DslModeling::DomainObjectId("403a7c63-3a36-4881-b0d5-0eaf0dcad50e")]
-	public partial class CooperationElement : DslModeling::ModelElement
-	{
-		#region Constructors, domain class Id
-	
-		/// <summary>
-		/// CooperationElement domain class Id.
-		/// </summary>
-		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x403a7c63, 0x3a36, 0x4881, 0xb0, 0xd5, 0x0e, 0xaf, 0x0d, 0xca, 0xd5, 0x0e);
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="store">Store where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public CooperationElement(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
-		{
-		}
-		
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="partition">Partition where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public CooperationElement(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: base(partition, propertyAssignments)
-		{
-		}
-		#endregion
-		#region SourceReference domain property code
-		
-		/// <summary>
-		/// SourceReference domain property Id.
-		/// </summary>
-		public static readonly global::System.Guid SourceReferenceDomainPropertyId = new global::System.Guid(0x97022f17, 0xf153, 0x4a51, 0x90, 0x2e, 0xc1, 0x88, 0x6c, 0x9a, 0x53, 0x3a);
-		
-		/// <summary>
-		/// Storage for SourceReference
-		/// </summary>
-		private global::System.String sourceReferencePropertyStorage = string.Empty;
-		
-		/// <summary>
-		/// Gets or sets the value of SourceReference domain property.
-		/// Description for Bb.ApplicationCooperationViewPoint.ExampleElement.Name
-		/// </summary>
-		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.CooperationElement/SourceReference.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.CooperationElement/SourceReference.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[global::System.ComponentModel.DefaultValue("")]
-		[DslModeling::ElementName]
-		[DslModeling::DomainObjectId("97022f17-f153-4a51-902e-c1886c9a533a")]
-		public global::System.String SourceReference
-		{
-			[global::System.Diagnostics.DebuggerStepThrough]
-			get
-			{
-				return sourceReferencePropertyStorage;
+				return namePropertyStorage;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				SourceReferencePropertyHandler.Instance.SetValue(this, value);
+				NamePropertyHandler.Instance.SetValue(this, value);
 			}
 		}
 		/// <summary>
-		/// Value handler for the CooperationElement.SourceReference domain property.
+		/// Value handler for the ModelElement.Name domain property.
 		/// </summary>
-		internal sealed partial class SourceReferencePropertyHandler : DslModeling::DomainPropertyValueHandler<CooperationElement, global::System.String>
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<ModelElement, global::System.String>
 		{
-			private SourceReferencePropertyHandler() { }
+			private NamePropertyHandler() { }
 		
 			/// <summary>
-			/// Gets the singleton instance of the CooperationElement.SourceReference domain property value handler.
+			/// Gets the singleton instance of the ModelElement.Name domain property value handler.
 			/// </summary>
-			public static readonly SourceReferencePropertyHandler Instance = new SourceReferencePropertyHandler();
+			public static readonly NamePropertyHandler Instance = new NamePropertyHandler();
 		
 			/// <summary>
-			/// Gets the Id of the CooperationElement.SourceReference domain property.
+			/// Gets the Id of the ModelElement.Name domain property.
 			/// </summary>
 			public sealed override global::System.Guid DomainPropertyId
 			{
 				[global::System.Diagnostics.DebuggerStepThrough]
 				get
 				{
-					return SourceReferenceDomainPropertyId;
+					return NameDomainPropertyId;
 				}
 			}
 			
@@ -525,10 +787,10 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(CooperationElement element)
+			public override sealed global::System.String GetValue(ModelElement element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-				return element.sourceReferencePropertyStorage;
+				return element.namePropertyStorage;
 			}
 		
 			/// <summary>
@@ -536,7 +798,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(CooperationElement element, global::System.String newValue)
+			public override sealed void SetValue(ModelElement element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -544,74 +806,44 @@ namespace Bb.ApplicationCooperationViewPoint
 				if (newValue != oldValue)
 				{
 					ValueChanging(element, oldValue, newValue);
-					element.sourceReferencePropertyStorage = newValue;
+					element.namePropertyStorage = newValue;
 					ValueChanged(element, oldValue, newValue);
 				}
 			}
 		}
 		
 		#endregion
-		#region CooperationModel opposite domain role accessor
+		#region Model opposite domain role accessor
 		/// <summary>
-		/// Gets or sets CooperationModel.
+		/// Gets or sets Model.
 		/// </summary>
-		public virtual CooperationModel CooperationModel
+		public virtual Model Model
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.CooperationModelHasElements.ElementDomainRoleId) as CooperationModel;
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ModelHasElements.ElementDomainRoleId) as Model;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.CooperationModelHasElements.ElementDomainRoleId, value);
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ModelHasElements.ElementDomainRoleId, value);
 			}
 		}
 		#endregion
-		#region Targets opposite domain role accessor
+		#region Parent opposite domain role accessor
 		
 		/// <summary>
-		/// Gets a list of Targets.
-		/// Description for Bb.ApplicationCooperationViewPoint.ExampleRelationship.Target
-		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<CooperationElement> Targets
-		{
-			[global::System.Diagnostics.DebuggerStepThrough]
-			get
-			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<CooperationElement>, CooperationElement>(global::Bb.ApplicationCooperationViewPoint.CooperationElementReferencesTargets.SourceDomainRoleId);
-			}
-		}
-		#endregion
-		#region Sources opposite domain role accessor
-		
-		/// <summary>
-		/// Gets a list of Sources.
-		/// Description for Bb.ApplicationCooperationViewPoint.ExampleRelationship.Source
-		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<CooperationElement> Sources
-		{
-			[global::System.Diagnostics.DebuggerStepThrough]
-			get
-			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<CooperationElement>, CooperationElement>(global::Bb.ApplicationCooperationViewPoint.CooperationElementReferencesTargets.TargetDomainRoleId);
-			}
-		}
-		#endregion
-		#region CooperationSubElement opposite domain role accessor
-		
-		/// <summary>
-		/// Gets a list of CooperationSubElement.
+		/// Gets a list of Parent.
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.CooperationElementHasCooperationSubElement.Parent
+		/// Bb.ApplicationCooperationViewPoint.ModelElementHasParent.ModelElement
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<CooperationSubElement> CooperationSubElement
+		public virtual DslModeling::LinkedElementCollection<SubElement> Parent
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<CooperationSubElement>, CooperationSubElement>(global::Bb.ApplicationCooperationViewPoint.CooperationElementHasCooperationSubElement.ParentDomainRoleId);
+				return GetRoleCollection<DslModeling::LinkedElementCollection<SubElement>, SubElement>(global::Bb.ApplicationCooperationViewPoint.ModelElementHasParent.ModelElementDomainRoleId);
 			}
 		}
 		#endregion
@@ -635,7 +867,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			{
 				DslModeling::DomainClassInfo rootElementDomainInfo = this.Partition.DomainDataDirectory.GetDomainClass(rootElement.DomainClassId);
 				
-				if (rootElementDomainInfo.IsDerivedFrom(global::Bb.ApplicationCooperationViewPoint.CooperationSubElement.DomainClassId)) 
+				if (rootElementDomainInfo.IsDerivedFrom(global::Bb.ApplicationCooperationViewPoint.SubElement.DomainClassId)) 
 				{
 					return true;
 				}
@@ -664,11 +896,11 @@ namespace Bb.ApplicationCooperationViewPoint
 			if ( sourceElement == null ) throw new global::System.ArgumentNullException("sourceElement");
 		
 				
-			global::Bb.ApplicationCooperationViewPoint.CooperationSubElement sourceCooperationSubElement1 = sourceElement as global::Bb.ApplicationCooperationViewPoint.CooperationSubElement;
-			if (sourceCooperationSubElement1 != null)
+			global::Bb.ApplicationCooperationViewPoint.SubElement sourceSubElement1 = sourceElement as global::Bb.ApplicationCooperationViewPoint.SubElement;
+			if (sourceSubElement1 != null)
 			{
-				// Create link for path CooperationElementHasCooperationSubElement.CooperationSubElement
-				this.CooperationSubElement.Add(sourceCooperationSubElement1);
+				// Create link for path ModelElementHasParent.Parent
+				this.Parent.Add(sourceSubElement1);
 
 				return;
 			}
@@ -695,15 +927,15 @@ namespace Bb.ApplicationCooperationViewPoint
 		{
 			if (sourceElement == null) throw new global::System.ArgumentNullException("sourceElement");
 				
-			global::Bb.ApplicationCooperationViewPoint.CooperationSubElement sourceCooperationSubElement1 = sourceElement as global::Bb.ApplicationCooperationViewPoint.CooperationSubElement;
-			if (sourceCooperationSubElement1 != null)
+			global::Bb.ApplicationCooperationViewPoint.SubElement sourceSubElement1 = sourceElement as global::Bb.ApplicationCooperationViewPoint.SubElement;
+			if (sourceSubElement1 != null)
 			{
-				// Delete link for path CooperationElementHasCooperationSubElement.CooperationSubElement
+				// Delete link for path ModelElementHasParent.Parent
 				
-				foreach (DslModeling::ElementLink link in global::Bb.ApplicationCooperationViewPoint.CooperationElementHasCooperationSubElement.GetLinks((global::Bb.ApplicationCooperationViewPoint.CooperationElement)this, sourceCooperationSubElement1))
+				foreach (DslModeling::ElementLink link in global::Bb.ApplicationCooperationViewPoint.ModelElementHasParent.GetLinks((global::Bb.ApplicationCooperationViewPoint.ModelElement)this, sourceSubElement1))
 				{
 					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
-					link.Delete(global::Bb.ApplicationCooperationViewPoint.CooperationElementHasCooperationSubElement.ParentDomainRoleId, global::Bb.ApplicationCooperationViewPoint.CooperationElementHasCooperationSubElement.CooperationSubElementDomainRoleId);
+					link.Delete(global::Bb.ApplicationCooperationViewPoint.ModelElementHasParent.ModelElementDomainRoleId, global::Bb.ApplicationCooperationViewPoint.ModelElementHasParent.SubElementDomainRoleId);
 				}
 
 				return;
@@ -717,20 +949,21 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainClass CooperationSubElement
-	/// Description de Bb.ApplicationCooperationViewPoint.CooperationSubElement
+	/// DomainClass SubElement
+	/// Description de Bb.ApplicationCooperationViewPoint.SubElement
 	/// </summary>
-	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.CooperationSubElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.CooperationSubElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.SubElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.SubElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
+	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {referenceSourcePropertyStorage})")]
 	[DslModeling::DomainObjectId("e39ae37f-7927-4be7-a99c-94d0deb846f7")]
-	public partial class CooperationSubElement : DslModeling::ModelElement
+	public partial class SubElement : DslModeling::ModelElement
 	{
 		#region Constructors, domain class Id
 	
 		/// <summary>
-		/// CooperationSubElement domain class Id.
+		/// SubElement domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xe39ae37f, 0x7927, 0x4be7, 0xa9, 0x9c, 0x94, 0xd0, 0xde, 0xb8, 0x46, 0xf7);
 		/// <summary>
@@ -738,7 +971,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		/// <param name="store">Store where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public CooperationSubElement(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		public SubElement(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
@@ -748,7 +981,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		/// <param name="partition">Partition where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public CooperationSubElement(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		public SubElement(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, propertyAssignments)
 		{
 		}
@@ -767,11 +1000,11 @@ namespace Bb.ApplicationCooperationViewPoint
 		
 		/// <summary>
 		/// Gets or sets the value of ReferenceSource domain property.
-		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.CooperationSubElement.Reference Source
+		/// Description de Bb.ApplicationCooperationViewPoint.SubElement.Reference Source
 		/// </summary>
-		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.CooperationSubElement/ReferenceSource.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.CooperationSubElement/ReferenceSource.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.SubElement/ReferenceSource.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.SubElement/ReferenceSource.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::ElementName]
 		[DslModeling::DomainObjectId("b3968e18-782b-4443-9994-f232739217b9")]
 		public global::System.String ReferenceSource
 		{
@@ -787,19 +1020,19 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 		}
 		/// <summary>
-		/// Value handler for the CooperationSubElement.ReferenceSource domain property.
+		/// Value handler for the SubElement.ReferenceSource domain property.
 		/// </summary>
-		internal sealed partial class ReferenceSourcePropertyHandler : DslModeling::DomainPropertyValueHandler<CooperationSubElement, global::System.String>
+		internal sealed partial class ReferenceSourcePropertyHandler : DslModeling::DomainPropertyValueHandler<SubElement, global::System.String>
 		{
 			private ReferenceSourcePropertyHandler() { }
 		
 			/// <summary>
-			/// Gets the singleton instance of the CooperationSubElement.ReferenceSource domain property value handler.
+			/// Gets the singleton instance of the SubElement.ReferenceSource domain property value handler.
 			/// </summary>
 			public static readonly ReferenceSourcePropertyHandler Instance = new ReferenceSourcePropertyHandler();
 		
 			/// <summary>
-			/// Gets the Id of the CooperationSubElement.ReferenceSource domain property.
+			/// Gets the Id of the SubElement.ReferenceSource domain property.
 			/// </summary>
 			public sealed override global::System.Guid DomainPropertyId
 			{
@@ -815,7 +1048,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(CooperationSubElement element)
+			public override sealed global::System.String GetValue(SubElement element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.referenceSourcePropertyStorage;
@@ -826,7 +1059,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(CooperationSubElement element, global::System.String newValue)
+			public override sealed void SetValue(SubElement element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -841,55 +1074,1687 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		
 		#endregion
-		#region Parent opposite domain role accessor
+		#region Type domain property code
+		
 		/// <summary>
-		/// Gets or sets Parent.
-		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.CooperationElementHasCooperationSubElement.CooperationSubElement
+		/// Type domain property Id.
 		/// </summary>
-		public virtual CooperationElement Parent
+		public static readonly global::System.Guid TypeDomainPropertyId = new global::System.Guid(0xc9c98eae, 0x11ce, 0x4989, 0xb0, 0x12, 0x49, 0xc6, 0x4d, 0x4d, 0xcf, 0x11);
+		
+		/// <summary>
+		/// Storage for Type
+		/// </summary>
+		private global::System.String typePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Type domain property.
+		/// Description de Bb.ApplicationCooperationViewPoint.SubElement.Type
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.SubElement/Type.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.SubElement/Type.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.ReadOnly(true)]
+		[DslModeling::DomainObjectId("c9c98eae-11ce-4989-b012-49c64d4dcf11")]
+		public global::System.String Type
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.CooperationElementHasCooperationSubElement.CooperationSubElementDomainRoleId) as CooperationElement;
+				return typePropertyStorage;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.CooperationElementHasCooperationSubElement.CooperationSubElementDomainRoleId, value);
+				TypePropertyHandler.Instance.SetValue(this, value);
 			}
 		}
+		/// <summary>
+		/// Value handler for the SubElement.Type domain property.
+		/// </summary>
+		internal sealed partial class TypePropertyHandler : DslModeling::DomainPropertyValueHandler<SubElement, global::System.String>
+		{
+			private TypePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the SubElement.Type domain property value handler.
+			/// </summary>
+			public static readonly TypePropertyHandler Instance = new TypePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the SubElement.Type domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return TypeDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(SubElement element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.typePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(SubElement element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.typePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
 		#endregion
-		#region TargetCooperationSubElement opposite domain role accessor
+		#region Name domain property code
 		
 		/// <summary>
-		/// Gets a list of TargetCooperationSubElement.
-		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.CooperationSubElementReferencesTargetCooperationSubElement.SourceCooperationSubElement
+		/// Name domain property Id.
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<CooperationSubElement> TargetCooperationSubElement
+		public static readonly global::System.Guid NameDomainPropertyId = new global::System.Guid(0x0a2706da, 0x320c, 0x4408, 0x90, 0xff, 0xbc, 0xc2, 0x77, 0xfd, 0x49, 0xa8);
+		
+		/// <summary>
+		/// Storage for Name
+		/// </summary>
+		private global::System.String namePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Name domain property.
+		/// Description de Bb.ApplicationCooperationViewPoint.SubElement.Name
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.SubElement/Name.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.SubElement/Name.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.ReadOnly(true)]
+		[DslModeling::DomainObjectId("0a2706da-320c-4408-90ff-bcc277fd49a8")]
+		public global::System.String Name
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<CooperationSubElement>, CooperationSubElement>(global::Bb.ApplicationCooperationViewPoint.CooperationSubElementReferencesTargetCooperationSubElement.SourceCooperationSubElementDomainRoleId);
+				return namePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				NamePropertyHandler.Instance.SetValue(this, value);
 			}
 		}
-		#endregion
-		#region SourceCooperationSubElement opposite domain role accessor
-		
 		/// <summary>
-		/// Gets a list of SourceCooperationSubElement.
-		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.CooperationSubElementReferencesTargetCooperationSubElement.TargetCooperationSubElement
+		/// Value handler for the SubElement.Name domain property.
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<CooperationSubElement> SourceCooperationSubElement
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<SubElement, global::System.String>
+		{
+			private NamePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the SubElement.Name domain property value handler.
+			/// </summary>
+			public static readonly NamePropertyHandler Instance = new NamePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the SubElement.Name domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return NameDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(SubElement element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.namePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(SubElement element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.namePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Children opposite domain role accessor
+		/// <summary>
+		/// Gets or sets Children.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.ModelElementHasParent.SubElement
+		/// </summary>
+		public virtual ModelElement Children
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<CooperationSubElement>, CooperationSubElement>(global::Bb.ApplicationCooperationViewPoint.CooperationSubElementReferencesTargetCooperationSubElement.TargetCooperationSubElementDomainRoleId);
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ModelElementHasParent.SubElementDomainRoleId) as ModelElement;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ModelElementHasParent.SubElementDomainRoleId, value);
+			}
+		}
+		#endregion
+		#region Relationship opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of Relationship.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.SubElement
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<Relationship> Relationship
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.SubElementDomainRoleId);
+			}
+		}
+		#endregion
+	}
+}
+namespace Bb.ApplicationCooperationViewPoint
+{
+	/// <summary>
+	/// DomainClass Concept
+	/// Description de Bb.ApplicationCooperationViewPoint.Concept
+	/// </summary>
+	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Concept.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Concept.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {referenceSourcePropertyStorage})")]
+	[DslModeling::DomainObjectId("eaad73c4-a652-4596-b575-39e82c2f525a")]
+	public partial class Concept : DslModeling::ModelElement
+	{
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// Concept domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xeaad73c4, 0xa652, 0x4596, 0xb5, 0x75, 0x39, 0xe8, 0x2c, 0x2f, 0x52, 0x5a);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public Concept(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public Concept(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+		#region ReferenceSource domain property code
+		
+		/// <summary>
+		/// ReferenceSource domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ReferenceSourceDomainPropertyId = new global::System.Guid(0x8f8c5d55, 0x111e, 0x49f2, 0x95, 0x18, 0xcc, 0xe3, 0x91, 0x95, 0xb8, 0x47);
+		
+		/// <summary>
+		/// Storage for ReferenceSource
+		/// </summary>
+		private global::System.String referenceSourcePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of ReferenceSource domain property.
+		/// Description de Bb.ApplicationCooperationViewPoint.Concept.Reference Source
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Concept/ReferenceSource.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Concept/ReferenceSource.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::ElementName]
+		[DslModeling::DomainObjectId("8f8c5d55-111e-49f2-9518-cce39195b847")]
+		public global::System.String ReferenceSource
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return referenceSourcePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ReferenceSourcePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Concept.ReferenceSource domain property.
+		/// </summary>
+		internal sealed partial class ReferenceSourcePropertyHandler : DslModeling::DomainPropertyValueHandler<Concept, global::System.String>
+		{
+			private ReferenceSourcePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Concept.ReferenceSource domain property value handler.
+			/// </summary>
+			public static readonly ReferenceSourcePropertyHandler Instance = new ReferenceSourcePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Concept.ReferenceSource domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ReferenceSourceDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(Concept element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.referenceSourcePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(Concept element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.referenceSourcePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Name domain property code
+		
+		/// <summary>
+		/// Name domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid NameDomainPropertyId = new global::System.Guid(0x9c79719a, 0x1349, 0x4b5c, 0xa9, 0x36, 0xa8, 0x00, 0x94, 0xc0, 0xe3, 0x92);
+		
+		/// <summary>
+		/// Storage for Name
+		/// </summary>
+		private global::System.String namePropertyStorage = "Parcel Domain";
+		
+		/// <summary>
+		/// Gets or sets the value of Name domain property.
+		/// Description de Bb.ApplicationCooperationViewPoint.Concept.Name
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Concept/Name.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Concept/Name.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.DefaultValue("Parcel Domain")]
+		[global::System.ComponentModel.ReadOnly(true)]
+		[DslModeling::DomainObjectId("9c79719a-1349-4b5c-a936-a80094c0e392")]
+		public global::System.String Name
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return namePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				NamePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Concept.Name domain property.
+		/// </summary>
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<Concept, global::System.String>
+		{
+			private NamePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Concept.Name domain property value handler.
+			/// </summary>
+			public static readonly NamePropertyHandler Instance = new NamePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Concept.Name domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return NameDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(Concept element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.namePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(Concept element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.namePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Model opposite domain role accessor
+		/// <summary>
+		/// Gets or sets Model.
+		/// Description de Bb.ApplicationCooperationViewPoint.ModelHasConcept.Concept
+		/// </summary>
+		public virtual Model Model
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ModelHasConcept.ConceptDomainRoleId) as Model;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ModelHasConcept.ConceptDomainRoleId, value);
+			}
+		}
+		#endregion
+		#region ConceptElement opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of ConceptElement.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.Concept
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<ConceptElement> ConceptElement
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<ConceptElement>, ConceptElement>(global::Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.ConceptDomainRoleId);
+			}
+		}
+		#endregion
+		#region Relationship opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of Relationship.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.Concept
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<Relationship> Relationship
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.ConceptDomainRoleId);
+			}
+		}
+		#endregion
+		#region ElementGroupPrototype Merge methods
+		/// <summary>
+		/// Returns a value indicating whether the source element represented by the
+		/// specified root ProtoElement can be added to this element.
+		/// </summary>
+		/// <param name="rootElement">
+		/// The root ProtoElement representing a source element.  This can be null, 
+		/// in which case the ElementGroupPrototype does not contain an ProtoElements
+		/// and the code should inspect the ElementGroupPrototype context information.
+		/// </param>
+		/// <param name="elementGroupPrototype">The ElementGroupPrototype that contains the root ProtoElement.</param>
+		/// <returns>true if the source element represented by the ProtoElement can be added to this target element.</returns>
+		protected override bool CanMerge(DslModeling::ProtoElementBase rootElement, DslModeling::ElementGroupPrototype elementGroupPrototype)
+		{
+			if ( elementGroupPrototype == null ) throw new global::System.ArgumentNullException("elementGroupPrototype");
+			
+			if (rootElement != null)
+			{
+				DslModeling::DomainClassInfo rootElementDomainInfo = this.Partition.DomainDataDirectory.GetDomainClass(rootElement.DomainClassId);
+				
+				if (rootElementDomainInfo.IsDerivedFrom(global::Bb.ApplicationCooperationViewPoint.ConceptElement.DomainClassId)) 
+				{
+					return true;
+				}
+			}
+			return base.CanMerge(rootElement, elementGroupPrototype);
+		}
+		
+		/// <summary>
+		/// Called by the Merge process to create a relationship between 
+		/// this target element and the specified source element. 
+		/// Typically, a parent-child relationship is established
+		/// between the target element (the parent) and the source element 
+		/// (the child), but any relationship can be established.
+		/// </summary>
+		/// <param name="sourceElement">The element that is to be related to this model element.</param>
+		/// <param name="elementGroup">The group of source ModelElements that have been rehydrated into the target store.</param>
+		/// <remarks>
+		/// This method is overriden to create the relationship between the target element and the specified source element.
+		/// The base method does nothing.
+		/// </remarks>
+		protected override void MergeRelate(DslModeling::ModelElement sourceElement, DslModeling::ElementGroup elementGroup)
+		{
+			// In general, sourceElement is allowed to be null, meaning that the elementGroup must be parsed for special cases.
+			// However this is not supported in generated code.  Use double-deriving on this class and then override MergeRelate completely if you 
+			// need to support this case.
+			if ( sourceElement == null ) throw new global::System.ArgumentNullException("sourceElement");
+		
+				
+			global::Bb.ApplicationCooperationViewPoint.ConceptElement sourceConceptElement1 = sourceElement as global::Bb.ApplicationCooperationViewPoint.ConceptElement;
+			if (sourceConceptElement1 != null)
+			{
+				// Create link for path ConceptHasConceptElement.ConceptElement
+				this.ConceptElement.Add(sourceConceptElement1);
+
+				return;
+			}
+		
+			// Sdk workaround to runtime bug #879350 (DSL: can't copy and paste a MEL that has a MEX). Avoid MergeRelate on ModelElementExtension
+			// during a "Paste".
+			if (sourceElement is DslModeling::ExtensionElement
+				&& sourceElement.Store.TransactionManager.CurrentTransaction.TopLevelTransaction.Context.ContextInfo.ContainsKey("{9DAFD42A-DC0E-4d78-8C3F-8266B2CF8B33}"))
+			{
+				return;
+			}
+		
+			// Fall through to base class if this class hasn't handled the merge.
+			base.MergeRelate(sourceElement, elementGroup);
+		}
+		
+		/// <summary>
+		/// Performs operation opposite to MergeRelate - i.e. disconnects a given
+		/// element from the current one (removes links created by MergeRelate).
+		/// </summary>
+		/// <param name="sourceElement">Element to be unmerged/disconnected.</param>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		protected override void MergeDisconnect(DslModeling::ModelElement sourceElement)
+		{
+			if (sourceElement == null) throw new global::System.ArgumentNullException("sourceElement");
+				
+			global::Bb.ApplicationCooperationViewPoint.ConceptElement sourceConceptElement1 = sourceElement as global::Bb.ApplicationCooperationViewPoint.ConceptElement;
+			if (sourceConceptElement1 != null)
+			{
+				// Delete link for path ConceptHasConceptElement.ConceptElement
+				
+				foreach (DslModeling::ElementLink link in global::Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.GetLinks((global::Bb.ApplicationCooperationViewPoint.Concept)this, sourceConceptElement1))
+				{
+					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
+					link.Delete(global::Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.ConceptDomainRoleId, global::Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.ConceptElementDomainRoleId);
+				}
+
+				return;
+			}
+			// Fall through to base class if this class hasn't handled the unmerge.
+			base.MergeDisconnect(sourceElement);
+		}
+		#endregion
+	}
+}
+namespace Bb.ApplicationCooperationViewPoint
+{
+	/// <summary>
+	/// DomainClass ConceptElement
+	/// Description de Bb.ApplicationCooperationViewPoint.ConceptElement
+	/// </summary>
+	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {referenceSourcePropertyStorage})")]
+	[DslModeling::DomainObjectId("3aba6490-0175-4397-b4b4-8ba4dd8df1d1")]
+	public partial class ConceptElement : DslModeling::ModelElement
+	{
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// ConceptElement domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x3aba6490, 0x0175, 0x4397, 0xb4, 0xb4, 0x8b, 0xa4, 0xdd, 0x8d, 0xf1, 0xd1);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public ConceptElement(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public ConceptElement(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+		#region ReferenceSource domain property code
+		
+		/// <summary>
+		/// ReferenceSource domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ReferenceSourceDomainPropertyId = new global::System.Guid(0x16627524, 0x3c73, 0x434a, 0xbb, 0xee, 0x5e, 0xf2, 0x33, 0x44, 0xe6, 0x2a);
+		
+		/// <summary>
+		/// Storage for ReferenceSource
+		/// </summary>
+		private global::System.String referenceSourcePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of ReferenceSource domain property.
+		/// Description de Bb.ApplicationCooperationViewPoint.ConceptElement.Reference
+		/// Source
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptElement/ReferenceSource.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptElement/ReferenceSource.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::ElementName]
+		[DslModeling::DomainObjectId("16627524-3c73-434a-bbee-5ef23344e62a")]
+		public global::System.String ReferenceSource
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return referenceSourcePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ReferenceSourcePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the ConceptElement.ReferenceSource domain property.
+		/// </summary>
+		internal sealed partial class ReferenceSourcePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptElement, global::System.String>
+		{
+			private ReferenceSourcePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the ConceptElement.ReferenceSource domain property value handler.
+			/// </summary>
+			public static readonly ReferenceSourcePropertyHandler Instance = new ReferenceSourcePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the ConceptElement.ReferenceSource domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ReferenceSourceDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(ConceptElement element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.referenceSourcePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(ConceptElement element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.referenceSourcePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Type domain property code
+		
+		/// <summary>
+		/// Type domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid TypeDomainPropertyId = new global::System.Guid(0x1a662591, 0x4601, 0x4437, 0xb8, 0xa1, 0xb4, 0x1d, 0x55, 0xd5, 0xc3, 0x60);
+		
+		/// <summary>
+		/// Storage for Type
+		/// </summary>
+		private global::System.String typePropertyStorage = "Application";
+		
+		/// <summary>
+		/// Gets or sets the value of Type domain property.
+		/// Description de Bb.ApplicationCooperationViewPoint.ConceptElement.Type
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptElement/Type.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptElement/Type.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.DefaultValue("Application")]
+		[global::System.ComponentModel.ReadOnly(true)]
+		[DslModeling::DomainObjectId("1a662591-4601-4437-b8a1-b41d55d5c360")]
+		public global::System.String Type
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return typePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				TypePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the ConceptElement.Type domain property.
+		/// </summary>
+		internal sealed partial class TypePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptElement, global::System.String>
+		{
+			private TypePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the ConceptElement.Type domain property value handler.
+			/// </summary>
+			public static readonly TypePropertyHandler Instance = new TypePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the ConceptElement.Type domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return TypeDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(ConceptElement element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.typePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(ConceptElement element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.typePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Name domain property code
+		
+		/// <summary>
+		/// Name domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid NameDomainPropertyId = new global::System.Guid(0x95b8ccf0, 0x5e6a, 0x43a9, 0x9c, 0x9a, 0xbe, 0x38, 0xef, 0x26, 0x3e, 0x48);
+		
+		/// <summary>
+		/// Storage for Name
+		/// </summary>
+		private global::System.String namePropertyStorage = "Colis 21";
+		
+		/// <summary>
+		/// Gets or sets the value of Name domain property.
+		/// Description de Bb.ApplicationCooperationViewPoint.ConceptElement.Name
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptElement/Name.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptElement/Name.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.DefaultValue("Colis 21")]
+		[global::System.ComponentModel.ReadOnly(true)]
+		[DslModeling::DomainObjectId("95b8ccf0-5e6a-43a9-9c9a-be38ef263e48")]
+		public global::System.String Name
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return namePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				NamePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the ConceptElement.Name domain property.
+		/// </summary>
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptElement, global::System.String>
+		{
+			private NamePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the ConceptElement.Name domain property value handler.
+			/// </summary>
+			public static readonly NamePropertyHandler Instance = new NamePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the ConceptElement.Name domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return NameDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(ConceptElement element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.namePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(ConceptElement element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.namePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Concept opposite domain role accessor
+		/// <summary>
+		/// Gets or sets Concept.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.ConceptElement
+		/// </summary>
+		public virtual Concept Concept
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.ConceptElementDomainRoleId) as Concept;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.ConceptElementDomainRoleId, value);
+			}
+		}
+		#endregion
+		#region ConceptSubElement opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of ConceptSubElement.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.ConceptElement
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<ConceptSubElement> ConceptSubElement
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<ConceptSubElement>, ConceptSubElement>(global::Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.ConceptElementDomainRoleId);
+			}
+		}
+		#endregion
+		#region Relationship opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of Relationship.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.ConceptElement
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<Relationship> Relationship
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.ConceptElementDomainRoleId);
+			}
+		}
+		#endregion
+		#region ElementGroupPrototype Merge methods
+		/// <summary>
+		/// Returns a value indicating whether the source element represented by the
+		/// specified root ProtoElement can be added to this element.
+		/// </summary>
+		/// <param name="rootElement">
+		/// The root ProtoElement representing a source element.  This can be null, 
+		/// in which case the ElementGroupPrototype does not contain an ProtoElements
+		/// and the code should inspect the ElementGroupPrototype context information.
+		/// </param>
+		/// <param name="elementGroupPrototype">The ElementGroupPrototype that contains the root ProtoElement.</param>
+		/// <returns>true if the source element represented by the ProtoElement can be added to this target element.</returns>
+		protected override bool CanMerge(DslModeling::ProtoElementBase rootElement, DslModeling::ElementGroupPrototype elementGroupPrototype)
+		{
+			if ( elementGroupPrototype == null ) throw new global::System.ArgumentNullException("elementGroupPrototype");
+			
+			if (rootElement != null)
+			{
+				DslModeling::DomainClassInfo rootElementDomainInfo = this.Partition.DomainDataDirectory.GetDomainClass(rootElement.DomainClassId);
+				
+				if (rootElementDomainInfo.IsDerivedFrom(global::Bb.ApplicationCooperationViewPoint.ConceptSubElement.DomainClassId)) 
+				{
+					return true;
+				}
+			}
+			return base.CanMerge(rootElement, elementGroupPrototype);
+		}
+		
+		/// <summary>
+		/// Called by the Merge process to create a relationship between 
+		/// this target element and the specified source element. 
+		/// Typically, a parent-child relationship is established
+		/// between the target element (the parent) and the source element 
+		/// (the child), but any relationship can be established.
+		/// </summary>
+		/// <param name="sourceElement">The element that is to be related to this model element.</param>
+		/// <param name="elementGroup">The group of source ModelElements that have been rehydrated into the target store.</param>
+		/// <remarks>
+		/// This method is overriden to create the relationship between the target element and the specified source element.
+		/// The base method does nothing.
+		/// </remarks>
+		protected override void MergeRelate(DslModeling::ModelElement sourceElement, DslModeling::ElementGroup elementGroup)
+		{
+			// In general, sourceElement is allowed to be null, meaning that the elementGroup must be parsed for special cases.
+			// However this is not supported in generated code.  Use double-deriving on this class and then override MergeRelate completely if you 
+			// need to support this case.
+			if ( sourceElement == null ) throw new global::System.ArgumentNullException("sourceElement");
+		
+				
+			global::Bb.ApplicationCooperationViewPoint.ConceptSubElement sourceConceptSubElement1 = sourceElement as global::Bb.ApplicationCooperationViewPoint.ConceptSubElement;
+			if (sourceConceptSubElement1 != null)
+			{
+				// Create link for path ConceptElementHasConceptSubElement.ConceptSubElement
+				this.ConceptSubElement.Add(sourceConceptSubElement1);
+
+				return;
+			}
+		
+			// Sdk workaround to runtime bug #879350 (DSL: can't copy and paste a MEL that has a MEX). Avoid MergeRelate on ModelElementExtension
+			// during a "Paste".
+			if (sourceElement is DslModeling::ExtensionElement
+				&& sourceElement.Store.TransactionManager.CurrentTransaction.TopLevelTransaction.Context.ContextInfo.ContainsKey("{9DAFD42A-DC0E-4d78-8C3F-8266B2CF8B33}"))
+			{
+				return;
+			}
+		
+			// Fall through to base class if this class hasn't handled the merge.
+			base.MergeRelate(sourceElement, elementGroup);
+		}
+		
+		/// <summary>
+		/// Performs operation opposite to MergeRelate - i.e. disconnects a given
+		/// element from the current one (removes links created by MergeRelate).
+		/// </summary>
+		/// <param name="sourceElement">Element to be unmerged/disconnected.</param>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		protected override void MergeDisconnect(DslModeling::ModelElement sourceElement)
+		{
+			if (sourceElement == null) throw new global::System.ArgumentNullException("sourceElement");
+				
+			global::Bb.ApplicationCooperationViewPoint.ConceptSubElement sourceConceptSubElement1 = sourceElement as global::Bb.ApplicationCooperationViewPoint.ConceptSubElement;
+			if (sourceConceptSubElement1 != null)
+			{
+				// Delete link for path ConceptElementHasConceptSubElement.ConceptSubElement
+				
+				foreach (DslModeling::ElementLink link in global::Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.GetLinks((global::Bb.ApplicationCooperationViewPoint.ConceptElement)this, sourceConceptSubElement1))
+				{
+					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
+					link.Delete(global::Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.ConceptElementDomainRoleId, global::Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.ConceptSubElementDomainRoleId);
+				}
+
+				return;
+			}
+			// Fall through to base class if this class hasn't handled the unmerge.
+			base.MergeDisconnect(sourceElement);
+		}
+		#endregion
+	}
+}
+namespace Bb.ApplicationCooperationViewPoint
+{
+	/// <summary>
+	/// DomainClass ConceptSubElement
+	/// Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement
+	/// </summary>
+	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptSubElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptSubElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {referenceSourcePropertyStorage})")]
+	[DslModeling::DomainObjectId("a3a13452-14ee-4fe8-adcb-fd5c2f06ff68")]
+	public partial class ConceptSubElement : DslModeling::ModelElement
+	{
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// ConceptSubElement domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xa3a13452, 0x14ee, 0x4fe8, 0xad, 0xcb, 0xfd, 0x5c, 0x2f, 0x06, 0xff, 0x68);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public ConceptSubElement(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public ConceptSubElement(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+		#region ReferenceSource domain property code
+		
+		/// <summary>
+		/// ReferenceSource domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ReferenceSourceDomainPropertyId = new global::System.Guid(0xe4021cd7, 0xd1f3, 0x43a4, 0x80, 0x1b, 0x94, 0x6f, 0xbe, 0x96, 0x5c, 0x4c);
+		
+		/// <summary>
+		/// Storage for ReferenceSource
+		/// </summary>
+		private global::System.String referenceSourcePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of ReferenceSource domain property.
+		/// Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement.Reference
+		/// Source
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptSubElement/ReferenceSource.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptSubElement/ReferenceSource.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::ElementName]
+		[DslModeling::DomainObjectId("e4021cd7-d1f3-43a4-801b-946fbe965c4c")]
+		public global::System.String ReferenceSource
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return referenceSourcePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ReferenceSourcePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the ConceptSubElement.ReferenceSource domain property.
+		/// </summary>
+		internal sealed partial class ReferenceSourcePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptSubElement, global::System.String>
+		{
+			private ReferenceSourcePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the ConceptSubElement.ReferenceSource domain property value handler.
+			/// </summary>
+			public static readonly ReferenceSourcePropertyHandler Instance = new ReferenceSourcePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the ConceptSubElement.ReferenceSource domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ReferenceSourceDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(ConceptSubElement element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.referenceSourcePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(ConceptSubElement element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.referenceSourcePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Type domain property code
+		
+		/// <summary>
+		/// Type domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid TypeDomainPropertyId = new global::System.Guid(0x121c195f, 0x3624, 0x48e7, 0xb1, 0x1c, 0x71, 0x1b, 0x08, 0x3d, 0xee, 0xb4);
+		
+		/// <summary>
+		/// Storage for Type
+		/// </summary>
+		private global::System.String typePropertyStorage = "Module";
+		
+		/// <summary>
+		/// Gets or sets the value of Type domain property.
+		/// Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement.Type
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptSubElement/Type.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptSubElement/Type.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.DefaultValue("Module")]
+		[global::System.ComponentModel.ReadOnly(true)]
+		[DslModeling::DomainObjectId("121c195f-3624-48e7-b11c-711b083deeb4")]
+		public global::System.String Type
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return typePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				TypePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the ConceptSubElement.Type domain property.
+		/// </summary>
+		internal sealed partial class TypePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptSubElement, global::System.String>
+		{
+			private TypePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the ConceptSubElement.Type domain property value handler.
+			/// </summary>
+			public static readonly TypePropertyHandler Instance = new TypePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the ConceptSubElement.Type domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return TypeDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(ConceptSubElement element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.typePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(ConceptSubElement element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.typePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Name domain property code
+		
+		/// <summary>
+		/// Name domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid NameDomainPropertyId = new global::System.Guid(0x9f2c7807, 0xebf9, 0x4579, 0xb1, 0x46, 0x94, 0xf6, 0x64, 0x3b, 0x87, 0xe7);
+		
+		/// <summary>
+		/// Storage for Name
+		/// </summary>
+		private global::System.String namePropertyStorage = "Monitoring";
+		
+		/// <summary>
+		/// Gets or sets the value of Name domain property.
+		/// Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement.Name
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptSubElement/Name.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptSubElement/Name.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.DefaultValue("Monitoring")]
+		[global::System.ComponentModel.ReadOnly(true)]
+		[DslModeling::DomainObjectId("9f2c7807-ebf9-4579-b146-94f6643b87e7")]
+		public global::System.String Name
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return namePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				NamePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the ConceptSubElement.Name domain property.
+		/// </summary>
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptSubElement, global::System.String>
+		{
+			private NamePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the ConceptSubElement.Name domain property value handler.
+			/// </summary>
+			public static readonly NamePropertyHandler Instance = new NamePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the ConceptSubElement.Name domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return NameDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(ConceptSubElement element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.namePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(ConceptSubElement element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.namePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region ConceptElement opposite domain role accessor
+		/// <summary>
+		/// Gets or sets ConceptElement.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.ConceptSubElement
+		/// </summary>
+		public virtual ConceptElement ConceptElement
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.ConceptSubElementDomainRoleId) as ConceptElement;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.ConceptSubElementDomainRoleId, value);
+			}
+		}
+		#endregion
+		#region Relationship opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of Relationship.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.ConceptSubElement
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<Relationship> Relationship
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.ConceptSubElementDomainRoleId);
+			}
+		}
+		#endregion
+	}
+}
+namespace Bb.ApplicationCooperationViewPoint
+{
+	/// <summary>
+	/// DomainClass Relationship
+	/// Description de Bb.ApplicationCooperationViewPoint.Relationship
+	/// </summary>
+	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Relationship.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Relationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {referenceSourcePropertyStorage})")]
+	[DslModeling::DomainObjectId("95bd428c-7b5b-49c7-b8f9-5f753e1817a6")]
+	public partial class Relationship : DslModeling::ModelElement
+	{
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// Relationship domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x95bd428c, 0x7b5b, 0x49c7, 0xb8, 0xf9, 0x5f, 0x75, 0x3e, 0x18, 0x17, 0xa6);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public Relationship(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public Relationship(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+		#region ReferenceSource domain property code
+		
+		/// <summary>
+		/// ReferenceSource domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ReferenceSourceDomainPropertyId = new global::System.Guid(0xc12f448e, 0x0d28, 0x4f1f, 0x91, 0x95, 0x90, 0xd4, 0x7a, 0xad, 0x9e, 0x31);
+		
+		/// <summary>
+		/// Storage for ReferenceSource
+		/// </summary>
+		private global::System.String referenceSourcePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of ReferenceSource domain property.
+		/// Description de Bb.ApplicationCooperationViewPoint.Relationship.Reference Source
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Relationship/ReferenceSource.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Relationship/ReferenceSource.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::ElementName]
+		[DslModeling::DomainObjectId("c12f448e-0d28-4f1f-9195-90d47aad9e31")]
+		public global::System.String ReferenceSource
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return referenceSourcePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ReferenceSourcePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Relationship.ReferenceSource domain property.
+		/// </summary>
+		internal sealed partial class ReferenceSourcePropertyHandler : DslModeling::DomainPropertyValueHandler<Relationship, global::System.String>
+		{
+			private ReferenceSourcePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Relationship.ReferenceSource domain property value handler.
+			/// </summary>
+			public static readonly ReferenceSourcePropertyHandler Instance = new ReferenceSourcePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Relationship.ReferenceSource domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ReferenceSourceDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(Relationship element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.referenceSourcePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(Relationship element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.referenceSourcePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Name domain property code
+		
+		/// <summary>
+		/// Name domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid NameDomainPropertyId = new global::System.Guid(0x1648ea49, 0x8782, 0x4660, 0x97, 0x27, 0x6d, 0xfb, 0xd0, 0x3c, 0x3b, 0x81);
+		
+		/// <summary>
+		/// Storage for Name
+		/// </summary>
+		private global::System.String namePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Name domain property.
+		/// Description de Bb.ApplicationCooperationViewPoint.Relationship.Name
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Relationship/Name.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Relationship/Name.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.ReadOnly(true)]
+		[DslModeling::DomainObjectId("1648ea49-8782-4660-9727-6dfbd03c3b81")]
+		public global::System.String Name
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return namePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				NamePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Relationship.Name domain property.
+		/// </summary>
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<Relationship, global::System.String>
+		{
+			private NamePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Relationship.Name domain property value handler.
+			/// </summary>
+			public static readonly NamePropertyHandler Instance = new NamePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Relationship.Name domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return NameDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(Relationship element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.namePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(Relationship element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.namePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Model opposite domain role accessor
+		/// <summary>
+		/// Gets or sets Model.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.ModelHasRelationships.Relationship
+		/// </summary>
+		public virtual Model Model
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ModelHasRelationships.RelationshipDomainRoleId) as Model;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ModelHasRelationships.RelationshipDomainRoleId, value);
+			}
+		}
+		#endregion
+		#region SubElement opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of SubElement.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.Relationship
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<SubElement> SubElement
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<SubElement>, SubElement>(global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.RelationshipDomainRoleId);
+			}
+		}
+		#endregion
+		#region Concept opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of Concept.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.Relationship
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<Concept> Concept
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Concept>, Concept>(global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.RelationshipDomainRoleId);
+			}
+		}
+		#endregion
+		#region ConceptElement opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of ConceptElement.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.Relationship
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<ConceptElement> ConceptElement
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<ConceptElement>, ConceptElement>(global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.RelationshipDomainRoleId);
+			}
+		}
+		#endregion
+		#region ConceptSubElement opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of ConceptSubElement.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.Relationship
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<ConceptSubElement> ConceptSubElement
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<ConceptSubElement>, ConceptSubElement>(global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.RelationshipDomainRoleId);
 			}
 		}
 		#endregion

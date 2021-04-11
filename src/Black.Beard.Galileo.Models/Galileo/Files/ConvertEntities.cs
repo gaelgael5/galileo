@@ -9,13 +9,14 @@ using System.Linq;
 
 namespace Bb.Galileo.Models
 {
+
     internal class ConvertEntities<T> : Newtonsoft.Json.JsonConverter
     where T : ReferentialBase
     {
 
-        public ConvertEntities(SchemaReference referenceSchema, ModelRepository parent, IDiagnostic diagnostic, FileModel fullPath)
+        public ConvertEntities(ModelRepository parent, IDiagnostic diagnostic, FileModel fullPath)
         {
-            this._referenceSchema = referenceSchema;
+            this._referenceSchema = fullPath.Schema;
             this._parent = parent;
             this._file = fullPath;
             this._diagnostic = diagnostic;

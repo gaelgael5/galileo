@@ -1,6 +1,7 @@
 ﻿using Bb.Galileo.Files;
 using Bb.Galileo.Files.Datas;
 using Bb.Galileo.Files.Schemas;
+using Bb.Galileo.Files.Viewpoints;
 using Bb.Galileo.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -8,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace Bb.Galileo.Files
@@ -41,7 +43,7 @@ namespace Bb.Galileo.Files
 
         public ConfigModel Config { get; internal set; }
 
-        public Action<ModelRepository, IBase> ItemFileHasChanged { get; set; }
+        public Action<ModelRepository, Transactionfile> ItemFileHasChanged { get; set; }
 
 
         #region Layers
@@ -57,12 +59,52 @@ namespace Bb.Galileo.Files
             {
                 var oldDefinition = dic[item.Name];
                 dic[item.Name] = item;
-                PropagateFileChanged(item);
+                //PropagateFileChanged(item);
                 return;
             }
 
             dic.Add(item.Name, item);
-            PropagateFileChanged(item);
+            //PropagateFileChanged(item);
+
+        }
+
+        internal Transactionfile RemoveFile(FileModel item)
+        {
+
+            JObject payload = null;
+            Transactionfile transaction = null;
+            try
+            {
+                payload = item.Load();
+                transaction = _loader.Remove(payload, item);
+            }
+            catch (System.IO.IOException e1)
+            {
+                Diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, File = item.FullPath, Text = e1.Message, Exception = e1 });
+            }
+            catch (Exception e2)
+            {
+                Diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, File = item.FullPath, Text = e2.Message, Exception = e2 });
+            }
+
+            if (transaction != null)
+                if (ItemFileHasChanged != null)
+                    lock (_lockFile)
+                        ItemFileHasChanged(this, transaction);
+
+            return transaction;
+
+        }
+
+        internal void RemoveLayers(LayersDefinition item)
+        {
+
+            var type = item.GetType();
+            if (!_definitions.TryGetValue(type, out Dictionary<string, IBase> dic))
+                _definitions.Add(type, (dic = new Dictionary<string, IBase>()));
+
+            if (dic.ContainsKey(item.Name))
+                dic.Remove(item.Name);
 
         }
 
@@ -75,6 +117,55 @@ namespace Bb.Galileo.Files
         }
 
         #endregion Layers
+
+        #region CooperationVeiwpoint
+
+        internal void Add(CooperationViewpoint item)
+        {
+            var type = typeof(CooperationViewpoint);
+            if (!_definitions.TryGetValue(type, out Dictionary<string, IBase> dic))
+                _definitions.Add(type, (dic = new Dictionary<string, IBase>()));
+
+            if (dic.ContainsKey(item.Name))
+            {
+                var oldDefinition = dic[item.Name];
+                dic[item.Name] = item;
+                //PropagateFileChanged(item);
+                return;
+            }
+
+            dic.Add(item.Name, item);
+            //PropagateFileChanged(item);
+
+        }
+
+        internal void RemoveCooperationViewpoint(CooperationViewpoint item)
+        {
+            var type = typeof(CooperationViewpoint);
+            if (!_definitions.TryGetValue(type, out Dictionary<string, IBase> dic))
+                _definitions.Add(type, (dic = new Dictionary<string, IBase>()));
+
+            if (dic.ContainsKey(item.Name))
+                dic.Remove(item.Name);
+
+        }
+
+        public CooperationViewpoint GetCooperationViewpoint(string entityName)
+        {
+            if (_definitions.TryGetValue(typeof(CooperationViewpoint), out Dictionary<string, IBase> dic))
+                if (dic.TryGetValue(entityName, out IBase item))
+                    return (CooperationViewpoint)item;
+            return null;
+        }
+
+        public IEnumerable<CooperationViewpoint> GetCooperationViewpoints()
+        {
+            if (_definitions.TryGetValue(typeof(CooperationViewpoint), out Dictionary<string, IBase> dic))
+                foreach (var item in dic.Values)
+                    yield return (CooperationViewpoint)item;
+        }
+
+        #endregion
 
         #region Definitions
 
@@ -89,13 +180,22 @@ namespace Bb.Galileo.Files
             {
                 var oldDefinition = dic[item.Name];
                 dic[item.Name] = item;
-                PropagateFileChanged(item);
+                //PropagateFileChanged(item);
                 return;
             }
 
             dic.Add(item.Name, item);
-            PropagateFileChanged(item);
+            //PropagateFileChanged(item);
 
+        }
+
+        internal void RemoveDefinition(ModelDefinition item)
+        {
+            var type = item.GetType();
+            if (!_definitions.TryGetValue(type, out Dictionary<string, IBase> dic))
+                _definitions.Add(type, (dic = new Dictionary<string, IBase>()));
+            if (dic.ContainsKey(item.Name))
+                dic.Remove(item.Name);
         }
 
         public EntityDefinition GetEntityDefinition(string entityName)
@@ -106,12 +206,26 @@ namespace Bb.Galileo.Files
             return null;
         }
 
+        public IEnumerable<EntityDefinition> GetEntityDefinitions()
+        {
+            if (_definitions.TryGetValue(typeof(EntityDefinition), out Dictionary<string, IBase> dic))
+                foreach (var item in dic.Values)
+                    yield return (EntityDefinition)item;
+        }
+
         public RelationshipDefinition GetRelationshipDefinition(string relationshipName)
         {
             if (_definitions.TryGetValue(typeof(RelationshipDefinition), out Dictionary<string, IBase> dic))
                 if (dic.TryGetValue(relationshipName, out IBase item))
                     return (RelationshipDefinition)item;
             return null;
+        }
+
+        public IEnumerable<RelationshipDefinition> GetRelationshipDefinitions()
+        {
+            if (_definitions.TryGetValue(typeof(RelationshipDefinition), out Dictionary<string, IBase> dic))
+                foreach (var item in dic.Values)
+                    yield return (RelationshipDefinition)item;
         }
 
         #endregion Definitions
@@ -123,7 +237,10 @@ namespace Bb.Galileo.Files
 
             var type = item.GetType();
             if (!_entities.TryGetValue(type, out TypeIndex types))
-                _entities.Add(type, (types = new TypeIndex(this)));
+            {
+                types = new TypeIndex(this);
+                _entities.Add(type, types);
+            }
 
             var dic = types.Get(item.TypeEntity);
 
@@ -136,18 +253,30 @@ namespace Bb.Galileo.Files
                     n1.PropertyChanged -= N_PropertyChanged;
 
                 dic.Set(item);
-                PropagateFileChanged(item);
+                //PropagateFileChanged(item);
                 return;
 
             }
 
             dic.Set(item);
-            PropagateFileChanged(item);
+            //PropagateFileChanged(item);
 
             if (item is INotifyPropertyChanged n2)
                 n2.PropertyChanged -= N_PropertyChanged;
 
         }
+
+        internal void RemoveReferential(ReferentialBase item)
+        {
+            var type = item.GetType();
+            if (_entities.TryGetValue(type, out TypeIndex types))
+            {
+                var dic = types.Get(item.TypeEntity);
+                if (dic.ContainsKey(item.Name))
+                    dic.Remove(item);
+            }
+        }
+
 
         public ReferentialEntity GetEntity(string typeEntity, string identifier)
         {
@@ -184,6 +313,50 @@ namespace Bb.Galileo.Files
         }
 
         #endregion referentials
+
+        internal IEnumerable<T> CollectFile<T>(FileModel file)
+            where T : IBase
+        {
+
+            Type type = typeof(T);
+
+            if (typeof(ReferentialBase).IsAssignableFrom(type))
+            {
+                if (_entities.TryGetValue(type, out TypeIndex types))
+                    foreach (ModelIndex index in types.Values)
+                        foreach (var item in index.Values)
+                            if (item is T r && item.File.FullPath == file.FullPath)
+                                yield return r;
+            }
+
+            else if (typeof(ModelDefinition).IsAssignableFrom(type))
+            {
+                foreach (var definition in _definitions)
+                    foreach (ModelDefinition item in definition.Value.Values.OfType<ModelDefinition>())
+                        if (item is T d && item.File.FullPath == file.FullPath)
+                            yield return d;
+            }
+
+            else if (type == typeof(CooperationViewpoint))
+            {
+                foreach (var definition in _definitions)
+                    foreach (CooperationViewpoint item in definition.Value.Values.OfType<CooperationViewpoint>())
+                        if (item.File.FullPath == file.FullPath)
+                            yield return (T)(object)item;
+            }
+            else if (type == typeof(LayersDefinition))
+            {
+                foreach (var definition in _definitions)
+                    foreach (LayersDefinition item in definition.Value.Values.OfType<LayersDefinition>())
+                        if (item.File.FullPath == file.FullPath)
+                            yield return (T)(object)item;
+            }
+            else
+            {
+
+            }
+        }
+
 
         public IEnumerable<T> Get<T>()
          where T : IBase
@@ -227,28 +400,33 @@ namespace Bb.Galileo.Files
 
 
 
-        internal void Add(FileModel item)
+        internal Transactionfile Add(FileModel item, FileTracingEnum trace)
         {
 
-            JObject payload = item.Load();
-
+            JObject payload = null;
+            Transactionfile transaction = null;
             try
             {
-                _loader.Deserialize(payload, item);
+                payload = item.Load();
+                transaction = _loader.Add(payload, item);
+                transaction.Trace = trace;
             }
-            catch (Exception e)
+            catch (System.IO.IOException e1)
             {
-                Diagnostic.Append(new DiagnositcMessage() { File = item.FullPath, Text = e.Message, Exception = e });
-                return;
+                Diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, File = item.FullPath, Text = e1.Message, Exception = e1 });
+            }
+            catch (Exception e2)
+            {
+                Diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, File = item.FullPath, Text = e2.Message, Exception = e2 });
             }
 
-        }
+            if (transaction != null)
+                if (ItemFileHasChanged != null)
+                    lock (_lockFile)
+                        ItemFileHasChanged(this, transaction);
 
-        private void PropagateFileChanged(IBase item)
-        {
-            if (ItemFileHasChanged != null)
-                lock (_lockFile)
-                    ItemFileHasChanged(this, item);
+            return transaction;
+
         }
 
         private void N_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -267,3 +445,76 @@ namespace Bb.Galileo.Files
 
 
 }
+
+
+/*
+ 
+         internal void RemoveFile(FileModel file, Type type)
+        {
+
+            if (typeof(ReferentialBase).IsAssignableFrom(type))
+            {
+                if (_entities.TryGetValue(type, out TypeIndex types))
+                    foreach (ModelIndex index in types.Values)
+                    {
+                        List<ReferentialBase> _items = new List<ReferentialBase>();
+                        foreach (var item in index.Values)
+                            if (item.File.FullPath == file.FullPath)
+                                _items.Add(item);
+
+                        foreach (var item in _items)
+                            index.Remove(item);
+
+                    }
+            }
+
+            else if (typeof(ModelDefinition).IsAssignableFrom(type))
+            {
+                foreach (var definition in _definitions)
+                {
+                    List<ModelDefinition> _items = new List<ModelDefinition>();
+                    foreach (ModelDefinition item in definition.Value.Values.OfType<ModelDefinition>())
+                        if (item.File.FullPath == file.FullPath)
+                            _items.Add(item);
+
+                    foreach (var item in _items)
+                        definition.Value.Remove(item.Name);
+
+                }
+            }
+
+            else if (type == typeof(CooperationViewpoint))
+            {
+                foreach (var definition in _definitions)
+                {
+                    List<CooperationViewpoint> _items = new List<CooperationViewpoint>();
+                    foreach (CooperationViewpoint item in definition.Value.Values.OfType<CooperationViewpoint>())
+                        if (item.File.FullPath == file.FullPath)
+                            _items.Add(item);
+
+                    foreach (var item in _items)
+                        definition.Value.Remove(item.Name);
+
+                }
+            }
+            else if (type == typeof(LayersDefinition))
+            {
+                foreach (var definition in _definitions)
+                {
+                    List<LayersDefinition> _items = new List<LayersDefinition>();
+                    foreach (LayersDefinition item in definition.Value.Values.OfType<LayersDefinition>())
+                        if (item.File.FullPath == file.FullPath)
+                            _items.Add(item);
+
+                    foreach (var item in _items)
+                        definition.Value.Remove(item.Name);
+
+                }
+            }
+            else
+            {
+
+            }
+        }
+
+ */

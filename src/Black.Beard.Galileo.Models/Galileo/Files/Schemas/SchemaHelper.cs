@@ -1,4 +1,5 @@
 ﻿using Bb.Galileo.Files.Schemas;
+using Bb.Galileo.Files.Viewpoints;
 using Bb.Galileo.Models;
 using NJsonSchema;
 using NJsonSchema.Generation;
@@ -43,6 +44,9 @@ namespace Bb.Galileo.Files.Schemas
 
             if (schema.ToLower().EndsWith((nameof(LayersDefinition) + extension).ToLower()))
                 return new SchemaReference() { Kind = KindSchemaEnum.SchemaLayerDefinitions };
+
+            if (schema.ToLower().EndsWith((nameof(CooperationViewpoint) + extension).ToLower()))
+                return new SchemaReference() { Kind = KindSchemaEnum.CooperationViewpoint };
 
             foreach (Match match in _regex.Matches(schema))
                 if (match.Success)

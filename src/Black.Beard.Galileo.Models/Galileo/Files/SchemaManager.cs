@@ -1,8 +1,11 @@
 ﻿using Bb.Galileo.Files.Schemas;
+using Bb.Galileo.Files.Viewpoints;
 using Bb.Galileo.Models;
 using NJsonSchema;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Bb.Galileo.Files
 {
@@ -24,11 +27,19 @@ namespace Bb.Galileo.Files
             if (!targetDir.Exists)
                 targetDir.Create();
 
-            var layers = (LayersDefinition)this._parent.GetLayers();
+            var layers = this._parent.GetLayers();
 
             GenerateSchema(targetDir, typeof(MetaDefinitions),
             (s) =>
             {
+
+                var n = s.Definitions[nameof(EntityDefinition)]
+                         .Properties[nameof(ModelDefinition.Name)];
+                n.Pattern = _parent.Config.RestrictionNamePattern;
+
+                n = s.Definitions[nameof(RelationshipDefinition)]
+                    .Properties[nameof(ModelDefinition.Name)];
+                n.Pattern = _parent.Config.RestrictionNamePattern;
 
                 var k = s.Definitions[nameof(EntityDefinition)]
                          .Properties[nameof(EntityDefinition.Kind)];
@@ -48,6 +59,15 @@ namespace Bb.Galileo.Files
             }
             );
 
+            GenerateSchema(targetDir, typeof(ConfigModel),
+            (s) =>
+            {
+                var n = s.Definitions[nameof(TargetDefinition)]
+                         .Properties[nameof(TargetDefinition.Name)];
+                n.Pattern = _parent.Config.RestrictionNamePattern;
+            }
+            );
+
             GenerateSchema(targetDir, typeof(LayersDefinition),
             (s) =>
             {
@@ -55,11 +75,47 @@ namespace Bb.Galileo.Files
             }
             );
 
+            var entityDefinitions = this._parent.GetEntityDefinitions().Select(c => c.Name).ToList();
+            var relationshipDefinitions = this._parent.GetRelationshipDefinitions().Select(c => c.Name).ToList();
+
+            GenerateSchema(targetDir, typeof(CooperationViewpoint),
+            (s) =>
+            {
+
+                var concept = s.Definitions[nameof(CooperationConcept)]
+                       .Properties[nameof(CooperationBase.Name)];
+
+                var rootElement = s.Definitions[nameof(CooperationRootElement)]
+                       .Properties[nameof(CooperationBase.Name)];
+
+                foreach (var item in entityDefinitions)
+                {
+                    concept.Enumeration.Add(item);
+                    rootElement.Enumeration.Add(item);
+                }
+
+                var element = s.Definitions[nameof(CooperationElement)]
+                      .Properties[nameof(CooperationBase.Name)];
+
+                var relationship = s.Definitions[nameof(CooperationRelationship)]
+                  .Properties[nameof(CooperationBase.Name)];
+
+                foreach (var item in relationshipDefinitions)
+                {
+                    element.Enumeration.Add(item);
+                    relationship.Enumeration.Add(item);
+                }
+
+            }
+            );
+
+
 
         }
 
         private void GenerateSchema(DirectoryInfo dir, Type type, Action<JsonSchema> act = null)
         {
+
             string id = this._parent.Config.GetUri(type.Name);
             string filename = System.IO.Path.Combine(dir.FullName, type.Name + extension);
             var schema = SchemaHelper.GenerateSchemaForClass(type, type.Name);
@@ -69,7 +125,29 @@ namespace Bb.Galileo.Files
             if (act != null)
                 act(schema);
 
-            File.WriteAllText(filename, schema.ToJson());
+            var payload = schema.ToJson();
+
+            string old = null;
+
+            if (File.Exists(filename))
+                old = filename.LoadContentFromFile();
+
+            if (old == null || string.Compare(old, payload) != 0)
+            {
+
+                if (File.Exists(filename))
+                    File.Delete(filename);
+
+                filename.Save(payload);
+
+                _parent.Diagnostic.Append(new DiagnositcMessage()
+                {
+                    Severity = SeverityEnum.Verbose,
+                    File = filename,
+                    Text = $"File {filename} is refreshed",
+                });
+            }
+
         }
 
         public void GenerateDefinitions(DirectoryInfo targetDir = null)
@@ -81,7 +159,7 @@ namespace Bb.Galileo.Files
             if (!targetDir.Exists)
                 targetDir.Create();
 
-            SchemaGenerator generator = new SchemaGenerator(this._parent.Config)
+            SchemaGenerator generator = new SchemaGenerator(this._parent.Config, this._parent)
             {
 
             };
@@ -96,7 +174,7 @@ namespace Bb.Galileo.Files
 
         }
 
-        public bool GenerateDefinition(IBase item, DirectoryInfo targetDir = null)
+        public bool GenerateDefinition(IEnumerable<ModelDefinition> items, DirectoryInfo targetDir = null)
         {
 
             if (targetDir == null)
@@ -105,26 +183,31 @@ namespace Bb.Galileo.Files
             if (!targetDir.Exists)
                 targetDir.Create();
 
-            SchemaGenerator generator = new SchemaGenerator(this._parent.Config)
+            SchemaGenerator generator = new SchemaGenerator(this._parent.Config, this._parent)
             {
 
             };
 
             bool result = false;
-            if (item is EntityDefinition e)
+            foreach (var item in items)
             {
-                generator.Add(e);
-                result = true;
-            }
 
-            else if (item is RelationshipDefinition r)
-            {
-                generator.Add(r);
-                result = true;
+                if (item is EntityDefinition e)
+                {
+                    generator.Add(e);
+                    result = true;
+                }
+
+                else if (item is RelationshipDefinition r)
+                {
+                    generator.Add(r);
+                    result = true;
+                }
+
             }
 
             if (result)
-                generator.GenerateTo(targetDir);
+                result = generator.GenerateTo(targetDir);
 
             return result;
         }

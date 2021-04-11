@@ -1,4 +1,5 @@
-﻿using Bb.Galileo.Files.Datas;
+﻿using Bb.Galileo.Files;
+using Bb.Galileo.Files.Datas;
 using Bb.Galileo.Files.Schemas;
 using Bb.Galileo.Models;
 using NJsonSchema;
@@ -11,8 +12,9 @@ namespace Bb.Galileo
     public class SchemaGenerator
     {
 
-        public SchemaGenerator(ConfigModel config)
+        public SchemaGenerator(ConfigModel config, ModelRepository repository)
         {
+            this._repository = repository;
             _schemas = new Dictionary<string, JsonSchema>();
             this._config = config;
         }
@@ -34,8 +36,7 @@ namespace Bb.Galileo
 
             _schemaRoot.Definitions.Add(item.Name, def1);
             _schemas.Add(item.Name + ".entities", _schemaRoot);
-            _schemaRoot.Properties["Target"] = new JsonSchemaProperty() { Type = JsonObjectType.String, IsRequired = true };
-            _schemaRoot.Properties["InheritFromTarget"] = new JsonSchemaProperty() { Type = JsonObjectType.String };
+            _schemaRoot.Properties["Target"] = new JsonSchemaProperty() { Type = JsonObjectType.String, IsRequired = true, Pattern = _config.RestrictionNamePattern };
             _schemaRoot.Properties["Referentials"] = new JsonSchemaProperty() { Item = new JsonSchema() { Reference = def1 } };
 
             var dic = new Dictionary<string, JsonSchemaProperty>();
@@ -68,10 +69,9 @@ namespace Bb.Galileo
                 Type = JsonObjectType.Object,
             };
             _schemaRoot.Definitions.Add(item.Name, def1);
-            _schemas.Add(item.Name + ".entities", _schemaRoot);
+            _schemas.Add(item.Name + ".links", _schemaRoot);
 
-            _schemaRoot.Properties["Target"] = new JsonSchemaProperty() { Type = JsonObjectType.String, IsRequired = true };
-            _schemaRoot.Properties["InheritFromTarget"] = new JsonSchemaProperty() { Type = JsonObjectType.String };
+            _schemaRoot.Properties["Target"] = new JsonSchemaProperty() { Type = JsonObjectType.String, IsRequired = true, Pattern = this._config.RestrictionNamePattern };
             _schemaRoot.Properties["Referentials"] = new JsonSchemaProperty() { Item = new JsonSchema() { Reference = def1 } };
 
             var dic = new Dictionary<string, JsonSchemaProperty>();
@@ -131,18 +131,40 @@ namespace Bb.Galileo
 
         }
 
-        public void GenerateTo(DirectoryInfo targetFolder)
+        public bool GenerateTo(DirectoryInfo targetFolder)
         {
+            bool result = false;
+
             foreach (var item in this._schemas)
             {
 
+                string old = null;
+                var payload = item.Value.ToJson();
                 var file = new FileInfo(System.IO.Path.Combine(targetFolder.FullName, item.Key + ".schema.json"));
-                if (file.Exists)
-                    file.Delete();
 
-                file.FullName.Save(item.Value.ToJson());
+                if (file.Exists)
+                    old = file.FullName.LoadContentFromFile();
+
+                if (old == null || string.Compare(old, payload) != 0)
+                {
+
+                    if (file.Exists)
+                        file.Delete();
+
+                    file.FullName.Save(payload);
+
+                    this._repository.Diagnostic.Append(new Galileo.DiagnositcMessage()
+                    {
+                        Text = $"Schema {file.Name} is refreshed",
+                    });
+
+                    result = true;
+                }
 
             }
+
+            return result;
+
         }
 
 
@@ -264,10 +286,12 @@ namespace Bb.Galileo
                 case PropertyDefinitionEnum.JsonPointer:
                     value.Pattern = "json-pointer";
                     break;
+
+                case PropertyDefinitionEnum.Text:
                 case PropertyDefinitionEnum.Regex:
-                    value.Pattern = prop.TextConstraints.Pattern;
-                    break;
                 default:
+                    value.Type = JsonObjectType.String;
+                    value.Pattern = prop.TextConstraints.Pattern;
                     break;
             }
 
@@ -331,7 +355,7 @@ namespace Bb.Galileo
 
         }
 
-
+        private readonly ModelRepository _repository;
         private readonly Dictionary<string, JsonSchema> _schemas;
         private readonly ConfigModel _config;
     }

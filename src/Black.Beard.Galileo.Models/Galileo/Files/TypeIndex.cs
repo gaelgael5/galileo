@@ -26,5 +26,4 @@ namespace Bb.Galileo.Files
 
     }
 
-
 }

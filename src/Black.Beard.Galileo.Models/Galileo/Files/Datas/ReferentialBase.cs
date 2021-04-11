@@ -1,4 +1,5 @@
 ﻿using Bb.Galileo.Models;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -38,7 +39,10 @@ namespace Bb.Galileo.Files.Datas
 
         public SchemaReference Schema { get; internal set; }
 
+
+        [JsonIgnore]
         public FileModel File { get; }
+
         public bool Changed { get; private set; }
 
         public object this[string propertyName]

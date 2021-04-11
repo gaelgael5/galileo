@@ -1,13 +1,21 @@
-﻿using System;
+﻿using Bb.Galileo.Files.Schemas;
+using System;
 
 namespace Bb.Galileo.Models
 {
     public class ConfigModel
     {
 
+        public ConfigModel()
+        {
+            Targets = new TargetDefinition();
+        }
+
         public string Si { get; set; }
 
         public string RestrictionNamePattern { get; set; } = @"([a-zA-Z]+[a-zA-Z0-9_]+)?";
+
+        public TargetDefinition Targets { get; set; }
 
         /// <summary>
         /// Build an uri string

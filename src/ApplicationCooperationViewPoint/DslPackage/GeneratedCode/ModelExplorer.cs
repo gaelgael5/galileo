@@ -67,7 +67,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		///</summary>
 		protected override global::System.Guid RootElementDomainClassId
 		{
-			get { return global::Bb.ApplicationCooperationViewPoint.CooperationModel.DomainClassId; }
+			get { return global::Bb.ApplicationCooperationViewPoint.Model.DomainClassId; }
 		}
 		
 		/// <summary>

@@ -58,7 +58,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			DslModeling::Partition diagramPartition = docData.GetDiagramPartition();
 			if (diagramPartition != null)
 			{
-				global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDiagram> diagrams = docData.GetDiagramPartition().ElementDirectory.FindElements<global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDiagram>();
+				global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.CooperationViewPointDiagram> diagrams = docData.GetDiagramPartition().ElementDirectory.FindElements<global::Bb.ApplicationCooperationViewPoint.CooperationViewPointDiagram>();
 				if (diagrams.Count > 0)
 				{
 					global::System.Diagnostics.Debug.Assert(diagrams.Count == 1, "Found more than one diagram, using the first one found.");
