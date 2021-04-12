@@ -202,19 +202,45 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 			switch (index)
 			{
+				// A constructor was not generated for Model because it had HasCustomConstructor
+				// set to true. Please provide the constructor below.
 				case 0: return new Model(partition, propertyAssignments);
 				case 1: return new ModelElement(partition, propertyAssignments);
+				// A constructor was not generated for SubElement because it had HasCustomConstructor
+				// set to true. Please provide the constructor below.
 				case 2: return new SubElement(partition, propertyAssignments);
+				// A constructor was not generated for Concept because it had HasCustomConstructor
+				// set to true. Please provide the constructor below.
 				case 3: return new Concept(partition, propertyAssignments);
+				// A constructor was not generated for ConceptElement because it had HasCustomConstructor
+				// set to true. Please provide the constructor below.
 				case 4: return new ConceptElement(partition, propertyAssignments);
+				// A constructor was not generated for ConceptSubElement because it had HasCustomConstructor
+				// set to true. Please provide the constructor below.
 				case 5: return new ConceptSubElement(partition, propertyAssignments);
+				// A constructor was not generated for Relationship because it had HasCustomConstructor
+				// set to true. Please provide the constructor below.
 				case 6: return new Relationship(partition, propertyAssignments);
+				// A constructor was not generated for CooperationViewPointDiagram because it had HasCustomConstructor
+				// set to true. Please provide the constructor below.
 				case 7: return new CooperationViewPointDiagram(partition, propertyAssignments);
+				// A constructor was not generated for CooperationShape because it had HasCustomConstructor
+				// set to true. Please provide the constructor below.
 				case 8: return new CooperationShape(partition, propertyAssignments);
+				// A constructor was not generated for CooperationSubShape because it had HasCustomConstructor
+				// set to true. Please provide the constructor below.
 				case 9: return new CooperationSubShape(partition, propertyAssignments);
+				// A constructor was not generated for ConceptShape because it had HasCustomConstructor
+				// set to true. Please provide the constructor below.
 				case 10: return new ConceptShape(partition, propertyAssignments);
+				// A constructor was not generated for ConceptElementShape because it had HasCustomConstructor
+				// set to true. Please provide the constructor below.
 				case 11: return new ConceptElementShape(partition, propertyAssignments);
+				// A constructor was not generated for ConceptSubElementShape because it had HasCustomConstructor
+				// set to true. Please provide the constructor below.
 				case 12: return new ConceptSubElementShape(partition, propertyAssignments);
+				// A constructor was not generated for RelationshipShape because it had HasCustomConstructor
+				// set to true. Please provide the constructor below.
 				case 13: return new RelationshipShape(partition, propertyAssignments);
 				default: return null;
 			}

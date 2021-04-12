@@ -13,15 +13,15 @@ using DslDiagrams = global::Microsoft.VisualStudio.Modeling.Diagrams;
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// Serializer ModelSerializer for DomainClass Model.
+	/// Serializer ModelSerializerBase for DomainClass Model.
 	/// </summary>
-	public partial class ModelSerializer : DslModeling::DomainClassXmlSerializer
+	public abstract partial class ModelSerializerBase : DslModeling::DomainClassXmlSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// ModelSerializer Constructor
+		/// ModelSerializerBase Constructor
 		/// </summary>
-		public ModelSerializer ()
+		protected ModelSerializerBase ()
 			: base ()
 		{
 		}
@@ -485,7 +485,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class instance.
-						ModelSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ModelSerializer;
+						ModelSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ModelSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -631,7 +631,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						ModelSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ModelSerializer;
+						ModelSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ModelSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -1018,6 +1018,22 @@ namespace Bb.ApplicationCooperationViewPoint
 			#endregion	
 			
 			return string.Empty;
+		}
+		#endregion
+	}
+	
+	/// <summary>
+	/// Serializer ModelSerializer for DomainClass Model.
+	/// </summary>
+	public partial class ModelSerializer : ModelSerializerBase
+	{
+		#region Constructor
+		/// <summary>
+		/// ModelSerializer Constructor
+		/// </summary>
+		public ModelSerializer ()
+			: base ()
+		{
 		}
 		#endregion
 	}
@@ -1887,15 +1903,15 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// Serializer SubElementSerializer for DomainClass SubElement.
+	/// Serializer SubElementSerializerBase for DomainClass SubElement.
 	/// </summary>
-	public partial class SubElementSerializer : DslModeling::DomainClassXmlSerializer
+	public abstract partial class SubElementSerializerBase : DslModeling::DomainClassXmlSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// SubElementSerializer Constructor
+		/// SubElementSerializerBase Constructor
 		/// </summary>
-		public SubElementSerializer ()
+		protected SubElementSerializerBase ()
 			: base ()
 		{
 		}
@@ -2234,7 +2250,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class instance.
-						SubElementSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as SubElementSerializer;
+						SubElementSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as SubElementSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -2380,7 +2396,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						SubElementSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as SubElementSerializer;
+						SubElementSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as SubElementSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -2725,20 +2741,36 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		#endregion
 	}
+	
+	/// <summary>
+	/// Serializer SubElementSerializer for DomainClass SubElement.
+	/// </summary>
+	public partial class SubElementSerializer : SubElementSerializerBase
+	{
+		#region Constructor
+		/// <summary>
+		/// SubElementSerializer Constructor
+		/// </summary>
+		public SubElementSerializer ()
+			: base ()
+		{
+		}
+		#endregion
+	}
 }
 
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// Serializer ConceptSerializer for DomainClass Concept.
+	/// Serializer ConceptSerializerBase for DomainClass Concept.
 	/// </summary>
-	public partial class ConceptSerializer : DslModeling::DomainClassXmlSerializer
+	public abstract partial class ConceptSerializerBase : DslModeling::DomainClassXmlSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// ConceptSerializer Constructor
+		/// ConceptSerializerBase Constructor
 		/// </summary>
-		public ConceptSerializer ()
+		protected ConceptSerializerBase ()
 			: base ()
 		{
 		}
@@ -3122,7 +3154,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class instance.
-						ConceptSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptSerializer;
+						ConceptSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -3268,7 +3300,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						ConceptSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptSerializer;
+						ConceptSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -3620,20 +3652,36 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		#endregion
 	}
+	
+	/// <summary>
+	/// Serializer ConceptSerializer for DomainClass Concept.
+	/// </summary>
+	public partial class ConceptSerializer : ConceptSerializerBase
+	{
+		#region Constructor
+		/// <summary>
+		/// ConceptSerializer Constructor
+		/// </summary>
+		public ConceptSerializer ()
+			: base ()
+		{
+		}
+		#endregion
+	}
 }
 
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// Serializer ConceptElementSerializer for DomainClass ConceptElement.
+	/// Serializer ConceptElementSerializerBase for DomainClass ConceptElement.
 	/// </summary>
-	public partial class ConceptElementSerializer : DslModeling::DomainClassXmlSerializer
+	public abstract partial class ConceptElementSerializerBase : DslModeling::DomainClassXmlSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// ConceptElementSerializer Constructor
+		/// ConceptElementSerializerBase Constructor
 		/// </summary>
-		public ConceptElementSerializer ()
+		protected ConceptElementSerializerBase ()
 			: base ()
 		{
 		}
@@ -4034,7 +4082,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class instance.
-						ConceptElementSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptElementSerializer;
+						ConceptElementSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptElementSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -4180,7 +4228,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						ConceptElementSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptElementSerializer;
+						ConceptElementSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptElementSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -4544,20 +4592,36 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		#endregion
 	}
+	
+	/// <summary>
+	/// Serializer ConceptElementSerializer for DomainClass ConceptElement.
+	/// </summary>
+	public partial class ConceptElementSerializer : ConceptElementSerializerBase
+	{
+		#region Constructor
+		/// <summary>
+		/// ConceptElementSerializer Constructor
+		/// </summary>
+		public ConceptElementSerializer ()
+			: base ()
+		{
+		}
+		#endregion
+	}
 }
 
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// Serializer ConceptSubElementSerializer for DomainClass ConceptSubElement.
+	/// Serializer ConceptSubElementSerializerBase for DomainClass ConceptSubElement.
 	/// </summary>
-	public partial class ConceptSubElementSerializer : DslModeling::DomainClassXmlSerializer
+	public abstract partial class ConceptSubElementSerializerBase : DslModeling::DomainClassXmlSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// ConceptSubElementSerializer Constructor
+		/// ConceptSubElementSerializerBase Constructor
 		/// </summary>
-		public ConceptSubElementSerializer ()
+		protected ConceptSubElementSerializerBase ()
 			: base ()
 		{
 		}
@@ -4896,7 +4960,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class instance.
-						ConceptSubElementSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptSubElementSerializer;
+						ConceptSubElementSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptSubElementSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -5042,7 +5106,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						ConceptSubElementSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptSubElementSerializer;
+						ConceptSubElementSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptSubElementSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -5389,20 +5453,36 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		#endregion
 	}
+	
+	/// <summary>
+	/// Serializer ConceptSubElementSerializer for DomainClass ConceptSubElement.
+	/// </summary>
+	public partial class ConceptSubElementSerializer : ConceptSubElementSerializerBase
+	{
+		#region Constructor
+		/// <summary>
+		/// ConceptSubElementSerializer Constructor
+		/// </summary>
+		public ConceptSubElementSerializer ()
+			: base ()
+		{
+		}
+		#endregion
+	}
 }
 
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// Serializer RelationshipSerializer for DomainClass Relationship.
+	/// Serializer RelationshipSerializerBase for DomainClass Relationship.
 	/// </summary>
-	public partial class RelationshipSerializer : DslModeling::DomainClassXmlSerializer
+	public abstract partial class RelationshipSerializerBase : DslModeling::DomainClassXmlSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// RelationshipSerializer Constructor
+		/// RelationshipSerializerBase Constructor
 		/// </summary>
-		public RelationshipSerializer ()
+		protected RelationshipSerializerBase ()
 			: base ()
 		{
 		}
@@ -5638,7 +5718,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class instance.
-						RelationshipSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as RelationshipSerializer;
+						RelationshipSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as RelationshipSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -5784,7 +5864,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						RelationshipSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as RelationshipSerializer;
+						RelationshipSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as RelationshipSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -6080,6 +6160,22 @@ namespace Bb.ApplicationCooperationViewPoint
 			#endregion	
 			
 			return string.Empty;
+		}
+		#endregion
+	}
+	
+	/// <summary>
+	/// Serializer RelationshipSerializer for DomainClass Relationship.
+	/// </summary>
+	public partial class RelationshipSerializer : RelationshipSerializerBase
+	{
+		#region Constructor
+		/// <summary>
+		/// RelationshipSerializer Constructor
+		/// </summary>
+		public RelationshipSerializer ()
+			: base ()
+		{
 		}
 		#endregion
 	}
@@ -17619,15 +17715,15 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// Serializer CooperationViewPointDiagramSerializer for DomainClass CooperationViewPointDiagram.
+	/// Serializer CooperationViewPointDiagramSerializerBase for DomainClass CooperationViewPointDiagram.
 	/// </summary>
-	public partial class CooperationViewPointDiagramSerializer : DslDiagrams::DiagramSerializer
+	public abstract partial class CooperationViewPointDiagramSerializerBase : DslDiagrams::DiagramSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// CooperationViewPointDiagramSerializer Constructor
+		/// CooperationViewPointDiagramSerializerBase Constructor
 		/// </summary>
-		public CooperationViewPointDiagramSerializer ()
+		protected CooperationViewPointDiagramSerializerBase ()
 			: base ()
 		{
 		}
@@ -17725,7 +17821,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					// model elements.
 					while (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 					{
-						base.ReadElements(serializationContext, element, reader);
+						ReadElements(serializationContext, element, reader);
 						if (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 						{
 							// Encountered one unknown XML element, skip it and keep reading.
@@ -17740,6 +17836,29 @@ namespace Bb.ApplicationCooperationViewPoint
 			DslModeling::SerializationUtilities.Skip(reader);
 		}
 		
+	
+		/// <summary>
+		/// This methods deserializes nested XML elements inside the passed-in element.
+		/// </summary>
+		/// <remarks>
+		/// The caller will guarantee that the current element does have nested XML elements, and the call will position the 
+		/// reader at the open tag of the first child XML element.
+		/// This method will read as many child XML elements as it can. It returns under three circumstances:
+		/// 1) When an unknown child XML element is encountered. In this case, this method will position the reader at the open 
+		///    tag of the unknown element. This implies that if the first child XML element is unknown, this method should return 
+		///    immediately and do nothing.
+		/// 2) When all child XML elemnets are read. In this case, the reader will be positioned at the end tag of the parent element.
+		/// 3) EOF.
+		/// </remarks>
+		/// <param name="serializationContext">Serialization context.</param>
+		/// <param name="element">In-memory CooperationViewPointDiagram instance that will get the deserialized data.</param>
+		/// <param name="reader">XmlReader to read serialized data from.</param>
+		protected override void ReadElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
+		{
+			// Always call the base class so any extensions are deserialized
+			base.ReadElements(serializationContext, element, reader);
+	
+		}
 	
 		#region TryCreateInstance
 		/// <summary>
@@ -17785,7 +17904,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class instance.
-						CooperationViewPointDiagramSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as CooperationViewPointDiagramSerializer;
+						CooperationViewPointDiagramSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as CooperationViewPointDiagramSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -17931,7 +18050,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						CooperationViewPointDiagramSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as CooperationViewPointDiagramSerializer;
+						CooperationViewPointDiagramSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as CooperationViewPointDiagramSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -18120,11 +18239,25 @@ namespace Bb.ApplicationCooperationViewPoint
 			if (!serializationContext.Result.Failed)
 			{
 				// Write 1) properties serialized as nested XML elements and 2) child model elements into XML.
-				base.WriteElements(serializationContext, element, writer);
+				WriteElements(serializationContext, element, writer);
 			}
 	
 			writer.WriteEndElement();
 		}
+	
+		/// <summary>
+		/// This methods serializes 1) properties serialized as nested XML elements and 2) child model elements into XML. 
+		/// </summary>
+		/// <param name="serializationContext">Serialization context.</param>
+		/// <param name="element">CooperationViewPointDiagram instance to be serialized.</param>
+		/// <param name="writer">XmlWriter to write serialized data to.</param>        
+		protected override void WriteElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
+		{
+			// Always call the base class so any extensions are serialized
+			base.WriteElements(serializationContext, element, writer);
+	
+		}
+		
 		#endregion
 	
 		#region Moniker Support
@@ -18174,6 +18307,22 @@ namespace Bb.ApplicationCooperationViewPoint
 			#endregion	
 			
 			return string.Empty;
+		}
+		#endregion
+	}
+	
+	/// <summary>
+	/// Serializer CooperationViewPointDiagramSerializer for DomainClass CooperationViewPointDiagram.
+	/// </summary>
+	public partial class CooperationViewPointDiagramSerializer : CooperationViewPointDiagramSerializerBase
+	{
+		#region Constructor
+		/// <summary>
+		/// CooperationViewPointDiagramSerializer Constructor
+		/// </summary>
+		public CooperationViewPointDiagramSerializer ()
+			: base ()
+		{
 		}
 		#endregion
 	}

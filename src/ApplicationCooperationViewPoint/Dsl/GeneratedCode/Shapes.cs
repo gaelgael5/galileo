@@ -139,21 +139,6 @@ namespace Bb.ApplicationCooperationViewPoint
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
 			outlinePen.Color = global::System.Drawing.Color.FromArgb(255, 113, 111, 110);
-			outlinePen.DashStyle = global::System.Drawing.Drawing2D.DashStyle.Dash;
-			// Property:
-			//	private static ArrayList customOutlineDashPattern;
-			//	protected static ArrayList CustomOutlineDashPattern
-			//	{
-			//		get
-			//		{
-			//			if(customOutlineDashPattern == null)
-			//				customOutlineDashPattern = new ArrayList(new float[] { 4.0F, 2.0F, 1.0F, 3.0F });
-			//			return customOutlineDashPattern;
-			//		}
-			//	}
-			// must be implemented in a partial class of Bb.ApplicationCooperationViewPoint.CooperationShape. This property should
-			// return an ArrayList of float values containing the custom DashPattern to use for this shape.
-			outlinePen.DashPattern = global::Bb.ApplicationCooperationViewPoint.CooperationShape.CustomOutlineDashPattern;
 			outlinePen.Width = 0.01F;
 			classStyleSet.OverridePen(DslDiagrams::DiagramPens.ShapeOutline, outlinePen);
 			// Custom font styles
@@ -178,6 +163,36 @@ namespace Bb.ApplicationCooperationViewPoint
 				return false;
 			}
 		}
+		/// <summary>
+		/// Indicates whether the shape requires connection points.
+		/// </summary>
+		public override bool HasConnectionPoints
+		{
+			get
+			{
+				return true;
+			}
+		}
+		
+		/// <summary>
+		/// Ensures that four default connection points exist, one at the midpoint of each side of the shape.
+		/// </summary>
+		/// <remarks>
+		/// This method is called each time a connector is created, but connection points only need to be defined once.
+		/// </remarks>
+		/// <param name="link">Connector which will be connected to this shape.</param>
+		public override void EnsureConnectionPoints(DslDiagrams::LinkShape link)
+		{
+			if (this.ConnectionPoints.Count == 0)
+			{
+				DslDiagrams::RectangleD absoluteBoundingBox = this.AbsoluteBoundingBox;
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Center.X, absoluteBoundingBox.Bottom));
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Center.X, absoluteBoundingBox.Top));
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Left, absoluteBoundingBox.Center.Y));
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Right, absoluteBoundingBox.Center.Y));
+			}
+		}
+		
 		#endregion
 		#region Decorators
 		/// <summary>
@@ -253,25 +268,27 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// CooperationShape domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x8eada818, 0xbdb1, 0x4ddc, 0x9c, 0x2e, 0xd0, 0x43, 0x18, 0x49, 0x75, 0x08);
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="store">Store where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public CooperationShape(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
-		{
-		}
-		
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="partition">Partition where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public CooperationShape(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: base(partition, propertyAssignments)
-		{
-		}
+		// Constructors were not generated for this class because it had HasCustomConstructor
+		// set to true. Please provide the constructors below in a partial class.
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="store">Store where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public CooperationShape(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		//{
+		//}
+		//
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="partition">Partition where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public CooperationShape(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: base(partition, propertyAssignments)
+		//{
+		//}
 		#endregion
 	}
 }
@@ -438,6 +455,36 @@ namespace Bb.ApplicationCooperationViewPoint
 				return global::System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
 			}
 		}
+		/// <summary>
+		/// Indicates whether the shape requires connection points.
+		/// </summary>
+		public override bool HasConnectionPoints
+		{
+			get
+			{
+				return true;
+			}
+		}
+		
+		/// <summary>
+		/// Ensures that four default connection points exist, one at the midpoint of each side of the shape.
+		/// </summary>
+		/// <remarks>
+		/// This method is called each time a connector is created, but connection points only need to be defined once.
+		/// </remarks>
+		/// <param name="link">Connector which will be connected to this shape.</param>
+		public override void EnsureConnectionPoints(DslDiagrams::LinkShape link)
+		{
+			if (this.ConnectionPoints.Count == 0)
+			{
+				DslDiagrams::RectangleD absoluteBoundingBox = this.AbsoluteBoundingBox;
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Center.X, absoluteBoundingBox.Bottom));
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Center.X, absoluteBoundingBox.Top));
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Left, absoluteBoundingBox.Center.Y));
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Right, absoluteBoundingBox.Center.Y));
+			}
+		}
+		
 		#endregion
 		#region Decorators
 		/// <summary>
@@ -513,25 +560,27 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// CooperationSubShape domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xb8457ae5, 0x9194, 0x431c, 0x85, 0x3e, 0x4c, 0x35, 0xbd, 0x69, 0x05, 0x49);
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="store">Store where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public CooperationSubShape(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
-		{
-		}
-		
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="partition">Partition where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public CooperationSubShape(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: base(partition, propertyAssignments)
-		{
-		}
+		// Constructors were not generated for this class because it had HasCustomConstructor
+		// set to true. Please provide the constructors below in a partial class.
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="store">Store where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public CooperationSubShape(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		//{
+		//}
+		//
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="partition">Partition where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public CooperationSubShape(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: base(partition, propertyAssignments)
+		//{
+		//}
 		#endregion
 	}
 }
@@ -698,6 +747,36 @@ namespace Bb.ApplicationCooperationViewPoint
 				return false;
 			}
 		}
+		/// <summary>
+		/// Indicates whether the shape requires connection points.
+		/// </summary>
+		public override bool HasConnectionPoints
+		{
+			get
+			{
+				return true;
+			}
+		}
+		
+		/// <summary>
+		/// Ensures that four default connection points exist, one at the midpoint of each side of the shape.
+		/// </summary>
+		/// <remarks>
+		/// This method is called each time a connector is created, but connection points only need to be defined once.
+		/// </remarks>
+		/// <param name="link">Connector which will be connected to this shape.</param>
+		public override void EnsureConnectionPoints(DslDiagrams::LinkShape link)
+		{
+			if (this.ConnectionPoints.Count == 0)
+			{
+				DslDiagrams::RectangleD absoluteBoundingBox = this.AbsoluteBoundingBox;
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Center.X, absoluteBoundingBox.Bottom));
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Center.X, absoluteBoundingBox.Top));
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Left, absoluteBoundingBox.Center.Y));
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Right, absoluteBoundingBox.Center.Y));
+			}
+		}
+		
 		#endregion
 		#region Decorators
 		/// <summary>
@@ -759,25 +838,27 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// ConceptShape domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xc0e7a566, 0x72f7, 0x42db, 0xa7, 0xa1, 0x75, 0xe4, 0x86, 0x52, 0xeb, 0x37);
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="store">Store where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public ConceptShape(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
-		{
-		}
-		
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="partition">Partition where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public ConceptShape(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: base(partition, propertyAssignments)
-		{
-		}
+		// Constructors were not generated for this class because it had HasCustomConstructor
+		// set to true. Please provide the constructors below in a partial class.
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="store">Store where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public ConceptShape(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		//{
+		//}
+		//
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="partition">Partition where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public ConceptShape(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: base(partition, propertyAssignments)
+		//{
+		//}
 		#endregion
 	}
 }
@@ -909,21 +990,6 @@ namespace Bb.ApplicationCooperationViewPoint
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
 			outlinePen.Color = global::System.Drawing.Color.FromArgb(255, 113, 111, 110);
-			outlinePen.DashStyle = global::System.Drawing.Drawing2D.DashStyle.Dash;
-			// Property:
-			//	private static ArrayList customOutlineDashPattern;
-			//	protected static ArrayList CustomOutlineDashPattern
-			//	{
-			//		get
-			//		{
-			//			if(customOutlineDashPattern == null)
-			//				customOutlineDashPattern = new ArrayList(new float[] { 4.0F, 2.0F, 1.0F, 3.0F });
-			//			return customOutlineDashPattern;
-			//		}
-			//	}
-			// must be implemented in a partial class of Bb.ApplicationCooperationViewPoint.ConceptElementShape. This property should
-			// return an ArrayList of float values containing the custom DashPattern to use for this shape.
-			outlinePen.DashPattern = global::Bb.ApplicationCooperationViewPoint.ConceptElementShape.CustomOutlineDashPattern;
 			outlinePen.Width = 0.01F;
 			classStyleSet.OverridePen(DslDiagrams::DiagramPens.ShapeOutline, outlinePen);
 			// Custom font styles
@@ -948,6 +1014,36 @@ namespace Bb.ApplicationCooperationViewPoint
 				return false;
 			}
 		}
+		/// <summary>
+		/// Indicates whether the shape requires connection points.
+		/// </summary>
+		public override bool HasConnectionPoints
+		{
+			get
+			{
+				return true;
+			}
+		}
+		
+		/// <summary>
+		/// Ensures that four default connection points exist, one at the midpoint of each side of the shape.
+		/// </summary>
+		/// <remarks>
+		/// This method is called each time a connector is created, but connection points only need to be defined once.
+		/// </remarks>
+		/// <param name="link">Connector which will be connected to this shape.</param>
+		public override void EnsureConnectionPoints(DslDiagrams::LinkShape link)
+		{
+			if (this.ConnectionPoints.Count == 0)
+			{
+				DslDiagrams::RectangleD absoluteBoundingBox = this.AbsoluteBoundingBox;
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Center.X, absoluteBoundingBox.Bottom));
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Center.X, absoluteBoundingBox.Top));
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Left, absoluteBoundingBox.Center.Y));
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Right, absoluteBoundingBox.Center.Y));
+			}
+		}
+		
 		#endregion
 		#region Decorators
 		/// <summary>
@@ -1023,25 +1119,27 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// ConceptElementShape domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xe56815f2, 0x5b13, 0x40d2, 0xbf, 0xc2, 0x23, 0x43, 0xd5, 0x5c, 0xcf, 0x47);
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="store">Store where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public ConceptElementShape(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
-		{
-		}
-		
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="partition">Partition where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public ConceptElementShape(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: base(partition, propertyAssignments)
-		{
-		}
+		// Constructors were not generated for this class because it had HasCustomConstructor
+		// set to true. Please provide the constructors below in a partial class.
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="store">Store where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public ConceptElementShape(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		//{
+		//}
+		//
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="partition">Partition where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public ConceptElementShape(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: base(partition, propertyAssignments)
+		//{
+		//}
 		#endregion
 	}
 }
@@ -1173,21 +1271,6 @@ namespace Bb.ApplicationCooperationViewPoint
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
 			outlinePen.Color = global::System.Drawing.Color.FromArgb(255, 113, 111, 110);
-			outlinePen.DashStyle = global::System.Drawing.Drawing2D.DashStyle.Dash;
-			// Property:
-			//	private static ArrayList customOutlineDashPattern;
-			//	protected static ArrayList CustomOutlineDashPattern
-			//	{
-			//		get
-			//		{
-			//			if(customOutlineDashPattern == null)
-			//				customOutlineDashPattern = new ArrayList(new float[] { 4.0F, 2.0F, 1.0F, 3.0F });
-			//			return customOutlineDashPattern;
-			//		}
-			//	}
-			// must be implemented in a partial class of Bb.ApplicationCooperationViewPoint.ConceptSubElementShape. This property should
-			// return an ArrayList of float values containing the custom DashPattern to use for this shape.
-			outlinePen.DashPattern = global::Bb.ApplicationCooperationViewPoint.ConceptSubElementShape.CustomOutlineDashPattern;
 			outlinePen.Width = 0.01F;
 			classStyleSet.OverridePen(DslDiagrams::DiagramPens.ShapeOutline, outlinePen);
 			// Custom font styles
@@ -1212,6 +1295,36 @@ namespace Bb.ApplicationCooperationViewPoint
 				return false;
 			}
 		}
+		/// <summary>
+		/// Indicates whether the shape requires connection points.
+		/// </summary>
+		public override bool HasConnectionPoints
+		{
+			get
+			{
+				return true;
+			}
+		}
+		
+		/// <summary>
+		/// Ensures that four default connection points exist, one at the midpoint of each side of the shape.
+		/// </summary>
+		/// <remarks>
+		/// This method is called each time a connector is created, but connection points only need to be defined once.
+		/// </remarks>
+		/// <param name="link">Connector which will be connected to this shape.</param>
+		public override void EnsureConnectionPoints(DslDiagrams::LinkShape link)
+		{
+			if (this.ConnectionPoints.Count == 0)
+			{
+				DslDiagrams::RectangleD absoluteBoundingBox = this.AbsoluteBoundingBox;
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Center.X, absoluteBoundingBox.Bottom));
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Center.X, absoluteBoundingBox.Top));
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Left, absoluteBoundingBox.Center.Y));
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Right, absoluteBoundingBox.Center.Y));
+			}
+		}
+		
 		#endregion
 		#region Decorators
 		/// <summary>
@@ -1287,25 +1400,27 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// ConceptSubElementShape domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xdf2714b9, 0x0858, 0x4e7c, 0xad, 0x77, 0x00, 0x0b, 0x48, 0xfd, 0xb1, 0xe1);
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="store">Store where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public ConceptSubElementShape(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
-		{
-		}
-		
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="partition">Partition where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public ConceptSubElementShape(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: base(partition, propertyAssignments)
-		{
-		}
+		// Constructors were not generated for this class because it had HasCustomConstructor
+		// set to true. Please provide the constructors below in a partial class.
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="store">Store where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public ConceptSubElementShape(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		//{
+		//}
+		//
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="partition">Partition where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public ConceptSubElementShape(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: base(partition, propertyAssignments)
+		//{
+		//}
 		#endregion
 	}
 }
@@ -1437,21 +1552,6 @@ namespace Bb.ApplicationCooperationViewPoint
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
 			outlinePen.Color = global::System.Drawing.Color.FromArgb(255, 113, 111, 110);
-			outlinePen.DashStyle = global::System.Drawing.Drawing2D.DashStyle.Dash;
-			// Property:
-			//	private static ArrayList customOutlineDashPattern;
-			//	protected static ArrayList CustomOutlineDashPattern
-			//	{
-			//		get
-			//		{
-			//			if(customOutlineDashPattern == null)
-			//				customOutlineDashPattern = new ArrayList(new float[] { 4.0F, 2.0F, 1.0F, 3.0F });
-			//			return customOutlineDashPattern;
-			//		}
-			//	}
-			// must be implemented in a partial class of Bb.ApplicationCooperationViewPoint.RelationshipShape. This property should
-			// return an ArrayList of float values containing the custom DashPattern to use for this shape.
-			outlinePen.DashPattern = global::Bb.ApplicationCooperationViewPoint.RelationshipShape.CustomOutlineDashPattern;
 			outlinePen.Width = 0.01F;
 			classStyleSet.OverridePen(DslDiagrams::DiagramPens.ShapeOutline, outlinePen);
 			// Custom font styles
@@ -1472,6 +1572,36 @@ namespace Bb.ApplicationCooperationViewPoint
 				return false;
 			}
 		}
+		/// <summary>
+		/// Indicates whether the shape requires connection points.
+		/// </summary>
+		public override bool HasConnectionPoints
+		{
+			get
+			{
+				return true;
+			}
+		}
+		
+		/// <summary>
+		/// Ensures that four default connection points exist, one at the midpoint of each side of the shape.
+		/// </summary>
+		/// <remarks>
+		/// This method is called each time a connector is created, but connection points only need to be defined once.
+		/// </remarks>
+		/// <param name="link">Connector which will be connected to this shape.</param>
+		public override void EnsureConnectionPoints(DslDiagrams::LinkShape link)
+		{
+			if (this.ConnectionPoints.Count == 0)
+			{
+				DslDiagrams::RectangleD absoluteBoundingBox = this.AbsoluteBoundingBox;
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Center.X, absoluteBoundingBox.Bottom));
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Center.X, absoluteBoundingBox.Top));
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Left, absoluteBoundingBox.Center.Y));
+				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Right, absoluteBoundingBox.Center.Y));
+			}
+		}
+		
 		#endregion
 		#region Decorators
 		/// <summary>
@@ -1533,25 +1663,27 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// RelationshipShape domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x4ba97606, 0xcdb3, 0x4522, 0xbe, 0x6a, 0xf8, 0x0c, 0xa1, 0xdc, 0x9b, 0x14);
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="store">Store where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public RelationshipShape(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
-		{
-		}
-		
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="partition">Partition where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public RelationshipShape(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: base(partition, propertyAssignments)
-		{
-		}
+		// Constructors were not generated for this class because it had HasCustomConstructor
+		// set to true. Please provide the constructors below in a partial class.
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="store">Store where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public RelationshipShape(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		//{
+		//}
+		//
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="partition">Partition where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public RelationshipShape(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: base(partition, propertyAssignments)
+		//{
+		//}
 		#endregion
 	}
 }

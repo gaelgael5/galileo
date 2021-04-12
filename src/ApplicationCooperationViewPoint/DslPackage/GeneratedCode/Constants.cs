@@ -48,5 +48,13 @@ namespace Bb.ApplicationCooperationViewPoint
 	{
 		// Menu identifier
 		public const string ApplicationCooperationViewPointCommandSetId = "023bc480-9624-495a-9628-e1d388b86dc6";
+		public const string ApplicationCooperationViewPointCreateFromId = "43b31cf1-9353-4e05-8325-5fc06b1df1c3";
+
+		public static readonly global::System.ComponentModel.Design.CommandID CreateRootMap
+			= new global::System.ComponentModel.Design.CommandID(new global::System.Guid(ApplicationCooperationViewPointCreateFromId), cmdidMyContextMenuCommand);
+		
+		private const int grpidMyMenuGroup = 0x01001;
+        private const int cmdidMyContextMenuCommand = 1;
+
 	}
 }

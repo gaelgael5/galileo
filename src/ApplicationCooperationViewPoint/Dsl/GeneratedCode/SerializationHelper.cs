@@ -1499,14 +1499,14 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	[DslValidation::ValidationState(DslValidation::ValidationState.Enabled)]
-	public partial class Model
+	public abstract partial class ModelBase
 	{
 		/// <summary>
 		/// Check to make sure all elements in the model will have unambiguous monikers when serialized.
 		/// </summary>
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Generated code.")]
 		[DslValidation::ValidationMethod(DslValidation::ValidationCategories.Load | DslValidation::ValidationCategories.Save | DslValidation::ValidationCategories.Menu)]
-		private void ValidateMonikerAmbiguity(DslValidation::ValidationContext context)
+		protected virtual void ValidateMonikerAmbiguity(DslValidation::ValidationContext context)
 		{
 			// Don't run this rule when deserializing - any ambiguous monikers will 
 			// already have stopped the file from loading.

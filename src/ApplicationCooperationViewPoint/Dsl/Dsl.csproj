@@ -81,7 +81,23 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SerializationHelper.cs</LastGenOutput>
     </None>
-    <Compile Include="CustomCode\GeometryShape1.cs" />
+    <Compile Include="CustomCode\Concept.cs" />
+    <Compile Include="CustomCode\ConceptElement.cs" />
+    <Compile Include="CustomCode\GuidsList.cs" />
+    <Compile Include="CustomCode\Properties\Model.cs" />
+    <Compile Include="CustomCode\Shapes\ConceptElementShape.cs" />
+    <Compile Include="CustomCode\Shapes\ConceptShape.cs" />
+    <Compile Include="CustomCode\ConceptSubElement.cs" />
+    <Compile Include="CustomCode\Shapes\ConceptSubElementShape.cs" />
+    <Compile Include="CustomCode\Shapes\CooperationShape.cs" />
+    <Compile Include="CustomCode\Shapes\CooperationSubShape.cs" />
+    <Compile Include="CustomCode\Shapes\CooperationViewPointDiagram.cs" />
+    <Compile Include="CustomCode\Model.cs" />
+    <Compile Include="CustomCode\Relationship.cs" />
+    <Compile Include="CustomCode\Shapes\RelationshipShape.cs" />
+    <Compile Include="CustomCode\SubElement.cs" />
+    <Compile Include="CustomCode\UITypeEditors\ListeTypeReturnGridEditor.cs" />
+    <Compile Include="CustomCode\Validations\Model.cs" />
     <Compile Include="GeneratedCode\ConnectionBuilders.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -255,4 +271,5 @@
     <EmbeddedResource Include="Resources\ConnectorSourceSearch.cur" />
     <EmbeddedResource Include="Resources\ConnectorTargetSearch.cur" />
   </ItemGroup>
+  <ItemGroup />
 </Project>

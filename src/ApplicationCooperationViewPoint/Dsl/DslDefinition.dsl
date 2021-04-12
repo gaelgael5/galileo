@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Dsl xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="3ec5ff8c-b52e-4242-a4f8-799b97bfaa4c" Description="Description for Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPoint" Name="ApplicationCooperationViewPoint" DisplayName="ApplicationCooperationViewPoint" Namespace="Bb.ApplicationCooperationViewPoint" ProductName="Galileo Application Cooperation Viewpoint" CompanyName="Black.Beard" PackageGuid="6113886b-339d-4d50-9d9a-05cec44810af" PackageNamespace="Bb.ApplicationCooperationViewPoint" xmlns="http://schemas.microsoft.com/VisualStudio/2005/DslTools/DslDefinitionModel">
   <Classes>
-    <DomainClass Id="8be8ba93-37bd-430f-bab0-798cd8f43104" Description="The root in which all other elements are embedded. Appears as a diagram." Name="Model" DisplayName="Model" Namespace="Bb.ApplicationCooperationViewPoint">
+    <DomainClass Id="8be8ba93-37bd-430f-bab0-798cd8f43104" Description="The root in which all other elements are embedded. Appears as a diagram." Name="Model" DisplayName="Model" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true">
       <Properties>
         <DomainProperty Id="048aa5a8-8536-4484-836c-7792c8e92d57" Description="Description de Bb.ApplicationCooperationViewPoint.Model.Name" Name="Name" DisplayName="Name">
           <Type>
@@ -76,7 +76,7 @@
         </ElementMergeDirective>
       </ElementMergeDirectives>
     </DomainClass>
-    <DomainClass Id="e39ae37f-7927-4be7-a99c-94d0deb846f7" Description="Description de Bb.ApplicationCooperationViewPoint.SubElement" Name="SubElement" DisplayName="Sub Element" Namespace="Bb.ApplicationCooperationViewPoint">
+    <DomainClass Id="e39ae37f-7927-4be7-a99c-94d0deb846f7" Description="Description de Bb.ApplicationCooperationViewPoint.SubElement" Name="SubElement" DisplayName="Sub Element" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true">
       <Properties>
         <DomainProperty Id="b3968e18-782b-4443-9994-f232739217b9" Description="Description de Bb.ApplicationCooperationViewPoint.SubElement.Reference Source" Name="ReferenceSource" DisplayName="Reference Source" IsElementName="true">
           <Type>
@@ -95,7 +95,7 @@
         </DomainProperty>
       </Properties>
     </DomainClass>
-    <DomainClass Id="eaad73c4-a652-4596-b575-39e82c2f525a" Description="Description de Bb.ApplicationCooperationViewPoint.Concept" Name="Concept" DisplayName="Concept" Namespace="Bb.ApplicationCooperationViewPoint">
+    <DomainClass Id="eaad73c4-a652-4596-b575-39e82c2f525a" Description="Description de Bb.ApplicationCooperationViewPoint.Concept" Name="Concept" DisplayName="Concept" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true">
       <Properties>
         <DomainProperty Id="8f8c5d55-111e-49f2-9518-cce39195b847" Description="Description de Bb.ApplicationCooperationViewPoint.Concept.Reference Source" Name="ReferenceSource" DisplayName="Reference Source" IsElementName="true">
           <Type>
@@ -119,7 +119,7 @@
         </ElementMergeDirective>
       </ElementMergeDirectives>
     </DomainClass>
-    <DomainClass Id="3aba6490-0175-4397-b4b4-8ba4dd8df1d1" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElement" Name="ConceptElement" DisplayName="Concept Element" Namespace="Bb.ApplicationCooperationViewPoint">
+    <DomainClass Id="3aba6490-0175-4397-b4b4-8ba4dd8df1d1" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElement" Name="ConceptElement" DisplayName="Concept Element" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true">
       <Properties>
         <DomainProperty Id="16627524-3c73-434a-bbee-5ef23344e62a" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElement.Reference Source" Name="ReferenceSource" DisplayName="Reference Source" IsElementName="true">
           <Type>
@@ -148,7 +148,7 @@
         </ElementMergeDirective>
       </ElementMergeDirectives>
     </DomainClass>
-    <DomainClass Id="a3a13452-14ee-4fe8-adcb-fd5c2f06ff68" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement" Name="ConceptSubElement" DisplayName="Concept Sub Element" Namespace="Bb.ApplicationCooperationViewPoint">
+    <DomainClass Id="a3a13452-14ee-4fe8-adcb-fd5c2f06ff68" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement" Name="ConceptSubElement" DisplayName="Concept Sub Element" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true">
       <Properties>
         <DomainProperty Id="e4021cd7-d1f3-43a4-801b-946fbe965c4c" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement.Reference Source" Name="ReferenceSource" DisplayName="Reference Source" IsElementName="true">
           <Type>
@@ -167,7 +167,7 @@
         </DomainProperty>
       </Properties>
     </DomainClass>
-    <DomainClass Id="95bd428c-7b5b-49c7-b8f9-5f753e1817a6" Description="Description de Bb.ApplicationCooperationViewPoint.Relationship" Name="Relationship" DisplayName="Relationship" Namespace="Bb.ApplicationCooperationViewPoint">
+    <DomainClass Id="95bd428c-7b5b-49c7-b8f9-5f753e1817a6" Description="Description de Bb.ApplicationCooperationViewPoint.Relationship" Name="Relationship" DisplayName="Relationship" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true">
       <Properties>
         <DomainProperty Id="c12f448e-0d28-4f1f-9195-90d47aad9e31" Description="Description de Bb.ApplicationCooperationViewPoint.Relationship.Reference Source" Name="ReferenceSource" DisplayName="Reference Source" IsElementName="true">
           <Type>
@@ -362,7 +362,7 @@
     <ExternalType Name="Char" Namespace="System" />
   </Types>
   <Shapes>
-    <GeometryShape Id="8eada818-bdb1-4ddc-9c2e-d04318497508" Description="Shape used to represent ExampleElements on a Diagram." Name="CooperationShape" DisplayName="Cooperation Shape" Namespace="Bb.ApplicationCooperationViewPoint" FixedTooltipText="Cooperation Shape" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineDashStyle="Dash" OutlineThickness="0.01" FillGradientMode="None" Geometry="Rectangle">
+    <GeometryShape Id="8eada818-bdb1-4ddc-9c2e-d04318497508" Description="Shape used to represent ExampleElements on a Diagram." Name="CooperationShape" DisplayName="Cooperation Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" FixedTooltipText="Cooperation Shape" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineThickness="0.01" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="Rectangle">
       <Notes>The shape has a text decorator used to display the Name property of the mapped ExampleElement.</Notes>
       <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontSize="12" />
@@ -371,7 +371,7 @@
         <TextDecorator Name="TypeDecorator" DisplayName="Type Decorator" DefaultText="TypeDecorator" FontStyle="Italic" FontSize="7" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="b8457ae5-9194-431c-853e-4c35bd690549" Description="Description de Bb.ApplicationCooperationViewPoint.CooperationSubShape" Name="CooperationSubShape" DisplayName="Cooperation Sub Shape" Namespace="Bb.ApplicationCooperationViewPoint" FixedTooltipText="Cooperation Sub Shape" FillColor="WhiteSmoke" InitialHeight="1" Geometry="Rectangle">
+    <GeometryShape Id="b8457ae5-9194-431c-853e-4c35bd690549" Description="Description de Bb.ApplicationCooperationViewPoint.CooperationSubShape" Name="CooperationSubShape" DisplayName="Cooperation Sub Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" FixedTooltipText="Cooperation Sub Shape" FillColor="WhiteSmoke" InitialHeight="1" HasDefaultConnectionPoints="true" Geometry="Rectangle">
       <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="TextName" DisplayName="Text Name" DefaultText="TextName" FontSize="12" />
       </ShapeHasDecorators>
@@ -379,13 +379,13 @@
         <TextDecorator Name="TypeDecorator" DisplayName="Type Decorator" DefaultText="TypeDecorator" FontStyle="Italic" FontSize="7" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="c0e7a566-72f7-42db-a7a1-75e48652eb37" Description="Shape used to represent ExampleElements on a Diagram." Name="ConceptShape" DisplayName="Concept Shape" Namespace="Bb.ApplicationCooperationViewPoint" FixedTooltipText="Concept Shape" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineDashStyle="Dash" OutlineThickness="0.01" FillGradientMode="None" Geometry="Rectangle">
+    <GeometryShape Id="c0e7a566-72f7-42db-a7a1-75e48652eb37" Description="Shape used to represent ExampleElements on a Diagram." Name="ConceptShape" DisplayName="Concept Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" FixedTooltipText="Concept Shape" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineDashStyle="Dash" OutlineThickness="0.01" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="Rectangle">
       <Notes>The shape has a text decorator used to display the Name property of the mapped ExampleElement.</Notes>
       <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="2">
         <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontSize="12" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="e56815f2-5b13-40d2-bfc2-2343d55ccf47" Description="Shape used to represent ExampleElements on a Diagram." Name="ConceptElementShape" DisplayName="Concept Element Shape" Namespace="Bb.ApplicationCooperationViewPoint" FixedTooltipText="Concept Element Shape" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineDashStyle="Dash" OutlineThickness="0.01" FillGradientMode="None" Geometry="Rectangle">
+    <GeometryShape Id="e56815f2-5b13-40d2-bfc2-2343d55ccf47" Description="Shape used to represent ExampleElements on a Diagram." Name="ConceptElementShape" DisplayName="Concept Element Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" FixedTooltipText="Concept Element Shape" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineThickness="0.01" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="Rectangle">
       <Notes>The shape has a text decorator used to display the Name property of the mapped ExampleElement.</Notes>
       <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontSize="12" />
@@ -394,7 +394,7 @@
         <TextDecorator Name="TypeDecorator" DisplayName="Type Decorator" DefaultText="TypeDecorator" FontStyle="Italic" FontSize="7" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="df2714b9-0858-4e7c-ad77-000b48fdb1e1" Description="Shape used to represent ExampleElements on a Diagram." Name="ConceptSubElementShape" DisplayName="Concept Sub Element Shape" Namespace="Bb.ApplicationCooperationViewPoint" FixedTooltipText="Concept Sub Element Shape" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineDashStyle="Dash" OutlineThickness="0.01" FillGradientMode="None" Geometry="Rectangle">
+    <GeometryShape Id="df2714b9-0858-4e7c-ad77-000b48fdb1e1" Description="Shape used to represent ExampleElements on a Diagram." Name="ConceptSubElementShape" DisplayName="Concept Sub Element Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" FixedTooltipText="Concept Sub Element Shape" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineThickness="0.01" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="Rectangle">
       <Notes>The shape has a text decorator used to display the Name property of the mapped ExampleElement.</Notes>
       <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontSize="12" />
@@ -403,7 +403,7 @@
         <TextDecorator Name="TypeDecorator" DisplayName="Type Decorator" DefaultText="TypeDecorator" FontStyle="Italic" FontSize="7" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="4ba97606-cdb3-4522-be6a-f80ca1dc9b14" Description="Shape used to represent ExampleElements on a Diagram." Name="RelationshipShape" DisplayName="Relationship Shape" Namespace="Bb.ApplicationCooperationViewPoint" FixedTooltipText="Relationship Shape" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineDashStyle="Dash" OutlineThickness="0.01" FillGradientMode="None" Geometry="Rectangle">
+    <GeometryShape Id="4ba97606-cdb3-4522-be6a-f80ca1dc9b14" Description="Shape used to represent ExampleElements on a Diagram." Name="RelationshipShape" DisplayName="Relationship Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" FixedTooltipText="Relationship Shape" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineThickness="0.01" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="Rectangle">
       <Notes>The shape has a text decorator used to display the Name property of the mapped ExampleElement.</Notes>
       <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontSize="12" />
@@ -666,7 +666,7 @@
       </LinkConnectDirective>
     </ConnectionBuilder>
   </ConnectionBuilders>
-  <Diagram Id="ca3f1951-3a94-4564-a805-02e3bfc91b8b" Description="Description for Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDiagram" Name="CooperationViewPointDiagram" DisplayName="Minimal Language Diagram" Namespace="Bb.ApplicationCooperationViewPoint">
+  <Diagram Id="ca3f1951-3a94-4564-a805-02e3bfc91b8b" Description="Description for Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDiagram" Name="CooperationViewPointDiagram" DisplayName="Minimal Language Diagram" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true">
     <Class>
       <DomainClassMoniker Name="Model" />
     </Class>
@@ -811,7 +811,7 @@
       <XmlSerializationBehaviorMoniker Name="ApplicationCooperationViewPointSerializationBehavior" />
     </XmlSerializationDefinition>
     <ToolboxTab TabText="Cooperation Viewpoint" />
-    <Validation UsesMenu="false" UsesOpen="false" UsesSave="true" UsesLoad="false" />
+    <Validation UsesMenu="false" UsesOpen="false" UsesSave="false" UsesCustom="true" UsesLoad="false" />
     <DiagramMoniker Name="CooperationViewPointDiagram" />
   </Designer>
   <Explorer ExplorerGuid="581e6349-7922-43c9-bb72-0222757290ef" Title="ApplicationCooperationViewPoint Explorer">

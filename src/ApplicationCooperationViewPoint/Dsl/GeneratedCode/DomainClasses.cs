@@ -12,15 +12,14 @@ using DslDesign = global::Microsoft.VisualStudio.Modeling.Design;
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainClass Model
-	/// The root in which all other elements are embedded. Appears as a diagram.
+	/// Double-derived base class for DomainClass Model
 	/// </summary>
 	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Model.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Model.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainObjectId("8be8ba93-37bd-430f-bab0-798cd8f43104")]
-	public partial class Model : DslModeling::ModelElement
+	public abstract partial class ModelBase : DslModeling::ModelElement
 	{
 		#region Constructors, domain class Id
 	
@@ -29,21 +28,11 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x8be8ba93, 0x37bd, 0x430f, 0xba, 0xb0, 0x79, 0x8c, 0xd8, 0xf4, 0x31, 0x04);
 		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="store">Store where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public Model(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
-		{
-		}
-		
-		/// <summary>
-		/// Constructor
+		/// Constructor.
 		/// </summary>
 		/// <param name="partition">Partition where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public Model(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		protected ModelBase(DslModeling::Partition partition, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, propertyAssignments)
 		{
 		}
@@ -83,7 +72,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Value handler for the Model.Name domain property.
 		/// </summary>
-		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<Model, global::System.String>
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<ModelBase, global::System.String>
 		{
 			private NamePropertyHandler() { }
 		
@@ -109,7 +98,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(Model element)
+			public override sealed global::System.String GetValue(ModelBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.namePropertyStorage;
@@ -120,7 +109,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(Model element, global::System.String newValue)
+			public override sealed void SetValue(ModelBase element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -170,7 +159,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Value handler for the Model.Target domain property.
 		/// </summary>
-		internal sealed partial class TargetPropertyHandler : DslModeling::DomainPropertyValueHandler<Model, global::System.String>
+		internal sealed partial class TargetPropertyHandler : DslModeling::DomainPropertyValueHandler<ModelBase, global::System.String>
 		{
 			private TargetPropertyHandler() { }
 		
@@ -196,7 +185,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(Model element)
+			public override sealed global::System.String GetValue(ModelBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.targetPropertyStorage;
@@ -207,7 +196,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(Model element, global::System.String newValue)
+			public override sealed void SetValue(ModelBase element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -257,7 +246,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Value handler for the Model.ViewpointType domain property.
 		/// </summary>
-		internal sealed partial class ViewpointTypePropertyHandler : DslModeling::DomainPropertyValueHandler<Model, global::System.String>
+		internal sealed partial class ViewpointTypePropertyHandler : DslModeling::DomainPropertyValueHandler<ModelBase, global::System.String>
 		{
 			private ViewpointTypePropertyHandler() { }
 		
@@ -283,7 +272,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(Model element)
+			public override sealed global::System.String GetValue(ModelBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.viewpointTypePropertyStorage;
@@ -294,7 +283,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(Model element, global::System.String newValue)
+			public override sealed void SetValue(ModelBase element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -505,6 +494,38 @@ namespace Bb.ApplicationCooperationViewPoint
 			// Fall through to base class if this class hasn't handled the unmerge.
 			base.MergeDisconnect(sourceElement);
 		}
+		#endregion
+	}
+	/// <summary>
+	/// DomainClass Model
+	/// The root in which all other elements are embedded. Appears as a diagram.
+	/// </summary>
+	[global::System.CLSCompliant(true)]
+			
+	public partial class Model : ModelBase
+	{
+		#region Constructors
+		// Constructors were not generated for this class because it had HasCustomConstructor
+		// set to true. Please provide the constructors below in a partial class.
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="store">Store where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public Model(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		//{
+		//}
+		//
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="partition">Partition where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public Model(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: base(partition, propertyAssignments)
+		//{
+		//}
 		#endregion
 	}
 }
@@ -949,8 +970,7 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainClass SubElement
-	/// Description de Bb.ApplicationCooperationViewPoint.SubElement
+	/// Double-derived base class for DomainClass SubElement
 	/// </summary>
 	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.SubElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.SubElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
@@ -958,7 +978,7 @@ namespace Bb.ApplicationCooperationViewPoint
 	[global::System.CLSCompliant(true)]
 	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {referenceSourcePropertyStorage})")]
 	[DslModeling::DomainObjectId("e39ae37f-7927-4be7-a99c-94d0deb846f7")]
-	public partial class SubElement : DslModeling::ModelElement
+	public abstract partial class SubElementBase : DslModeling::ModelElement
 	{
 		#region Constructors, domain class Id
 	
@@ -967,21 +987,11 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xe39ae37f, 0x7927, 0x4be7, 0xa9, 0x9c, 0x94, 0xd0, 0xde, 0xb8, 0x46, 0xf7);
 		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="store">Store where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public SubElement(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
-		{
-		}
-		
-		/// <summary>
-		/// Constructor
+		/// Constructor.
 		/// </summary>
 		/// <param name="partition">Partition where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public SubElement(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		protected SubElementBase(DslModeling::Partition partition, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, propertyAssignments)
 		{
 		}
@@ -1022,7 +1032,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Value handler for the SubElement.ReferenceSource domain property.
 		/// </summary>
-		internal sealed partial class ReferenceSourcePropertyHandler : DslModeling::DomainPropertyValueHandler<SubElement, global::System.String>
+		internal sealed partial class ReferenceSourcePropertyHandler : DslModeling::DomainPropertyValueHandler<SubElementBase, global::System.String>
 		{
 			private ReferenceSourcePropertyHandler() { }
 		
@@ -1048,7 +1058,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(SubElement element)
+			public override sealed global::System.String GetValue(SubElementBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.referenceSourcePropertyStorage;
@@ -1059,7 +1069,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(SubElement element, global::System.String newValue)
+			public override sealed void SetValue(SubElementBase element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -1110,7 +1120,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Value handler for the SubElement.Type domain property.
 		/// </summary>
-		internal sealed partial class TypePropertyHandler : DslModeling::DomainPropertyValueHandler<SubElement, global::System.String>
+		internal sealed partial class TypePropertyHandler : DslModeling::DomainPropertyValueHandler<SubElementBase, global::System.String>
 		{
 			private TypePropertyHandler() { }
 		
@@ -1136,7 +1146,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(SubElement element)
+			public override sealed global::System.String GetValue(SubElementBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.typePropertyStorage;
@@ -1147,7 +1157,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(SubElement element, global::System.String newValue)
+			public override sealed void SetValue(SubElementBase element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -1198,7 +1208,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Value handler for the SubElement.Name domain property.
 		/// </summary>
-		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<SubElement, global::System.String>
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<SubElementBase, global::System.String>
 		{
 			private NamePropertyHandler() { }
 		
@@ -1224,7 +1234,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(SubElement element)
+			public override sealed global::System.String GetValue(SubElementBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.namePropertyStorage;
@@ -1235,7 +1245,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(SubElement element, global::System.String newValue)
+			public override sealed void SetValue(SubElementBase element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -1287,12 +1297,43 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		#endregion
 	}
+	/// <summary>
+	/// DomainClass SubElement
+	/// Description de Bb.ApplicationCooperationViewPoint.SubElement
+	/// </summary>
+	[global::System.CLSCompliant(true)]
+			
+	public partial class SubElement : SubElementBase
+	{
+		#region Constructors
+		// Constructors were not generated for this class because it had HasCustomConstructor
+		// set to true. Please provide the constructors below in a partial class.
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="store">Store where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public SubElement(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		//{
+		//}
+		//
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="partition">Partition where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public SubElement(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: base(partition, propertyAssignments)
+		//{
+		//}
+		#endregion
+	}
 }
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainClass Concept
-	/// Description de Bb.ApplicationCooperationViewPoint.Concept
+	/// Double-derived base class for DomainClass Concept
 	/// </summary>
 	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Concept.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Concept.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
@@ -1300,7 +1341,7 @@ namespace Bb.ApplicationCooperationViewPoint
 	[global::System.CLSCompliant(true)]
 	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {referenceSourcePropertyStorage})")]
 	[DslModeling::DomainObjectId("eaad73c4-a652-4596-b575-39e82c2f525a")]
-	public partial class Concept : DslModeling::ModelElement
+	public abstract partial class ConceptBase : DslModeling::ModelElement
 	{
 		#region Constructors, domain class Id
 	
@@ -1309,21 +1350,11 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xeaad73c4, 0xa652, 0x4596, 0xb5, 0x75, 0x39, 0xe8, 0x2c, 0x2f, 0x52, 0x5a);
 		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="store">Store where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public Concept(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
-		{
-		}
-		
-		/// <summary>
-		/// Constructor
+		/// Constructor.
 		/// </summary>
 		/// <param name="partition">Partition where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public Concept(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		protected ConceptBase(DslModeling::Partition partition, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, propertyAssignments)
 		{
 		}
@@ -1364,7 +1395,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Value handler for the Concept.ReferenceSource domain property.
 		/// </summary>
-		internal sealed partial class ReferenceSourcePropertyHandler : DslModeling::DomainPropertyValueHandler<Concept, global::System.String>
+		internal sealed partial class ReferenceSourcePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptBase, global::System.String>
 		{
 			private ReferenceSourcePropertyHandler() { }
 		
@@ -1390,7 +1421,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(Concept element)
+			public override sealed global::System.String GetValue(ConceptBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.referenceSourcePropertyStorage;
@@ -1401,7 +1432,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(Concept element, global::System.String newValue)
+			public override sealed void SetValue(ConceptBase element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -1453,7 +1484,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Value handler for the Concept.Name domain property.
 		/// </summary>
-		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<Concept, global::System.String>
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptBase, global::System.String>
 		{
 			private NamePropertyHandler() { }
 		
@@ -1479,7 +1510,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(Concept element)
+			public override sealed global::System.String GetValue(ConceptBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.namePropertyStorage;
@@ -1490,7 +1521,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(Concept element, global::System.String newValue)
+			public override sealed void SetValue(ConceptBase element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -1654,12 +1685,43 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		#endregion
 	}
+	/// <summary>
+	/// DomainClass Concept
+	/// Description de Bb.ApplicationCooperationViewPoint.Concept
+	/// </summary>
+	[global::System.CLSCompliant(true)]
+			
+	public partial class Concept : ConceptBase
+	{
+		#region Constructors
+		// Constructors were not generated for this class because it had HasCustomConstructor
+		// set to true. Please provide the constructors below in a partial class.
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="store">Store where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public Concept(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		//{
+		//}
+		//
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="partition">Partition where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public Concept(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: base(partition, propertyAssignments)
+		//{
+		//}
+		#endregion
+	}
 }
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainClass ConceptElement
-	/// Description de Bb.ApplicationCooperationViewPoint.ConceptElement
+	/// Double-derived base class for DomainClass ConceptElement
 	/// </summary>
 	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
@@ -1667,7 +1729,7 @@ namespace Bb.ApplicationCooperationViewPoint
 	[global::System.CLSCompliant(true)]
 	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {referenceSourcePropertyStorage})")]
 	[DslModeling::DomainObjectId("3aba6490-0175-4397-b4b4-8ba4dd8df1d1")]
-	public partial class ConceptElement : DslModeling::ModelElement
+	public abstract partial class ConceptElementBase : DslModeling::ModelElement
 	{
 		#region Constructors, domain class Id
 	
@@ -1676,21 +1738,11 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x3aba6490, 0x0175, 0x4397, 0xb4, 0xb4, 0x8b, 0xa4, 0xdd, 0x8d, 0xf1, 0xd1);
 		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="store">Store where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public ConceptElement(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
-		{
-		}
-		
-		/// <summary>
-		/// Constructor
+		/// Constructor.
 		/// </summary>
 		/// <param name="partition">Partition where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public ConceptElement(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		protected ConceptElementBase(DslModeling::Partition partition, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, propertyAssignments)
 		{
 		}
@@ -1732,7 +1784,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Value handler for the ConceptElement.ReferenceSource domain property.
 		/// </summary>
-		internal sealed partial class ReferenceSourcePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptElement, global::System.String>
+		internal sealed partial class ReferenceSourcePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptElementBase, global::System.String>
 		{
 			private ReferenceSourcePropertyHandler() { }
 		
@@ -1758,7 +1810,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(ConceptElement element)
+			public override sealed global::System.String GetValue(ConceptElementBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.referenceSourcePropertyStorage;
@@ -1769,7 +1821,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(ConceptElement element, global::System.String newValue)
+			public override sealed void SetValue(ConceptElementBase element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -1821,7 +1873,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Value handler for the ConceptElement.Type domain property.
 		/// </summary>
-		internal sealed partial class TypePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptElement, global::System.String>
+		internal sealed partial class TypePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptElementBase, global::System.String>
 		{
 			private TypePropertyHandler() { }
 		
@@ -1847,7 +1899,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(ConceptElement element)
+			public override sealed global::System.String GetValue(ConceptElementBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.typePropertyStorage;
@@ -1858,7 +1910,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(ConceptElement element, global::System.String newValue)
+			public override sealed void SetValue(ConceptElementBase element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -1910,7 +1962,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Value handler for the ConceptElement.Name domain property.
 		/// </summary>
-		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptElement, global::System.String>
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptElementBase, global::System.String>
 		{
 			private NamePropertyHandler() { }
 		
@@ -1936,7 +1988,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(ConceptElement element)
+			public override sealed global::System.String GetValue(ConceptElementBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.namePropertyStorage;
@@ -1947,7 +1999,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(ConceptElement element, global::System.String newValue)
+			public override sealed void SetValue(ConceptElementBase element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -2112,12 +2164,43 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		#endregion
 	}
+	/// <summary>
+	/// DomainClass ConceptElement
+	/// Description de Bb.ApplicationCooperationViewPoint.ConceptElement
+	/// </summary>
+	[global::System.CLSCompliant(true)]
+			
+	public partial class ConceptElement : ConceptElementBase
+	{
+		#region Constructors
+		// Constructors were not generated for this class because it had HasCustomConstructor
+		// set to true. Please provide the constructors below in a partial class.
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="store">Store where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public ConceptElement(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		//{
+		//}
+		//
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="partition">Partition where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public ConceptElement(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: base(partition, propertyAssignments)
+		//{
+		//}
+		#endregion
+	}
 }
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainClass ConceptSubElement
-	/// Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement
+	/// Double-derived base class for DomainClass ConceptSubElement
 	/// </summary>
 	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptSubElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptSubElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
@@ -2125,7 +2208,7 @@ namespace Bb.ApplicationCooperationViewPoint
 	[global::System.CLSCompliant(true)]
 	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {referenceSourcePropertyStorage})")]
 	[DslModeling::DomainObjectId("a3a13452-14ee-4fe8-adcb-fd5c2f06ff68")]
-	public partial class ConceptSubElement : DslModeling::ModelElement
+	public abstract partial class ConceptSubElementBase : DslModeling::ModelElement
 	{
 		#region Constructors, domain class Id
 	
@@ -2134,21 +2217,11 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xa3a13452, 0x14ee, 0x4fe8, 0xad, 0xcb, 0xfd, 0x5c, 0x2f, 0x06, 0xff, 0x68);
 		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="store">Store where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public ConceptSubElement(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
-		{
-		}
-		
-		/// <summary>
-		/// Constructor
+		/// Constructor.
 		/// </summary>
 		/// <param name="partition">Partition where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public ConceptSubElement(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		protected ConceptSubElementBase(DslModeling::Partition partition, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, propertyAssignments)
 		{
 		}
@@ -2190,7 +2263,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Value handler for the ConceptSubElement.ReferenceSource domain property.
 		/// </summary>
-		internal sealed partial class ReferenceSourcePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptSubElement, global::System.String>
+		internal sealed partial class ReferenceSourcePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptSubElementBase, global::System.String>
 		{
 			private ReferenceSourcePropertyHandler() { }
 		
@@ -2216,7 +2289,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(ConceptSubElement element)
+			public override sealed global::System.String GetValue(ConceptSubElementBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.referenceSourcePropertyStorage;
@@ -2227,7 +2300,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(ConceptSubElement element, global::System.String newValue)
+			public override sealed void SetValue(ConceptSubElementBase element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -2279,7 +2352,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Value handler for the ConceptSubElement.Type domain property.
 		/// </summary>
-		internal sealed partial class TypePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptSubElement, global::System.String>
+		internal sealed partial class TypePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptSubElementBase, global::System.String>
 		{
 			private TypePropertyHandler() { }
 		
@@ -2305,7 +2378,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(ConceptSubElement element)
+			public override sealed global::System.String GetValue(ConceptSubElementBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.typePropertyStorage;
@@ -2316,7 +2389,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(ConceptSubElement element, global::System.String newValue)
+			public override sealed void SetValue(ConceptSubElementBase element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -2368,7 +2441,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Value handler for the ConceptSubElement.Name domain property.
 		/// </summary>
-		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptSubElement, global::System.String>
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptSubElementBase, global::System.String>
 		{
 			private NamePropertyHandler() { }
 		
@@ -2394,7 +2467,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(ConceptSubElement element)
+			public override sealed global::System.String GetValue(ConceptSubElementBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.namePropertyStorage;
@@ -2405,7 +2478,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(ConceptSubElement element, global::System.String newValue)
+			public override sealed void SetValue(ConceptSubElementBase element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -2457,12 +2530,43 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		#endregion
 	}
+	/// <summary>
+	/// DomainClass ConceptSubElement
+	/// Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement
+	/// </summary>
+	[global::System.CLSCompliant(true)]
+			
+	public partial class ConceptSubElement : ConceptSubElementBase
+	{
+		#region Constructors
+		// Constructors were not generated for this class because it had HasCustomConstructor
+		// set to true. Please provide the constructors below in a partial class.
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="store">Store where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public ConceptSubElement(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		//{
+		//}
+		//
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="partition">Partition where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public ConceptSubElement(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: base(partition, propertyAssignments)
+		//{
+		//}
+		#endregion
+	}
 }
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainClass Relationship
-	/// Description de Bb.ApplicationCooperationViewPoint.Relationship
+	/// Double-derived base class for DomainClass Relationship
 	/// </summary>
 	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Relationship.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Relationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
@@ -2470,7 +2574,7 @@ namespace Bb.ApplicationCooperationViewPoint
 	[global::System.CLSCompliant(true)]
 	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {referenceSourcePropertyStorage})")]
 	[DslModeling::DomainObjectId("95bd428c-7b5b-49c7-b8f9-5f753e1817a6")]
-	public partial class Relationship : DslModeling::ModelElement
+	public abstract partial class RelationshipBase : DslModeling::ModelElement
 	{
 		#region Constructors, domain class Id
 	
@@ -2479,21 +2583,11 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x95bd428c, 0x7b5b, 0x49c7, 0xb8, 0xf9, 0x5f, 0x75, 0x3e, 0x18, 0x17, 0xa6);
 		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="store">Store where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public Relationship(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
-		{
-		}
-		
-		/// <summary>
-		/// Constructor
+		/// Constructor.
 		/// </summary>
 		/// <param name="partition">Partition where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public Relationship(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		protected RelationshipBase(DslModeling::Partition partition, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, propertyAssignments)
 		{
 		}
@@ -2534,7 +2628,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Value handler for the Relationship.ReferenceSource domain property.
 		/// </summary>
-		internal sealed partial class ReferenceSourcePropertyHandler : DslModeling::DomainPropertyValueHandler<Relationship, global::System.String>
+		internal sealed partial class ReferenceSourcePropertyHandler : DslModeling::DomainPropertyValueHandler<RelationshipBase, global::System.String>
 		{
 			private ReferenceSourcePropertyHandler() { }
 		
@@ -2560,7 +2654,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(Relationship element)
+			public override sealed global::System.String GetValue(RelationshipBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.referenceSourcePropertyStorage;
@@ -2571,7 +2665,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(Relationship element, global::System.String newValue)
+			public override sealed void SetValue(RelationshipBase element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -2622,7 +2716,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Value handler for the Relationship.Name domain property.
 		/// </summary>
-		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<Relationship, global::System.String>
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<RelationshipBase, global::System.String>
 		{
 			private NamePropertyHandler() { }
 		
@@ -2648,7 +2742,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(Relationship element)
+			public override sealed global::System.String GetValue(RelationshipBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.namePropertyStorage;
@@ -2659,7 +2753,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(Relationship element, global::System.String newValue)
+			public override sealed void SetValue(RelationshipBase element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -2757,6 +2851,38 @@ namespace Bb.ApplicationCooperationViewPoint
 				return GetRoleCollection<DslModeling::LinkedElementCollection<ConceptSubElement>, ConceptSubElement>(global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.RelationshipDomainRoleId);
 			}
 		}
+		#endregion
+	}
+	/// <summary>
+	/// DomainClass Relationship
+	/// Description de Bb.ApplicationCooperationViewPoint.Relationship
+	/// </summary>
+	[global::System.CLSCompliant(true)]
+			
+	public partial class Relationship : RelationshipBase
+	{
+		#region Constructors
+		// Constructors were not generated for this class because it had HasCustomConstructor
+		// set to true. Please provide the constructors below in a partial class.
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="store">Store where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public Relationship(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		//{
+		//}
+		//
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="partition">Partition where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public Relationship(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: base(partition, propertyAssignments)
+		//{
+		//}
 		#endregion
 	}
 }

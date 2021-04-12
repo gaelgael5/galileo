@@ -16,16 +16,14 @@ using DslDiagrams = global::Microsoft.VisualStudio.Modeling.Diagrams;
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainClass CooperationViewPointDiagram
-	/// Description for
-	/// Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDiagram
+	/// Double-derived base class for DomainClass CooperationViewPointDiagram
 	/// </summary>
 	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.CooperationViewPointDiagram.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.CooperationViewPointDiagram.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainObjectId("ca3f1951-3a94-4564-a805-02e3bfc91b8b")]
-	public partial class CooperationViewPointDiagram : DslDiagrams::Diagram
+	public abstract partial class CooperationViewPointDiagramBase : DslDiagrams::Diagram
 	{
 		#region Diagram boilerplate
 		private static DslDiagrams::StyleSet classStyleSet;
@@ -271,24 +269,47 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xca3f1951, 0x3a94, 0x4564, 0xa8, 0x05, 0x02, 0xe3, 0xbf, 0xc9, 0x1b, 0x8b);
 		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="store">Store where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public CooperationViewPointDiagram(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
-		{
-		}
-		
-		/// <summary>
-		/// Constructor
+		/// Constructor.
 		/// </summary>
 		/// <param name="partition">Partition where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public CooperationViewPointDiagram(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		protected CooperationViewPointDiagramBase(DslModeling::Partition partition, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, propertyAssignments)
 		{
 		}
+		#endregion
+	}
+	/// <summary>
+	/// DomainClass CooperationViewPointDiagram
+	/// Description for
+	/// Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDiagram
+	/// </summary>
+	[global::System.CLSCompliant(true)]
+			
+	public partial class CooperationViewPointDiagram : CooperationViewPointDiagramBase
+	{
+		#region Constructors
+		// Constructors were not generated for this class because it had HasCustomConstructor
+		// set to true. Please provide the constructors below in a partial class.
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="store">Store where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public CooperationViewPointDiagram(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		//{
+		//}
+		//
+		///// <summary>
+		///// Constructor
+		///// </summary>
+		///// <param name="partition">Partition where new element is to be created.</param>
+		///// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		//public CooperationViewPointDiagram(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		//	: base(partition, propertyAssignments)
+		//{
+		//}
 		#endregion
 	}
 }
