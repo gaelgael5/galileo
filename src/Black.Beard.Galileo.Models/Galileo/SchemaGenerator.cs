@@ -27,6 +27,7 @@ namespace Bb.Galileo
                 Id = this._config.GetUri("entities", item.Name),
                 Description = item.Description,
                 Type = JsonObjectType.Object,
+                AllowAdditionalProperties = true,
             };
 
             var def1 = new JsonSchema()
@@ -62,6 +63,7 @@ namespace Bb.Galileo
                 Id = this._config.GetUri("entities", item.Name),
                 Description = item.Description,
                 Type = JsonObjectType.Object,
+                AllowAdditionalProperties = true,
             };
 
             var def1 = new JsonSchema()

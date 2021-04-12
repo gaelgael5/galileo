@@ -5,6 +5,7 @@ using Bb.Galileo.Files.Viewpoints;
 using Bb.Galileo.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using NJsonSchema;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,11 +19,11 @@ namespace Bb.Galileo.Files
     public class ModelRepository : IDisposable
     {
 
-
         public ModelRepository(string folder, IDiagnostic diagnostic)
         {
             this._loader = new Loader(this);
             this.SchemaManager = new SchemaManager(this);
+            this.SchemaValidator = new SchemaValidator(this);
             this._loader.LoadConfig(new DirectoryInfo(folder));
             this.Files = new FileRepository(folder, diagnostic, this);
             this.Diagnostic = diagnostic;
@@ -32,10 +33,19 @@ namespace Bb.Galileo.Files
 
         public void Initialize()
         {
+
             this.Files.StartListener();
+
+            //foreach (var item in this.GetCooperationViewpoints())
+            //{
+
+            //}
+
         }
 
         public SchemaManager SchemaManager { get; }
+
+        public SchemaValidator SchemaValidator { get; }
 
         public FileRepository Files { get; }
 
@@ -124,7 +134,20 @@ namespace Bb.Galileo.Files
         {
             var type = typeof(CooperationViewpoint);
             if (!_definitions.TryGetValue(type, out Dictionary<string, IBase> dic))
-                _definitions.Add(type, (dic = new Dictionary<string, IBase>()));
+            {
+                if (_definitions == null)
+                {
+
+                }
+                dic = new Dictionary<string, IBase>();
+
+                if (type == null)
+                {
+
+                }
+
+                _definitions.Add(type, dic);
+            }
 
             if (dic.ContainsKey(item.Name))
             {
@@ -137,6 +160,17 @@ namespace Bb.Galileo.Files
             dic.Add(item.Name, item);
             //PropagateFileChanged(item);
 
+        }
+
+        internal JsonSchema GetSchema(FileModel file)
+        {
+            if (File.Exists(file.Schema.FilePath))
+            {
+                JsonSchema schema = JsonSchema.FromJsonAsync(file.Schema.FilePath.LoadContentFromFile()).Result;
+                return schema;
+            }
+
+            return null;
         }
 
         internal void RemoveCooperationViewpoint(CooperationViewpoint item)
@@ -242,23 +276,24 @@ namespace Bb.Galileo.Files
                 _entities.Add(type, types);
             }
 
-            var dic = types.Get(item.TypeEntity);
+            TargetIndex dic1 = types.Get(item.TypeEntity);
+            ModelIndex dic2 = dic1.Get(item.Target);
 
-            if (dic.ContainsKey(item.Name))
+            if (dic2.ContainsKey(item.Name))
             {
 
-                var olditem = dic[item.Name];
+                var olditem = dic2[item.Name];
 
                 if (olditem is INotifyPropertyChanged n1)
                     n1.PropertyChanged -= N_PropertyChanged;
 
-                dic.Set(item);
+                dic2.Set(item);
                 //PropagateFileChanged(item);
                 return;
 
             }
 
-            dic.Set(item);
+            dic2.Set(item);
             //PropagateFileChanged(item);
 
             if (item is INotifyPropertyChanged n2)
@@ -271,25 +306,26 @@ namespace Bb.Galileo.Files
             var type = item.GetType();
             if (_entities.TryGetValue(type, out TypeIndex types))
             {
-                var dic = types.Get(item.TypeEntity);
-                if (dic.ContainsKey(item.Name))
-                    dic.Remove(item);
+                var dic1 = types.Get(item.TypeEntity);
+                var dic2 = dic1.Get(item.Target);
+                if (dic2.ContainsKey(item.Name))
+                    dic2.Remove(item);
             }
         }
 
 
-        public ReferentialEntity GetEntity(string typeEntity, string identifier)
+        public ReferentialEntity GetEntity(string typeEntity, string target, string identifier)
         {
             if (_entities.TryGetValue(typeof(ReferentialEntity), out TypeIndex dic))
-                if (dic.Get(typeEntity).TryGetValue(identifier, out ReferentialBase item))
+                if (dic.Get(typeEntity).Get(target).TryGetValue(identifier, out ReferentialBase item))
                     return (ReferentialEntity)item;
             return null;
         }
 
-        public ReferentialRelationship GetRelationship(string typeEntity, string identifier)
+        public ReferentialRelationship GetRelationship(string typeEntity, string identifier, string target)
         {
             if (_entities.TryGetValue(typeof(ReferentialRelationship), out TypeIndex dic))
-                if (dic.Get(typeEntity).TryGetValue(identifier, out ReferentialBase item))
+                if (dic.Get(typeEntity).Get(target).TryGetValue(identifier, out ReferentialBase item))
                     return (ReferentialRelationship)item;
             return default(ReferentialRelationship);
         }
@@ -297,16 +333,18 @@ namespace Bb.Galileo.Files
         public IEnumerable<ReferentialBase> GetReferentials(Type type)
         {
             if (_entities.TryGetValue(type, out TypeIndex dic))
-                foreach (ModelIndex model in dic.Values)
-                    foreach (var item in model.Values)
-                        yield return (ReferentialBase)item;
+                foreach (TargetIndex target in dic.Values)
+                    foreach (ModelIndex model in target.Values)
+                        foreach (var item in model.Values)
+                            yield return item;
         }
 
-        public IEnumerable<ReferentialBase> GetReferentials(Type type, string typeEntity)
+        public IEnumerable<ReferentialBase> GetReferentials(Type type, string typeEntity, string target)
         {
             if (_entities.TryGetValue(type, out TypeIndex dic))
             {
-                var model = dic.Get(typeEntity);
+                var _target = dic.Get(typeEntity);
+                var model = _target.Get(typeEntity);
                 foreach (var item in model.Values)
                     yield return (ReferentialBase)item;
             }
@@ -323,10 +361,11 @@ namespace Bb.Galileo.Files
             if (typeof(ReferentialBase).IsAssignableFrom(type))
             {
                 if (_entities.TryGetValue(type, out TypeIndex types))
-                    foreach (ModelIndex index in types.Values)
-                        foreach (var item in index.Values)
-                            if (item is T r && item.File.FullPath == file.FullPath)
-                                yield return r;
+                    foreach (TargetIndex target in types.Values)
+                        foreach (ModelIndex index in target.Values)
+                            foreach (var item in index.Values)
+                                if (item is T r && item.File.FullPath == file.FullPath)
+                                    yield return r;
             }
 
             else if (typeof(ModelDefinition).IsAssignableFrom(type))
@@ -371,10 +410,11 @@ namespace Bb.Galileo.Files
 
             if (typeof(ReferentialBase).IsAssignableFrom(type))
                 if (_entities.TryGetValue(type, out TypeIndex dic))
-                    foreach (ModelIndex model in dic.Values)
-                        foreach (object item in model.Values)
-                            if (item is T i)
-                                yield return (T)item;
+                    foreach (TargetIndex target in dic.Values)
+                        foreach (ModelIndex model in target.Values)
+                            foreach (object item in model.Values)
+                                if (item is T i)
+                                    yield return (T)item;
 
         }
 
@@ -387,9 +427,10 @@ namespace Bb.Galileo.Files
                     yield return item;
 
             foreach (var dic2 in _entities)
-                foreach (ModelIndex model in dic2.Value.Values)
-                    foreach (var item in model.Values)
-                        yield return item;
+                foreach (TargetIndex target in dic2.Value.Values)
+                    foreach (var model in target.Values)
+                        foreach (var item in model.Values)
+                            yield return item;
 
         }
 

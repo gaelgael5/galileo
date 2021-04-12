@@ -80,7 +80,13 @@ namespace Bb.Commands
                                     else
                                         repository.SchemaManager.GenerateDefinition(_items);
 
+                                    if (!string.IsNullOrEmpty(argSchemaTarget.Value))
+                                        rep.SchemaManager.GenerateSchemas(new DirectoryInfo(argSchemaTarget.Value));
+                                    else
+                                        rep.SchemaManager.GenerateSchemas();
+                                    break;
 
+                                case Galileo.KindSchemaEnum.SchemaLayerDefinitions:
                                     if (!string.IsNullOrEmpty(argSchemaTarget.Value))
                                         rep.SchemaManager.GenerateSchemas(new DirectoryInfo(argSchemaTarget.Value));
                                     else
@@ -90,13 +96,10 @@ namespace Bb.Commands
                                 case Galileo.KindSchemaEnum.Definition:
                                 case Galileo.KindSchemaEnum.Schema:
                                 case Galileo.KindSchemaEnum.CooperationViewpoint:
-                                case Galileo.KindSchemaEnum.SchemaLayerDefinitions:
                                 case Galileo.KindSchemaEnum.Undefined:
                                 default:
                                     break;
                             }
-
-
                       
                         };
 

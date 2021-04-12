@@ -4,6 +4,7 @@ using Bb.Galileo.Models;
 using NJsonSchema;
 using NJsonSchema.Generation;
 using System;
+using System.IO;
 using System.Text.RegularExpressions;
 
 namespace Bb.Galileo.Files.Schemas
@@ -28,25 +29,40 @@ namespace Bb.Galileo.Files.Schemas
             _settings.ActualSerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
         }
 
-        public static SchemaReference GetSchemaReference(this Newtonsoft.Json.Linq.JObject self)
+        public static SchemaReference GetSchemaReference(this Newtonsoft.Json.Linq.JObject self, FileModel file)
         {
+            
             var schema = (string)self.SelectToken("$schema");
-            return GetSchemaReference(schema);
+            var schemaItem = GetSchemaReference(schema);
+
+            try
+            {
+                var folderTargetFile = new FileInfo(file.FullPath).Directory.FullName;
+                var _file = new FileInfo(Path.Combine(folderTargetFile, schema));
+                schemaItem.FilePath = _file.FullName;
+                schemaItem.IsValidFile = true;
+            }
+            catch (Exception)
+            {
+            }
+
+            return schemaItem;
+
         }
 
-        public static SchemaReference GetSchemaReference(this string schema)
+        private static SchemaReference GetSchemaReference(this string schema)
         {
 
             var extension = ".schema.json";
 
             if (schema.ToLower().EndsWith((nameof(MetaDefinitions) + extension).ToLower()))
-                return new SchemaReference() { Kind = KindSchemaEnum.SchemaDefinitions };
+                return new SchemaReference() { Kind = KindSchemaEnum.SchemaDefinitions, Schema = schema };
 
             if (schema.ToLower().EndsWith((nameof(LayersDefinition) + extension).ToLower()))
-                return new SchemaReference() { Kind = KindSchemaEnum.SchemaLayerDefinitions };
+                return new SchemaReference() { Kind = KindSchemaEnum.SchemaLayerDefinitions, Schema = schema };
 
             if (schema.ToLower().EndsWith((nameof(CooperationViewpoint) + extension).ToLower()))
-                return new SchemaReference() { Kind = KindSchemaEnum.CooperationViewpoint };
+                return new SchemaReference() { Kind = KindSchemaEnum.CooperationViewpoint, Schema = schema };
 
             foreach (Match match in _regex.Matches(schema))
                 if (match.Success)
@@ -68,7 +84,11 @@ namespace Bb.Galileo.Files.Schemas
                     return r;
                 }
 
-            return new SchemaReference();
+            return new SchemaReference()
+            {
+                Kind = KindSchemaEnum.Undefined,
+                Schema = schema,
+            };
 
         }
 

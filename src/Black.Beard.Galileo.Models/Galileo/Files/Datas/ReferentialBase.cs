@@ -37,6 +37,8 @@ namespace Bb.Galileo.Files.Datas
 
         public string Kind { get; }
 
+        public string Target { get; internal set; }
+
         public SchemaReference Schema { get; internal set; }
 
 

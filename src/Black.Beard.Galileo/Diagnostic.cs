@@ -17,20 +17,26 @@ namespace Black.Beard.Galileo
 
             string filepath = string.Empty;
             string exception = string.Empty;
-
+            string position = string.Empty;
             if (message.File != null)
             {
                 FileInfo file = new FileInfo(message.File);
                 filepath = $" file {file.Directory.Name}\\{file.Name}";
             }
+
+            if (message.Line > 0 || message.Column > 0)
+            {
+                position = $"(line {message.Line}, column {message.Column})";
+            }
+
             if (message.Exception != null)
                 exception = $"exception {message.Exception.GetType().Name}.";
 
             if (message.Severity == SeverityEnum.Error)
-                Bb.CommandLine.Outs.Output.WriteLineError($"{exception}{filepath}. {message.Text}");
-         
+                Bb.CommandLine.Outs.Output.WriteLineError($"{exception}{filepath}. {message.Text}.{position}");
+
             else
-                Bb.CommandLine.Outs.Output.WriteLineStandard(message.Text);
+                Bb.CommandLine.Outs.Output.WriteLineStandard(message.Text + position);
         }
 
     }

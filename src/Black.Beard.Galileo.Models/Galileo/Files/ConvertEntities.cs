@@ -61,6 +61,8 @@ namespace Bb.Galileo.Models
 
                     foreach (var item in targetItem)
                     {
+
+                        item.Target = target.Target;
                         item.ResetChanges();
                         _items.Add((T)item);
 

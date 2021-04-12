@@ -27,45 +27,69 @@ namespace Bb.Galileo.Files
                 Trace = FileTracingEnum.Deleted,
             };
 
-            var item1 =  this._parent.CollectFile<ReferentialBase>(file).ToList();
-            if (item1.Count > 0)
+            switch (file.Schema.Kind)
             {
-                foreach (var item in item1)
-                {
-                    _parent.RemoveReferential(item);
-                    result.Deleted.Add(item);
-                }
+                case KindSchemaEnum.Undefined:
+                    break;
+
+                case KindSchemaEnum.Entity:
+                case KindSchemaEnum.Relationship:
+                    var item1 = this._parent.CollectFile<ReferentialBase>(file).ToList();
+                    if (item1.Count > 0)
+                        foreach (var item in item1)
+                        {
+                            _parent.RemoveReferential(item);
+                            result.Deleted.Add(item);
+                        }
+                    break;
+
+                case KindSchemaEnum.Definition:
+                    var item2 = this._parent.CollectFile<ModelDefinition>(file).ToList();
+                    if (item2.Count > 0)
+                        foreach (var item in item2)
+                        {
+                            _parent.RemoveDefinition(item);
+                            result.Deleted.Add(item);
+                        }
+                    break;
+
+                case KindSchemaEnum.Schema:
+                    break;
+
+                case KindSchemaEnum.SchemaDefinitions:
+                    break;
+
+                case KindSchemaEnum.CooperationViewpoint:
+                    var item3 = this._parent.CollectFile<CooperationViewpoint>(file).ToList();
+                    if (item3.Count > 0)
+                        foreach (var item in item3)
+                        {
+                            _parent.RemoveCooperationViewpoint(item);
+                            result.Deleted.Add(item);
+                        }
+                    break;
+
+                case KindSchemaEnum.SchemaLayerDefinitions:
+                    var item4 = this._parent.CollectFile<LayersDefinition>(file).ToList();
+                    if (item4.Count > 0)
+                        foreach (var item in item4)
+                        {
+                            _parent.RemoveLayers(item);
+                            result.Deleted.Add(item);
+                        }
+                    break;
+
+                default:
+                    break;
+
             }
 
-            var item2 = this._parent.CollectFile<ModelDefinition>(file).ToList();
-            if (item2.Count > 0)
-            {
-                foreach (var item in item2)
-                {
-                    _parent.RemoveDefinition(item);
-                    result.Deleted.Add(item);
-                }
-            }
 
-            var item3 = this._parent.CollectFile<CooperationViewpoint>(file).ToList();
-            if (item3.Count > 0)
-            {
-                foreach (var item in item3)
-                {
-                    _parent.RemoveCooperationViewpoint(item);
-                    result.Deleted.Add(item);
-                }
-            }
+            
 
-            var item4 = this._parent.CollectFile<LayersDefinition>(file).ToList();
-            if (item4.Count > 0)
-            {
-                foreach (var item in item4)
-                {
-                    _parent.RemoveLayers(item);
-                    result.Deleted.Add(item);
-                }
-            }
+            
+
+           
 
             return result;
 
@@ -76,7 +100,7 @@ namespace Bb.Galileo.Files
 
             Transactionfile result = null;
 
-            file.Schema = payload.GetSchemaReference();
+            file.Schema = payload.GetSchemaReference(file);
 
             switch (file.Schema.Kind)
             {
@@ -109,6 +133,8 @@ namespace Bb.Galileo.Files
             }
 
             result.File = file;
+
+            _parent.SchemaValidator.Evaluate(result.File, payload);
 
             return result;
 

@@ -10,6 +10,7 @@ using System.Linq;
 namespace Bb.Galileo.Files
 {
 
+
     public class SchemaManager
     {
 
@@ -119,7 +120,7 @@ namespace Bb.Galileo.Files
             string id = this._parent.Config.GetUri(type.Name);
             string filename = System.IO.Path.Combine(dir.FullName, type.Name + extension);
             var schema = SchemaHelper.GenerateSchemaForClass(type, type.Name);
-
+            schema.AllowAdditionalProperties = true;
             schema.Id = id;
 
             if (act != null)

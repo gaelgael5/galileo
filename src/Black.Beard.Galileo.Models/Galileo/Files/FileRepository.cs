@@ -67,9 +67,6 @@ namespace Bb.Galileo.Files
             {
                 this._items.Remove(item.FullPath);
                 Transactionfile transaction = this.Models.RemoveFile(item);
-
-
-
                 return transaction;
             }
 

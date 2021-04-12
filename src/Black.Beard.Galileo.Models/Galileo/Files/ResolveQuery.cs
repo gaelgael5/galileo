@@ -7,6 +7,21 @@ using System.Text;
 
 namespace Bb.Galileo.Files
 {
+
+
+    /// <summary>
+    /// Syntax : e:Application;t:Existant;i:280d589ab1014cef85af664414316b85
+    ///          e -> entity
+    ///          l -> Relationship
+    ///          de -> Entity definition
+    ///          dl -> Relationship definition
+    ///          
+    ///          t -> Target. if item is not found in current specified, it is search in the parent layer
+    ///          
+    ///          i -> the identifier is an id
+    ///          n -> the identifier is the functional name
+    ///          
+    /// </summary>
     public class ResolveQuery
     {
 
@@ -61,16 +76,23 @@ namespace Bb.Galileo.Files
         {
 
             var items = query.Split(';');
-            if (items.Length == 2)
+
+            foreach (var item in items)
             {
+                
+                var e = item.Split(':');
 
-                //e:Application;i:280d589ab1014cef85af664414316b85
-
-                TypeName = items[0];
-
-                var e = TypeName.Split(':');
                 switch (e[0].ToLower())
                 {
+                    case "t":
+                        this.Target = e[1];
+                        break;
+
+                    case "n":
+                    case "i":
+                        this.Identifier = item;
+                        break;
+
                     case "e":
                         this.Kind = ElementEnum.Entity;
                         break;
@@ -88,17 +110,10 @@ namespace Bb.Galileo.Files
                         throw new InvalidDataException($"invalid kind key {e[0].ToLower()}:");
                 }
 
-                this.TypeName = e[1];
-
-                if (items.Length == 2)
-                    Identifier = items[1];
-
-                return;
             }
 
-            throw new InvalidDataException($"invalid key {query}");
-
         }
+
 
         public void SetIdentifier(IBase item)
         {
@@ -135,10 +150,10 @@ namespace Bb.Galileo.Files
             switch (this.Kind)
             {
                 case ElementEnum.Entity:
-                    return rep.GetEntity(this.TypeName, this.Identifier);
+                    return rep.GetEntity(this.TypeName, this.Target, this.Identifier);
 
                 case ElementEnum.Relationship:
-                    return rep.GetRelationship(this.TypeName, this.Identifier);
+                    return rep.GetRelationship(this.TypeName, this.Target, this.Identifier);
 
                 case ElementEnum.EntityDefinition:
                     return rep.GetEntityDefinition(this.TypeName);
@@ -155,6 +170,8 @@ namespace Bb.Galileo.Files
         }
 
         public ElementEnum Kind { get; private set; }
+
+        public string Target { get; private set; }
 
         public string TypeName { get; private set; }
 
