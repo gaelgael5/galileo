@@ -62,8 +62,11 @@ namespace Bb.Commands
 
                             switch (transaction.File.Schema.Kind)
                             {
-                                
+
+                                case Galileo.KindSchemaEnum.SchemaEntity:
+                                case Galileo.KindSchemaEnum.SchemaLink:
                                 case Galileo.KindSchemaEnum.Entity:
+
                                     break;
                                 
 

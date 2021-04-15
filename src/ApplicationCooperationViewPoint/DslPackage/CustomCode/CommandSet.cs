@@ -59,6 +59,7 @@ namespace Bb.ApplicationCooperationViewPoint
         internal virtual void GenerateFrom(object sender, System.EventArgs e)
         {
 
+
             if (this.CurrentApplicationCooperationViewPointDocData != null && this.CurrentApplicationCooperationViewPointDocData.Store != null)
 
                 foreach (object selectedObject in this.CurrentSelection)
@@ -79,8 +80,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		protected static DslModeling::ModelElement GetValidationTarget1(object selectedObject)
         {
             DslModeling::ModelElement element = null;
-            DslDiagrams::PresentationElement presentation = selectedObject as DslDiagrams::PresentationElement;
-            if (presentation != null)
+            if (selectedObject is DslDiagrams::PresentationElement presentation)
             {
                 if (presentation.Subject != null)
                 {

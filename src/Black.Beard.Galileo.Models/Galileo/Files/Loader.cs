@@ -85,11 +85,11 @@ namespace Bb.Galileo.Files
             }
 
 
-            
 
-            
 
-           
+
+
+
 
             return result;
 
@@ -100,7 +100,7 @@ namespace Bb.Galileo.Files
 
             Transactionfile result = null;
 
-            file.Schema = payload.GetSchemaReference(file);
+            file.Schema = payload.GetSchemaReference(file, this._parent.Config.GetRoot());
 
             switch (file.Schema.Kind)
             {
@@ -124,22 +124,109 @@ namespace Bb.Galileo.Files
                     result = LoadCooperationViewpoint(payload, file);
                     break;
 
+                case KindSchemaEnum.Schema:
+                    result = LoadSchema(payload, file); 
+                    break;
+
+                case KindSchemaEnum.SchemaEntity:
+                case KindSchemaEnum.SchemaLink:
+                    result = LoadObjectSchema(payload, file);
+                    break;
+
                 case KindSchemaEnum.Undefined:
                 case KindSchemaEnum.Definition:
-                case KindSchemaEnum.Schema:
                 default:
                     this._parent.Diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Warning, File = file.FullPath, Text = "Failed to resolve the schema" });
                     break;
             }
 
-            result.File = file;
+            if (result != null)
+            {
+                result.File = file;
 
-            _parent.SchemaValidator.Evaluate(result.File, payload);
+
+                switch (file.Schema.Kind)
+                {
+
+                    case KindSchemaEnum.CooperationViewpoint:
+                    case KindSchemaEnum.Entity:
+                    case KindSchemaEnum.Relationship:
+                    case KindSchemaEnum.Definition:
+                    case KindSchemaEnum.SchemaLayerDefinitions:
+                    case KindSchemaEnum.SchemaDefinitions:
+                        _parent.SchemaValidator.Evaluate(result.File, payload);
+                        break;
+
+                    case KindSchemaEnum.Schema:
+                        break;
+
+                    case KindSchemaEnum.SchemaEntity:
+                    case KindSchemaEnum.SchemaLink:
+                        _parent.Files.EvaluateSchema(result);
+                        break;
+                    
+                    case KindSchemaEnum.Undefined:
+                default:
+                        break;
+                }
+
+
+
+
+            }
 
             return result;
 
         }
 
+        private Transactionfile LoadSchema(JObject payload, FileModel file)
+        {
+
+            // Transactionfile result = new Transactionfile();
+
+
+
+            return null;
+        }
+
+        private Transactionfile LoadObjectSchema(JObject payload, FileModel file)
+        {
+
+            Transactionfile result = new Transactionfile();
+
+            ObjectBaseSchema item = null;
+            if (file.Schema.Kind == KindSchemaEnum.SchemaEntity)
+            {
+                item = new EntitySchema()
+                {
+                    Name = file.Schema.Type,
+                    File = file,
+                };
+            }
+            else if (file.Schema.Kind == KindSchemaEnum.SchemaLink)
+            {
+                item = new LinkSchema()
+                {
+                    Name = file.Schema.Type,
+                    File = file,
+                };
+            }
+
+            if (item != null)
+            {
+                if (!string.IsNullOrEmpty(item.Name))
+                {
+                    
+                    if (this._parent.AddSchema(item))
+                        result.Added.Add(item);
+                    else
+                        result.Updated.Add(item);
+                }
+
+            }
+            return result;
+
+        }
 
         private Transactionfile LoadRelationship(JObject payload, FileModel file)
         {
@@ -483,7 +570,7 @@ namespace Bb.Galileo.Files
 
         public void LoadConfig(DirectoryInfo folder)
         {
-            var Filename = new FileInfo(System.IO.Path.Combine(folder.FullName, "config.json"));
+            var Filename = new FileInfo(System.IO.Path.Combine(folder.FullName, "galileo.config.json"));
             if (Filename.Exists)
                 this._parent.Config = ContentHelper.LoadContentFromFile(Filename.FullName)
                     .Deserialize<ConfigModel>();
@@ -492,7 +579,11 @@ namespace Bb.Galileo.Files
             {
                 this._parent.Config = new ConfigModel()
                 {
-                    Si = "MyCompany"
+                    Si = "MyCompany",
+                    Targets = new TargetDefinition()
+                    {
+                        Name = "Current",
+                    }
                 };
                 this._parent.Config.Save(Filename.FullName);
             }

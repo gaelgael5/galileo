@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="6113886b-339d-4d50-9d9a-05cec44810af" Version="1.0.0.0" Language="en-US" Publisher="Black.Beard" />
-    <DisplayName>ApplicationCooperationViewPoint</DisplayName>
-    <Description>Description for Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPoint</Description>
+    <Identity Id="6113886b-339d-4d50-9d9a-05cec44810af" Version="0.1.0.0" Language="en-US" Publisher="Black.Beard" />
+    <DisplayName>Cooperation Viewpoint for Galileo</DisplayName>
+    <Description xml:space="preserve">Provide a tool for edit cooperation viewpoint for galileo</Description>
+    <Icon>Resources\Compas.png</Icon>
   </Metadata>
   <Installation InstalledByMsi="false">
     <InstallationTarget Version="[16.0,17.0)" Id="Microsoft.VisualStudio.Community" />
@@ -20,6 +21,13 @@
     <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%|" />
     <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="Dsl" Path="|Dsl|" />
     <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="Project" d:ProjectName="%CurrentProject%" d:TargetPath="|%CurrentProject%;TemplateProjectOutputGroup|" Path="ItemTemplates" d:VsixSubPath="ItemTemplates" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="Black.Beard.Galileo.Tools" Path="|Black.Beard.Galileo.Tools|" AssemblyName="|Black.Beard.Galileo.Tools;AssemblyName|" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="VisualStudio.ParsingSolution" Path="|VisualStudio.ParsingSolution|" AssemblyName="|VisualStudio.ParsingSolution;AssemblyName|" />
+
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="Namotion.Reflection.dll" AssemblyName="Namotion.Reflection, Version=1.0.19.0, Culture=neutral, PublicKeyToken=c2f9c3bdfae56102" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="Newtonsoft.Json" Path="|Newtonsoft.Json|" AssemblyName="|Newtonsoft.Json;AssemblyName|" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="NJsonSchema" Path="|NJsonSchema|" AssemblyName="|NJsonSchema;AssemblyName|" />
+
   </Assets>
 </PackageManifest>
 

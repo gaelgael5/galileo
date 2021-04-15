@@ -1114,7 +1114,7 @@ namespace Bb.ApplicationCooperationViewPoint
 				// Only model has schema, diagram has no schema.
 				rootElementSettings.SchemaTargetNamespace = "http://schemas.microsoft.com/dsltools/ApplicationCooperationViewPoint";
 			}
-			rootElementSettings.Version = new global::System.Version("1.0.0.0");
+			rootElementSettings.Version = new global::System.Version("0.1.0.0");
 	
 			// Carry out the normal serialization.
 			rootSerializer.Write(serializationContext, rootElement, writer, rootElementSettings);
@@ -1136,7 +1136,7 @@ namespace Bb.ApplicationCooperationViewPoint
 				throw new global::System.ArgumentNullException("reader");
 			#endregion
 	
-			global::System.Version expectedVersion = new global::System.Version("1.0.0.0");
+			global::System.Version expectedVersion = new global::System.Version("0.1.0.0");
 			string dslVersionStr = reader.GetAttribute("dslVersion");
 			if (dslVersionStr != null)
 			{

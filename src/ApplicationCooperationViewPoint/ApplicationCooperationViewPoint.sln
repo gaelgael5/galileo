@@ -7,6 +7,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dsl", "Dsl\Dsl.csproj", "{F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DslPackage", "DslPackage\DslPackage.csproj", "{24BCD0D0-3092-4DB2-A98A-50446A6C558B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Black.Beard.Galileo.Tools", "Black.Beard.Galileo.Tools\Black.Beard.Galileo.Tools.csproj", "{F3331FC0-1253-4D2C-9CA8-3DBA71DFA630}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualStudio.ParsingSolution", "VisualStudio.ParsingSolution\VisualStudio.ParsingSolution.csproj", "{51357C80-D265-4E29-A792-82129768C1E8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newtonsoft.Json", "Newtonsoft.Json\Newtonsoft.Json.csproj", "{81DA86A8-B495-413E-A790-6C16427B6014}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NJsonSchema", "NJsonSchema\NJsonSchema.csproj", "{3E391B15-B6D0-4459-A8A3-A0917B282032}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{3AF887DE-1DB8-47D3-8215-61F3C1CCD21B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +31,29 @@ Global
 		{24BCD0D0-3092-4DB2-A98A-50446A6C558B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24BCD0D0-3092-4DB2-A98A-50446A6C558B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24BCD0D0-3092-4DB2-A98A-50446A6C558B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3331FC0-1253-4D2C-9CA8-3DBA71DFA630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3331FC0-1253-4D2C-9CA8-3DBA71DFA630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3331FC0-1253-4D2C-9CA8-3DBA71DFA630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3331FC0-1253-4D2C-9CA8-3DBA71DFA630}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51357C80-D265-4E29-A792-82129768C1E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51357C80-D265-4E29-A792-82129768C1E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51357C80-D265-4E29-A792-82129768C1E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51357C80-D265-4E29-A792-82129768C1E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81DA86A8-B495-413E-A790-6C16427B6014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DA86A8-B495-413E-A790-6C16427B6014}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81DA86A8-B495-413E-A790-6C16427B6014}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DA86A8-B495-413E-A790-6C16427B6014}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E391B15-B6D0-4459-A8A3-A0917B282032}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E391B15-B6D0-4459-A8A3-A0917B282032}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E391B15-B6D0-4459-A8A3-A0917B282032}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E391B15-B6D0-4459-A8A3-A0917B282032}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{81DA86A8-B495-413E-A790-6C16427B6014} = {3AF887DE-1DB8-47D3-8215-61F3C1CCD21B}
+		{3E391B15-B6D0-4459-A8A3-A0917B282032} = {3AF887DE-1DB8-47D3-8215-61F3C1CCD21B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA6CA6BD-070F-4EE1-8CA2-518F8014A197}

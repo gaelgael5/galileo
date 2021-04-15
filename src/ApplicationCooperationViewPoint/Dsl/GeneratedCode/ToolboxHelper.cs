@@ -46,7 +46,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// See the MSDN documentation for the ToolboxItemFilterAttribute class for more information on toolbox
 		/// item filters.
 		/// </remarks>
-		public const string ToolboxFilterString = "ApplicationCooperationViewPoint.1.0";
+		public const string ToolboxFilterString = "ApplicationCooperationViewPoint.0.1";
 
 	
 		private global::System.Collections.Generic.Dictionary<string, DslDesign::ModelingToolboxItem> toolboxItemCache = new global::System.Collections.Generic.Dictionary<string, DslDesign::ModelingToolboxItem>();

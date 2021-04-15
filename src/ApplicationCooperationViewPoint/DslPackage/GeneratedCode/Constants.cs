@@ -18,7 +18,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
 		public const string CompanyName = @"Black.Beard";
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-		public const string ProductVersion = "1.0.0.0";
+		public const string ProductVersion = "0.1.0.0";
 
 		// Menu definitions
 		public static readonly global::System.ComponentModel.Design.CommandID ApplicationCooperationViewPointDiagramMenu = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(ApplicationCooperationViewPointCommandSetId), 0x10000);

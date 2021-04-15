@@ -9,6 +9,8 @@
         Relationship,
         Definition,
         Schema,
+        SchemaEntity,
+        SchemaLink,
         SchemaDefinitions,
         CooperationViewpoint,
         SchemaLayerDefinitions,

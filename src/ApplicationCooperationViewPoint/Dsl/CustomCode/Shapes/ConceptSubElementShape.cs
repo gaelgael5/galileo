@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections;
 using DslModeling = global::Microsoft.VisualStudio.Modeling;
 using DslDesign = global::Microsoft.VisualStudio.Modeling.Design;
 
@@ -17,7 +16,7 @@ namespace Bb.ApplicationCooperationViewPoint
         /// <param name="store">Store where new element is to be created.</param>
         /// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
         public ConceptSubElementShape(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
-            : this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+            : this(store?.DefaultPartitionForClass(DomainClassId), propertyAssignments)
         {
         }
 

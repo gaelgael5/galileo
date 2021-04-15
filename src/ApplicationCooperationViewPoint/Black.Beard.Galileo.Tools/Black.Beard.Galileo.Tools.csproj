@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F3331FC0-1253-4D2C-9CA8-3DBA71DFA630}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Bb.Galileo</RootNamespace>
+    <AssemblyName>Black.Beard.Galileo.Tools</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Ude.NetStandard, Version=1.0.2.0, Culture=neutral, PublicKeyToken=103cb45fc06c90e4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ude.NetStandard.1.2.0\lib\net45\Ude.NetStandard.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Viewpoints\Cooperations\SelectReferential.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Viewpoints\Cooperations\SelectReferential.Designer.cs">
+      <DependentUpon>SelectReferential.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Referentials\ContentHelper.cs" />
+    <Compile Include="Referentials\DiagnositcMessage.cs" />
+    <Compile Include="Referentials\Enums.cs" />
+    <Compile Include="Referentials\Files\ConfigModel.cs" />
+    <Compile Include="Referentials\Files\ConvertEntities.cs" />
+    <Compile Include="Referentials\Files\Datas\Entities.cs" />
+    <Compile Include="Referentials\Files\Datas\IDocumentReferential.cs" />
+    <Compile Include="Referentials\Files\Datas\ReferentialBase.cs" />
+    <Compile Include="Referentials\Files\Datas\ReferentialEntity.cs" />
+    <Compile Include="Referentials\Files\Datas\ReferentialRelationship.cs" />
+    <Compile Include="Referentials\Files\Datas\ReferentialRelationshipLink.cs" />
+    <Compile Include="Referentials\Files\FileModel.cs" />
+    <Compile Include="Referentials\Files\FileRepository.cs" />
+    <Compile Include="Referentials\Files\FileWatcher.cs" />
+    <Compile Include="Referentials\Files\IBase.cs" />
+    <Compile Include="Referentials\Files\Loader.cs" />
+    <Compile Include="Referentials\Files\ModelIndex.cs" />
+    <Compile Include="Referentials\Files\ModelRepository.cs" />
+    <Compile Include="Referentials\Files\ResolveQuery.cs" />
+    <Compile Include="Referentials\Files\SchemaManager.cs" />
+    <Compile Include="Referentials\Files\Schemas\ElementDefinition.cs" />
+    <Compile Include="Referentials\Files\Schemas\EntityDefinition.cs" />
+    <Compile Include="Referentials\Files\Schemas\EntityTypeDefinition.cs" />
+    <Compile Include="Referentials\Files\Schemas\Enums.cs" />
+    <Compile Include="Referentials\Files\Schemas\LayerDefinition.cs" />
+    <Compile Include="Referentials\Files\Schemas\LayersDefinition.cs" />
+    <Compile Include="Referentials\Files\Schemas\LinkDefinition.cs" />
+    <Compile Include="Referentials\Files\Schemas\MetaDefinitions.cs" />
+    <Compile Include="Referentials\Files\Schemas\ModelDefinition.cs" />
+    <Compile Include="Referentials\Files\Schemas\NumberConstraints.cs" />
+    <Compile Include="Referentials\Files\Schemas\PropertyDefinition.cs" />
+    <Compile Include="Referentials\Files\Schemas\RelationshipDefinition.cs" />
+    <Compile Include="Referentials\Files\Schemas\SchemaHelper.cs" />
+    <Compile Include="Referentials\Files\Schemas\TargetDefinition.cs" />
+    <Compile Include="Referentials\Files\Schemas\TextConstraint.cs" />
+    <Compile Include="Referentials\Files\SchemaValidator.cs" />
+    <Compile Include="Referentials\Files\TypeIndex.cs" />
+    <Compile Include="Referentials\Files\Viewpoints\CooperationBase.cs" />
+    <Compile Include="Referentials\Files\Viewpoints\CooperationConcept.cs" />
+    <Compile Include="Referentials\Files\Viewpoints\CooperationElement.cs" />
+    <Compile Include="Referentials\Files\Viewpoints\CooperationRelationship.cs" />
+    <Compile Include="Referentials\Files\Viewpoints\CooperationRootElement.cs" />
+    <Compile Include="Referentials\Files\Viewpoints\CooperationViewpoint.cs" />
+    <Compile Include="Referentials\IDiagnostic.cs" />
+    <Compile Include="Referentials\ListExtension.cs" />
+    <Compile Include="Referentials\SchemaGenerator.cs" />
+    <Compile Include="Referentials\SchemaReference.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Viewpoints\Cooperations\SelectReferential.resx">
+      <DependentUpon>SelectReferential.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Key.snk" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Add.png" />
+    <Resource Include="Resources\Compas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\add.ico" />
+    <Content Include="Resources\compass.ico" />
+    <Content Include="Resources\output-onlinepngtools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Newtonsoft.Json\Newtonsoft.Json.csproj">
+      <Project>{81da86a8-b495-413e-a790-6c16427b6014}</Project>
+      <Name>Newtonsoft.Json</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NJsonSchema\NJsonSchema.csproj">
+      <Project>{3e391b15-b6d0-4459-a8a3-a0917b282032}</Project>
+      <Name>NJsonSchema</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

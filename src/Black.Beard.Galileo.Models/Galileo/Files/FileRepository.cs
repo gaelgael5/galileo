@@ -11,15 +11,16 @@ namespace Bb.Galileo.Files
 
         public FileRepository(string folder, IDiagnostic diagnostic, ModelRepository modelRepository)
         {
-         
+
             this._folder = new DirectoryInfo(folder);
             this._diagnostic = diagnostic;
             this.Models = modelRepository;
 
             _watchers = new List<FileWatcher>()
             {
-                new FileWatcher(this, "*.defs.json"),
+                new FileWatcher(this, "*.schema.json"),
                 new FileWatcher(this, "*.entities.json"),
+                new FileWatcher(this, "*.defs.json"),
             };
 
             this._items = new Dictionary<string, FileModel>();
@@ -45,7 +46,7 @@ namespace Bb.Galileo.Files
         public DirectoryInfo Folder { get => this._folder; }
 
         public IDiagnostic Diagnostic { get => this._diagnostic; }
-        
+
 
 
         internal void AddFile(FileModel item, FileTracingEnum trace)
@@ -102,6 +103,27 @@ namespace Bb.Galileo.Files
 
         private readonly List<FileWatcher> _watchers;
         private readonly Dictionary<string, FileModel> _items;
+
+        internal void EvaluateSchema(Transactionfile result)
+        {
+
+            foreach (var item in _items)
+                if (item.Value.Schema.IsValidExistingFile && item.Value.Schema.FilePath == result.File.FullPath)
+                {
+
+                    try
+                    {
+                        var payload = item.Value.Load();
+                        this.Models.SchemaValidator.Evaluate(item.Value, payload);
+                    }
+                    catch (Exception e2)
+                    {
+                        Diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, File = item.Value.FullPath, Text = e2.Message, Exception = e2 });
+                    }
+
+                }
+
+        }
 
     }
 

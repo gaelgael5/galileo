@@ -15,7 +15,7 @@
       <Parent guid="guidCmdSet" id="menuidContext" />
       <CommandFlag>AlwaysCreate</CommandFlag>
       <Strings>
-        <CanonicalName>ApplicationCooperationViewPoint Designer Context Menu</CanonicalName>
+        <CanonicalName>Cooperation Viewpoint for Galileo Designer Context Menu</CanonicalName>
         <ButtonText>ApplicationCooperationViewPoint Context</ButtonText>
       </Strings>
     </Menu>
@@ -23,7 +23,7 @@
       <Parent guid="guidCmdSet" id="menuidExplorer" />
       <CommandFlag>AlwaysCreate</CommandFlag>
       <Strings>
-        <CanonicalName>ApplicationCooperationViewPoint Explorer Context Menu</CanonicalName>
+        <CanonicalName>Cooperation Viewpoint for Galileo Explorer Context Menu</CanonicalName>
         <ButtonText>ApplicationCooperationViewPoint Explorer</ButtonText>
       </Strings>
     </Menu>

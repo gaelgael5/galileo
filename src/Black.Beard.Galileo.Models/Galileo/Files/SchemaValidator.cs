@@ -15,7 +15,7 @@ namespace Bb.Galileo.Files
         internal void Evaluate(FileModel file, JObject payload)
         {
 
-            if (file.Schema.IsValidFile)
+            if (file.Schema.IsValidExistingFile)
             {
 
                 var schema = _parent.GetSchema(file);
@@ -51,7 +51,7 @@ namespace Bb.Galileo.Files
                     {
                         Severity = SeverityEnum.Warning,
                         File = file.FullPath,
-                        Text = $"file {file.Schema.FilePath} not found",
+                        Text = $"file {file.Schema.FilePath} not found. referenced in {file.FullPath}",
                     };
                     _parent.Diagnostic.Append(msg);
 

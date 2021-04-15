@@ -25,7 +25,8 @@
   <Metadata>
     <Identity Id="<#= this.Dsl.PackageGuid #>" Version="<#= this.Dsl.MajorVersion #>.<#= this.Dsl.MinorVersion #>.<#= this.Dsl.Build #>.<#= this.Dsl.Revision #>" Language="<#= language #>" Publisher="<#= string.IsNullOrEmpty(this.Dsl.CompanyName) ? "Anon" : this.Dsl.CompanyName #>" />
     <DisplayName><#= this.Dsl.DisplayName #></DisplayName>
-    <Description><#= this.Dsl.Description #></Description>
+    <Description xml:space="preserve"><#= this.Dsl.Description #></Description>
+    <Icon>Resources\Compas.png</Icon>
   </Metadata>
   <Installation InstalledByMsi="false">
     <InstallationTarget Version="[16.0,17.0)" Id="Microsoft.VisualStudio.Community" />
@@ -42,6 +43,13 @@
     <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%|" />
     <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="<#= dslProjectName #>" Path="|<#= dslProjectName #>|" />
     <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="Project" d:ProjectName="%CurrentProject%" d:TargetPath="|%CurrentProject%;TemplateProjectOutputGroup|" Path="ItemTemplates" d:VsixSubPath="ItemTemplates" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="Black.Beard.Galileo.Tools" Path="|Black.Beard.Galileo.Tools|" AssemblyName="|Black.Beard.Galileo.Tools;AssemblyName|" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="VisualStudio.ParsingSolution" Path="|VisualStudio.ParsingSolution|" AssemblyName="|VisualStudio.ParsingSolution;AssemblyName|" />
+
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="Namotion.Reflection.dll" AssemblyName="Namotion.Reflection, Version=1.0.19.0, Culture=neutral, PublicKeyToken=c2f9c3bdfae56102" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="Newtonsoft.Json" Path="|Newtonsoft.Json|" AssemblyName="|Newtonsoft.Json;AssemblyName|" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="NJsonSchema" Path="|NJsonSchema|" AssemblyName="|NJsonSchema;AssemblyName|" />
+
   </Assets>
 </PackageManifest>
 

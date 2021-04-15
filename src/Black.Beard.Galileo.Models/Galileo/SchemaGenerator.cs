@@ -60,7 +60,7 @@ namespace Bb.Galileo
 
             JsonSchema _schemaRoot = new JsonSchema()
             {
-                Id = this._config.GetUri("entities", item.Name),
+                Id = this._config.GetUri("links", item.Name),
                 Description = item.Description,
                 Type = JsonObjectType.Object,
                 AllowAdditionalProperties = true,
@@ -143,6 +143,8 @@ namespace Bb.Galileo
                 string old = null;
                 var payload = item.Value.ToJson();
                 var file = new FileInfo(System.IO.Path.Combine(targetFolder.FullName, item.Key + ".schema.json"));
+
+                this._repository.RefreshSchema(file);
 
                 if (file.Exists)
                     old = file.FullName.LoadContentFromFile();

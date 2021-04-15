@@ -1,25 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<cooperationModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="0c302325-b330-4720-abd2-b035f3d31ac4" xmlns="http://schemas.microsoft.com/dsltools/ApplicationCooperationViewPoint">
-  <elements>
-    <cooperationElement Id="32216232-a18e-4e96-abeb-3cc63d4d6b16" referenceSource="Colis 21" type="Application" kind="Component">
-      <cooperationSubElement>
-        <cooperationElementHasCooperationSubElement Id="4f08c7d6-a364-45e8-82ca-efe228ca1dc2">
-          <cooperationSubElement Id="00bd057f-acc5-44fc-bde3-bf67c68e8539" referenceSource="Monitoring" type="Module" kind="Component" />
-        </cooperationElementHasCooperationSubElement>
-        <cooperationElementHasCooperationSubElement Id="dadf2a72-476c-4816-9a97-91171fa8bd0c">
-          <cooperationSubElement Id="77b10c34-2337-4f45-8bf2-241b53953686" referenceSource="Matrice colis" type="Module" kind="Component" />
-        </cooperationElementHasCooperationSubElement>
-      </cooperationSubElement>
-    </cooperationElement>
-    <cooperationElement Id="8d8bfb13-8389-4193-9ccf-38aa632700ba" referenceSource="Anomaly 21" type="Application" kind="Component">
-      <cooperationSubElement>
-        <cooperationElementHasCooperationSubElement Id="f1213140-1cb8-4f77-9e88-86fb018dd916">
-          <cooperationSubElement Id="e1148cb0-48ab-40fb-b417-37c159c88ef1" referenceSource="Matrice anomalie" type="Module" kind="Component" />
-        </cooperationElementHasCooperationSubElement>
-        <cooperationElementHasCooperationSubElement Id="923f613f-12be-4c7f-96ac-53df611a9746">
-          <cooperationSubElement Id="bba8b1f6-c97c-4ccc-9d0e-4890b59ddd60" referenceSource="Adapter" type="Module" kind="Component" />
-        </cooperationElementHasCooperationSubElement>
-      </cooperationSubElement>
-    </cooperationElement>
-  </elements>
-</cooperationModel>
+<model xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="0.1.0.0" Id="8aa79712-c6f8-406c-8a51-6f0bd0adbcc5" xmlns="http://schemas.microsoft.com/dsltools/ApplicationCooperationViewPoint">
+  <concept>
+    <modelHasConcept Id="76d03796-8cd5-42ca-9789-88e101141697">
+      <concept Id="c9cfa0ee-bf9b-4b4e-af46-8c4a1799d0b7" referenceSource="Concept1">
+        <conceptElement>
+          <conceptHasConceptElement Id="7460c9f2-dcb9-4dbc-ac1a-5950e81aab75">
+            <conceptElement Id="f460f729-d8aa-445e-9203-6c1cf4db0aab" referenceSource="ConceptElement1" />
+          </conceptHasConceptElement>
+          <conceptHasConceptElement Id="539cc29b-00dc-4acb-9dc5-4c942c95f230">
+            <conceptElement Id="b9448eeb-b40e-4831-abbe-e6f5e5b4af5f" referenceSource="ConceptElement2" />
+          </conceptHasConceptElement>
+        </conceptElement>
+      </concept>
+    </modelHasConcept>
+  </concept>
+</model>

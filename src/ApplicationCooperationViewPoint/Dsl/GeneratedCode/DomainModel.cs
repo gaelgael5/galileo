@@ -14,8 +14,7 @@ namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
 	/// DomainModel ApplicationCooperationViewPointDomainModel
-	/// Description for
-	/// Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPoint
+	/// Provide a tool for edit cooperation viewpoint for galileo
 	/// </summary>
 	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
@@ -93,6 +92,7 @@ namespace Bb.ApplicationCooperationViewPoint
 				typeof(ConceptSubElementShape),
 				typeof(RelationshipShape),
 				typeof(global::Bb.ApplicationCooperationViewPoint.FixUpDiagram),
+				typeof(global::Bb.ApplicationCooperationViewPoint.DecoratorPropertyChanged),
 			};
 		}
 		/// <summary>
@@ -419,6 +419,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			
 			DslModeling::RuleManager ruleManager = store.RuleManager;
 			ruleManager.EnableRule(typeof(global::Bb.ApplicationCooperationViewPoint.FixUpDiagram));
+			ruleManager.EnableRule(typeof(global::Bb.ApplicationCooperationViewPoint.DecoratorPropertyChanged));
 		}
 		
 		/// <summary>
@@ -430,6 +431,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			
 			DslModeling::RuleManager ruleManager = store.RuleManager;
 			ruleManager.DisableRule(typeof(global::Bb.ApplicationCooperationViewPoint.FixUpDiagram));
+			ruleManager.DisableRule(typeof(global::Bb.ApplicationCooperationViewPoint.DecoratorPropertyChanged));
 		}
 		#endregion
 	}

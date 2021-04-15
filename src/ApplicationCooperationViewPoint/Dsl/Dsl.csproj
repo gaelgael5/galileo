@@ -52,8 +52,19 @@
   </Target>
   -->
   <ItemGroup>
+    <Reference Include="envdte, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\PublicAssemblies\envdte.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.Modeling.Sdk$(DslToolsVersionSuffix)" />
     <Reference Include="Microsoft.VisualStudio.Modeling.Sdk.Diagrams$(DslToolsVersionSuffix)" />
+    <Reference Include="Microsoft.VisualStudio.Modeling.Sdk.Shell.15.0, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.15.0, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\PublicAssemblies\Microsoft.VisualStudio.Shell.15.0.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.TextTemplating$(T4VersionSuffix)" />
     <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0" />
     <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.11.0" />
@@ -66,14 +77,24 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.XML" />
     <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Ude.NetStandard, Version=1.0.2.0, Culture=neutral, PublicKeyToken=103cb45fc06c90e4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ude.NetStandard.1.2.0\lib\net45\Ude.NetStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="VSLangProj, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="WindowsBase">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ReferentialResolver.cs" />
     <None Include="..\Key.snk">
       <Link>Key.snk</Link>
     </None>
@@ -83,6 +104,8 @@
     </None>
     <Compile Include="CustomCode\Concept.cs" />
     <Compile Include="CustomCode\ConceptElement.cs" />
+    <Compile Include="CustomCode\Dsl2Dte\Store2DTE.cs" />
+    <Compile Include="CustomCode\Dsl2Dte\StoreHosting.cs" />
     <Compile Include="CustomCode\GuidsList.cs" />
     <Compile Include="CustomCode\Properties\Model.cs" />
     <Compile Include="CustomCode\Shapes\ConceptElementShape.cs" />
@@ -174,6 +197,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Serializer.tt</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DslDefinition.dsl.diagram">
@@ -271,5 +295,22 @@
     <EmbeddedResource Include="Resources\ConnectorSourceSearch.cur" />
     <EmbeddedResource Include="Resources\ConnectorTargetSearch.cur" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Black.Beard.Galileo.Tools\Black.Beard.Galileo.Tools.csproj">
+      <Project>{f3331fc0-1253-4d2c-9ca8-3dba71dfa630}</Project>
+      <Name>Black.Beard.Galileo.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Newtonsoft.Json\Newtonsoft.Json.csproj">
+      <Project>{81da86a8-b495-413e-a790-6c16427b6014}</Project>
+      <Name>Newtonsoft.Json</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NJsonSchema\NJsonSchema.csproj">
+      <Project>{3e391b15-b6d0-4459-a8a3-a0917b282032}</Project>
+      <Name>NJsonSchema</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VisualStudio.ParsingSolution\VisualStudio.ParsingSolution.csproj">
+      <Project>{51357c80-d265-4e29-a792-82129768c1e8}</Project>
+      <Name>VisualStudio.ParsingSolution</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

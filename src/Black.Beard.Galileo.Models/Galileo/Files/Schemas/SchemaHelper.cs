@@ -29,21 +29,50 @@ namespace Bb.Galileo.Files.Schemas
             _settings.ActualSerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
         }
 
-        public static SchemaReference GetSchemaReference(this Newtonsoft.Json.Linq.JObject self, FileModel file)
+        public static SchemaReference GetSchemaReference(this Newtonsoft.Json.Linq.JObject self, FileModel file, string rootSchema)
         {
-            
+
             var schema = (string)self.SelectToken("$schema");
             var schemaItem = GetSchemaReference(schema);
 
-            try
+
+            if (schema.ToLower().StartsWith("http://"))
             {
-                var folderTargetFile = new FileInfo(file.FullPath).Directory.FullName;
-                var _file = new FileInfo(Path.Combine(folderTargetFile, schema));
-                schemaItem.FilePath = _file.FullName;
-                schemaItem.IsValidFile = true;
+                schemaItem.SchemaIdKind = SchemaIdKindEnum.Url;
+                if (schemaItem.Kind == KindSchemaEnum.Schema)
+                {
+                    schemaItem.Type = (string)self.SelectToken("id");
+                    if (schemaItem.Type.ToLower().StartsWith(rootSchema.ToLower()))
+                    {
+                        var o = schemaItem.Type.Substring(rootSchema.Length).Trim('/').Split('/');
+                        if (o[0].ToLower() == "links")
+                        {
+                            schemaItem.Type = o[1];
+                            schemaItem.Kind = KindSchemaEnum.SchemaLink;
+                        }
+                        else if (o[0].ToLower() == "entities")
+                        {
+                            schemaItem.Type = o[1];
+                            schemaItem.Kind = KindSchemaEnum.SchemaEntity;
+                        }
+                    }
+                }
             }
-            catch (Exception)
+            else
             {
+                try
+                {
+                    var folderTargetFile = new FileInfo(file.FullPath).Directory.FullName;
+                    var _file = new FileInfo(Path.Combine(folderTargetFile, schema));
+                    schemaItem.FilePath = _file.FullName;
+                    schemaItem.SchemaIdKind = SchemaIdKindEnum.File;
+                    schemaItem.IsValidExistingFile = _file.Exists;
+                }
+                catch (Exception)
+                {
+
+                }
+
             }
 
             return schemaItem;
@@ -54,6 +83,9 @@ namespace Bb.Galileo.Files.Schemas
         {
 
             var extension = ".schema.json";
+
+            if (schema.ToLower() == @"http://json-schema.org/draft-04/schema#")
+                return new SchemaReference() { Kind = KindSchemaEnum.Schema, Schema = schema };
 
             if (schema.ToLower().EndsWith((nameof(MetaDefinitions) + extension).ToLower()))
                 return new SchemaReference() { Kind = KindSchemaEnum.SchemaDefinitions, Schema = schema };

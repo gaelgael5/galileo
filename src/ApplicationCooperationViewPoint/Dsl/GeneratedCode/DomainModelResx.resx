@@ -118,11 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel.Description" xml:space="preserve">
-    <value>Description for Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPoint</value>
+    <value>Provide a tool for edit cooperation viewpoint for galileo</value>
     <comment>Description for DslLibrary &apos;ApplicationCooperationViewPoint&apos;</comment>
   </data>
   <data name="Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel.DisplayName" xml:space="preserve">
-    <value>ApplicationCooperationViewPoint</value>
+    <value>Cooperation Viewpoint for Galileo</value>
     <comment>DisplayName for DslLibrary &apos;ApplicationCooperationViewPoint&apos;</comment>
   </data>
   <data name="Bb.ApplicationCooperationViewPoint.Model.Description" xml:space="preserve">
@@ -742,7 +742,7 @@
     <comment>Text decorator default text</comment>
   </data>
   <data name="FormatList" xml:space="preserve">
-    <value>ApplicationCooperationViewPoint (*.covp)|*.covp</value>
+    <value>Cooperation Viewpoint for Galileo (*.covp)|*.covp</value>
     <comment>A list of file format specifiers for the Save dialog box</comment>
   </data>
   <data name="ModelExplorerTitle" xml:space="preserve">

@@ -5,10 +5,11 @@ namespace Bb.Galileo.Models
 {
     public class ConfigModel
     {
+        private string _root;
 
         public ConfigModel()
         {
-            Targets = new TargetDefinition();
+
         }
 
         public string Si { get; set; }
@@ -24,9 +25,21 @@ namespace Bb.Galileo.Models
         /// <returns></returns>
         public string GetUri(params string[] names)
         {
-            var uri = new Uri("http://" + System.IO.Path.Combine(this.Si, "carto", "schemas").Replace("\\", "/"));
-            var o = new Uri(uri, System.IO.Path.Combine(names).Replace("\\", "/")).AbsoluteUri;
-            return o;
+            var p = System.IO.Path.Combine(names);
+            p = System.IO.Path.Combine(GetRoot(), p).Replace("\\", "/");
+            return p;
+        }
+
+        /// <summary>
+        /// Build an uri string
+        /// </summary>
+        /// <param name="names"></param>
+        /// <returns></returns>
+        public string GetRoot()
+        {
+            if (string.IsNullOrEmpty(this._root))
+                this._root = "http://" + System.IO.Path.Combine(this.Si, "carto", "schemas").Replace("\\", "/");
+            return this._root;
         }
 
     }

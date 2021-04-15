@@ -55,6 +55,37 @@ namespace Bb.Galileo.Files
 
         public Action<ModelRepository, Transactionfile> ItemFileHasChanged { get; set; }
 
+        #region Schemas
+
+        internal bool AddSchema(ObjectBaseSchema item)
+        {
+
+            var type = item.GetType();
+            if (!_definitions.TryGetValue(type, out Dictionary<string, IBase> dic))
+                _definitions.Add(type, (dic = new Dictionary<string, IBase>()));
+
+            if (dic.ContainsKey(item.Name))
+            {
+                var oldDefinition = dic[item.Name];
+                dic[item.Name] = item;
+                //PropagateFileChanged(item);
+                return false;
+            }
+
+            dic.Add(item.Name, item);
+            //PropagateFileChanged(item);
+
+            return true;
+
+        }
+
+        internal void RefreshSchema(FileInfo file)
+        {
+            
+        }
+
+
+        #endregion
 
         #region Layers
 
@@ -396,7 +427,6 @@ namespace Bb.Galileo.Files
             }
         }
 
-
         public IEnumerable<T> Get<T>()
          where T : IBase
         {
@@ -417,7 +447,6 @@ namespace Bb.Galileo.Files
                                     yield return (T)item;
 
         }
-
 
         public IEnumerable<IBase> Get()
         {
@@ -450,7 +479,6 @@ namespace Bb.Galileo.Files
             {
                 payload = item.Load();
                 transaction = _loader.Add(payload, item);
-                transaction.Trace = trace;
             }
             catch (System.IO.IOException e1)
             {
@@ -464,7 +492,10 @@ namespace Bb.Galileo.Files
             if (transaction != null)
                 if (ItemFileHasChanged != null)
                     lock (_lockFile)
+                    {
+                        transaction.Trace = trace;
                         ItemFileHasChanged(this, transaction);
+                    }
 
             return transaction;
 

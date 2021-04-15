@@ -30,7 +30,7 @@
          These symbols are defined in GeneratedVSCT.vsct -->
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
-          <ButtonText>Import referentials items</ButtonText>
+          <ButtonText>Add referential items</ButtonText>
         </Strings>
       </Button>
     </Buttons>

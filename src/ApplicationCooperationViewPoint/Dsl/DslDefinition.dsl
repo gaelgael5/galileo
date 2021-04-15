@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Dsl xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="3ec5ff8c-b52e-4242-a4f8-799b97bfaa4c" Description="Description for Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPoint" Name="ApplicationCooperationViewPoint" DisplayName="ApplicationCooperationViewPoint" Namespace="Bb.ApplicationCooperationViewPoint" ProductName="Galileo Application Cooperation Viewpoint" CompanyName="Black.Beard" PackageGuid="6113886b-339d-4d50-9d9a-05cec44810af" PackageNamespace="Bb.ApplicationCooperationViewPoint" xmlns="http://schemas.microsoft.com/VisualStudio/2005/DslTools/DslDefinitionModel">
+<Dsl xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="3ec5ff8c-b52e-4242-a4f8-799b97bfaa4c" Description="Provide a tool for edit cooperation viewpoint for galileo" Name="ApplicationCooperationViewPoint" DisplayName="Cooperation Viewpoint for Galileo" Namespace="Bb.ApplicationCooperationViewPoint" MajorVersion="0" MinorVersion="1" ProductName="Galileo Application Cooperation Viewpoint" CompanyName="Black.Beard" PackageGuid="6113886b-339d-4d50-9d9a-05cec44810af" PackageNamespace="Bb.ApplicationCooperationViewPoint" xmlns="http://schemas.microsoft.com/VisualStudio/2005/DslTools/DslDefinitionModel">
   <Classes>
     <DomainClass Id="8be8ba93-37bd-430f-bab0-798cd8f43104" Description="The root in which all other elements are embedded. Appears as a diagram." Name="Model" DisplayName="Model" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true">
       <Properties>
@@ -379,9 +379,9 @@
         <TextDecorator Name="TypeDecorator" DisplayName="Type Decorator" DefaultText="TypeDecorator" FontStyle="Italic" FontSize="7" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="c0e7a566-72f7-42db-a7a1-75e48652eb37" Description="Shape used to represent ExampleElements on a Diagram." Name="ConceptShape" DisplayName="Concept Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" FixedTooltipText="Concept Shape" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineDashStyle="Dash" OutlineThickness="0.01" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="Rectangle">
+    <GeometryShape Id="c0e7a566-72f7-42db-a7a1-75e48652eb37" Description="Shape used to represent ExampleElements on a Diagram." Name="ConceptShape" DisplayName="Concept Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" FixedTooltipText="Concept Shape" OutlineColor="Blue" InitialWidth="2" InitialHeight="0.75" OutlineDashStyle="Dash" OutlineThickness="0.01" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="Rectangle">
       <Notes>The shape has a text decorator used to display the Name property of the mapped ExampleElement.</Notes>
-      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="2">
+      <ShapeHasDecorators Position="OuterTopCenter" HorizontalOffset="0" VerticalOffset="2">
         <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontSize="12" />
       </ShapeHasDecorators>
     </GeometryShape>
