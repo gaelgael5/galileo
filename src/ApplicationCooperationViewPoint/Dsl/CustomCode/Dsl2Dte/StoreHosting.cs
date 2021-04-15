@@ -23,7 +23,7 @@ using Microsoft.VisualStudio.Shell.Interop;
 using System.Collections;
 using devtm.AutoMapper.CustomCode.Dsl2Dte;
 
-namespace devtm.AutoMapper
+namespace Bb.ApplicationCooperationViewPoint
 {
     /// <summary>
     /// Helper class enabling to make the link between a Store and the VS Project that hosts the model stored in this Store. 

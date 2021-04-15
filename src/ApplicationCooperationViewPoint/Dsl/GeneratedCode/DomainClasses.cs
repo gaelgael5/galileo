@@ -227,6 +227,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// Gets or sets the value of ViewpointType domain property.
 		/// Description de Bb.ApplicationCooperationViewPoint.Model.Viewpoint Type
 		/// </summary>
+		[System.ComponentModel.Editor(typeof(ListeCooperationViewpointEditor), typeof(System.Drawing.Design.UITypeEditor))]
 		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Model/ViewpointType.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Model/ViewpointType.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslModeling::DomainObjectId("a44053d4-9afc-469a-a7b3-83d4e00fa16f")]

@@ -13,7 +13,7 @@ namespace Bb.Galileo.Files.Schemas
             this.Properties = new List<PropertyDefinition>();
         }
 
-        [Description("entity'reference")]
+        [Description("relationship's reference")]
         [JsonRequired]
         public string Name { get; set; }
 

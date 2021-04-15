@@ -15,7 +15,7 @@ namespace Bb.Galileo.Files
         internal void Evaluate(FileModel file, JObject payload)
         {
 
-            if (file.Schema.IsValidFile)
+            if (file.Schema.IsValidExistingFile)
             {
 
                 var schema = _parent.GetSchema(file);

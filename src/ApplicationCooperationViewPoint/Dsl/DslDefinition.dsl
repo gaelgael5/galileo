@@ -14,6 +14,14 @@
           </Type>
         </DomainProperty>
         <DomainProperty Id="a44053d4-9afc-469a-a7b3-83d4e00fa16f" Description="Description de Bb.ApplicationCooperationViewPoint.Model.Viewpoint Type" Name="ViewpointType" DisplayName="Viewpoint Type">
+          <Attributes>
+            <ClrAttribute Name="System.ComponentModel.Editor">
+              <Parameters>
+                <AttributeParameter Value="typeof(ListeCooperationViewpointEditor)" />
+                <AttributeParameter Value="typeof(System.Drawing.Design.UITypeEditor)" />
+              </Parameters>
+            </ClrAttribute>
+          </Attributes>
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>

@@ -4,6 +4,7 @@
   <nestedChildShapes>
     <conceptShape Id="9ed04ebc-f762-48d4-9d90-608acf99c284" absoluteBounds="2.625, 1, 6.625, 5.875">
       <conceptMoniker Id="c9cfa0ee-bf9b-4b4e-af46-8c4a1799d0b7" />
+      <relativeChildShapes />
     </conceptShape>
     <conceptElementShape Id="a7dc450d-6f53-434e-876f-dfede4322593" absoluteBounds="3.125, 1.25, 3.625, 1.625">
       <conceptElementMoniker Id="f460f729-d8aa-445e-9203-6c1cf4db0aab" />

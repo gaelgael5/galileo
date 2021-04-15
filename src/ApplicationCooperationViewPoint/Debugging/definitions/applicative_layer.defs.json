@@ -1,0 +1,107 @@
+{
+
+  "$schema": "..\\Schemas\\MetaDefinitions.schema.json",
+
+  "Name": "Applicative", 
+
+  "Entities": [
+
+    { 
+      "Name": "DomainConcept",
+      "Label": "concept domain",
+      "Description": "cross 'application component domain concept",
+      "Kind": "Application interaction"
+    },
+
+    {
+      "Name": "Application",
+      "Label": "Application",
+      "Description": "Application",
+      "Kind": "Application component",
+      "Properties": [
+        {
+          "Name": "Technologie",
+          "Label": "Technologie",
+          "Description": "Technologie of the application",
+          "Type": "Text"
+        },
+        {
+          "Name": "Type",
+          "Label": "Type d'application",
+          "Description": "Spécifie le type d'application",
+          "Type": "Text",
+          "Enums": [ "Partenaire", "Interne", "SaaS", "Bureautique", "Utilisateur", "Infrastructure", "Progiciel" ]
+        }
+      ]
+    }, 
+
+    {
+      "Name": "ModuleApplication",
+      "Label": "Application's module",
+      "Description": "Module de l'application",
+      "Kind": "Application component"
+    },
+    
+    { 
+      "Name": "Producer",
+      "Label": "data producer",
+      "Description": "Serving datas",
+      "Kind": "Application service"
+    },
+    {
+      "Name": "DataObject",
+      "Label": "Datas",
+      "Kind": "Application component"
+    }
+    
+  ],
+
+  "Relationships": [
+
+    {
+      "Name": "ConceptHasApplication",
+      "Description": "Application are grouped by concept",
+      "Label": "Application concept",
+      "Kind": "Association",
+      "Origin": {
+          "Multiplicty": "One", "Name": "Domain"
+        },
+        "Target": {
+          "Multiplicty": "ZeroOrMany", "Name": "Application"
+        }
+    },
+
+    {
+      "Name": "ApplicationHasModule",
+      "Label": "Application has module",
+      "Description": "specify the application parent relationship coposition",
+      "Kind": "Composition",
+      "Origin": {
+        "Multiplicty": "One", "Name": "Application"
+      },
+      "Target": {
+        "Multiplicty": "ZeroOrMany", "Name": "ModuleApplication"
+      }
+    },
+
+    {
+      "Name": "ProducerProductData",
+      "Label": "Interface product the data by the module",
+      "Description": "Interface product the data by the module",
+      "Kind": "Flow",
+      "Origin": {
+        "Multiplicty": "ZeroOrMany", "Name": "ApplicationHasModule"
+      },
+      "Target": {
+        "Multiplicty": "One", "Name": "Producer"
+      }
+      
+    }
+
+    
+    
+
+  ]
+
+
+}

@@ -59,6 +59,9 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Referentials\Files\Schemas\EntitySchema.cs" />
+    <Compile Include="Referentials\Files\Schemas\LinkSchema.cs" />
+    <Compile Include="Referentials\Files\Schemas\ObjectBaseSchema.cs" />
     <Compile Include="Viewpoints\Cooperations\SelectReferential.cs">
       <SubType>Form</SubType>
     </Compile>

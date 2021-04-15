@@ -1,0 +1,142 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://Pickup.fr/carto/schemas/CooperationViewpoint",
+  "title": "CooperationViewpoint",
+  "type": "object",
+  "required": [
+    "Name"
+  ],
+  "properties": {
+    "Name": {
+      "type": "string"
+    },
+    "Concepts": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/CooperationConcept"
+      }
+    },
+    "Elements": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/CooperationRootElement"
+      }
+    },
+    "References": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/CooperationRelationship"
+      }
+    }
+  },
+  "definitions": {
+    "CooperationConcept": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Name"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "enum": [
+            "DomainConcept",
+            "Application",
+            "ModuleApplication",
+            "Producer",
+            "DataObject"
+          ]
+        },
+        "Children": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/CooperationElement"
+          }
+        }
+      }
+    },
+    "CooperationElement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Name"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "enum": [
+            "ConceptHasApplication",
+            "ApplicationHasModule",
+            "ProducerProductData"
+          ]
+        },
+        "Children": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/CooperationRelationship"
+          }
+        }
+      }
+    },
+    "CooperationRelationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Name"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "enum": [
+            "ConceptHasApplication",
+            "ApplicationHasModule",
+            "ProducerProductData"
+          ]
+        }
+      }
+    },
+    "CooperationRootElement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Name"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "enum": [
+            "DomainConcept",
+            "Application",
+            "ModuleApplication",
+            "Producer",
+            "DataObject"
+          ]
+        },
+        "Children": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/CooperationRelationship"
+          }
+        }
+      }
+    }
+  }
+}

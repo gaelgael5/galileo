@@ -1,5 +1,6 @@
 ﻿using Bb.Galileo;
 using devtm.AutoMapper;
+using Microsoft.VisualStudio.Shell;
 using System.IO;
 using DslModeling = global::Microsoft.VisualStudio.Modeling;
 
@@ -17,12 +18,9 @@ namespace Bb.ApplicationCooperationViewPoint
         internal void CreateMapper()
         {
 
-            var srv = this.Store.GetService(typeof(ReferentialResolver));
+            var referential = ReferentialResolver.Instance.GetReferential(this.Store);
 
-            var projectDte = this.Store.GetProjectForStore();
-            var project = new VisualStudio.ParsingSolution.Project(projectDte);
-            var directoryPath = new FileInfo(project.FullName);
-            var models = new Bb.Galileo.Files.ModelRepository(directoryPath.Directory.FullName, new Diag());
+            var viewpointConfig = referential.GetCooperationViewpoint(this.ViewpointType);
 
             using (var form = new Bb.Galileo.Viewpoints.Cooperations.SelectReferential())
             {

@@ -23,7 +23,7 @@ using DslShell = global::Microsoft.VisualStudio.Modeling.Shell;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace devtm.AutoMapper
+namespace Bb.ApplicationCooperationViewPoint
 {
     /// <summary>
     /// Set of utility methods enabling accessing information about the model in store when it is
@@ -52,7 +52,7 @@ namespace devtm.AutoMapper
                 if (e != null)
                 {
 
-                    ModelElement f = e.AllElements.FirstOrDefault();
+                    var f = e.AllElements.FirstOrDefault();
                     if (f != null)
                     {
 
@@ -84,7 +84,7 @@ namespace devtm.AutoMapper
                 string ee = "";
             }
 
-        
+
             return string.Empty;
         }
 
@@ -192,40 +192,40 @@ namespace devtm.AutoMapper
         }
 
 
-        /// <summary>
-        /// Get the default namespace of a store
-        /// </summary>
-        /// <param name="store">Store of interest</param>
-        /// <returns>The default namespace for the file in which the model is serialized if this method is called from Visual Studio
-        /// and <c>string.Empty</c> otherwise</returns>
-        /// <remarks>RootNamespace property of the project to which this item belongs, added to the relative path of the project item with
-        /// respect to the project's path</remarks>
-        public static string GetDefaultNamespace(Store store)
-        {
-            Contract.Requires(store != null);
+        ///// <summary>
+        ///// Get the default namespace of a store
+        ///// </summary>
+        ///// <param name="store">Store of interest</param>
+        ///// <returns>The default namespace for the file in which the model is serialized if this method is called from Visual Studio
+        ///// and <c>string.Empty</c> otherwise</returns>
+        ///// <remarks>RootNamespace property of the project to which this item belongs, added to the relative path of the project item with
+        ///// respect to the project's path</remarks>
+        //public static string GetDefaultNamespace(Store store)
+        //{
+        //    Contract.Requires(store != null);
 
-            // Get the project holding the store
-            Project project = GetProjectForStore(store);
-            if (project == null)
-                return string.Empty;
+        //    // Get the project holding the store
+        //    Project project = GetProjectForStore(store);
+        //    if (project == null)
+        //        return string.Empty;
             
-            // Get its properties
-            if (project.Properties == null)
-                return string.Empty;
+        //    // Get its properties
+        //    if (project.Properties == null)
+        //        return string.Empty;
             
-            // Get the FullPath of the project
-            string projectDirectoryName = Path.GetDirectoryName(project.Properties.Item("FullPath").Value as string);
+        //    // Get the FullPath of the project
+        //    string projectDirectoryName = Path.GetDirectoryName(project.Properties.Item("FullPath").Value as string);
 
-            // Get the directory of the model held in the store
-            string storeDirectory = Path.GetDirectoryName(GetFileNameForStore(store));
+        //    // Get the directory of the model held in the store
+        //    string storeDirectory = Path.GetDirectoryName(GetFileNameForStore(store));
 
-            // Compute the relative path of the model with respect to the project, hence the default namespace
-            if ((storeDirectory.StartsWith(projectDirectoryName, StringComparison.OrdinalIgnoreCase)) && (storeDirectory != projectDirectoryName))
-                return (project.Properties.Item("RootNamespace").Value as string) + "." + storeDirectory.Substring(projectDirectoryName.Length + 1);
-            else
-                return project.Properties.Item("RootNamespace").Value as string;
+        //    // Compute the relative path of the model with respect to the project, hence the default namespace
+        //    if ((storeDirectory.StartsWith(projectDirectoryName, StringComparison.OrdinalIgnoreCase)) && (storeDirectory != projectDirectoryName))
+        //        return (project.Properties.Item("RootNamespace").Value as string) + "." + storeDirectory.Substring(projectDirectoryName.Length + 1);
+        //    else
+        //        return project.Properties.Item("RootNamespace").Value as string;
 
-        }
+        //}
 
     }
 }

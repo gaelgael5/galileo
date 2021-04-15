@@ -44,20 +44,36 @@
       <SubType>
       </SubType>
     </None>
-    <None Include="ApplicationCooperationViewPointReport.tt">
+    <None Include="T4\ApplicationCooperationViewPointReport.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ApplicationCooperationViewPointReport.txt</LastGenOutput>
     </None>
-    <None Include="ApplicationCooperationViewPointReportVB.tt">
+    <None Include="T4\ApplicationCooperationViewPointReportVB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ApplicationCooperationViewPointReportVB.txt</LastGenOutput>
     </None>
+    <None Include="definitions\Applicative.cooperationview.defs.json" />
+    <None Include="definitions\applicative_layer.defs.json" />
+    <None Include="definitions\Layers.defs.json" />
     <None Include="Sample.covp" />
     <None Include="Sample.covp.diagram">
       <DependentUpon>Sample.covp</DependentUpon>
     </None>
-    <None Include="Test.covp" />
-    <None Include="Test.covp.diagram">
+    <None Include="Schemas\Application.entities.schema.json" />
+    <None Include="Schemas\ApplicationHasModule.links.schema.json" />
+    <None Include="Schemas\ConceptHasApplication.links.schema.json" />
+    <None Include="Schemas\ConfigModel.schema.json" />
+    <None Include="Schemas\CooperationViewpoint.schema.json" />
+    <None Include="Schemas\DataObject.entities.schema.json" />
+    <None Include="Schemas\DomainConcept.entities.schema.json" />
+    <None Include="Schemas\LayersDefinition.schema.json" />
+    <None Include="Schemas\MetaDefinitions.schema.json" />
+    <None Include="Schemas\ModuleApplication.entities.schema.json" />
+    <None Include="Schemas\Producer.entities.schema.json" />
+    <None Include="Schemas\ProducerProductData.links.schema.json" />
+    <None Include="Targets\Current\Datas\applications.entities.json" />
+    <None Include="Targets\Current\Ui\Test.covp" />
+    <None Include="Targets\Current\Ui\Test.covp.diagram">
       <DependentUpon>Test.covp</DependentUpon>
     </None>
   </ItemGroup>
@@ -65,17 +81,18 @@
     <Service Include="{508349B6-6B84-4df5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ApplicationCooperationViewPointReport.txt">
+    <Content Include="T4\ApplicationCooperationViewPointReport.txt">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ApplicationCooperationViewPointReport.tt</DependentUpon>
     </Content>
-    <Content Include="ApplicationCooperationViewPointReportVB.txt">
+    <Content Include="T4\ApplicationCooperationViewPointReportVB.txt">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ApplicationCooperationViewPointReportVB.tt</DependentUpon>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

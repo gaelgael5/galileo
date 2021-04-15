@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.IO;
 using System.Text;
 
@@ -244,11 +242,7 @@ namespace Bb.Galileo
 
         public static T Deserialize<T>(this string self)
         {
-
-            var payload = self.ConvertToJson();
-            JsonSerializer serializer = new JsonSerializer();
-            var model = (T)serializer.Deserialize(new JTokenReader(payload), typeof(T));
-            return model;
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(self);
         }
 
         /// <summary>

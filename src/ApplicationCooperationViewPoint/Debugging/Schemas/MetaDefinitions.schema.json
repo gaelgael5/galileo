@@ -1,0 +1,405 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://Pickup.fr/carto/schemas/MetaDefinitions",
+  "title": "MetaDefinitions",
+  "type": "object",
+  "required": [
+    "Name"
+  ],
+  "properties": {
+    "Name": {
+      "type": "string"
+    },
+    "Entities": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/EntityDefinition"
+      }
+    },
+    "Relationships": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/RelationshipDefinition"
+      }
+    }
+  },
+  "definitions": {
+    "EntityDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Name",
+        "Kind"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "functional key",
+          "pattern": "^[a-zA-Z]+[a-zA-Z0-9_]+$"
+        },
+        "Label": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Property's label for display in the propertygrid"
+        },
+        "Description": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Description of the current item"
+        },
+        "Properties": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/PropertyDefinition"
+          }
+        },
+        "Kind": {
+          "type": "string",
+          "enum": [
+            "Business actor",
+            "Business collaboration",
+            "Business role",
+            "Business function",
+            "Business interaction",
+            "Business process",
+            "business service",
+            "Business event",
+            "Business object",
+            "Contract",
+            "Product",
+            "Application collaboration",
+            "Application component",
+            "Application interface",
+            "Application function",
+            "Application interaction",
+            "Application service",
+            "DataObject",
+            "Device",
+            "Infrastructure interface",
+            "Node",
+            "Infrastructure function",
+            "Infrastructure service",
+            "Artifact"
+          ]
+        }
+      }
+    },
+    "PropertyDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Name",
+        "Type"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "Property's name"
+        },
+        "Type": {
+          "description": "Property's type",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PropertyDefinitionEnum"
+            }
+          ]
+        },
+        "Label": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Property's label for display in the propertygrid"
+        },
+        "Description": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Description of the property"
+        },
+        "Required": {
+          "type": "boolean",
+          "description": "Specify where the propertyy is required"
+        },
+        "Enums": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "description": "restrict the values",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "TextConstraints": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/TextConstraint"
+            }
+          ]
+        },
+        "NumberConstraints": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/NumberConstraints"
+            }
+          ]
+        }
+      }
+    },
+    "PropertyDefinitionEnum": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Text",
+        "Integer",
+        "Double",
+        "Bool",
+        "DateTime",
+        "Time",
+        "Date",
+        "Email",
+        "IdnEmail",
+        "Hostname",
+        "IdnHostname",
+        "Ipv4",
+        "Ipv6",
+        "Uri",
+        "UriReference",
+        "Iri",
+        "IriReference",
+        "UriTemplate",
+        "JsonPointer",
+        "Regex"
+      ],
+      "enum": [
+        "Text",
+        "Integer",
+        "Double",
+        "Bool",
+        "DateTime",
+        "Time",
+        "Date",
+        "Email",
+        "IdnEmail",
+        "Hostname",
+        "IdnHostname",
+        "Ipv4",
+        "Ipv6",
+        "Uri",
+        "UriReference",
+        "Iri",
+        "IriReference",
+        "UriTemplate",
+        "JsonPointer",
+        "Regex"
+      ]
+    },
+    "TextConstraint": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "MinLength": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int32"
+        },
+        "MaxLength": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int32"
+        },
+        "Pattern": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "NumberConstraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "MultipleOf": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Minimum": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int32"
+        },
+        "ExclusiveMinimum": {
+          "type": "boolean"
+        },
+        "Maximum": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int32"
+        },
+        "ExclusiveMaximum": {
+          "type": "boolean"
+        }
+      }
+    },
+    "RelationshipDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Name",
+        "Kind",
+        "Origin",
+        "Target"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "functional key",
+          "pattern": "^[a-zA-Z]+[a-zA-Z0-9_]+$"
+        },
+        "Label": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Property's label for display in the propertygrid"
+        },
+        "Description": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Description of the current item"
+        },
+        "Properties": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/PropertyDefinition"
+          }
+        },
+        "Kind": {
+          "$ref": "#/definitions/RelationshipKindEnum"
+        },
+        "Origin": {
+          "$ref": "#/definitions/LinkDefinition"
+        },
+        "Target": {
+          "$ref": "#/definitions/LinkDefinition"
+        }
+      }
+    },
+    "RelationshipKindEnum": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Undefined",
+        "Other",
+        "Access",
+        "Aggregation",
+        "Assignment",
+        "Association",
+        "Composition",
+        "Flow",
+        "Influence",
+        "Realization",
+        "Serving",
+        "Specialization",
+        "Triggering",
+        "UsedBy"
+      ],
+      "enum": [
+        "Undefined",
+        "Other",
+        "Access",
+        "Aggregation",
+        "Assignment",
+        "Association",
+        "Composition",
+        "Flow",
+        "Influence",
+        "Realization",
+        "Serving",
+        "Specialization",
+        "Triggering",
+        "UsedBy"
+      ]
+    },
+    "LinkDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Name",
+        "Multiplicty"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "relationship's reference"
+        },
+        "Properties": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/PropertyDefinition"
+          }
+        },
+        "Multiplicty": {
+          "$ref": "#/definitions/MultiplicityEnum"
+        }
+      }
+    },
+    "MultiplicityEnum": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Undefined",
+        "One",
+        "OneOrMany",
+        "ZeroOrOne",
+        "ZeroOrMany"
+      ],
+      "enum": [
+        "Undefined",
+        "One",
+        "OneOrMany",
+        "ZeroOrOne",
+        "ZeroOrMany"
+      ]
+    }
+  }
+}

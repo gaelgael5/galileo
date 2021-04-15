@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://Pickup.fr/carto/schemas/ConfigModel",
+  "title": "ConfigModel",
+  "type": "object",
+  "properties": {
+    "Si": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "RestrictionNamePattern": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Targets": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/definitions/TargetDefinition"
+        }
+      ]
+    }
+  },
+  "definitions": {
+    "TargetDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Name"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "pattern": "^[a-zA-Z]+[a-zA-Z0-9_]+$"
+        },
+        "Targets": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/TargetDefinition"
+          }
+        }
+      }
+    }
+  }
+}

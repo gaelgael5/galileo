@@ -11,8 +11,18 @@
         public string Schema { get; internal set; }
 
         public string FilePath { get; internal set; }
-        public bool IsValidFile { get; internal set; }
+
+        public bool IsValidExistingFile { get; internal set; }
+
+        public SchemaIdKindEnum SchemaIdKind { get; internal set; }
+
     }
 
+    public enum SchemaIdKindEnum
+    {
+        Undefined,
+        File,
+        Url,
+    }
 
 }

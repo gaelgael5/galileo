@@ -1,0 +1,39 @@
+{
+
+    "$schema": "..\\Schemas\\CooperationViewpoint.schema.json",
+
+    "Name": "Applicative viewpoint",
+
+    "Concepts": [
+        {
+            "Name": "DomainConcept",
+            "Children": [
+                {
+                    "Name": "ConceptHasApplication",
+                    "Children": [
+                        {
+                            "Name": "ApplicationHasModule"
+                        }
+                    ]
+                }
+            ]
+
+        }
+    ],
+    "Elements": [
+        {
+            "Name": "Application",
+            "Children": [
+                {
+                    "Name":  "ApplicationHasModule"
+                }
+            ]
+        }
+    ],
+    "References": [
+        {
+            "Name": "ProducerProductData"
+        }
+    ]
+
+}

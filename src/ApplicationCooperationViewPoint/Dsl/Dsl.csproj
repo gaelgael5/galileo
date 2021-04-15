@@ -94,6 +94,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomCode\UITypeEditors\ListeCooperationViewpointEditor.cs" />
+    <Compile Include="CustomCode\UITypeEditors\ListPropertyGridEditorBase.cs" />
     <Compile Include="ReferentialResolver.cs" />
     <None Include="..\Key.snk">
       <Link>Key.snk</Link>
@@ -119,7 +121,6 @@
     <Compile Include="CustomCode\Relationship.cs" />
     <Compile Include="CustomCode\Shapes\RelationshipShape.cs" />
     <Compile Include="CustomCode\SubElement.cs" />
-    <Compile Include="CustomCode\UITypeEditors\ListeTypeReturnGridEditor.cs" />
     <Compile Include="CustomCode\Validations\Model.cs" />
     <Compile Include="GeneratedCode\ConnectionBuilders.cs">
       <AutoGen>True</AutoGen>
