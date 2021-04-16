@@ -46,6 +46,12 @@ namespace Bb.Galileo.Files.Schemas
 
         public NumberConstraints NumberConstraints { get; set; }
 
+        public override string ToString()
+        {
+            return Name.ToString();
+        }
+
+
     }
 
 

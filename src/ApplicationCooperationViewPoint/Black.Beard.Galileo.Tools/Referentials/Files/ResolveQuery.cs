@@ -2,6 +2,7 @@
 using Bb.Galileo.Files.Schemas;
 using Bb.Galileo.Models;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
@@ -25,8 +26,50 @@ namespace Bb.Galileo.Files
     public class ResolveQuery
     {
 
-        public ResolveQuery()
+        public ResolveQuery(IBase item)
         {
+            SetIdentifier(item);
+        }
+
+        public ResolveQuery(string query)
+        {
+
+            var items = query.Split(';');
+
+            foreach (var item in items)
+            {
+
+                var e = item.Split(':');
+
+                switch (e[0].ToLower())
+                {
+                    case "t":
+                        this.Target = e[1];
+                        break;
+
+                    case "n":
+                    case "i":
+                        this.Identifier = item;
+                        break;
+
+                    case "e":
+                        this.Kind = ElementEnum.Entity;
+                        break;
+                    case "l":
+                        this.Kind = ElementEnum.Relationship;
+                        break;
+                    case "de":
+                        this.Kind = ElementEnum.EntityDefinition;
+                        break;
+                    case "dl":
+                        this.Kind = ElementEnum.RelationshipDefinition;
+                        break;
+
+                    default:
+                        throw new InvalidDataException($"invalid kind key {e[0].ToLower()}:");
+                }
+
+            }
 
         }
 
@@ -72,50 +115,7 @@ namespace Bb.Galileo.Files
             return sb.ToString();
         }
 
-        public ResolveQuery(string query)
-        {
-
-            var items = query.Split(';');
-
-            foreach (var item in items)
-            {
-                
-                var e = item.Split(':');
-
-                switch (e[0].ToLower())
-                {
-                    case "t":
-                        this.Target = e[1];
-                        break;
-
-                    case "n":
-                    case "i":
-                        this.Identifier = item;
-                        break;
-
-                    case "e":
-                        this.Kind = ElementEnum.Entity;
-                        break;
-                    case "l":
-                        this.Kind = ElementEnum.Relationship;
-                        break;
-                    case "de":
-                        this.Kind = ElementEnum.EntityDefinition;
-                        break;
-                    case "dl":
-                        this.Kind = ElementEnum.RelationshipDefinition;
-                        break;
-
-                    default:
-                        throw new InvalidDataException($"invalid kind key {e[0].ToLower()}:");
-                }
-
-            }
-
-        }
-
-
-        public void SetIdentifier(IBase item)
+        public ResolveQuery SetIdentifier(IBase item)
         {
 
             if (item is ReferentialEntity e)
@@ -143,29 +143,55 @@ namespace Bb.Galileo.Files
             else
                 throw new NotImplementedException(item.GetType().Name);
 
+            return this;
+
         }
 
-        public IBase Get(ModelRepository rep)
+        public IEnumerable<T> GetReferentials<T>(ModelRepository rep)
+            where T : ReferentialBase
         {
+
+
             switch (this.Kind)
             {
                 case ElementEnum.Entity:
-                    return rep.GetEntity(this.TypeName, this.Target, this.Identifier);
+                    if (!string.IsNullOrEmpty(this.Identifier))
+                        yield return (T)(object)rep.GetEntity(this.TypeName, this.Target, this.Identifier);
+                    else
+                        foreach (var item in rep.GetEntities(this.TypeName, this.Target))
+                            yield return (T)(object)item;
+                    break;
 
                 case ElementEnum.Relationship:
-                    return rep.GetRelationship(this.TypeName, this.Target, this.Identifier);
+                    if (!string.IsNullOrEmpty(this.Identifier))
+                        yield return (T)(object)rep.GetRelationship(this.TypeName, this.Target, this.Identifier);
+                    else
+                        foreach (var item in rep.GetRelationships(this.TypeName, this.Target))
+                            yield return (T)(object)item;
+                    break;
 
                 case ElementEnum.EntityDefinition:
-                    return rep.GetEntityDefinition(this.TypeName);
+                    if (string.IsNullOrEmpty(this.TypeName))
+                        foreach (var item in rep.GetReferentials(typeof(ReferentialEntity)))
+                            yield return (T)(object)item;
+                    else
+                        foreach (var item in rep.GetReferentials(typeof(ReferentialEntity), this.TypeName))
+                            yield return (T)(object)item;
+                    break;
 
                 case ElementEnum.RelationshipDefinition:
-                    return rep.GetRelationshipDefinition(this.TypeName);
+                    if (string.IsNullOrEmpty(this.TypeName))
+                        foreach (var item in rep.GetReferentials(typeof(ReferentialRelationship)))
+                            yield return (T)(object)item;
+                    else
+
+                        foreach (var item in rep.GetReferentials(typeof(ReferentialRelationship), this.TypeName))
+                            yield return (T)(object)item;
+                    break;
 
                 default:
                     break;
             }
-
-            return null;
 
         }
 
@@ -176,6 +202,14 @@ namespace Bb.Galileo.Files
         public string TypeName { get; private set; }
 
         public string Identifier { get; private set; }
+
+
+        private void Stop()
+        {
+            if (System.Diagnostics.Debugger.IsAttached)
+                System.Diagnostics.Debugger.Break();
+
+        }
 
     }
 

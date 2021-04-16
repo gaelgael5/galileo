@@ -129,6 +129,8 @@ namespace Bb.Galileo.Files.Datas
             return Name.ToString();
         }
 
+        public ResolveQuery GetReference() => new ResolveQuery(this);
+
         internal void ResetChanges()
         {
             this.Changed = false;

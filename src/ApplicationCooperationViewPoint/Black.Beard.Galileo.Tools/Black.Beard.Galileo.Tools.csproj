@@ -62,6 +62,9 @@
     <Compile Include="Referentials\Files\Schemas\EntitySchema.cs" />
     <Compile Include="Referentials\Files\Schemas\LinkSchema.cs" />
     <Compile Include="Referentials\Files\Schemas\ObjectBaseSchema.cs" />
+    <Compile Include="Referentials\Files\Viewpoints\ReferenceItem.cs" />
+    <Compile Include="Referentials\Files\Viewpoints\ViewpointModel.cs" />
+    <Compile Include="Referentials\Files\Viewpoints\ViewpointModelItem.cs" />
     <Compile Include="Viewpoints\Cooperations\ConceptItem.cs" />
     <Compile Include="Viewpoints\Cooperations\SelectReferential.cs">
       <SubType>Form</SubType>

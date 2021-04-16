@@ -29,6 +29,7 @@ namespace Bb.Galileo.Viewpoints.Cooperations
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectReferential));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -38,14 +39,15 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ConceptsTreeView = new System.Windows.Forms.TreeView();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.CompositionListView = new System.Windows.Forms.ListView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.searchEntitiesTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.listView2 = new System.Windows.Forms.ListView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -91,6 +93,7 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             this.ValidateButton.TabIndex = 1;
             this.ValidateButton.Text = "Validate";
             this.ValidateButton.UseVisualStyleBackColor = true;
+            this.ValidateButton.Click += new System.EventHandler(this.ValidateButton_Click_1);
             // 
             // CancelButton
             // 
@@ -141,6 +144,7 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             this.ConceptsTreeView.Name = "ConceptsTreeView";
             this.ConceptsTreeView.Size = new System.Drawing.Size(413, 498);
             this.ConceptsTreeView.TabIndex = 0;
+            this.ConceptsTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.ConceptsTreeView_AfterSelect);
             // 
             // splitContainer2
             // 
@@ -151,7 +155,7 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.listView1);
+            this.splitContainer2.Panel1.Controls.Add(this.CompositionListView);
             this.splitContainer2.Panel1.Controls.Add(this.panel2);
             // 
             // splitContainer2.Panel2
@@ -162,21 +166,27 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             this.splitContainer2.SplitterDistance = 278;
             this.splitContainer2.TabIndex = 0;
             // 
-            // listView1
+            // CompositionListView
             // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.CompositionListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(9, 74);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1019, 192);
-            this.listView1.TabIndex = 2;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.CompositionListView.CheckBoxes = true;
+            this.CompositionListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CompositionListView.FullRowSelect = true;
+            this.CompositionListView.HideSelection = false;
+            this.CompositionListView.Location = new System.Drawing.Point(9, 74);
+            this.CompositionListView.MultiSelect = false;
+            this.CompositionListView.Name = "CompositionListView";
+            this.CompositionListView.Size = new System.Drawing.Size(1019, 192);
+            this.CompositionListView.TabIndex = 2;
+            this.CompositionListView.UseCompatibleStateImageBehavior = false;
+            this.CompositionListView.View = System.Windows.Forms.View.List;
+            this.CompositionListView.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.CompositionListView_ItemChecked);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.searchEntitiesTextBox);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -184,15 +194,16 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             this.panel2.Size = new System.Drawing.Size(1040, 68);
             this.panel2.TabIndex = 1;
             // 
-            // textBox1
+            // searchEntitiesTextBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.searchEntitiesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(114, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(914, 27);
-            this.textBox1.TabIndex = 1;
+            this.searchEntitiesTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchEntitiesTextBox.Location = new System.Drawing.Point(114, 24);
+            this.searchEntitiesTextBox.Name = "searchEntitiesTextBox";
+            this.searchEntitiesTextBox.Size = new System.Drawing.Size(914, 27);
+            this.searchEntitiesTextBox.TabIndex = 1;
+            this.searchEntitiesTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -209,6 +220,7 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             this.listView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView2.HideSelection = false;
             this.listView2.Location = new System.Drawing.Point(9, 84);
             this.listView2.Name = "listView2";
@@ -245,6 +257,11 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             this.label2.Size = new System.Drawing.Size(105, 32);
             this.label2.TabIndex = 0;
             this.label2.Text = "Search";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 300;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // SelectReferential
             // 
@@ -285,9 +302,9 @@ namespace Bb.Galileo.Viewpoints.Cooperations
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView CompositionListView;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox searchEntitiesTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.Panel panel3;
@@ -295,5 +312,6 @@ namespace Bb.Galileo.Viewpoints.Cooperations
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TreeView ConceptsTreeView;
+        private System.Windows.Forms.Timer timer1;
     }
 }

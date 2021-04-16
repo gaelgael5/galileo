@@ -22,6 +22,13 @@ namespace Bb.Galileo.Files.Schemas
         [JsonIgnore]
         public FileModel File { get; internal set; }
 
+        public ResolveQuery GetReference() => new ResolveQuery(this);
+
+        public override string ToString()
+        {
+            return Name.ToString();
+        }
+
     }
 
 }

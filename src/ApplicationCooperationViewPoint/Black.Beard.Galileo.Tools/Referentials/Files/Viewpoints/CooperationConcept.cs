@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Bb.Galileo.Files.Schemas;
+using System;
+using System.Collections.Generic;
 
 namespace Bb.Galileo.Files.Viewpoints
 {
@@ -13,9 +15,38 @@ namespace Bb.Galileo.Files.Viewpoints
 
         public List<CooperationElement> Children { get; set; }
 
-        public EntityDefinition GetOriginDefinition()
+        internal ViewpointModelItem GetViewpointItem(FileModel file)
         {
-            return this.File.Parent.Models.GetEntityDefinition(this.Name);
+
+            var result = new ViewpointModelItem()
+            {
+            };
+
+            var models = file.Parent.Models;
+            var definition = models.GetEntityDefinition(this.Name);
+
+            if (definition == null)
+            {
+
+                file.Parent.Diagnostic.Append(new DiagnositcMessage()
+                {
+                    File = file.FullPath,
+                    Severity = SeverityEnum.Error,
+                    Text = $"Entity definition {this.Name} can't be resolved"
+                });
+
+            }
+            else
+            {
+                result.Definition = definition;
+
+                foreach (CooperationElement item in Children)
+                    item.GetViewpointItem(file, result);
+
+            }
+
+            return result;
+
         }
 
     }

@@ -14,6 +14,11 @@ namespace Bb.Galileo.Files.Schemas
 
         public List<EntityTypeDefinition> Concepts { get; set; }
 
+        public override string ToString()
+        {
+            return Name.ToString();
+        }
+
 
     }
 

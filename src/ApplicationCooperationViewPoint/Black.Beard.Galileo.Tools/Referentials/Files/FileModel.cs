@@ -36,7 +36,7 @@ namespace Bb.Galileo.Files
      
         internal Newtonsoft.Json.Linq.JObject Load()
         {
-            _file.WaitForFile(new TimeSpan(0,0,0,2));
+            _file.WaitForFile(new TimeSpan(0,0,0,5));
             return (Newtonsoft.Json.Linq.JObject)_file
                 .LoadContentFromFile()
                 .ConvertToJson()

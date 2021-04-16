@@ -1,8 +1,10 @@
-﻿namespace Bb.Galileo
+﻿using Bb.Galileo.Files.Schemas;
+using Bb.Galileo.Models;
+
+namespace Bb.Galileo
 {
     public class SchemaReference
     {
-
 
         public string Type { get; set; }
 

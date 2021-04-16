@@ -25,6 +25,10 @@ namespace Bb.Galileo.Files.Schemas
 
         //public string[] Restrictions { get; set; }
 
+        public override string ToString()
+        {
+            return Name.ToString();
+        }
 
 
     }

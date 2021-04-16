@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 
 namespace Bb.Galileo.Files.Schemas
@@ -18,11 +17,9 @@ namespace Bb.Galileo.Files.Schemas
 
         [JsonRequired]
         public string Kind { get; set; }
+    
+        
 
-        internal object GetReferentials()
-        {
-            throw new NotImplementedException();
-        }
     }
 
 

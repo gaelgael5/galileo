@@ -81,7 +81,7 @@ namespace Bb.Galileo.Files
 
         internal void RefreshSchema(FileInfo file)
         {
-            
+
         }
 
 
@@ -353,31 +353,82 @@ namespace Bb.Galileo.Files
             return null;
         }
 
-        public ReferentialRelationship GetRelationship(string typeEntity, string identifier, string target)
+        public IEnumerable<ReferentialEntity> GetEntities(string typeEntity, string target)
+        {
+            if (_entities.TryGetValue(typeof(ReferentialEntity), out TypeIndex dic))
+            {
+                HashSet<string> _h = new HashSet<string>();
+                var i = dic.Get(typeEntity).Get(target);
+                foreach (var item in i.Values)
+                    if (_h.Add(item.Id))
+                        yield return (ReferentialEntity)item;
+            }
+        }
+
+        public ReferentialRelationship GetRelationship(string typeEntity, string target, string identifier)
         {
             if (_entities.TryGetValue(typeof(ReferentialRelationship), out TypeIndex dic))
+            {
+                HashSet<string> _h = new HashSet<string>();
                 if (dic.Get(typeEntity).Get(target).TryGetValue(identifier, out ReferentialBase item))
-                    return (ReferentialRelationship)item;
+                    if (_h.Add(item.Id))
+                        return (ReferentialRelationship)item;
+            }
             return default(ReferentialRelationship);
+        }
+
+        public IEnumerable<ReferentialRelationship> GetRelationships(string typeEntity, string target)
+        {
+            if (_entities.TryGetValue(typeof(ReferentialRelationship), out TypeIndex dic))
+            {
+                HashSet<string> _h = new HashSet<string>();
+                var i = dic.Get(typeEntity).Get(target);
+                foreach (var item in i.Values)
+                    if (_h.Add(item.Id))
+                        yield return (ReferentialRelationship)item;
+            }
+
         }
 
         public IEnumerable<ReferentialBase> GetReferentials(Type type)
         {
+
+            HashSet<string> _h = new HashSet<string>();
+
             if (_entities.TryGetValue(type, out TypeIndex dic))
                 foreach (TargetIndex target in dic.Values)
                     foreach (ModelIndex model in target.Values)
                         foreach (var item in model.Values)
-                            yield return item;
+                            if (_h.Add(item.Id))
+                                yield return item;
+
         }
 
         public IEnumerable<ReferentialBase> GetReferentials(Type type, string typeEntity, string target)
         {
             if (_entities.TryGetValue(type, out TypeIndex dic))
             {
-                var _target = dic.Get(typeEntity);
-                var model = _target.Get(typeEntity);
+                HashSet<string> _h = new HashSet<string>();
+                var _targets = dic.Get(typeEntity);
+                var model = _targets.Get(typeEntity);
                 foreach (var item in model.Values)
-                    yield return (ReferentialBase)item;
+                    if (_h.Add(item.Id))
+                        yield return (ReferentialBase)item;
+            }
+        }
+
+        public IEnumerable<ReferentialBase> GetReferentials(Type type, string typeEntity)
+        {
+            if (_entities.TryGetValue(type, out TypeIndex dic))
+            {
+
+                HashSet<string> _h = new HashSet<string>();
+                var _targets = dic.Get(typeEntity);
+                foreach (var model in _targets.Values)
+                    foreach (var item in model.Values)
+                        if (_h.Add(item.Id))
+                            yield return item;
+
             }
         }
 
@@ -391,12 +442,14 @@ namespace Bb.Galileo.Files
 
             if (typeof(ReferentialBase).IsAssignableFrom(type))
             {
+                HashSet<string> _h = new HashSet<string>();
                 if (_entities.TryGetValue(type, out TypeIndex types))
                     foreach (TargetIndex target in types.Values)
                         foreach (ModelIndex index in target.Values)
                             foreach (var item in index.Values)
-                                if (item is T r && item.File.FullPath == file.FullPath)
-                                    yield return r;
+                                if (_h.Add(item.Id))
+                                    if (item is T r && item.File.FullPath == file.FullPath)
+                                        yield return r;
             }
 
             else if (typeof(ModelDefinition).IsAssignableFrom(type))
@@ -414,6 +467,7 @@ namespace Bb.Galileo.Files
                         if (item.File.FullPath == file.FullPath)
                             yield return (T)(object)item;
             }
+
             else if (type == typeof(LayersDefinition))
             {
                 foreach (var definition in _definitions)
@@ -438,13 +492,15 @@ namespace Bb.Galileo.Files
                         if (item is T i)
                             yield return i;
 
+            HashSet<string> _h = new HashSet<string>();
             if (typeof(ReferentialBase).IsAssignableFrom(type))
                 if (_entities.TryGetValue(type, out TypeIndex dic))
                     foreach (TargetIndex target in dic.Values)
                         foreach (ModelIndex model in target.Values)
-                            foreach (object item in model.Values)
-                                if (item is T i)
-                                    yield return (T)item;
+                            foreach (ReferentialBase item in model.Values)
+                                if (_h.Add(item.Id))
+                                    if (item is T i)
+                                        yield return i;
 
         }
 
@@ -455,11 +511,13 @@ namespace Bb.Galileo.Files
                 foreach (var item in dic1.Values)
                     yield return item;
 
+            HashSet<string> _h = new HashSet<string>();
             foreach (var dic2 in _entities)
                 foreach (TargetIndex target in dic2.Value.Values)
                     foreach (var model in target.Values)
                         foreach (var item in model.Values)
-                            yield return item;
+                            if (_h.Add(item.Id))
+                                yield return item;
 
         }
 
@@ -473,6 +531,9 @@ namespace Bb.Galileo.Files
         internal Transactionfile Add(FileModel item, FileTracingEnum trace)
         {
 
+            if (!item.Exist)
+                return null;
+
             JObject payload = null;
             Transactionfile transaction = null;
             try
@@ -482,10 +543,18 @@ namespace Bb.Galileo.Files
             }
             catch (System.IO.IOException e1)
             {
+
+                if (System.Diagnostics.Debugger.IsAttached)
+                    System.Diagnostics.Debugger.Break();
+
                 Diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, File = item.FullPath, Text = e1.Message, Exception = e1 });
             }
             catch (Exception e2)
             {
+
+                if (System.Diagnostics.Debugger.IsAttached)
+                    System.Diagnostics.Debugger.Break();
+
                 Diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, File = item.FullPath, Text = e2.Message, Exception = e2 });
             }
 

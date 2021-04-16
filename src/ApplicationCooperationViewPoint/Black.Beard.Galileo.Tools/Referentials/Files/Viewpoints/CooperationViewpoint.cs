@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Bb.Galileo.Files.Schemas;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,6 +26,48 @@ namespace Bb.Galileo.Files.Viewpoints
 
         [JsonIgnore]
         public FileModel File { get; internal set; }
+
+        public ViewpointModel GetViewpointModel()
+        {
+
+            var models = File.Parent.Models;
+
+            var result = new ViewpointModel()
+            {
+                Type = typeof(CooperationViewpoint).Name,
+                Name = this.Name,
+            };
+
+            foreach (var item in this.Concepts)
+                result.AddChildren(item.GetViewpointItem(this.File));
+
+            foreach (var item in this.Elements)
+                result.AddChildren(item.GetViewpointItem(this.File));
+
+            foreach (var item in this.References)
+            {
+
+                RelationshipDefinition rel = models.GetRelationshipDefinition(item.Name);
+                if (rel == null)
+                {
+                    models.Diagnostic.Append(new DiagnositcMessage()
+                    {
+                        File = File.FullPath,
+                        Severity = SeverityEnum.Error,
+                        Text = $"Entity definition {item.Name} can't be resolved"
+                    });
+                }
+                else
+                {
+                    foreach (var r in result.Children)
+                        r.SetReference(this.File, rel);
+                }
+
+            }
+
+            return result;
+
+        }
 
     }
 

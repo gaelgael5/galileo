@@ -108,18 +108,25 @@ namespace Bb.Galileo.Files
         {
 
             foreach (var item in _items)
-                if (item.Value.Schema.IsValidExistingFile && item.Value.Schema.FilePath == result.File.FullPath)
+                if (item.Value.Schema != null)
                 {
+                    if (item.Value.Schema.IsValidExistingFile && item.Value.Schema.FilePath == result.File.FullPath)
+                    {
 
-                    try
-                    {
-                        var payload = item.Value.Load();
-                        this.Models.SchemaValidator.Evaluate(item.Value, payload);
+                        try
+                        {
+                            var payload = item.Value.Load();
+                            this.Models.SchemaValidator.Evaluate(item.Value, payload);
+                        }
+                        catch (Exception e2)
+                        {
+                            Diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, File = item.Value.FullPath, Text = e2.Message, Exception = e2 });
+                        }
+
                     }
-                    catch (Exception e2)
-                    {
-                        Diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, File = item.Value.FullPath, Text = e2.Message, Exception = e2 });
-                    }
+                }
+                else
+                {
 
                 }
 
