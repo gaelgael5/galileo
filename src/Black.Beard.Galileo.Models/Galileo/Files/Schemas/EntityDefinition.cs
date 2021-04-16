@@ -18,6 +18,8 @@ namespace Bb.Galileo.Files.Schemas
         [JsonRequired]
         public string Kind { get; set; }
     
+        public ResolveQuery Reference { get => new ResolveQuery().SetIdentifier(this); }
+
     }
 
 

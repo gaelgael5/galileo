@@ -22,8 +22,11 @@ namespace Bb.ApplicationCooperationViewPoint
 
             var viewpointConfig = referential.GetCooperationViewpoint(this.ViewpointType);
 
+
             using (var form = new Bb.Galileo.Viewpoints.Cooperations.SelectReferential())
             {
+
+                form.SetViewpoint(viewpointConfig);
 
                 if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {

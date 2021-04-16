@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bb.Galileo.Files.Viewpoints;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,5 +37,40 @@ namespace Bb.Galileo.Viewpoints.Cooperations
         {
 
         }
+
+        public void SetViewpoint(CooperationViewpoint config)
+        {
+
+            foreach (var item in config.Concepts)
+            {
+                var c = new ConceptItem(item, 0, config);
+                ConceptsTreeView.Nodes.Add(c);
+            }
+
+            foreach (var item in config.Elements)
+            {
+                var c = new ConceptItem(item, 0, config);
+                ConceptsTreeView.Nodes.Add(c);
+            }
+
+            var m = config.File.Parent.Models;
+
+            foreach (var item in config.References)
+            {
+                var r = m.GetRelationshipDefinition(item.Name);
+                if (r != null)
+                    foreach (ConceptItem concept in this.ConceptsTreeView.Nodes)
+                        concept.AddReference(r);
+            }
+
+        }
+
     }
+
+    public class ReferenceItem
+    {
+        public Files.Schemas.EntityDefinition SourceDefinition { get; internal set; }
+        public Files.Schemas.EntityDefinition Target { get; internal set; }
+    }
+
 }

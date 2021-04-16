@@ -22,6 +22,18 @@ namespace Bb.Galileo.Files.Schemas
 
         [JsonRequired]
         public LinkDefinition Target { get; set; }
+
+        public EntityDefinition GetOriginDefinition()
+        {
+            return this.File.Parent.Models.GetEntityDefinition(this.Origin.Name);
+        }
+
+        public EntityDefinition GetTargetDefinition()
+        {
+            return this.File.Parent.Models.GetEntityDefinition(this.Target.Name);
+        }
+
+
     }
 
 }

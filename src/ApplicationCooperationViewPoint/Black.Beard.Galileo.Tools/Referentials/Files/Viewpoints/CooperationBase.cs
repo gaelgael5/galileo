@@ -9,7 +9,6 @@ namespace Bb.Galileo.Files.Viewpoints
         [JsonRequired]
         public string Name { get; set; }
 
-
     }
 
 }

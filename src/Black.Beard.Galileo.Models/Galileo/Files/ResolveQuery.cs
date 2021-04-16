@@ -114,8 +114,7 @@ namespace Bb.Galileo.Files
 
         }
 
-
-        public void SetIdentifier(IBase item)
+        public ResolveQuery SetIdentifier(IBase item)
         {
 
             if (item is ReferentialEntity e)
@@ -142,6 +141,8 @@ namespace Bb.Galileo.Files
             }
             else
                 throw new NotImplementedException(item.GetType().Name);
+
+            return this;
 
         }
 

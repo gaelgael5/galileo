@@ -64,7 +64,7 @@
       "Label": "Application concept",
       "Kind": "Association",
       "Origin": {
-          "Multiplicty": "One", "Name": "Domain"
+          "Multiplicty": "One", "Name": "DomainConcept"
         },
         "Target": {
           "Multiplicty": "ZeroOrMany", "Name": "Application"
