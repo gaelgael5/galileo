@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using Bb.Galileo.Files.Schemas;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Bb.Galileo.Models
 {
@@ -8,7 +10,16 @@ namespace Bb.Galileo.Models
 
         string Name { get; }
 
+        
+
     }
 
+
+    public interface IEvaluate
+    {
+
+        void Evaluate();
+
+    }
 
 }

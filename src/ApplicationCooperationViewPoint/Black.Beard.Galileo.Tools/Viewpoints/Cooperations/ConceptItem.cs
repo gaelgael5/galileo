@@ -14,11 +14,12 @@ namespace Bb.Galileo.Viewpoints.Cooperations
 
         public RelationshipDefinition Relationship { get; }
 
+     
+
         public ConceptItem(ViewpointModelItem item, int level, CooperationViewpoint config)
         {
 
             this.Viewpoint = item;
-
             BuildCaption(level, item.Definition.Name);
 
             foreach (var subItem in item.Children)

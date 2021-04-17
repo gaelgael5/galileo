@@ -59,9 +59,12 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Referentials\Files\QueryFilter.cs" />
     <Compile Include="Referentials\Files\Schemas\EntitySchema.cs" />
     <Compile Include="Referentials\Files\Schemas\LinkSchema.cs" />
     <Compile Include="Referentials\Files\Schemas\ObjectBaseSchema.cs" />
+    <Compile Include="Referentials\Files\Schemas\RestrictionDefinition.cs" />
+    <Compile Include="Referentials\Files\Schemas\RestrictionRule.cs" />
     <Compile Include="Referentials\Files\Viewpoints\ReferenceItem.cs" />
     <Compile Include="Referentials\Files\Viewpoints\ViewpointModel.cs" />
     <Compile Include="Referentials\Files\Viewpoints\ViewpointModelItem.cs" />

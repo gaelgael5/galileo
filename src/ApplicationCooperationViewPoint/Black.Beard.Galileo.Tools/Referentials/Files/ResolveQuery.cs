@@ -4,6 +4,7 @@ using Bb.Galileo.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace Bb.Galileo.Files
@@ -14,6 +15,7 @@ namespace Bb.Galileo.Files
     /// Syntax : e:Application;t:Existant;i:280d589ab1014cef85af664414316b85
     ///          e -> entity
     ///          l -> Relationship
+    ///          r -> Restriction
     ///          de -> Entity definition
     ///          dl -> Relationship definition
     ///          
@@ -25,6 +27,17 @@ namespace Bb.Galileo.Files
     /// </summary>
     public class ResolveQuery
     {
+
+        public ResolveQuery()
+        {
+
+        }
+
+        public ResolveQuery(ElementEnum kind, string Entityname)
+        {
+            this.Kind = kind;
+            this.TypeName = Entityname;
+        }
 
         public ResolveQuery(IBase item)
         {
@@ -48,21 +61,32 @@ namespace Bb.Galileo.Files
                         break;
 
                     case "n":
+                        this.Identifier = item;
+                        break;
                     case "i":
                         this.Identifier = item;
                         break;
 
                     case "e":
                         this.Kind = ElementEnum.Entity;
+                        this.TypeName = e[1];
+                        break;
+
+                    case "r":
+                        this.Kind = ElementEnum.RestrictionDefinition;
+                        this.TypeName = e[1];
                         break;
                     case "l":
                         this.Kind = ElementEnum.Relationship;
+                        this.TypeName = e[1];
                         break;
                     case "de":
                         this.Kind = ElementEnum.EntityDefinition;
+                        this.TypeName = e[1];
                         break;
                     case "dl":
                         this.Kind = ElementEnum.RelationshipDefinition;
+                        this.TypeName = e[1];
                         break;
 
                     default:
@@ -94,6 +118,12 @@ namespace Bb.Galileo.Files
                     sb.Append(Identifier);
                     break;
 
+                case ElementEnum.RestrictionDefinition:
+                    sb.Append("r:");
+                    sb.Append(this.TypeName);
+                    sb.Append(";");
+                    break;
+
                 case ElementEnum.EntityDefinition:
                     sb.Append("de:");
                     sb.Append(this.TypeName);
@@ -112,7 +142,7 @@ namespace Bb.Galileo.Files
             }
 
 
-            return sb.ToString();
+            return sb.ToString().Trim(';');
         }
 
         public ResolveQuery SetIdentifier(IBase item)
@@ -140,6 +170,11 @@ namespace Bb.Galileo.Files
                 this.Kind = ElementEnum.RelationshipDefinition;
                 this.TypeName = r1.Name;
             }
+            else if (item is RestrictionDefinition r2)
+            {
+                this.Kind = ElementEnum.RestrictionDefinition;
+                this.TypeName = r2.Name;
+            }
             else
                 throw new NotImplementedException(item.GetType().Name);
 
@@ -147,62 +182,66 @@ namespace Bb.Galileo.Files
 
         }
 
-        public IEnumerable<T> GetReferentials<T>(ModelRepository rep)
-            where T : ReferentialBase
+        public IEnumerable<IBase> GetReferentials(ModelRepository rep)
         {
 
+            QueryFilter query = new QueryFilter();
 
+            Type type = null;
             switch (this.Kind)
             {
                 case ElementEnum.Entity:
+                    type = typeof(ReferentialEntity);
                     if (!string.IsNullOrEmpty(this.Identifier))
-                        yield return (T)(object)rep.GetEntity(this.TypeName, this.Target, this.Identifier);
-                    else
-                        foreach (var item in rep.GetEntities(this.TypeName, this.Target))
-                            yield return (T)(object)item;
+                        query.AddName(this.Identifier);
+
+                    if (!string.IsNullOrEmpty(this.TypeName))
+                        query.AddTypeName(this.TypeName);
                     break;
 
                 case ElementEnum.Relationship:
+                    type = typeof(ReferentialRelationship);
                     if (!string.IsNullOrEmpty(this.Identifier))
-                        yield return (T)(object)rep.GetRelationship(this.TypeName, this.Target, this.Identifier);
-                    else
-                        foreach (var item in rep.GetRelationships(this.TypeName, this.Target))
-                            yield return (T)(object)item;
+                        query.AddName(this.Identifier);
+
+                    if (!string.IsNullOrEmpty(this.TypeName))
+                        query.AddTypeName(this.TypeName);
+                    break;
+                
+                case ElementEnum.RelationshipDefinition:
+                    type = typeof(RelationshipDefinition);
+                    if (!string.IsNullOrEmpty(this.TypeName))
+                        query.AddName(this.TypeName);
                     break;
 
                 case ElementEnum.EntityDefinition:
-                    if (string.IsNullOrEmpty(this.TypeName))
-                        foreach (var item in rep.GetReferentials(typeof(ReferentialEntity)))
-                            yield return (T)(object)item;
-                    else
-                        foreach (var item in rep.GetReferentials(typeof(ReferentialEntity), this.TypeName))
-                            yield return (T)(object)item;
+                    type = typeof(EntityDefinition);
+                    if (!string.IsNullOrEmpty(this.TypeName) && this.TypeName != "*")
+                        query.AddName(this.TypeName); 
                     break;
 
-                case ElementEnum.RelationshipDefinition:
-                    if (string.IsNullOrEmpty(this.TypeName))
-                        foreach (var item in rep.GetReferentials(typeof(ReferentialRelationship)))
-                            yield return (T)(object)item;
-                    else
-
-                        foreach (var item in rep.GetReferentials(typeof(ReferentialRelationship), this.TypeName))
-                            yield return (T)(object)item;
-                    break;
-
+                case ElementEnum.RestrictionDefinition:
                 default:
                     break;
             }
 
+            if (type != null)
+            {
+                var source = rep.Get(type, query).ToList();
+                return source;
+            }
+
+            return new IBase[0];
+
         }
 
-        public ElementEnum Kind { get; private set; }
+        public ElementEnum Kind { get; set; }
 
-        public string Target { get; private set; }
+        public string Target { get; set; }
 
-        public string TypeName { get; private set; }
+        public string TypeName { get; set; }
 
-        public string Identifier { get; private set; }
-
+        public string Identifier { get; set; }
 
         private void Stop()
         {
@@ -210,6 +249,7 @@ namespace Bb.Galileo.Files
                 System.Diagnostics.Debugger.Break();
 
         }
+
 
     }
 

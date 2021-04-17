@@ -1,13 +1,18 @@
 ﻿using Bb.Galileo.Models;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace Bb.Galileo.Files.Schemas
 
 {
-    public class ModelDefinition : IBase
+    public class ModelDefinition : IBase, IEvaluate
     {
 
+        public ModelDefinition()
+        {
+            Restrictions = new List<string>();
+        }
 
         [Description("functional key")]
         [JsonRequired]
@@ -21,6 +26,16 @@ namespace Bb.Galileo.Files.Schemas
 
         [JsonIgnore]
         public FileModel File { get; internal set; }
+
+        public List<string> Restrictions { get; set; }
+
+        public virtual void Evaluate()
+        {
+
+            File.Parent.Models.EvaluateRestrictions(this, this.File, Restrictions);
+
+        }
+
 
         public ResolveQuery GetReference() => new ResolveQuery(this);
 

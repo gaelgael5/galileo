@@ -2,34 +2,40 @@
 
 namespace Bb.Galileo.Files
 {
-    internal class TypeIndex
+    internal class TypesIndex
     {
 
-        public TypeIndex(ModelRepository parent)
+        public TypesIndex(ModelRepository parent)
         {
             this._parent = parent;
-            _items = new Dictionary<string, TargetIndex>();
+            _items = new Dictionary<string, TargetListIndex>();
         }
 
-        public TargetIndex Get(string typename)
+        public TargetListIndex GetByTypename(string typename)
         {
-            if (!_items.TryGetValue(typename, out TargetIndex result))
-                _items.Add(typename, (result = new TargetIndex(this._parent)));
+            if (!_items.TryGetValue(typename, out TargetListIndex result))
+                _items.Add(typename, (result = new TargetListIndex(this._parent)));
 
             return result;
         }
 
-        public IEnumerable<TargetIndex> Values { get => _items.Values; }
+        public TargetListIndex GetIfExistsByTypename(string typename)
+        {
+            _items.TryGetValue(typename, out TargetListIndex result);
+            return result;
+        }
+
+        public IEnumerable<TargetListIndex> Values { get => _items.Values; }
 
         private readonly ModelRepository _parent;
-        private readonly Dictionary<string, TargetIndex> _items;
+        private readonly Dictionary<string, TargetListIndex> _items;
 
     }
 
-    internal class TargetIndex
+    internal class TargetListIndex
     {
 
-        public TargetIndex(ModelRepository parent)
+        public TargetListIndex(ModelRepository parent)
         {
             this._parent = parent;
             _items = new Dictionary<string, ModelIndex>();

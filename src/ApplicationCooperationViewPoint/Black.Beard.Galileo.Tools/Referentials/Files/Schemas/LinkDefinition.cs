@@ -1,16 +1,18 @@
-﻿using Newtonsoft.Json;
+﻿using Bb.Galileo.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace Bb.Galileo.Files.Schemas
 {
-    public class LinkDefinition
+    public class LinkDefinition : IBase
     {
-
 
         public LinkDefinition()
         {
             this.Properties = new List<PropertyDefinition>();
+            this.Restrictions = new List<string>();
         }
 
         [Description("relationship's reference")]
@@ -23,13 +25,12 @@ namespace Bb.Galileo.Files.Schemas
         [JsonRequired]
         public MultiplicityEnum Multiplicty { get; set; }
 
-        //public string[] Restrictions { get; set; }
+        public List<string> Restrictions { get; set; }
 
         public override string ToString()
         {
             return Name.ToString();
         }
-
 
     }
 

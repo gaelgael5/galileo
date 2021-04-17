@@ -22,6 +22,23 @@
         Relationship,
         EntityDefinition,
         RelationshipDefinition,
+        RestrictionDefinition,
+    }
+
+    public enum ElementTypeEnum
+    {
+        Undefined,
+        
+        Entity,
+        Relationship,
+        Link,
+     
+        EntityDefinition,
+        RelationshipDefinition,
+        RelationshipLinkDefinition,
+
+        RestrictionDefinition,
+
     }
 
     public enum SeverityEnum

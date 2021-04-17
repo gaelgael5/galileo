@@ -59,5 +59,10 @@ namespace Bb.Galileo.Files.Schemas
 
     }
 
+    public enum RestrictionKindEnum
+    {
+        TypeRestriction,
+    }
+
 
 }

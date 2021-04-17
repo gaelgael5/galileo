@@ -15,13 +15,11 @@ namespace Bb.Galileo.Viewpoints.Cooperations
 {
     public partial class SelectReferential : Form
     {
-        private List<ReferentialEntity> _lastQueryItems;
 
         public SelectReferential(Files.ModelRepository modelRepository = null)
         {
 
             InitializeComponent();
-
             this._models = modelRepository;
 
             CompositionListView.Columns.AddRange
@@ -29,14 +27,13 @@ namespace Bb.Galileo.Viewpoints.Cooperations
                 new ColumnHeader[]
                 {
                     new ColumnHeader() { Name = "Name", Text = "Name", Width = 100 },
-                    new ColumnHeader() { Name = "Label", Text = "Label" },
+                    new ColumnHeader() { Name = "Label", Text = "Label", Width = 700  },
                 }
             );
-            CompositionListView.View = View.Details;
 
+            CompositionListView.View = View.Details;
             CompositionListView.Alignment = ListViewAlignment.Left;
             CompositionListView.CheckBoxes = true;
-
 
         }
 
@@ -49,7 +46,9 @@ namespace Bb.Galileo.Viewpoints.Cooperations
                 var v = c.Viewpoint;
 
                 var r = v.Definition.GetReference();
-                _lastQueryItems = r.GetReferentials<ReferentialEntity>(v.Definition.File.Parent.Models).ToList();
+                r.Kind = ElementEnum.Entity;
+
+                _lastQueryItems = r.GetReferentials(v.Definition.File.Parent.Models).OfType<ReferentialEntity>().ToList();
 
                 RefreshItems();
 
@@ -73,9 +72,9 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             var txt = searchEntitiesTextBox.Text;
             if (!string.IsNullOrEmpty(txt))
             {
-                var o = items.Where(c => c.Name.Contains(txt) || c.Label.Contains(txt));
+                var o = items.Where(c => c.Name.ToLower().Contains(txt.ToLower()) || c.Label.ToLower().Contains(txt.ToLower()));
                 if (!o.Any())
-                    o = items.Where(c => c.Name.DamerauLevenshteinDistance(txt) <= 2 || c.Label.DamerauLevenshteinDistance(txt) <= 2);
+                    o = items.Where(c => c.Name.DamerauLevenshteinDistance(txt) <= 2 || c.Label.DamerauLevenshteinDistance(txt) <= 3);
 
                 items = o;
 
@@ -87,8 +86,8 @@ namespace Bb.Galileo.Viewpoints.Cooperations
                 Dictionary<string, ListViewGroup> _groups = new Dictionary<string, ListViewGroup>();
                 foreach (var item in items)
                 {
-                    if (!_groups.TryGetValue(item.Target, out ListViewGroup group))
-                        _groups.Add(item.Target, group = new ListViewGroup(item.TypeEntity + " " + item.Target, HorizontalAlignment.Left));
+                    if (!_groups.TryGetValue(item.TargetName, out ListViewGroup group))
+                        _groups.Add(item.TargetName, group = new ListViewGroup(item.TypeEntity + " " + item.TargetName, HorizontalAlignment.Left));
 
                     var c = _itemschecked.ContainsKey(item.Id);
 
@@ -110,11 +109,6 @@ namespace Bb.Galileo.Viewpoints.Cooperations
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
 
@@ -130,25 +124,25 @@ namespace Bb.Galileo.Viewpoints.Cooperations
 
         }
 
-        public HashSet<string> GetSelectedKeys()
+        public Dictionary<string, CooperationCheckedItem> GetSelectedKeys()
         {
-            return _selectedKeys;
+            return _itemschecked;
         }
 
         public void SetSelectedKeys(HashSet<string> keys)
         {
 
-            if (keys != null)
-                foreach (var item in keys)
-                {
-                    var q = new ResolveQuery(item);
-                    var i = q.GetReferentials<ReferentialEntity>(this._models).FirstOrDefault();
-                    if (i != null)
-                    {
-                        if (!_itemschecked.TryGetValue(i.Id, out ReferentialEntity e))
-                            _itemschecked.Add(i.Id, i);
-                    }
-                }
+            //if (keys != null)
+            //    foreach (var item in keys)
+            //    {
+            //        var q = new ResolveQuery(item);
+            //        var i = q.GetReferentials(this._models).OfType<ReferentialEntity>().FirstOrDefault();
+            //        if (i != null)
+            //        {
+            //            if (!_itemschecked.TryGetValue(i.Id, out CooperationCheckedItem e))
+            //                _itemschecked.Add(i.Id, new CooperationCheckedItem() { });
+            //        }
+            //    }
 
         }
 
@@ -159,45 +153,76 @@ namespace Bb.Galileo.Viewpoints.Cooperations
 
         private void CompositionListView_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
+
             if (e.Item.Tag is ReferentialEntity s)
             {
                 if (e.Item.Checked)
                 {
-
-                    if (!_itemschecked.ContainsKey(s.Id))
-                        _itemschecked.Add(s.Id, s);
-
+                    int levels = Count(ConceptsTreeView.SelectedNode);
+                    if (!_itemschecked.TryGetValue(s.Id, out CooperationCheckedItem i))
+                    {
+                        var x = new CooperationCheckedItem()
+                        {
+                            Item = s,
+                            Level = ConceptsTreeView.SelectedNode.Level,
+                            MaxLevel = levels,
+                        };
+                        _itemschecked.Add(s.Id, x);
+                    }
+                    else
+                    {
+                        i.Level = ConceptsTreeView.SelectedNode.Level;
+                        i.MaxLevel = levels;
+                    }
                 }
                 else
                 {
-
                     if (_itemschecked.ContainsKey(s.Id))
                         _itemschecked.Remove(s.Id);
-
                 }
             }
         }
 
+        private int Count(TreeNode selectedNode)
+        {
+            int result = selectedNode.Level;
+            foreach (TreeNode item in selectedNode.Nodes)
+                result = Math.Max(result, Count(item));
+            return result;
 
-
-        Dictionary<string, ReferentialEntity> _itemschecked = new Dictionary<string, ReferentialEntity>();
-        private HashSet<string> _selectedKeys = new HashSet<string>();
-        private readonly Files.ModelRepository _models;
+        }
 
         private void ValidateButton_Click_1(object sender, EventArgs e)
         {
 
-            _selectedKeys.Clear();
-            foreach (var item in _itemschecked.Values)
-            {
-                string key = item.GetReference().ToString();
-                _selectedKeys.Add(key);
-            }
-
+            //_selectedKeys.Clear();
+            //foreach (var item in _itemschecked.Values)
+            //{
+            //    string key = item.Item.GetReference().ToString();
+            //    _selectedKeys.Add(new KeyValuePair<int, string>(item.Level, key));
+            //}
+            this.DialogResult = DialogResult.OK;
             this.Close();
 
         }
+
+        private List<KeyValuePair<int, string>> _selectedKeys = new List<KeyValuePair<int, string>>();
+        private readonly Files.ModelRepository _models;
+        public Dictionary<string, CooperationCheckedItem> _itemschecked = new Dictionary<string, CooperationCheckedItem>();
+
+        private List<ReferentialEntity> _lastQueryItems;
+
     }
 
+
+
+    public class CooperationCheckedItem
+    {
+
+        public ReferentialEntity Item { get; set; }
+
+        public int Level { get; internal set; }
+        public int MaxLevel { get; internal set; }
+    }
 
 }

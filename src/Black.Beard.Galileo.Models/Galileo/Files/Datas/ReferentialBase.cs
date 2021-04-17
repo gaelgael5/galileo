@@ -1,4 +1,5 @@
-﻿using Bb.Galileo.Models;
+﻿using Bb.Galileo.Files.Schemas;
+using Bb.Galileo.Models;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,7 +7,7 @@ using System.Linq;
 
 namespace Bb.Galileo.Files.Datas
 {
-    public class ReferentialBase : INotifyPropertyChanged, IBase
+    public class ReferentialBase : INotifyPropertyChanged, IBase, IEvaluate
     {
 
         public ReferentialBase(string type, FileModel file)
@@ -16,6 +17,7 @@ namespace Bb.Galileo.Files.Datas
             this.Kind = GetType().Name;
             this.File = file;
             this._propertiesStorage = new Dictionary<string, object>();
+
         }
 
 
@@ -37,7 +39,7 @@ namespace Bb.Galileo.Files.Datas
 
         public string Kind { get; }
 
-        public string Target { get; internal set; }
+        public string TargetName { get; internal set; }
 
         public SchemaReference Schema { get; internal set; }
 
@@ -131,6 +133,14 @@ namespace Bb.Galileo.Files.Datas
 
         public ResolveQuery GetReference() => new ResolveQuery(this);
 
+        public void Evaluate()
+        {
+            File.Parent.Models.EvaluateRestrictions(this, File, Restrictions);
+        }
+
+        public List<string> Restrictions { get; set; } = new List<string>();
+
+
         internal void ResetChanges()
         {
             this.Changed = false;
@@ -138,7 +148,6 @@ namespace Bb.Galileo.Files.Datas
 
 
         private readonly Dictionary<string, object> _propertiesStorage;
-
         public event PropertyChangedEventHandler PropertyChanged;
 
     }

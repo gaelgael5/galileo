@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Bb.Galileo.Files.Schemas
 {
@@ -13,12 +14,12 @@ namespace Bb.Galileo.Files.Schemas
 
         }
 
+        [Description("Added specific properties")]
         public List<PropertyDefinition> Properties { get; set; }
 
+        [Description("Entity kind. the availables items are managed in the layer file")]
         [JsonRequired]
         public string Kind { get; set; }
-    
-        
 
     }
 

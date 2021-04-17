@@ -2,11 +2,11 @@
 
   "$schema": "..\\Schemas\\MetaDefinitions.schema.json",
 
-  "Name": "Applicative", 
+  "Name": "Applicative",
 
   "Entities": [
 
-    { 
+    {
       "Name": "DomainConcept",
       "Label": "concept domain",
       "Description": "cross 'application component domain concept",
@@ -33,7 +33,7 @@
           "Enums": [ "Partenaire", "Interne", "SaaS", "Bureautique", "Utilisateur", "Infrastructure", "Progiciel" ]
         }
       ]
-    }, 
+    },
 
     {
       "Name": "ModuleApplication",
@@ -41,8 +41,8 @@
       "Description": "Module de l'application",
       "Kind": "Application component"
     },
-    
-    { 
+
+    {
       "Name": "Producer",
       "Label": "data producer",
       "Description": "Serving datas",
@@ -53,7 +53,7 @@
       "Label": "Datas",
       "Kind": "Application component"
     }
-    
+
   ],
 
   "Relationships": [
@@ -64,11 +64,13 @@
       "Label": "Application concept",
       "Kind": "Association",
       "Origin": {
-          "Multiplicty": "One", "Name": "DomainConcept"
-        },
-        "Target": {
-          "Multiplicty": "ZeroOrMany", "Name": "Application"
-        }
+        "Multiplicty": "One",
+        "Name": "DomainConcept"
+      },
+      "Target": {
+        "Multiplicty": "ZeroOrMany",
+        "Name": "Application"
+      }
     },
 
     {
@@ -77,10 +79,12 @@
       "Description": "specify the application parent relationship coposition",
       "Kind": "Composition",
       "Origin": {
-        "Multiplicty": "One", "Name": "Application"
+        "Multiplicty": "One",
+        "Name": "Application"
       },
       "Target": {
-        "Multiplicty": "ZeroOrMany", "Name": "ModuleApplication"
+        "Multiplicty": "ZeroOrMany",
+        "Name": "ModuleApplication"
       }
     },
 
@@ -90,18 +94,16 @@
       "Description": "Interface product the data by the module",
       "Kind": "Flow",
       "Origin": {
-        "Multiplicty": "ZeroOrMany", "Name": "ApplicationHasModule"
+        "Multiplicty": "ZeroOrMany",
+        "Name": "ModuleApplication"
       },
       "Target": {
-        "Multiplicty": "One", "Name": "Producer"
+        "Multiplicty": "One",
+        "Name": "Producer"
       }
-      
+
     }
 
-    
-    
-
   ]
-
 
 }

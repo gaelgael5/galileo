@@ -34,7 +34,7 @@ namespace Bb.Galileo.Files
 
                 case KindSchemaEnum.Entity:
                 case KindSchemaEnum.Relationship:
-                    var item1 = this._parent.CollectFile<ReferentialBase>(file).ToList();
+                    var item1 = this._parent.CollectContentOfFile<ReferentialBase>(file).ToList();
                     if (item1.Count > 0)
                         foreach (var item in item1)
                         {
@@ -44,7 +44,7 @@ namespace Bb.Galileo.Files
                     break;
 
                 case KindSchemaEnum.Definition:
-                    var item2 = this._parent.CollectFile<ModelDefinition>(file).ToList();
+                    var item2 = this._parent.CollectContentOfFile<ModelDefinition>(file).ToList();
                     if (item2.Count > 0)
                         foreach (var item in item2)
                         {
@@ -60,7 +60,7 @@ namespace Bb.Galileo.Files
                     break;
 
                 case KindSchemaEnum.CooperationViewpoint:
-                    var item3 = this._parent.CollectFile<CooperationViewpoint>(file).ToList();
+                    var item3 = this._parent.CollectContentOfFile<CooperationViewpoint>(file).ToList();
                     if (item3.Count > 0)
                         foreach (var item in item3)
                         {
@@ -70,7 +70,7 @@ namespace Bb.Galileo.Files
                     break;
 
                 case KindSchemaEnum.SchemaLayerDefinitions:
-                    var item4 = this._parent.CollectFile<LayersDefinition>(file).ToList();
+                    var item4 = this._parent.CollectContentOfFile<LayersDefinition>(file).ToList();
                     if (item4.Count > 0)
                         foreach (var item in item4)
                         {
@@ -125,7 +125,7 @@ namespace Bb.Galileo.Files
                     break;
 
                 case KindSchemaEnum.Schema:
-                    result = LoadSchema(payload, file); 
+                    result = LoadSchema(payload, file);
                     break;
 
                 case KindSchemaEnum.SchemaEntity:
@@ -142,8 +142,8 @@ namespace Bb.Galileo.Files
 
             if (result != null)
             {
-                result.File = file;
 
+                result.File = file;
 
                 switch (file.Schema.Kind)
                 {
@@ -164,14 +164,19 @@ namespace Bb.Galileo.Files
                     case KindSchemaEnum.SchemaLink:
                         _parent.Files.EvaluateSchema(result);
                         break;
-                    
+
                     case KindSchemaEnum.Undefined:
-                default:
+                    default:
                         break;
                 }
 
+                foreach (var item in result.Added)
+                    if (item is IEvaluate e)
+                        e.Evaluate();
 
-
+                foreach (var item in result.Updated)
+                    if (item is IEvaluate e)
+                        e.Evaluate();
 
             }
 
@@ -216,7 +221,7 @@ namespace Bb.Galileo.Files
             {
                 if (!string.IsNullOrEmpty(item.Name))
                 {
-                    
+
                     if (this._parent.AddSchema(item))
                         result.Added.Add(item);
                     else
@@ -239,27 +244,33 @@ namespace Bb.Galileo.Files
             serializer.Converters.Add(converter);
             var model = (Entities<ReferentialRelationship>)serializer.Deserialize(reader, typeof(Entities<ReferentialRelationship>));
 
+            if (converter.Exception != null)
+                throw converter.Exception;
+
             if (model.HasChangedOnLoading)
-            {
                 model.Save(file.FullPath, Formatting.Indented, converter);
-            }
 
             List<ReferentialRelationship> _removed = new List<ReferentialRelationship>();
 
-            var items = this._parent.CollectFile<ReferentialRelationship>(file).ToList();
+            var items = this._parent.CollectContentOfFile<ReferentialRelationship>(file).ToList();
 
-            foreach (var item in model)
+            foreach (var relationship in model)
             {
+
+                // Add restriction on the name of origin et target
+                relationship.Origin.Restrictions.Add($"{relationship.Origin.Name}TypeReferentialRestriction");
+                relationship.Target.Restrictions.Add($"{relationship.Target.Name}TypeReferentialRestriction");
+
                 try
                 {
-                    if (!string.IsNullOrEmpty(item.Name))
+                    if (!string.IsNullOrEmpty(relationship.Name))
                     {
-                        this._parent.Add(item);
-                        var  p = items.RemoveWhere(c => c.Name == item.Name);
+                        this._parent.Add(relationship);
+                        var p = items.RemoveWhere(c => c.Name == relationship.Name);
                         if (p.Count == 0)
-                            result.Added.Add(item);
+                            result.Added.Add(relationship);
                         else
-                            result.Updated.Add(item);
+                            result.Updated.Add(relationship);
                     }
                 }
                 catch (System.Exception e)
@@ -270,7 +281,7 @@ namespace Bb.Galileo.Files
                             Severity = SeverityEnum.Error,
                             File = file.FullPath,
                             Exception = e,
-                            Text = $"Failed to adding relationship {item.Name}"
+                            Text = $"Failed to adding relationship {relationship.Name}"
                         }
                     );
 
@@ -292,21 +303,26 @@ namespace Bb.Galileo.Files
 
             Transactionfile result = new Transactionfile();
 
-            JsonSerializer serializer = new JsonSerializer();
+            JsonSerializer serializer = new JsonSerializer()
+            {
+
+            };
             var reader = new JTokenReader(payload);
             var converter = new ConvertEntities<ReferentialEntity>(this._parent, this._parent.Diagnostic, file);
             serializer.Converters.Add(converter);
             var model = (Entities<ReferentialEntity>)serializer.Deserialize(reader, typeof(Entities<ReferentialEntity>));
 
-            if (model.HasChangedOnLoading)
-            {
-                model.Save(file.FullPath, Formatting.Indented, converter);
-            }
+            if (converter.Exception != null)
+                throw converter.Exception;
 
-            var items = this._parent.CollectFile<ReferentialEntity>(file).ToList();
+            if (model.HasChangedOnLoading)
+                model.Save(file.FullPath, Formatting.Indented, converter);
+
+            var items = this._parent.CollectContentOfFile<ReferentialEntity>(file).ToList();
 
             foreach (var item in model)
             {
+
                 try
                 {
                     if (!string.IsNullOrEmpty(item.Name))
@@ -357,7 +373,7 @@ namespace Bb.Galileo.Files
             var model = (CooperationViewpoint)serializer.Deserialize(reader, typeof(CooperationViewpoint));
             model.File = file;
 
-            var items = this._parent.CollectFile<CooperationViewpoint>(file).ToList();
+            var items = this._parent.CollectContentOfFile<CooperationViewpoint>(file).ToList();
 
             try
             {
@@ -405,20 +421,63 @@ namespace Bb.Galileo.Files
 
             var model = (MetaDefinitions)serializer.Deserialize(new JTokenReader(payload), typeof(MetaDefinitions));
 
-            var item1 = this._parent.CollectFile<EntityDefinition>(file).ToList();
+            var itemRestrictions = this._parent.CollectContentOfFile<RestrictionDefinition>(file).Where(c => !c.AutoGenerated).ToList();
+            foreach (var restriction in model.Restrictions)
+            {
 
+                restriction.File = file;
+
+                try
+                {
+                    this._parent.Add(restriction);
+                    var p = itemRestrictions.RemoveWhere(c => c.Name == restriction.Name);
+                    if (p.Count == 0)
+                        result.Added.Add(restriction);
+                    else
+                        result.Updated.Add(restriction);
+                }
+                catch (System.Exception e1)
+                {
+
+                    _parent.Diagnostic.Append(
+                        new DiagnositcMessage()
+                        {
+                            Severity = SeverityEnum.Error,
+                            File = file.FullPath,
+                            Exception = e1,
+                            Text = $"Failed to adding entity definition {model.Name}"
+                        }
+                    );
+
+                }
+
+
+            }
+            foreach (var item in itemRestrictions)
+            {
+                if (!item.AutoGenerated)
+                {
+                    this._parent.RemoveDefinition(item);
+                    result.Deleted.Add(item);
+                }
+            }
+
+            var itemEntities = this._parent.CollectContentOfFile<EntityDefinition>(file).ToList();
             foreach (EntityDefinition entity in model.Entities)
             {
+
                 entity.File = file;
                 entity.Properties.Insert(0, Property(nameof(ReferentialEntity.Description), "entity's Description", "Specify the description for this entity", string.Empty));
                 entity.Properties.Insert(0, Property(nameof(ReferentialEntity.Label), "Label of the entity", "Specify the label for this entity", string.Empty, true));
                 entity.Properties.Insert(0, Property(nameof(ReferentialBase.Name), "entity'name", "Specify the functional name of the entity", this._parent.Config.RestrictionNamePattern, true));
                 entity.Properties.Insert(0, Property(nameof(ReferentialBase.Id), "entity'key", "Specify the key of the entity", string.Empty, true));
 
+                EnsureRestrictionExists(file, entity, "e");     // create a restriction on the type for use in relation referential
+
                 try
                 {
                     this._parent.Add(entity);
-                    var p = item1.RemoveWhere(c => c.Name == entity.Name);
+                    var p = itemEntities.RemoveWhere(c => c.Name == entity.Name);
                     if (p.Count == 0)
                         result.Added.Add(entity);
                     else
@@ -441,16 +500,17 @@ namespace Bb.Galileo.Files
 
             }
 
-            foreach (var item in item1)
+            foreach (var item in itemEntities)
             {
                 this._parent.RemoveDefinition(item);
                 result.Deleted.Add(item);
             }
 
-            var item2 = this._parent.CollectFile<RelationshipDefinition>(file).ToList();
+            var itemLinks = this._parent.CollectContentOfFile<RelationshipDefinition>(file).ToList();
 
             foreach (RelationshipDefinition relationship in model.Relationships)
             {
+
                 relationship.File = file;
                 relationship.Properties.Insert(0, Property(nameof(ReferentialRelationship.Description), "relationship's Description", "Specify the description for this relationship", string.Empty));
                 relationship.Properties.Insert(0, Property(nameof(ReferentialRelationship.Label), "Label of the relationship", "Specify the label for this relationship", string.Empty, true));
@@ -460,10 +520,15 @@ namespace Bb.Galileo.Files
                 relationship.Origin.Properties.Insert(0, Property(nameof(ModelDefinition.Name), "reference of the entity", "Specify the origin reference.", this._parent.Config.RestrictionNamePattern, true));
                 relationship.Target.Properties.Insert(0, Property(nameof(ModelDefinition.Name), "reference of the entity", "Specify the target reference", this._parent.Config.RestrictionNamePattern, true));
 
+                // Add restriction on the name of origin et target
+                RestrictionDefinition r = EnsureRestrictionExists(file);
+                relationship.Origin.Restrictions.Add(r.Name);
+                relationship.Target.Restrictions.Add(r.Name);
+
                 try
                 {
                     this._parent.Add(relationship);
-                    var p = item2.RemoveWhere(c => c.Name == relationship.Name);
+                    var p = itemLinks.RemoveWhere(c => c.Name == relationship.Name);
                     if (p.Count == 0)
                         result.Added.Add(relationship);
                     else
@@ -486,13 +551,86 @@ namespace Bb.Galileo.Files
 
             }
 
-            foreach (var item in item2)
+            foreach (var item in itemLinks)
             {
                 this._parent.RemoveDefinition(item);
                 result.Deleted.Add(item);
             }
 
             return result;
+
+        }
+
+        private RestrictionDefinition EnsureRestrictionExists(FileModel file, IBase entity, string prefix)
+        {
+
+            string _prefix = string.Empty;
+            if (prefix == "de")
+                _prefix = "Definition";
+
+            else if (prefix == "de")
+                _prefix = "Referential";
+
+            var name = $"{entity.Name}Type{_prefix}Restriction";
+
+            var r = file.Parent.Models.GetRestrictionDefinition(name);
+
+            if (r == null)
+            {
+
+                string error = "Failed to evaluate '!ibase.name' with the restriction !name -> '!rule'";
+
+                var r2 = new RestrictionDefinition()
+                {
+                    File = file,
+                    Description = $"Autogenerated restriction on the {entity.Name} entities",
+                    Name = name,
+                    ErrorMessage = error,
+                    AutoGenerated = true,
+                    Kind = RestrictionKindEnum.TypeRestriction,
+                    Value = $"{prefix}:{entity.Name}",
+                }.SetRule();
+
+                this._parent.Add(r2);
+
+                return r2;
+
+            }
+
+            return r;
+
+        }
+
+        private RestrictionDefinition EnsureRestrictionExists(FileModel file)
+        {
+
+            var name = $"EntityTypeRestriction";
+
+            var r = file.Parent.Models.GetRestrictionDefinition(name);
+
+            if (r == null)
+            {
+
+                string error = "Failed to evaluate '!ibase.name' with the restriction !name -> '!rule'";
+
+                var r2 = new RestrictionDefinition()
+                {
+                    File = file,
+                    Description = $"Autogenerated restriction validate the specified name is an Entity name",
+                    Name = name,
+                    ErrorMessage = error,
+                    AutoGenerated = true,
+                    Kind = RestrictionKindEnum.TypeRestriction,
+                    Value = $"de:*",
+                }.SetRule();
+
+                this._parent.Add(r2);
+
+                return r2;
+
+            }
+
+            return r;
 
         }
 
@@ -526,7 +664,7 @@ namespace Bb.Galileo.Files
             model.File = file;
             model.Name = nameof(LayersDefinition);
 
-            var items = this._parent.CollectFile<LayersDefinition>(file).ToList();
+            var items = this._parent.CollectContentOfFile<LayersDefinition>(file).ToList();
 
             foreach (var layer in model.Layers)
                 foreach (var element in layer.Elements)

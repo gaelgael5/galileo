@@ -30,69 +30,80 @@ namespace Bb.Galileo.Models
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
 
-            // Load JObject from stream
-            JObject jObject = JObject.Load(reader);
-
             Entities<T> target = new Entities<T>();
 
-            bool hasChanged = false;
-            
-            List<T> _items = new List<T>();
-            foreach (var property in jObject.Properties())
+            try
             {
 
-                if (property.Name.ToLower() == "$schema")
+                // Load JObject from stream
+                JObject jObject = JObject.Load(reader);
+
+                bool hasChanged = false;
+
+                List<T> _items = new List<T>();
+                foreach (var property in jObject.Properties())
                 {
 
-                }
-                else if (property.Name.ToLower() == "target")
-                    target.Target = (string)property.Value;
-
-                else if (property.Name.ToLower() == "inheritfromtarget")
-                    target.InheritFromTarget = (string)property.Value;
-
-                else if (property.Name.ToLower() == "referentials")
-                {
-                    var j = (JArray)property.Value;
-                    IEnumerable<ReferentialBase> targetItem = this._referenceSchema.Kind == KindSchemaEnum.Relationship
-                        ? (IEnumerable<ReferentialBase>)PopulateLinks(j)
-                        : (IEnumerable<ReferentialBase>)PopulateEntities(j)
-                        ;
-
-                    foreach (var item in targetItem)
+                    if (property.Name.ToLower() == "$schema")
                     {
 
-                        item.Target = target.Target;
-                        item.ResetChanges();
-                        _items.Add((T)item);
+                    }
+                    else if (property.Name.ToLower() == "target")
+                        target.Target = (string)property.Value;
 
-                        if (string.IsNullOrEmpty(item.Id))
+                    else if (property.Name.ToLower() == "inheritfromtarget")
+                        target.InheritFromTarget = (string)property.Value;
+
+                    else if (property.Name.ToLower() == "referentials")
+                    {
+                        var j = (JArray)property.Value;
+                        IEnumerable<ReferentialBase> targetItem = this._referenceSchema.Kind == KindSchemaEnum.Relationship
+                            ? (IEnumerable<ReferentialBase>)PopulateLinks(j)
+                            : (IEnumerable<ReferentialBase>)PopulateEntities(j)
+                            ;
+
+                        foreach (var item in targetItem)
                         {
-                            item.Id = Guid.NewGuid().ToString("N");
-                            hasChanged = true;
+
+                            item.TargetName = target.Target;
+                            item.ResetChanges();
+                            _items.Add((T)item);
+
+                            if (string.IsNullOrEmpty(item.Id))
+                            {
+                                item.Id = Guid.NewGuid().ToString("N");
+                                hasChanged = true;
+                            }
+
                         }
+
+                    }
+                    else
+                    {
 
                     }
 
                 }
-                else
-                {
 
+                var p1 = _items.OrderBy(c1 => c1.Name).ToList();
+                int c = 0;
+                foreach (var item in p1)
+                {
+                    target.Add(item);
+                    if (p1[c].Id != _items[c].Id)
+                        hasChanged = true;
+                    c++;
                 }
 
-            }
+                target.HasChangedOnLoading = hasChanged;
 
-            var p1 = _items.OrderBy(c1 => c1.Name).ToList();
-            int c = 0;
-            foreach (var item in p1)
+
+            }
+            catch (Exception e)
             {
-                target.Add(item);
-                if (p1[c].Id != _items[c].Id)
-                    hasChanged = true;
-                c++;
+                this.Exception = e;
+                throw;
             }
-
-            target.HasChangedOnLoading = hasChanged;
 
             return target;
 
@@ -290,7 +301,7 @@ namespace Bb.Galileo.Models
 
             writer.WritePropertyName("Referentials");
             writer.WriteStartArray();
-     
+
 
             if (this._referenceSchema.Kind == KindSchemaEnum.Relationship)
             {
@@ -358,6 +369,9 @@ namespace Bb.Galileo.Models
         private ModelRepository _parent;
         private readonly FileModel _file;
         private readonly IDiagnostic _diagnostic;
+
+        public Exception Exception { get; private set; }
+
     }
 
 

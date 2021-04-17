@@ -87,6 +87,8 @@ namespace Bb.Galileo.Files
             lock (_lockFile)
             {
 
+                this._parent.Folder.Refresh();
+
                 HashSet<string> _h2 = new HashSet<string>();
                 List<FileModel> toRemove = new List<FileModel>();
                 foreach (FileModel item in _parent.GetFiles())
@@ -102,8 +104,11 @@ namespace Bb.Galileo.Files
                     Remove(item);
 
                 foreach (var item in this._parent.Folder.GetFiles(_filter, SearchOption.AllDirectories))
-                    if (_h2.Add(item.FullName))
+                {
+                    item.Refresh();
+                    if (item.Exists && _h2.Add(item.FullName))
                         Add(item, FileTracingEnum.Loading);
+                }
 
             }
 

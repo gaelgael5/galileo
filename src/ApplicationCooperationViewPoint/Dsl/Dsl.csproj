@@ -94,6 +94,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomCode\Properties\Diag.cs" />
     <Compile Include="CustomCode\UITypeEditors\ListeCooperationViewpointEditor.cs" />
     <Compile Include="CustomCode\UITypeEditors\ListPropertyGridEditorBase.cs" />
     <Compile Include="ReferentialResolver.cs" />
