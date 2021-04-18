@@ -27,68 +27,63 @@ namespace Bb.Galileo.Files
                 Trace = FileTracingEnum.Deleted,
             };
 
-            switch (file.Schema.Kind)
-            {
-                case KindSchemaEnum.Undefined:
-                    break;
+            if (file.Schema != null)
+                switch (file.Schema.Kind)
+                {
+                    case KindSchemaEnum.Undefined:
+                        break;
 
-                case KindSchemaEnum.Entity:
-                case KindSchemaEnum.Relationship:
-                    var item1 = this._parent.CollectContentOfFile<ReferentialBase>(file).ToList();
-                    if (item1.Count > 0)
-                        foreach (var item in item1)
-                        {
-                            _parent.RemoveReferential(item);
-                            result.Deleted.Add(item);
-                        }
-                    break;
+                    case KindSchemaEnum.Entity:
+                    case KindSchemaEnum.Relationship:
+                        var item1 = this._parent.CollectContentOfFile<ReferentialBase>(file).ToList();
+                        if (item1.Count > 0)
+                            foreach (var item in item1)
+                            {
+                                _parent.RemoveReferential(item);
+                                result.Deleted.Add(item);
+                            }
+                        break;
 
-                case KindSchemaEnum.Definition:
-                    var item2 = this._parent.CollectContentOfFile<ModelDefinition>(file).ToList();
-                    if (item2.Count > 0)
-                        foreach (var item in item2)
-                        {
-                            _parent.RemoveDefinition(item);
-                            result.Deleted.Add(item);
-                        }
-                    break;
+                    case KindSchemaEnum.Definition:
+                        var item2 = this._parent.CollectContentOfFile<ModelDefinition>(file).ToList();
+                        if (item2.Count > 0)
+                            foreach (var item in item2)
+                            {
+                                _parent.RemoveDefinition(item);
+                                result.Deleted.Add(item);
+                            }
+                        break;
 
-                case KindSchemaEnum.Schema:
-                    break;
+                    case KindSchemaEnum.Schema:
+                        break;
 
-                case KindSchemaEnum.SchemaDefinitions:
-                    break;
+                    case KindSchemaEnum.SchemaDefinitions:
+                        break;
 
-                case KindSchemaEnum.CooperationViewpoint:
-                    var item3 = this._parent.CollectContentOfFile<CooperationViewpoint>(file).ToList();
-                    if (item3.Count > 0)
-                        foreach (var item in item3)
-                        {
-                            _parent.RemoveCooperationViewpoint(item);
-                            result.Deleted.Add(item);
-                        }
-                    break;
+                    case KindSchemaEnum.CooperationViewpoint:
+                        var item3 = this._parent.CollectContentOfFile<CooperationViewpoint>(file).ToList();
+                        if (item3.Count > 0)
+                            foreach (var item in item3)
+                            {
+                                _parent.RemoveCooperationViewpoint(item);
+                                result.Deleted.Add(item);
+                            }
+                        break;
 
-                case KindSchemaEnum.SchemaLayerDefinitions:
-                    var item4 = this._parent.CollectContentOfFile<LayersDefinition>(file).ToList();
-                    if (item4.Count > 0)
-                        foreach (var item in item4)
-                        {
-                            _parent.RemoveLayers(item);
-                            result.Deleted.Add(item);
-                        }
-                    break;
+                    case KindSchemaEnum.SchemaLayerDefinitions:
+                        var item4 = this._parent.CollectContentOfFile<LayersDefinition>(file).ToList();
+                        if (item4.Count > 0)
+                            foreach (var item in item4)
+                            {
+                                _parent.RemoveLayers(item);
+                                result.Deleted.Add(item);
+                            }
+                        break;
 
-                default:
-                    break;
+                    default:
+                        break;
 
-            }
-
-
-
-
-
-
+                }
 
 
             return result;
@@ -101,6 +96,13 @@ namespace Bb.Galileo.Files
             Transactionfile result = null;
 
             file.Schema = payload.GetSchemaReference(file, this._parent.Config.GetRoot());
+
+            if (file.Schema == null)
+            {
+
+                return null;
+
+            }
 
             switch (file.Schema.Kind)
             {
@@ -186,12 +188,8 @@ namespace Bb.Galileo.Files
 
         private Transactionfile LoadSchema(JObject payload, FileModel file)
         {
-
-            // Transactionfile result = new Transactionfile();
-
-
-
-            return null;
+            Transactionfile result = new Transactionfile();
+            return result;
         }
 
         private Transactionfile LoadObjectSchema(JObject payload, FileModel file)
@@ -751,6 +749,7 @@ namespace Bb.Galileo.Files
 
         public List<IBase> Deleted { get; set; }
         public FileTracingEnum Trace { get; internal set; }
+        public bool FailedToLoad { get; internal set; }
     }
 
 }

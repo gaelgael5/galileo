@@ -51,9 +51,6 @@ namespace Bb.Galileo.Models
                     else if (property.Name.ToLower() == "target")
                         target.Target = (string)property.Value;
 
-                    else if (property.Name.ToLower() == "inheritfromtarget")
-                        target.InheritFromTarget = (string)property.Value;
-
                     else if (property.Name.ToLower() == "referentials")
                     {
                         var j = (JArray)property.Value;
@@ -131,20 +128,18 @@ namespace Bb.Galileo.Models
             foreach (var item in jObject.Properties())
             {
 
-                var p = schema.Properties.FirstOrDefault(c => c.Name == item.Name);
-                if (p == null)
+                var p = schema.Properties.FirstOrDefault(c => c.Name.ToLower() == item.Name.ToLower());
+                if (p != null)
                 {
-
-                }
-
-                try
-                {
-                    var value = ConvertValue(p.Type, item.Value);
-                    target[item.Name] = value;
-                }
-                catch (Exception e)
-                {
-                    this._diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, Text = e.Message, Exception = e });
+                    try
+                    {
+                        var value = ConvertValue(p.Type, item.Value);
+                        target[p.Name] = value;
+                    }
+                    catch (Exception e)
+                    {
+                        this._diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, Text = e.Message, Exception = e });
+                    }
                 }
             }
 
@@ -223,19 +218,18 @@ namespace Bb.Galileo.Models
                     foreach (var item2 in i.Properties())
                     {
 
-                        var p = schema.Origin.Properties.FirstOrDefault(c => c.Name == item2.Name);
-                        if (p == null)
+                        var p = schema.Origin.Properties.FirstOrDefault(c => c.Name.ToLower() == item2.Name.ToLower());
+                        if (p != null)
                         {
-
-                        }
-                        try
-                        {
-                            var value = ConvertValue(p.Type, item2.Value);
-                            target.Origin[item.Name] = value;
-                        }
-                        catch (Exception e1)
-                        {
-                            this._diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, Text = e1.Message, Exception = e1 });
+                            try
+                            {
+                                var value = ConvertValue(p.Type, item2.Value);
+                                target.Origin[p.Name] = value;
+                            }
+                            catch (Exception e1)
+                            {
+                                this._diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, Text = e1.Message, Exception = e1 });
+                            }
                         }
                     }
                 }

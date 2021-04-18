@@ -133,13 +133,13 @@ namespace Bb.Galileo.Files
 
         private void OnRenamed(object sender, RenamedEventArgs e)
         {
-            _parent.Diagnostic.Append(new Galileo.DiagnositcMessage()
-            {
-                Text = $"update {e.FullPath} is renamed",
-            });
+            //_parent.Diagnostic.Append(new Galileo.DiagnositcMessage()
+            //{
+            //    Text = $"update {e.FullPath} is renamed",
+            //});
 
-            _parent.RemoveFile(e.OldFullPath);
-            Add(new FileInfo(e.FullPath), FileTracingEnum.Renamed);
+            //_parent.RemoveFile(e.OldFullPath);
+            //Add(new FileInfo(e.FullPath), FileTracingEnum.Renamed);
         }
 
         private void OnDeleted(object sender, FileSystemEventArgs e)
@@ -172,7 +172,15 @@ namespace Bb.Galileo.Files
                     Text = $"update {e.FullPath} is updated",
                 });
 
-                Transactionfile transaction = _parent.Update(_parent.Getfile(e.FullPath), FileTracingEnum.Changed);
+                Transactionfile transaction;
+
+                var file = _parent.Getfile(e.FullPath);
+                if (file != null)
+                {
+                    transaction = _parent.Update(file, FileTracingEnum.Changed);
+                }
+                else
+                    Add(new FileInfo(e.FullPath), FileTracingEnum.Changed);
 
             }
         }
@@ -195,6 +203,7 @@ namespace Bb.Galileo.Files
         OnCreated,
         Changed,
         Deleted,
+        TrySecondChance,
     }
 
 

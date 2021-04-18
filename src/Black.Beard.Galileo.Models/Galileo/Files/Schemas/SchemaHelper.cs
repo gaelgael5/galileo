@@ -33,49 +33,55 @@ namespace Bb.Galileo.Files.Schemas
         {
 
             var schema = (string)self.SelectToken("$schema");
-            var schemaItem = GetSchemaReference(schema);
 
-
-            if (schema.ToLower().StartsWith("http://"))
+            if (!string.IsNullOrEmpty(schema))
             {
-                schemaItem.SchemaIdKind = SchemaIdKindEnum.Url;
-                if (schemaItem.Kind == KindSchemaEnum.Schema)
+                var schemaItem = GetSchemaReference(schema);
+
+
+                if (schema.ToLower().StartsWith("http://"))
                 {
-                    schemaItem.Type = (string)self.SelectToken("id");
-                    if (schemaItem.Type.ToLower().StartsWith(rootSchema.ToLower()))
+                    schemaItem.SchemaIdKind = SchemaIdKindEnum.Url;
+                    if (schemaItem.Kind == KindSchemaEnum.Schema)
                     {
-                        var o = schemaItem.Type.Substring(rootSchema.Length).Trim('/').Split('/');
-                        if (o[0].ToLower() == "links")
+                        schemaItem.Type = (string)self.SelectToken("id");
+                        if (schemaItem.Type.ToLower().StartsWith(rootSchema.ToLower()))
                         {
-                            schemaItem.Type = o[1];
-                            schemaItem.Kind = KindSchemaEnum.SchemaLink;
-                        }
-                        else if (o[0].ToLower() == "entities")
-                        {
-                            schemaItem.Type = o[1];
-                            schemaItem.Kind = KindSchemaEnum.SchemaEntity;
+                            var o = schemaItem.Type.Substring(rootSchema.Length).Trim('/').Split('/');
+                            if (o[0].ToLower() == "links")
+                            {
+                                schemaItem.Type = o[1];
+                                schemaItem.Kind = KindSchemaEnum.SchemaLink;
+                            }
+                            else if (o[0].ToLower() == "entities")
+                            {
+                                schemaItem.Type = o[1];
+                                schemaItem.Kind = KindSchemaEnum.SchemaEntity;
+                            }
                         }
                     }
                 }
-            }
-            else
-            {
-                try
+                else
                 {
-                    var folderTargetFile = new FileInfo(file.FullPath).Directory.FullName;
-                    var _file = new FileInfo(Path.Combine(folderTargetFile, schema));
-                    schemaItem.FilePath = _file.FullName;
-                    schemaItem.SchemaIdKind = SchemaIdKindEnum.File;
-                    schemaItem.IsValidExistingFile = _file.Exists;
-                }
-                catch (Exception)
-                {
+                    try
+                    {
+                        var folderTargetFile = new FileInfo(file.FullPath).Directory.FullName;
+                        var _file = new FileInfo(Path.Combine(folderTargetFile, schema));
+                        schemaItem.FilePath = _file.FullName;
+                        schemaItem.SchemaIdKind = SchemaIdKindEnum.File;
+                        schemaItem.IsValidExistingFile = _file.Exists;
+                    }
+                    catch (Exception)
+                    {
+
+                    }
 
                 }
 
+                return schemaItem;
             }
 
-            return schemaItem;
+            return null;
 
         }
 

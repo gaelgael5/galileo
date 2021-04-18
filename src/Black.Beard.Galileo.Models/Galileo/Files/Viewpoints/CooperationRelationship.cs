@@ -48,6 +48,7 @@ namespace Bb.Galileo.Files.Viewpoints
 
             return new ViewpointModelItem()
             {
+                Kind = ViewpointItem.Relation,
                 Relationship = relationship,
                 Definition = definition
             };

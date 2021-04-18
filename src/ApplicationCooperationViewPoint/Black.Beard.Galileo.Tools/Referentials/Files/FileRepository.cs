@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
 
 namespace Bb.Galileo.Files
 {
@@ -19,8 +21,8 @@ namespace Bb.Galileo.Files
             _watchers = new List<FileWatcher>()
             {
                 new FileWatcher(this, "*.schema.json"),
-                new FileWatcher(this, "*.entities.json"),
                 new FileWatcher(this, "*.defs.json"),
+                new FileWatcher(this, "*.entities.json"),
             };
 
             this._items = new Dictionary<string, FileModel>();
@@ -32,6 +34,20 @@ namespace Bb.Galileo.Files
 
             foreach (var item in _watchers)
                 item.StartListen();
+
+            int count = 0;
+            lock (_lock)
+                foreach (var item in this._items.Values.Where(c => c.FailedToLoad))
+                {
+                    var r = Update(item, FileTracingEnum.TrySecondChance);
+                    if (r.FailedToLoad)
+                    {
+                        count++;
+                    }
+                }
+
+            if (count > 0)
+                Trace.WriteLine($"{count} file(s) can't be loaded");
 
         }
 
@@ -49,11 +65,15 @@ namespace Bb.Galileo.Files
 
 
 
-        internal void AddFile(FileModel item, FileTracingEnum trace)
+        internal Transactionfile AddFile(FileModel item, FileTracingEnum trace)
         {
-            if (!this._items.ContainsKey(item.FullPath))
-                this._items.Add(item.FullPath, item);
-            Transactionfile transaction = Update(item, trace);
+            lock (_lock)
+            {
+                if (!this._items.ContainsKey(item.FullPath))
+                    this._items.Add(item.FullPath, item);
+                Transactionfile transaction = Update(item, trace);
+                return transaction;
+            }
         }
 
         internal IEnumerable<FileModel> GetFiles()
@@ -64,11 +84,15 @@ namespace Bb.Galileo.Files
 
         internal Transactionfile RemoveFile(FileModel item)
         {
-            if (!this._items.ContainsKey(item.FullPath))
+
+            if (this._items.ContainsKey(item.FullPath))
             {
-                this._items.Remove(item.FullPath);
-                Transactionfile transaction = this.Models.RemoveFile(item);
-                return transaction;
+                lock (_lock)
+                {
+                    this._items.Remove(item.FullPath);
+                    Transactionfile transaction = this.Models.RemoveFile(item);
+                    return transaction;
+                }
             }
 
             return new Transactionfile() { File = item, Trace = FileTracingEnum.Deleted };
@@ -93,7 +117,9 @@ namespace Bb.Galileo.Files
 
         internal Transactionfile Update(FileModel item, FileTracingEnum trace)
         {
-            return this.Models.Add(item, trace);
+            var result = this.Models.Add(item, trace);
+            item.FailedToLoad = (result == null) || result.FailedToLoad;
+            return result;
         }
 
         private DirectoryInfo _folder;
@@ -103,32 +129,33 @@ namespace Bb.Galileo.Files
 
         private readonly List<FileWatcher> _watchers;
         private readonly Dictionary<string, FileModel> _items;
+        private volatile object _lock = new object();
 
         internal void EvaluateSchema(Transactionfile result)
         {
+            lock (_lock)
+                foreach (var item in _items)
+                    if (item.Value.Schema != null)
+                    {
+                        if (item.Value.Schema.IsValidExistingFile && item.Value.Schema.FilePath == result.File.FullPath)
+                        {
 
-            foreach (var item in _items)
-                if (item.Value.Schema != null)
-                {
-                    if (item.Value.Schema.IsValidExistingFile && item.Value.Schema.FilePath == result.File.FullPath)
+                            try
+                            {
+                                var payload = item.Value.Load();
+                                this.Models.SchemaValidator.Evaluate(item.Value, payload);
+                            }
+                            catch (Exception e2)
+                            {
+                                Diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, File = item.Value.FullPath, Text = e2.Message, Exception = e2 });
+                            }
+
+                        }
+                    }
+                    else
                     {
 
-                        try
-                        {
-                            var payload = item.Value.Load();
-                            this.Models.SchemaValidator.Evaluate(item.Value, payload);
-                        }
-                        catch (Exception e2)
-                        {
-                            Diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, File = item.Value.FullPath, Text = e2.Message, Exception = e2 });
-                        }
-
                     }
-                }
-                else
-                {
-
-                }
 
         }
 

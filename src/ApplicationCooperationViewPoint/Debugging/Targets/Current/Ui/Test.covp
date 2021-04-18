@@ -1,14 +1,2 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<model xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="0.1.0.0" Id="8aa79712-c6f8-406c-8a51-6f0bd0adbcc5" name="Parcel domain" viewpointType="Applicative viewpoint" xmlns="http://schemas.microsoft.com/dsltools/ApplicationCooperationViewPoint">
-  <concept>
-    <modelHasConcept Id="898b3e77-eeb8-47eb-b030-d1adc821be89">
-      <concept Id="be206ba6-691b-4f6a-b7a7-a4ba2c7e9eba" referenceSource="e:Application;i:cb45dddf1082471b98e2792bd4926757" name="Colis 21" />
-    </modelHasConcept>
-    <modelHasConcept Id="3d8e34d6-2be5-4137-987d-bccc5a611f3c">
-      <concept Id="f7ffbd7a-7cef-441c-baa9-ee0214f17a82" referenceSource="e:Application;i:5b7cfbfad4c44ac5a9284916a752b56d" name="anomalie 21" />
-    </modelHasConcept>
-    <modelHasConcept Id="c9a6e902-13d2-4ef8-9d3e-e8cef170d0b0">
-      <concept Id="7db245e6-f3f2-4960-8a6f-dd61da99207e" referenceSource="e:Application;i:c59059cfb53f46b68ccbfe856d49498b" name="Avisage Ng Colis 21" />
-    </modelHasConcept>
-  </concept>
-</model>
+<model xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="0.1.0.0" Id="8aa79712-c6f8-406c-8a51-6f0bd0adbcc5" name="Parcel domain" viewpointType="Applicative viewpoint" xmlns="http://schemas.microsoft.com/dsltools/ApplicationCooperationViewPoint" />

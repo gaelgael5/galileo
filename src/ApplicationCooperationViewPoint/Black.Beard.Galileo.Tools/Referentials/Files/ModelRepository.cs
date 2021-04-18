@@ -68,13 +68,10 @@ namespace Bb.Galileo.Files
             {
                 var oldDefinition = dic[item.Name];
                 dic[item.Name] = item;
-                //PropagateFileChanged(item);
                 return false;
             }
-
+            
             dic.Add(item.Name, item);
-            //PropagateFileChanged(item);
-
             return true;
 
         }
@@ -521,6 +518,7 @@ namespace Bb.Galileo.Files
             else if (typeof(ModelDefinition).IsAssignableFrom(type))
             {
                 foreach (var definition in _definitions)
+                    if (definition.Value != null)
                     foreach (ModelDefinition item in definition.Value.Values.OfType<ModelDefinition>())
                         if (item is T d && item.File.FullPath == file.FullPath)
                             yield return d;
@@ -529,7 +527,7 @@ namespace Bb.Galileo.Files
             else if (type == typeof(CooperationViewpoint))
             {
                 foreach (var definition in _definitions)
-                    if (definition.Value != null)
+                        if (definition.Value != null)
                         foreach (CooperationViewpoint item in definition.Value.Values.OfType<CooperationViewpoint>())
                             if (item.File.FullPath == file.FullPath)
                                 yield return (T)(object)item;
@@ -646,6 +644,13 @@ namespace Bb.Galileo.Files
                     System.Diagnostics.Debugger.Break();
 
                 Diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, File = item.FullPath, Text = e1.Message, Exception = e1 });
+
+                transaction = new Transactionfile()
+                {
+                    File = item,
+                    FailedToLoad = true,
+                };
+
             }
             catch (Exception e2)
             {
@@ -654,9 +659,16 @@ namespace Bb.Galileo.Files
                     System.Diagnostics.Debugger.Break();
 
                 Diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, File = item.FullPath, Text = e2.Message, Exception = e2 });
+
+                transaction = new Transactionfile()
+                {
+                    File = item,
+                    FailedToLoad = true,
+                };
+
             }
 
-            if (transaction != null)
+            if (transaction != null && !transaction.FailedToLoad)
                 if (ItemFileHasChanged != null)
                     lock (_lockFile)
                     {

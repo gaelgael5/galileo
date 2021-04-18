@@ -39,8 +39,8 @@ namespace Bb.ApplicationCooperationViewPoint
                 if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
 
-                    Dictionary<string, CooperationCheckedItem> k2 = form.GetSelectedKeys();
-                    CreateItem(k2);
+                    //Dictionary<string, CooperationCheckedItem> k2 = form.GetSelectedKeys();
+                    //CreateItem(k2);
 
                 }
 

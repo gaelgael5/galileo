@@ -26,8 +26,9 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             (
                 new ColumnHeader[]
                 {
-                    new ColumnHeader() { Name = "Name", Text = "Name", Width = 100 },
-                    new ColumnHeader() { Name = "Label", Text = "Label", Width = 700  },
+                    new ColumnHeader() { Name = "Type", Text = "Name", Width = 200 },
+                    new ColumnHeader() { Name = "Name", Text = "Name", Width = 200 },
+                    new ColumnHeader() { Name = "Label", Text = "Label", Width = 400  },
                 }
             );
 
@@ -37,25 +38,6 @@ namespace Bb.Galileo.Viewpoints.Cooperations
 
         }
 
-        private void ConceptsTreeView_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-            if (ConceptsTreeView.SelectedNode is ConceptItem c)
-            {
-
-                var v = c.Viewpoint;
-
-                var r = v.Definition.GetReference();
-                r.Kind = ElementEnum.Entity;
-
-                _lastQueryItems = r.GetReferentials(v.Definition.File.Parent.Models).OfType<ReferentialEntity>().ToList();
-
-                RefreshItems();
-
-            }
-
-
-        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -83,16 +65,25 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             if (items.Any())
             {
 
-                Dictionary<string, ListViewGroup> _groups = new Dictionary<string, ListViewGroup>();
                 foreach (var item in items)
                 {
-                    if (!_groups.TryGetValue(item.TargetName, out ListViewGroup group))
-                        _groups.Add(item.TargetName, group = new ListViewGroup(item.TypeEntity + " " + item.TargetName, HorizontalAlignment.Left));
 
-                    var c = _itemschecked.ContainsKey(item.Id);
+                    TreeNode[] selected = new TreeNode[0];
+                    if (this._lastFilterEntitySelected != null)
+                        selected = this._lastFilterEntitySelected.Nodes.Find(item.Name, false);
 
-                    CompositionListView.Items.Add(new ListViewItem(new string[] { item.Name, item.Label }, group) { Tag = item, Checked = c });
-
+                    CompositionListView.Items
+                        .Add
+                        (new ListViewItem(new string[]
+                         {
+                            item.TypeEntity,
+                            item.Name,
+                            item.Label
+                         })
+                        {
+                            Tag = item,
+                            Checked = selected != null && selected.Length > 0
+                        });
                 }
 
             }
@@ -120,30 +111,13 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             var viewpointModel = config.GetViewpointModel();
 
             foreach (ViewpointModelItem item in viewpointModel.Children)
-                ConceptsTreeView.Nodes.Add(new ConceptItem(item, 0, config));
+                ConceptsTreeView.Nodes.Add(new ConceptItem(item));
 
         }
 
         public Dictionary<string, CooperationCheckedItem> GetSelectedKeys()
         {
-            return _itemschecked;
-        }
-
-        public void SetSelectedKeys(HashSet<string> keys)
-        {
-
-            //if (keys != null)
-            //    foreach (var item in keys)
-            //    {
-            //        var q = new ResolveQuery(item);
-            //        var i = q.GetReferentials(this._models).OfType<ReferentialEntity>().FirstOrDefault();
-            //        if (i != null)
-            //        {
-            //            if (!_itemschecked.TryGetValue(i.Id, out CooperationCheckedItem e))
-            //                _itemschecked.Add(i.Id, new CooperationCheckedItem() { });
-            //        }
-            //    }
-
+            return null;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -151,36 +125,69 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             timer1.Enabled = true;
         }
 
+        private void ConceptsTreeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+            if (ConceptsTreeView.SelectedNode is ConceptItemEntity f)
+            {
+                this._lastFilterEntitySelected = f;
+                var view = f.Viewpoint;
+
+                var list = new List<ReferentialEntity>(1000);
+                foreach (var item in view.Children)
+                {
+                    var r = item.Definition.GetReference();
+                    r.Kind = ElementEnum.Entity;
+                    list.AddRange(r.GetReferentials(view.Definition.File.Parent.Models).OfType<ReferentialEntity>());
+                }
+                _lastQueryItems = list;
+
+                RefreshItems();
+
+            }
+            else if (ConceptsTreeView.SelectedNode is ConceptItem c)
+            {
+
+                this._lastFilterEntitySelected = c;
+                var view = c.Viewpoint;
+
+                var r = view.Definition.GetReference();
+                r.Kind = ElementEnum.Entity;
+
+                _lastQueryItems = r.GetReferentials(view.Definition.File.Parent.Models)
+                                   .OfType<ReferentialEntity>()
+                                   .ToList();
+
+                RefreshItems();
+
+            }
+           
+        }
+
         private void CompositionListView_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
 
-            if (e.Item.Tag is ReferentialEntity s)
+            if (e.Item.Tag is ReferentialEntity entity)
             {
-                if (e.Item.Checked)
+                if (this._lastFilterEntitySelected != null)
                 {
-                    int levels = Count(ConceptsTreeView.SelectedNode);
-                    if (!_itemschecked.TryGetValue(s.Id, out CooperationCheckedItem i))
+                    var result = this._lastFilterEntitySelected.Nodes.Find(entity.Name, false);
+                    if (e.Item.Checked)
                     {
-                        var x = new CooperationCheckedItem()
+                        if (result == null || result.Length == 0)
                         {
-                            Item = s,
-                            Level = ConceptsTreeView.SelectedNode.Level,
-                            MaxLevel = levels,
-                        };
-                        _itemschecked.Add(s.Id, x);
+                            var p = new ConceptItemEntity(this._lastFilterEntitySelected.Viewpoint, entity);
+                            this._lastFilterEntitySelected.Nodes.Add(p);
+                        }
                     }
                     else
                     {
-                        i.Level = ConceptsTreeView.SelectedNode.Level;
-                        i.MaxLevel = levels;
+                        if (result != null && result.Length == 1)
+                            this._lastFilterEntitySelected.Nodes.Remove(result[0]);
                     }
                 }
-                else
-                {
-                    if (_itemschecked.ContainsKey(s.Id))
-                        _itemschecked.Remove(s.Id);
-                }
             }
+
         }
 
         private int Count(TreeNode selectedNode)
@@ -189,29 +196,18 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             foreach (TreeNode item in selectedNode.Nodes)
                 result = Math.Max(result, Count(item));
             return result;
-
         }
 
         private void ValidateButton_Click_1(object sender, EventArgs e)
         {
-
-            //_selectedKeys.Clear();
-            //foreach (var item in _itemschecked.Values)
-            //{
-            //    string key = item.Item.GetReference().ToString();
-            //    _selectedKeys.Add(new KeyValuePair<int, string>(item.Level, key));
-            //}
             this.DialogResult = DialogResult.OK;
             this.Close();
 
         }
 
-        private List<KeyValuePair<int, string>> _selectedKeys = new List<KeyValuePair<int, string>>();
         private readonly Files.ModelRepository _models;
-        public Dictionary<string, CooperationCheckedItem> _itemschecked = new Dictionary<string, CooperationCheckedItem>();
-
         private List<ReferentialEntity> _lastQueryItems;
-
+        private ConceptItem _lastFilterEntitySelected;
     }
 
 

@@ -20,6 +20,7 @@ namespace Bb.Galileo.Files
         public FileRepository Parent { get; private set; }
 
         public SchemaReference Schema { get; internal set; }
+        public bool FailedToLoad { get; internal set; }
 
         public virtual FileModel Initialize(FileInfo file, FileRepository parent)
         {

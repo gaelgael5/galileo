@@ -19,6 +19,7 @@ namespace Bb.Galileo.Files.Viewpoints
 
             var result = new ViewpointModelItem()
             {
+                Kind = ViewpointItem.ElementRoot,
             };
 
             ModelRepository models = file.Parent.Models;

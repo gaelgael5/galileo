@@ -20,6 +20,7 @@ namespace Bb.Galileo.Files.Viewpoints
 
             var result = new ViewpointModelItem()
             {
+                Kind = ViewpointItem.Concept,
             };
 
             var models = file.Parent.Models;
@@ -41,7 +42,7 @@ namespace Bb.Galileo.Files.Viewpoints
                 result.Definition = definition;
 
                 foreach (CooperationElement item in Children)
-                    item.GetViewpointItem(file, result);
+                    result.AddChildren(item.GetViewpointItem(file, result));
 
             }
 
@@ -49,6 +50,14 @@ namespace Bb.Galileo.Files.Viewpoints
 
         }
 
+    }
+
+    public enum ViewpointItem
+    {
+        Concept,
+        Element,
+        Relation,
+        ElementRoot,
     }
 
 }

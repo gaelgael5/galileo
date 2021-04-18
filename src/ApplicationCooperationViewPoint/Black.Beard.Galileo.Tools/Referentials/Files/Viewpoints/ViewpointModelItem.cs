@@ -24,7 +24,7 @@ namespace Bb.Galileo.Files.Viewpoints
 
 
         public RelationshipDefinition Relationship { get; internal set; }
-
+        public ViewpointItem Kind { get; internal set; }
 
         internal void AddChildren(ViewpointModelItem viewpointModelItem)
         {

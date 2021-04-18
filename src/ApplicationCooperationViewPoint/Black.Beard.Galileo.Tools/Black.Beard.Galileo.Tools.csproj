@@ -69,6 +69,8 @@
     <Compile Include="Referentials\Files\Viewpoints\ViewpointModel.cs" />
     <Compile Include="Referentials\Files\Viewpoints\ViewpointModelItem.cs" />
     <Compile Include="Viewpoints\Cooperations\ConceptItem.cs" />
+    <Compile Include="Viewpoints\Cooperations\ConceptItemEntity.cs" />
+    <Compile Include="Viewpoints\Cooperations\ConceptItemRelationship.cs" />
     <Compile Include="Viewpoints\Cooperations\SelectReferential.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +124,7 @@
     <Compile Include="Referentials\ListExtension.cs" />
     <Compile Include="Referentials\SchemaGenerator.cs" />
     <Compile Include="Referentials\SchemaReference.cs" />
+    <Compile Include="Viewpoints\Cooperations\ViewpointProjectionModel.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
