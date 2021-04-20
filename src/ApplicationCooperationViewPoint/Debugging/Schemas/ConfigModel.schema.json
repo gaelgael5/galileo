@@ -37,7 +37,7 @@
       "properties": {
         "Name": {
           "type": "string",
-          "pattern": "^[a-zA-Z]+[a-zA-Z0-9_]+$"
+          "pattern": "^[a-zA-Zéèà\\s'/Éœô.-]+[a-zA-Z0-9_éèà\\s'/Éœô.-]+$"
         },
         "Targets": {
           "type": [

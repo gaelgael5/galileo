@@ -52,7 +52,8 @@ namespace Bb.ApplicationCooperationViewPoint
         {
             
             if (this.CurrentApplicationCooperationViewPointDocData != null && this.CurrentApplicationCooperationViewPointDocData.Store != null)
-                this.CurrentApplicationCooperationViewPointDocData.ValidationController.Validate(this.CurrentApplicationCooperationViewPointDocData.GetAllElementsForValidation(), DslValidation::ValidationCategories.Menu);
+                this.CurrentApplicationCooperationViewPointDocData.ValidationController
+                    .Validate(this.CurrentApplicationCooperationViewPointDocData.GetAllElementsForValidation(), DslValidation::ValidationCategories.Menu);
 
         }
 

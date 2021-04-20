@@ -2,11 +2,11 @@
 
   "$schema": "..\\Schemas\\MetaDefinitions.schema.json",
 
-  "Name": "Applicative",
+  "Name": "Applicative", 
 
   "Entities": [
 
-    {
+    { 
       "Name": "DomainConcept",
       "Label": "concept domain",
       "Description": "cross 'application component domain concept",
@@ -31,29 +31,28 @@
           "Description": "Spécifie le type d'application",
           "Type": "Text",
           "Enums": [ "Partenaire", "Interne", "SaaS", "Bureautique", "Utilisateur", "Infrastructure", "Progiciel" ]
+        },
+        {
+          "Name": "Trigram",
+          "Label": "Trigrame de l'application",
+          "Description": "Spécifie le trigramme de d'application",
+          "Type": "Text"
         }
       ]
-    },
+    }, 
 
     {
-      "Name": "ModuleApplication",
+      "Name": "FunctionalModule",
       "Label": "Application's module",
       "Description": "Module de l'application",
       "Kind": "Application component"
-    },
-
-    {
-      "Name": "Producer",
-      "Label": "data producer",
-      "Description": "Serving datas",
-      "Kind": "Application service"
     },
     {
       "Name": "DataObject",
       "Label": "Datas",
       "Kind": "Application component"
     }
-
+    
   ],
 
   "Relationships": [
@@ -64,13 +63,11 @@
       "Label": "Application concept",
       "Kind": "Association",
       "Origin": {
-        "Multiplicty": "One",
-        "Name": "DomainConcept"
-      },
-      "Target": {
-        "Multiplicty": "ZeroOrMany",
-        "Name": "Application"
-      }
+          "Multiplicty": "One", "Name": "DomainConcept"
+        },
+        "Target": {
+          "Multiplicty": "ZeroOrMany", "Name": "Application"
+        }
     },
 
     {
@@ -79,30 +76,38 @@
       "Description": "specify the application parent relationship coposition",
       "Kind": "Composition",
       "Origin": {
-        "Multiplicty": "One",
-        "Name": "Application"
+        "Multiplicty": "One", "Name": "Application"
       },
       "Target": {
-        "Multiplicty": "ZeroOrMany",
-        "Name": "ModuleApplication"
+        "Multiplicty": "ZeroOrMany", "Name": "FunctionalModule"
       }
     },
 
     {
-      "Name": "ProducerProductData",
-      "Label": "Interface product the data by the module",
-      "Description": "Interface product the data by the module",
+      "Name": "ApplicationHasFlow",
+      "Label": "Applications has flow",
+      "Description": "specify that applications communicate with another applications",
       "Kind": "Flow",
       "Origin": {
-        "Multiplicty": "ZeroOrMany",
-        "Name": "ModuleApplication"
+        "Multiplicty": "One", "Name": "Application"
       },
       "Target": {
-        "Multiplicty": "One",
-        "Name": "Producer"
+        "Multiplicty": "ZeroOrMany", "Name": "Application"
       }
-
-    }
+    },
+    
+    {
+      "Name": "ModuleHasFlow",
+      "Label": "Modules has flow",
+      "Description": "specify that modules communicate with another communicates",
+      "Kind": "Flow",
+      "Origin": {
+        "Multiplicty": "One", "Name": "ApplicativeModule"
+      },
+      "Target": {
+        "Multiplicty": "ZeroOrMany", "Name": "ApplicativeModule"
+      }
+    }   
 
   ]
 

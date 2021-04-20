@@ -16,13 +16,14 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             this.Name = item.Definition.Name;
             this.Text = item.Definition.Label;
 
-            //foreach (var subItem in item.Children)
-            //    this.Nodes.Add(new ConceptItem(subItem));
+            //if (item.Kind == ViewpointItem.Concept)
+            //    foreach (var subItem in item.Children)
+            //        this.Nodes.Add(new ConceptItem(subItem));
 
         }
 
         public ViewpointModelItem Viewpoint { get; }
-
+        public string LastSearchEntity { get; internal set; }
     }
 
 }

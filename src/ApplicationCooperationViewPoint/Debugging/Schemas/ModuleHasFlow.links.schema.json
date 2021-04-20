@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://Pickup.fr/carto/schemas/links/ConceptHasApplication",
+  "id": "http://Pickup.fr/carto/schemas/links/ModuleHasFlow",
   "type": "object",
-  "description": "Application are grouped by concept",
+  "description": "specify that modules communicate with another communicates",
   "required": [
     "Target"
   ],
@@ -13,12 +13,12 @@
     },
     "Referentials": {
       "items": {
-        "$ref": "#/definitions/ConceptHasApplication"
+        "$ref": "#/definitions/ModuleHasFlow"
       }
     }
   },
   "definitions": {
-    "ConceptHasApplication": {
+    "ModuleHasFlow": {
       "type": "object",
       "required": [
         "Name",

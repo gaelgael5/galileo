@@ -1,4 +1,6 @@
 ﻿using Bb.Galileo.Files.Datas;
+using Bb.Galileo.Files.Viewpoints;
+using System;
 using System.Collections.Generic;
 
 namespace Bb.Galileo.Viewpoints.Cooperations
@@ -21,13 +23,16 @@ namespace Bb.Galileo.Viewpoints.Cooperations
 
         public ViewpointProjectionEntity()
         {
+            Children = new List<ViewpointProjectionEntity>();
             Relationships = new List<ViewpointProjectionRelationship>();
         }
 
-        public ReferentialEntity Entity { get; }
+        public ReferentialEntity Entity { get; set; }
+
+        public List<ViewpointProjectionEntity> Children { get; }
 
         public List<ViewpointProjectionRelationship> Relationships { get; }
-
+        public ViewpointItem Kind { get; internal set; }
     }
 
     public class ViewpointProjectionRelationship

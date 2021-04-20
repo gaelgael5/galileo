@@ -212,7 +212,7 @@ namespace Bb.Galileo.Models
 
             foreach (var item in jObject.Properties())
             {
-                if (item.Name == "Origin")
+                if (item.Name == "OriginLink")
                 {
                     var i = (JObject)item.Value;
                     foreach (var item2 in i.Properties())
@@ -233,44 +233,37 @@ namespace Bb.Galileo.Models
                         }
                     }
                 }
-                else if (item.Name == "Target")
+                else if (item.Name == "TargetLink")
                 {
                     var i = (JObject)item.Value;
                     foreach (var item2 in i.Properties())
                     {
                         var p = schema.Target.Properties.FirstOrDefault(c => c.Name == item2.Name);
-                        if (p == null)
-                        {
-
-                        }
-                        try
-                        {
-                            var value = ConvertValue(p.Type, item2.Value);
-                            target.Target[item.Name] = value;
-                        }
-                        catch (Exception e2)
-                        {
-                            this._diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, Text = e2.Message, Exception = e2 });
-                        }
+                        if (p != null)
+                            try
+                            {
+                                var value = ConvertValue(p.Type, item2.Value);
+                                target.Target[item.Name] = value;
+                            }
+                            catch (Exception e2)
+                            {
+                                this._diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, Text = e2.Message, Exception = e2 });
+                            }
                     }
                 }
                 else
                 {
                     var p = schema.Properties.FirstOrDefault(c => c.Name == item.Name);
-                    if (p == null)
-                    {
-
-                    }
-                    try
-                    {
-                        var value = ConvertValue(p.Type, item.Value);
-                        target[item.Name] = value;
-                    }
-                    catch (Exception)
-                    {
-
-                        throw;
-                    }
+                    if (p != null)
+                        try
+                        {
+                            var value = ConvertValue(p.Type, item.Value);
+                            target[item.Name] = value;
+                        }
+                        catch (Exception e3)
+                        {
+                            this._diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, Text = e3.Message, Exception = e3 });
+                        }
                 }
             }
 
@@ -286,12 +279,6 @@ namespace Bb.Galileo.Models
 
             writer.WritePropertyName("Target");
             writer.WriteValue(source.Target);
-
-            if (!string.IsNullOrEmpty(source.InheritFromTarget))
-            {
-                writer.WritePropertyName("Inheritfromtarget");
-                writer.WriteValue(source.InheritFromTarget);
-            }
 
             writer.WritePropertyName("Referentials");
             writer.WriteStartArray();
@@ -312,7 +299,7 @@ namespace Bb.Galileo.Models
                         writer.WriteValue(e[propertyName]);
                     }
 
-                    writer.WritePropertyName("Origin");
+                    writer.WritePropertyName("OriginLink");
                     writer.WriteStartObject();
                     foreach (var propertyName in e.Origin.PropertyKeys())
                     {
@@ -322,7 +309,7 @@ namespace Bb.Galileo.Models
                     writer.WriteEndObject();
 
 
-                    writer.WritePropertyName("Target");
+                    writer.WritePropertyName("TargetLink");
                     writer.WriteStartObject();
                     foreach (var propertyName in e.Target.PropertyKeys())
                     {

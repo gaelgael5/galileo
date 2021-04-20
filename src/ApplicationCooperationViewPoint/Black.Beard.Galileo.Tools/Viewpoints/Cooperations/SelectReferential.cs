@@ -27,7 +27,7 @@ namespace Bb.Galileo.Viewpoints.Cooperations
                 new ColumnHeader[]
                 {
                     new ColumnHeader() { Name = "Type", Text = "Name", Width = 200 },
-                    new ColumnHeader() { Name = "Name", Text = "Name", Width = 200 },
+                    new ColumnHeader() { Name = "Name", Text = "Name", Width = 300 },
                     new ColumnHeader() { Name = "Label", Text = "Label", Width = 400  },
                 }
             );
@@ -42,11 +42,16 @@ namespace Bb.Galileo.Viewpoints.Cooperations
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Enabled = false;
+
+
             RefreshItems();
         }
 
         private void RefreshItems()
         {
+
+            if (_lastQueryItems == null)
+                return;
 
             CompositionListView.Items.Clear();
 
@@ -54,7 +59,8 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             var txt = searchEntitiesTextBox.Text;
             if (!string.IsNullOrEmpty(txt))
             {
-                var o = items.Where(c => c.Name.ToLower().Contains(txt.ToLower()) || c.Label.ToLower().Contains(txt.ToLower()));
+                var o = items.Where(c => !string.IsNullOrEmpty(c.Name) && c.Name.ToLower().Contains(txt.ToLower())
+                                     || (!string.IsNullOrEmpty(c.Label) && c.Label.ToLower().Contains(txt.ToLower())));
                 if (!o.Any())
                     o = items.Where(c => c.Name.DamerauLevenshteinDistance(txt) <= 2 || c.Label.DamerauLevenshteinDistance(txt) <= 3);
 
@@ -115,13 +121,48 @@ namespace Bb.Galileo.Viewpoints.Cooperations
 
         }
 
-        public Dictionary<string, CooperationCheckedItem> GetSelectedKeys()
+        public ViewpointProjectionEntities GetSelectedKeys()
         {
-            return null;
+
+            var entities = new ViewpointProjectionEntities();
+
+            foreach (ConceptItem item in ConceptsTreeView.Nodes)
+            {
+
+                foreach (ConceptItemEntity item2 in item.Nodes)
+                {
+
+                    var e1 = new ViewpointProjectionEntity()
+                    {
+                        Entity = item2.CurrentItem,
+                        Kind = item.Viewpoint.Kind,
+                    };
+
+                    foreach (ConceptItemEntity item3 in item2.Nodes)
+                    {
+                        var e2 = new ViewpointProjectionEntity()
+                        {
+                            Entity = item3.CurrentItem,
+                            Kind = item2.Viewpoint.Kind,
+                        };
+                        e1.Children.Add(e2);
+                    }
+
+                    entities.Entities.Add(e1);
+                }
+
+            }
+
+            return entities;
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+
+            if (this._lastFilterEntitySelected != null)
+                this._lastFilterEntitySelected.LastSearchEntity = searchEntitiesTextBox.Text;
+
             timer1.Enabled = true;
         }
 
@@ -133,14 +174,38 @@ namespace Bb.Galileo.Viewpoints.Cooperations
                 this._lastFilterEntitySelected = f;
                 var view = f.Viewpoint;
 
+                var filter = view.Definition.Name;
+
                 var list = new List<ReferentialEntity>(1000);
                 foreach (var item in view.Children)
                 {
-                    var r = item.Definition.GetReference();
-                    r.Kind = ElementEnum.Entity;
-                    list.AddRange(r.GetReferentials(view.Definition.File.Parent.Models).OfType<ReferentialEntity>());
+
+                    var r1 = item.Relationship.GetReference();
+                    r1.Kind = ElementEnum.Relationship;
+
+                    var r2 = item.Definition.GetReference();
+                    r2.Kind = ElementEnum.Entity;
+
+                    var relationships = r1.GetReferentials(view.Definition.File.Parent.Models).OfType<ReferentialRelationship>();
+
+                    if (item.Relationship.Origin.Name == filter)
+                        relationships = relationships.Where(c => c.Origin.Name == f.Name);
+                    else
+                        relationships = relationships.Where(c => c.Target.Name == f.Name);
+
+                    var relations = new HashSet<string>(relationships.Select(c => c.Name));
+
+                    list.AddRange
+                        (
+                            r2.GetReferentials(view.Definition.File.Parent.Models)
+                                .OfType<ReferentialEntity>()
+                                .Where(c => relations.Contains(c.Name))
+                        );
+
                 }
+
                 _lastQueryItems = list;
+                searchEntitiesTextBox.Text = this._lastFilterEntitySelected.LastSearchEntity;
 
                 RefreshItems();
 
@@ -158,10 +223,12 @@ namespace Bb.Galileo.Viewpoints.Cooperations
                                    .OfType<ReferentialEntity>()
                                    .ToList();
 
+                searchEntitiesTextBox.Text = this._lastFilterEntitySelected.LastSearchEntity;
+
                 RefreshItems();
 
             }
-           
+
         }
 
         private void CompositionListView_ItemChecked(object sender, ItemCheckedEventArgs e)
@@ -185,6 +252,10 @@ namespace Bb.Galileo.Viewpoints.Cooperations
                         if (result != null && result.Length == 1)
                             this._lastFilterEntitySelected.Nodes.Remove(result[0]);
                     }
+
+                    if (this._lastFilterEntitySelected.Nodes.Count > 0)
+                        this._lastFilterEntitySelected.Expand();
+
                 }
             }
 

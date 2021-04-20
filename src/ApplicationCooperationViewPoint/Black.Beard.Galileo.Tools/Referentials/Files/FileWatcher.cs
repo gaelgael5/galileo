@@ -91,7 +91,7 @@ namespace Bb.Galileo.Files
 
                 HashSet<string> _h2 = new HashSet<string>();
                 List<FileModel> toRemove = new List<FileModel>();
-                foreach (FileModel item in _parent.GetFiles())
+                foreach (FileModel item in _parent.GetFiles(_filter))
                 {
                     item.Refresh();
                     if (item.Exist)
@@ -117,7 +117,10 @@ namespace Bb.Galileo.Files
         private void Add(FileInfo file, FileTracingEnum trace)
         {
             _parent.AddFile(new FileModel()
-                .Initialize(file, this._parent), trace);
+            {
+                Filter = this._filter,
+
+            }.Initialize(file, this._parent), trace);
         }
 
         private void Remove(FileModel file)

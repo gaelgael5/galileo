@@ -1,11 +1,12 @@
 ﻿using Newtonsoft.Json.Linq;
+using NJsonSchema;
 using System;
 
 namespace Bb.Galileo.Files
 {
+
     public class SchemaValidator
     {
-        private readonly ModelRepository _parent;
 
         public SchemaValidator(ModelRepository modelRepository)
         {
@@ -18,7 +19,7 @@ namespace Bb.Galileo.Files
             if (file.Schema.IsValidExistingFile)
             {
 
-                var schema = _parent.GetSchema(file);
+                JsonSchema schema = _parent.GetSchema(file);
                 if (schema != null)
                 {
                     var errors = schema.Validate(payload);
@@ -60,6 +61,9 @@ namespace Bb.Galileo.Files
             }
 
         }
+
+
+        private readonly ModelRepository _parent;
 
     }
 

@@ -10,8 +10,6 @@ namespace Bb.Galileo.Files.Datas
         [JsonRequired]
         public string Target { get; set; }
 
-        public string InheritFromTarget { get; set; }
-
         public bool HasChangedOnLoading { get; internal set; }
 
     }

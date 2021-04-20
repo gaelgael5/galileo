@@ -13,7 +13,7 @@ namespace Bb.Galileo.Viewpoints.Cooperations
         {
             this.CurrentItem = entity;
             this.Name = entity.Name;
-            this.Text = entity.Label;
+            this.Text = entity.Label ?? entity.Name;
         }
 
         public ReferentialEntity CurrentItem { get; }

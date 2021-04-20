@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://Pickup.fr/carto/schemas/entities/DomainConcept",
+  "id": "http://Pickup.fr/carto/schemas/entities/FunctionalModule",
   "type": "object",
-  "description": "cross 'application component domain concept",
+  "description": "Module de l'application",
   "required": [
     "Target"
   ],
@@ -13,12 +13,12 @@
     },
     "Referentials": {
       "items": {
-        "$ref": "#/definitions/DomainConcept"
+        "$ref": "#/definitions/FunctionalModule"
       }
     }
   },
   "definitions": {
-    "DomainConcept": {
+    "FunctionalModule": {
       "type": "object",
       "required": [
         "Name",

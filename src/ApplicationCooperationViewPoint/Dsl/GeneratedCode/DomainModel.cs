@@ -92,7 +92,6 @@ namespace Bb.ApplicationCooperationViewPoint
 				typeof(ConceptSubElementShape),
 				typeof(RelationshipShape),
 				typeof(global::Bb.ApplicationCooperationViewPoint.FixUpDiagram),
-				typeof(global::Bb.ApplicationCooperationViewPoint.DecoratorPropertyChanged),
 			};
 		}
 		/// <summary>
@@ -419,7 +418,6 @@ namespace Bb.ApplicationCooperationViewPoint
 			
 			DslModeling::RuleManager ruleManager = store.RuleManager;
 			ruleManager.EnableRule(typeof(global::Bb.ApplicationCooperationViewPoint.FixUpDiagram));
-			ruleManager.EnableRule(typeof(global::Bb.ApplicationCooperationViewPoint.DecoratorPropertyChanged));
 		}
 		
 		/// <summary>
@@ -431,7 +429,6 @@ namespace Bb.ApplicationCooperationViewPoint
 			
 			DslModeling::RuleManager ruleManager = store.RuleManager;
 			ruleManager.DisableRule(typeof(global::Bb.ApplicationCooperationViewPoint.FixUpDiagram));
-			ruleManager.DisableRule(typeof(global::Bb.ApplicationCooperationViewPoint.DecoratorPropertyChanged));
 		}
 		#endregion
 	}

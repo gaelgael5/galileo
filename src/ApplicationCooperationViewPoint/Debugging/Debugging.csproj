@@ -44,6 +44,24 @@
       <SubType>
       </SubType>
     </None>
+    <None Include="definitions\Applicative.cooperationview.defs.json" />
+    <None Include="definitions\applicative_layer.defs.json" />
+    <None Include="definitions\Layers.defs.json" />
+    <None Include="Schemas\Application.entities.schema.json" />
+    <None Include="Schemas\ApplicationHasFlow.links.schema.json" />
+    <None Include="Schemas\ApplicationHasModule.links.schema.json" />
+    <None Include="Schemas\ConceptHasApplication.links.schema.json" />
+    <None Include="Schemas\ConfigModel.schema.json" />
+    <None Include="Schemas\CooperationViewpoint.schema.json" />
+    <None Include="Schemas\DataObject.entities.schema.json" />
+    <None Include="Schemas\DomainConcept.entities.schema.json" />
+    <None Include="Schemas\FunctionalModule.entities.schema.json" />
+    <None Include="Schemas\LayersDefinition.schema.json" />
+    <None Include="Schemas\MetaDefinitions.schema.json" />
+    <None Include="Schemas\ModuleApplication.entities.schema.json" />
+    <None Include="Schemas\ModuleHasFlow.links.schema.json" />
+    <None Include="Schemas\Producer.entities.schema.json" />
+    <None Include="Schemas\ProducerProductData.links.schema.json" />
     <None Include="T4\ApplicationCooperationViewPointReport.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ApplicationCooperationViewPointReport.txt</LastGenOutput>
@@ -52,26 +70,11 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ApplicationCooperationViewPointReportVB.txt</LastGenOutput>
     </None>
-    <None Include="definitions\Applicative.cooperationview.defs.json" />
-    <None Include="definitions\applicative_layer.defs.json" />
-    <None Include="definitions\Layers.defs.json" />
     <None Include="Sample.covp" />
-    <None Include="Sample.covp.diagram">
-      <DependentUpon>Sample.covp</DependentUpon>
-    </None>
-    <None Include="Schemas\Application.entities.schema.json" />
-    <None Include="Schemas\ApplicationHasModule.links.schema.json" />
-    <None Include="Schemas\ConceptHasApplication.links.schema.json" />
-    <None Include="Schemas\ConfigModel.schema.json" />
-    <None Include="Schemas\CooperationViewpoint.schema.json" />
-    <None Include="Schemas\DataObject.entities.schema.json" />
-    <None Include="Schemas\DomainConcept.entities.schema.json" />
-    <None Include="Schemas\LayersDefinition.schema.json" />
-    <None Include="Schemas\MetaDefinitions.schema.json" />
-    <None Include="Schemas\ModuleApplication.entities.schema.json" />
-    <None Include="Schemas\Producer.entities.schema.json" />
-    <None Include="Schemas\ProducerProductData.links.schema.json" />
+    <None Include="Targets\Current\Datas\ApplicationHasModule.links.json" />
     <None Include="Targets\Current\Datas\applications.entities.json" />
+    <None Include="Targets\Current\Datas\functions.entities.json" />
+    <None Include="Targets\Current\Datas\modules.entities.json" />
     <None Include="Targets\Current\Ui\Test.covp" />
     <None Include="Targets\Current\Ui\Test.covp.diagram">
       <DependentUpon>Test.covp</DependentUpon>

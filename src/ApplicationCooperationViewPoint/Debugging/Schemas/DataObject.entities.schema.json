@@ -8,7 +8,7 @@
   "properties": {
     "Target": {
       "type": "string",
-      "pattern": "^[a-zA-Z]+[a-zA-Z0-9_]+$"
+      "pattern": "^[a-zA-Zéèà\\s'/Éœô.-]+[a-zA-Z0-9_éèà\\s'/Éœô.-]+$"
     },
     "Referentials": {
       "items": {
@@ -28,7 +28,7 @@
         "Name": {
           "type": "string",
           "description": "Specify the functional name of the entity",
-          "pattern": "^[a-zA-Z]+[a-zA-Z0-9_]+$"
+          "pattern": "^[a-zA-Zéèà\\s'/Éœô.-]+[a-zA-Z0-9_éèà\\s'/Éœô.-]+$"
         },
         "Label": {
           "type": "string",

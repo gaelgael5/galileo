@@ -27,6 +27,15 @@
       "items": {
         "$ref": "#/definitions/RelationshipDefinition"
       }
+    },
+    "Restrictions": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/RestrictionDefinition"
+      }
     }
   },
   "definitions": {
@@ -41,7 +50,7 @@
         "Name": {
           "type": "string",
           "description": "functional key",
-          "pattern": "^[a-zA-Z]+[a-zA-Z0-9_]+$"
+          "pattern": "^[a-zA-Zéèà\\s'/Éœô.-]+[a-zA-Z0-9_éèà\\s'/Éœô.-]+$"
         },
         "Label": {
           "type": [
@@ -57,17 +66,28 @@
           ],
           "description": "Description of the current item"
         },
+        "Restrictions": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
         "Properties": {
           "type": [
             "array",
             "null"
           ],
+          "description": "Added specific properties",
           "items": {
             "$ref": "#/definitions/PropertyDefinition"
           }
         },
         "Kind": {
           "type": "string",
+          "description": "Entity kind. the availables items are managed in the layer file",
           "enum": [
             "Business actor",
             "Business collaboration",
@@ -285,7 +305,7 @@
         "Name": {
           "type": "string",
           "description": "functional key",
-          "pattern": "^[a-zA-Z]+[a-zA-Z0-9_]+$"
+          "pattern": "^[a-zA-Zéèà\\s'/Éœô.-]+[a-zA-Z0-9_éèà\\s'/Éœô.-]+$"
         },
         "Label": {
           "type": [
@@ -301,23 +321,48 @@
           ],
           "description": "Description of the current item"
         },
-        "Properties": {
+        "Restrictions": {
           "type": [
             "array",
             "null"
           ],
           "items": {
+            "type": "string"
+          }
+        },
+        "Properties": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "description": "Added specific properties",
+          "items": {
             "$ref": "#/definitions/PropertyDefinition"
           }
         },
         "Kind": {
-          "$ref": "#/definitions/RelationshipKindEnum"
+          "description": "Kind relationship",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RelationshipKindEnum"
+            }
+          ]
         },
         "Origin": {
-          "$ref": "#/definitions/LinkDefinition"
+          "description": "Origin specification on the Type of entities expected",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LinkDefinition"
+            }
+          ]
         },
         "Target": {
-          "$ref": "#/definitions/LinkDefinition"
+          "description": "Target specification on the Type of entities expected",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LinkDefinition"
+            }
+          ]
         }
       }
     },
@@ -380,6 +425,15 @@
         },
         "Multiplicty": {
           "$ref": "#/definitions/MultiplicityEnum"
+        },
+        "Restrictions": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -399,6 +453,55 @@
         "OneOrMany",
         "ZeroOrOne",
         "ZeroOrMany"
+      ]
+    },
+    "RestrictionDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Name",
+        "Kind"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "functional key"
+        },
+        "Kind": {
+          "$ref": "#/definitions/RestrictionKindEnum"
+        },
+        "Description": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Description of the currentitem"
+        },
+        "ErrorMessage": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "the message that you want to shown if the evaluation failed"
+        },
+        "Value": {
+          "oneOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "RestrictionKindEnum": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "TypeRestriction"
+      ],
+      "enum": [
+        "TypeRestriction"
       ]
     }
   }

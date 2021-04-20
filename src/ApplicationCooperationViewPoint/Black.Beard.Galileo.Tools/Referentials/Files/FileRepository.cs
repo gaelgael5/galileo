@@ -23,6 +23,7 @@ namespace Bb.Galileo.Files
                 new FileWatcher(this, "*.schema.json"),
                 new FileWatcher(this, "*.defs.json"),
                 new FileWatcher(this, "*.entities.json"),
+                new FileWatcher(this, "*.links.json"),
             };
 
             this._items = new Dictionary<string, FileModel>();
@@ -40,7 +41,7 @@ namespace Bb.Galileo.Files
                 foreach (var item in this._items.Values.Where(c => c.FailedToLoad))
                 {
                     var r = Update(item, FileTracingEnum.TrySecondChance);
-                    if (r.FailedToLoad)
+                    if (r == null || r.FailedToLoad)
                     {
                         count++;
                     }
@@ -80,6 +81,13 @@ namespace Bb.Galileo.Files
         {
             foreach (var item in _items.Values)
                 yield return item;
+        }
+
+        internal IEnumerable<FileModel> GetFiles(string filter)
+        {
+            foreach (var item in _items.Values)
+                if (item.Filter == filter)
+                    yield return item;
         }
 
         internal Transactionfile RemoveFile(FileModel item)
@@ -134,6 +142,7 @@ namespace Bb.Galileo.Files
         internal void EvaluateSchema(Transactionfile result)
         {
             lock (_lock)
+            {
                 foreach (var item in _items)
                     if (item.Value.Schema != null)
                     {
@@ -143,7 +152,15 @@ namespace Bb.Galileo.Files
                             try
                             {
                                 var payload = item.Value.Load();
-                                this.Models.SchemaValidator.Evaluate(item.Value, payload);
+                                if (payload != null)
+                                    this.Models.SchemaValidator.Evaluate(item.Value, payload);
+                                else
+                                {
+                                    if (!File.Exists(item.Value.FullPath))
+                                    {
+
+                                    }
+                                }
                             }
                             catch (Exception e2)
                             {
@@ -157,6 +174,7 @@ namespace Bb.Galileo.Files
 
                     }
 
+            }
         }
 
     }

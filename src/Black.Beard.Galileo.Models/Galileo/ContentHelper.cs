@@ -21,13 +21,19 @@ namespace Bb.Galileo
             {
                 try
                 {
-                    // Attempt to open the file exclusively.
-                    using (FileStream fs = file.Open(FileMode.Open, FileAccess.ReadWrite, FileShare.None))
+
+                    if (file.Exists)
                     {
-                        fs.ReadByte();
-                        // If we got this far the file is ready
-                        break;
+                        // Attempt to open the file exclusively.
+                        using (FileStream fs = file.Open(FileMode.Open, FileAccess.ReadWrite, FileShare.None))
+                        {
+                            fs.ReadByte();
+                            // If we got this far the file is ready
+                            break;
+                        }
                     }
+                    else
+                        return false;
                 }
                 catch (System.IO.IOException)
                 {

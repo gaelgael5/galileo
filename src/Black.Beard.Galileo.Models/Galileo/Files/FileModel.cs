@@ -16,11 +16,13 @@ namespace Bb.Galileo.Files
 
         public bool Exist { get => _file.Exists; }
 
+        
 
         public FileRepository Parent { get; private set; }
 
         public SchemaReference Schema { get; internal set; }
         public bool FailedToLoad { get; internal set; }
+        public string Filter { get; internal set; }
 
         public virtual FileModel Initialize(FileInfo file, FileRepository parent)
         {
@@ -37,11 +39,16 @@ namespace Bb.Galileo.Files
      
         internal Newtonsoft.Json.Linq.JObject Load()
         {
-            _file.WaitForFile(new TimeSpan(0,0,0,5));
-            return (Newtonsoft.Json.Linq.JObject)_file
-                .LoadContentFromFile()
-                .ConvertToJson()
-                ;
+            if (_file.WaitForFile(new TimeSpan(0, 0, 0, 5)))
+            {
+                return (Newtonsoft.Json.Linq.JObject)_file
+                    .LoadContentFromFile()
+                    .ConvertToJson()
+                    ;
+            }
+         
+            return null;
+
         }
 
         public override string ToString()

@@ -51,8 +51,7 @@
           "enum": [
             "DomainConcept",
             "Application",
-            "ModuleApplication",
-            "Producer",
+            "FunctionalModule",
             "DataObject"
           ]
         },
@@ -79,7 +78,8 @@
           "enum": [
             "ConceptHasApplication",
             "ApplicationHasModule",
-            "ProducerProductData"
+            "ApplicationHasFlow",
+            "ModuleHasFlow"
           ]
         },
         "Children": {
@@ -105,7 +105,8 @@
           "enum": [
             "ConceptHasApplication",
             "ApplicationHasModule",
-            "ProducerProductData"
+            "ApplicationHasFlow",
+            "ModuleHasFlow"
           ]
         }
       }
@@ -122,8 +123,7 @@
           "enum": [
             "DomainConcept",
             "Application",
-            "ModuleApplication",
-            "Producer",
+            "FunctionalModule",
             "DataObject"
           ]
         },

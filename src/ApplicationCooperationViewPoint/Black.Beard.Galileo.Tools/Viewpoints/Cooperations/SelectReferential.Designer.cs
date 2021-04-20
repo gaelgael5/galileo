@@ -68,9 +68,9 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             this.panel1.Controls.Add(this.ValidateButton);
             this.panel1.Controls.Add(this.CancelButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 535);
+            this.panel1.Location = new System.Drawing.Point(0, 537);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1463, 132);
+            this.panel1.Size = new System.Drawing.Size(1237, 132);
             this.panel1.TabIndex = 0;
             // 
             // button1
@@ -87,7 +87,7 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             // ValidateButton
             // 
             this.ValidateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ValidateButton.Location = new System.Drawing.Point(1046, 32);
+            this.ValidateButton.Location = new System.Drawing.Point(820, 32);
             this.ValidateButton.Name = "ValidateButton";
             this.ValidateButton.Size = new System.Drawing.Size(182, 71);
             this.ValidateButton.TabIndex = 1;
@@ -99,7 +99,7 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             // 
             this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelButton.Location = new System.Drawing.Point(1251, 32);
+            this.CancelButton.Location = new System.Drawing.Point(1025, 32);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(182, 71);
             this.CancelButton.TabIndex = 0;
@@ -120,8 +120,8 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1463, 535);
-            this.splitContainer1.SplitterDistance = 419;
+            this.splitContainer1.Size = new System.Drawing.Size(1237, 537);
+            this.splitContainer1.SplitterDistance = 354;
             this.splitContainer1.TabIndex = 1;
             // 
             // groupBox1
@@ -131,7 +131,7 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(419, 535);
+            this.groupBox1.Size = new System.Drawing.Size(354, 537);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Structure\"s object";
@@ -139,10 +139,10 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             // ConceptsTreeView
             // 
             this.ConceptsTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ConceptsTreeView.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConceptsTreeView.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConceptsTreeView.Location = new System.Drawing.Point(3, 34);
             this.ConceptsTreeView.Name = "ConceptsTreeView";
-            this.ConceptsTreeView.Size = new System.Drawing.Size(413, 498);
+            this.ConceptsTreeView.Size = new System.Drawing.Size(348, 500);
             this.ConceptsTreeView.TabIndex = 0;
             this.ConceptsTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.ConceptsTreeView_AfterSelect);
             // 
@@ -162,8 +162,8 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             // 
             this.splitContainer2.Panel2.Controls.Add(this.listView2);
             this.splitContainer2.Panel2.Controls.Add(this.panel3);
-            this.splitContainer2.Size = new System.Drawing.Size(1040, 535);
-            this.splitContainer2.SplitterDistance = 278;
+            this.splitContainer2.Size = new System.Drawing.Size(879, 537);
+            this.splitContainer2.SplitterDistance = 279;
             this.splitContainer2.TabIndex = 0;
             // 
             // CompositionListView
@@ -178,7 +178,7 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             this.CompositionListView.Location = new System.Drawing.Point(9, 74);
             this.CompositionListView.MultiSelect = false;
             this.CompositionListView.Name = "CompositionListView";
-            this.CompositionListView.Size = new System.Drawing.Size(1019, 192);
+            this.CompositionListView.Size = new System.Drawing.Size(858, 193);
             this.CompositionListView.TabIndex = 2;
             this.CompositionListView.UseCompatibleStateImageBehavior = false;
             this.CompositionListView.View = System.Windows.Forms.View.List;
@@ -191,7 +191,7 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1040, 68);
+            this.panel2.Size = new System.Drawing.Size(879, 68);
             this.panel2.TabIndex = 1;
             // 
             // searchEntitiesTextBox
@@ -201,7 +201,7 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             this.searchEntitiesTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchEntitiesTextBox.Location = new System.Drawing.Point(114, 24);
             this.searchEntitiesTextBox.Name = "searchEntitiesTextBox";
-            this.searchEntitiesTextBox.Size = new System.Drawing.Size(914, 27);
+            this.searchEntitiesTextBox.Size = new System.Drawing.Size(753, 27);
             this.searchEntitiesTextBox.TabIndex = 1;
             this.searchEntitiesTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -224,7 +224,7 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             this.listView2.HideSelection = false;
             this.listView2.Location = new System.Drawing.Point(9, 84);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(1019, 163);
+            this.listView2.Size = new System.Drawing.Size(858, 164);
             this.listView2.TabIndex = 2;
             this.listView2.UseCompatibleStateImageBehavior = false;
             // 
@@ -235,7 +235,7 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1040, 68);
+            this.panel3.Size = new System.Drawing.Size(879, 68);
             this.panel3.TabIndex = 1;
             // 
             // textBox2
@@ -245,7 +245,7 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(114, 24);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(914, 27);
+            this.textBox2.Size = new System.Drawing.Size(753, 27);
             this.textBox2.TabIndex = 1;
             // 
             // label2
@@ -268,7 +268,7 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             this.AcceptButton = this.ValidateButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1463, 667);
+            this.ClientSize = new System.Drawing.Size(1237, 669);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

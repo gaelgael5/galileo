@@ -438,27 +438,4 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		
 	
-		/// <summary>
-		/// A rule which fires when data mapped to outer text decorators has changed,
-		/// so we can update the decorator host's bounds.
-		/// </summary>
-		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.Concept), InitiallyDisabled=true)]
-		internal sealed class DecoratorPropertyChanged : DslModeling::ChangeRule
-		{
-			[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
-			public override void ElementPropertyChanged(DslModeling::ElementPropertyChangedEventArgs e)
-			{
-				if(e == null) throw new global::System.ArgumentNullException("e");
-				
-				if (e.DomainProperty.Id == global::Bb.ApplicationCooperationViewPoint.Concept.NameDomainPropertyId)
-				{
-					DslDiagrams::Decorator decorator = global::Bb.ApplicationCooperationViewPoint.ConceptShape.FindConceptShapeDecorator("NameDecorator");
-					if(decorator != null)
-					{
-						decorator.UpdateDecoratorHostShapes(e.ModelElement, global::Bb.ApplicationCooperationViewPoint.Concept.DomainClassId);
-					}
-				}
-			}
-		}
-	
 	}

@@ -1,740 +1,942 @@
 {
-
   "$schema": "..\\..\\..\\Schemas\\Application.entities.schema.json",
-  "Target": "Existant",
+  "Target": "Current",
   "Referentials": [
     {
-      "Id": "cfc601fdf7214b40a2ad1a66a65bb50f",
-      "Name": "aan",
-      "Label": "Agent Android",
-      "Description": "Agent installé sur les périphériques Android, responsable de linstallation des application Pickup",
-      "Type": "Interne"
-    },
-    {
-      "Id": "00aaece8562847c0af87a75623cb2a94",
-      "Name": "ado",
+      "Id": "1605735",
+      "Name": "Adobe Message Center",
       "Label": "Adobe Message Center",
-      "Description": "Templating et envoi demails",
-      "Type": "Partenaire"
+      "Description": "Templating et envoi d'emails",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "ado"
     },
     {
-      "Id": "280d589ab1014cef85af664414316b85",
-      "Name": "adr",
-      "Label": "Securité (ADFS)",
-      "Description": "Gestion des utilisateurs",
-      "Type": "Infrastructure"
+      "Id": "896009864",
+      "Name": "Agent Android",
+      "Label": "Agent Android",
+      "Description": "Agent install� sur les p�riph�riques Android, responsable de l'installation des application Pickup",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "aan"
     },
     {
-      "Id": "f3fbd4cc82e340d2b516e622a602d544",
-      "Name": "alt",
+      "Id": "946311615",
+      "Name": "Alteryx",
       "Label": "Alteryx",
-      "Description": "Outil danalyse géographique",
-      "Type": "Progiciel"
+      "Description": "Outil d'analyse g�ographique",
+      "Technologie": null,
+      "Type": "Progiciel",
+      "trigram": "alt"
     },
     {
-      "Id": "7aaf69f09f5b4bcea7fd8b673cfaa741",
-      "Name": "amb",
+      "Id": "2788340192",
+      "Name": "Amabis",
       "Label": "Amabis",
-      "Description": "RNVP (Restructuration, Normalisation et Validation Postale) et géolocalisation. Editeur principalement orienté sur la normalisation dadresse postale française.",
-      "Type": "SaaS"
+      "Description": "RNVP (Restructuration, Normalisation et Validation Postale) et g�olocalisation. Editeur principalement orient� sur la normalisation d'adresse postale fran�aise.",
+      "Technologie": null,
+      "Type": "SaaS",
+      "trigram": "amb"
     },
     {
-      "Id": "a667b44bf1ac461fa335cd511d89f441",
+      "Id": "2936753513",
       "Name": "ams",
       "Label": "ams",
-      "Description": "Application permettant de gérer les besoins du point relai.\nGestion des horaires\nGestion des indispo\nscanne des colis",
-      "Technologie": "Dot net; Androïd",
-      "Type": "Interne"
+      "Description": "Application permettant de g�rer les besoins du point relai.\nGestion des horaires\nGestion des indispo\nscanne des colis",
+      "Technologie": "Dot net; Andro�d",
+      "Type": "Interne",
+      "trigram": "ams"
     },
     {
-      "Id": "5b7cfbfad4c44ac5a9284916a752b56d",
-      "Name": "ano",
+      "Id": "2169659782",
+      "Name": "anomalie 21",
       "Label": "anomalie 21",
-      "Description": "Application qui permet de gérer les appels à destination des points relais et des destinataires liés aux anomalies",
+      "Description": "Application qui permet de g�rer les appels � destination des points relais et des destinataires li�s aux anomalies",
       "Technologie": ".NET",
-      "Type": "Interne"
+      "Type": "Interne",
+      "trigram": "ano"
     },
     {
-      "Id": "67029504bfd348d4b2bf6a25b50c690b",
-      "Name": "arc",
+      "Id": "1365913675",
+      "Name": "ArcGIS Online",
       "Label": "ArcGIS Online",
-      "Description": "Cartographie pour la visualisation des Pudo et des zones géographiques (cluster, zone de consommation, etc.)",
-      "Type": "SaaS"
+      "Description": "Cartographie pour la visualisation des Pudo et des zones g�ographiques (cluster, zone de consommation, etc.)",
+      "Technologie": null,
+      "Type": "SaaS",
+      "trigram": "arc"
     },
     {
-      "Id": "e79cf00b298c437dbd35fad367cfac36",
-      "Name": "ave",
-      "Label": "Avisage Ng legacy",
-      "Description": "lAvisage a maintenant été modélisé comme une application à part entière. Application de gestion des notifications vers les utilisateurs (avisage). Lapplication salimente de pudo-colis et assure lenvoie des avisage.",
-      "Technologie": "DOT.NET",
-      "Type": "Interne"
-    },
-    {
-      "Id": "f4224e129ee74e399370b1418122b27f",
-      "Name": "AVF",
-      "Label": "Avisage Facturation",
-      "Description": "Lavisage Facturation est en charge de lenvoi des emails de dématérialisation des facturations. La Solution technique est une chaine de traitement instanciée de manière autonome (MOM, Base Mongo) sur la base du code Avisage NG",
-      "Technologie": ".Net",
-      "Type": "Interne"
-    },
-    {
-      "Id": "c59059cfb53f46b68ccbfe856d49498b",
-      "Name": "avn",
-      "Label": "Avisage Ng Colis 21",
-      "Description": "lAvisage a maintenant été modélisé comme une application à part entière. Application de gestion des notifications vers les utilisateurs (avisage). Lapplication salimente de colis 21 et assure lenvoie des avisage aux clients finaux des actions du point concernant leu colis.",
-      "Technologie": ".NET",
-      "Type": "Interne"
-    },
-    {
-      "Id": "f0a8faf4f90843f5ab0c6ce34b7e3cc8",
-      "Name": "avs",
+      "Id": "3725567261",
+      "Name": "Avisage",
       "Label": "Avisage",
-      "Description": "Attention : lavisage est actuellement un module de lapplication Pudo-Colis que lon souhaite découpler. Dans ce cadre, afin de faciliter la projection, lAvisage a maintenant été modélisé comme une application à part entière. Application de gestion des notifications vers les utilisateurs (avisage). Lapplication se doit dêtre découplée de lexistant Pudo-Colis.",
-      "Type": "Interne"
+      "Description": "Attention : l'avisage est actuellement un module de l'application Pudo-Colis que l'on souhaite d�coupler. Dans ce cadre, afin de faciliter la projection, l'Avisage a maintenant �t� mod�lis� comme une application � part enti�re. Application de gestion des notifications vers les utilisateurs (avisage). L'application se doit d'�tre d�coupl�e de l'existant Pudo-Colis.",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "avs"
     },
     {
-      "Id": "aef9d5361529452ea74e48de5487f749",
-      "Name": "bnq",
-      "Label": "SI Banque",
-      "Description": "SI du partenaire bancaire.",
-      "Type": "Partenaire"
+      "Id": "4057379484",
+      "Name": "Avisage Facturation",
+      "Label": "Avisage Facturation",
+      "Description": "L'avisage Facturation est en charge de l'envoi des emails de d�mat�rialisation des facturations. La Solution technique est une chaine de traitement instanci�e de mani�re autonome (MOM, Base Mongo) sur la base du code Avisage NG",
+      "Technologie": ".Net",
+      "Type": "Interne",
+      "trigram": "AVF"
     },
     {
-      "Id": "1a6b26e72ec7469ea04e657d9160b871",
-      "Name": "c2c",
+      "Id": "2060578098",
+      "Name": "Avisage Ng Colis 21",
+      "Label": "Avisage Ng Colis 21",
+      "Description": "l'Avisage a maintenant �t� mod�lis� comme une application � part enti�re. Application de gestion des notifications vers les utilisateurs (avisage). L'application s'alimente de colis 21 et assure l'envoie des avisage aux clients finaux des actions du point concernant leu colis.",
+      "Technologie": ".NET",
+      "Type": "Interne",
+      "trigram": "avn"
+    },
+    {
+      "Id": "2112166936",
+      "Name": "Avisage Ng legacy",
+      "Label": "Avisage Ng legacy",
+      "Description": "l'Avisage a maintenant �t� mod�lis� comme une application � part enti�re. Application de gestion des notifications vers les utilisateurs (avisage). L'application s'alimente de pudo-colis et assure l'envoie des avisage.",
+      "Technologie": "DOT.NET",
+      "Type": "Interne",
+      "trigram": "ave"
+    },
+    {
+      "Id": "3280667421",
+      "Name": "C2C by Chrono",
       "Label": "C2C by Chrono",
-      "Description": "Application Chronopost dédiée à la vente de prestation dexpédition de Colis Shop to Shop",
-      "Type": "Partenaire"
+      "Description": "Application Chronopost d�di�e � la vente de prestation d'exp�dition de Colis Shop to Shop",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "c&c"
     },
     {
-      "Id": "a38b282bf8484ca2b33d18cd99f95885",
-      "Name": "cdt",
-      "Label": "SI Cdiscount",
-      "Description": "Dialogue directement avec le SI du partenaire Cdiscount.",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "942d7a3db8a54ca0a4c121691a001d2a",
-      "Name": "chr",
+      "Id": "3339406897",
+      "Name": "Chargeur",
       "Label": "Chargeur",
-      "Description": "Modélisation de la notion de chargeur, c’est-à-dire le client des transporteurs qui vont acheter des prestations de transport (exemple : cdiscount, amazon…).",
-      "Type": "Partenaire"
+      "Description": "Mod�lisation de la notion de chargeur, c'est-�-dire le client des transporteurs qui vont acheter des prestations de transport (exemple : cdiscount, amazon.).",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "chr"
     },
     {
-      "Id": "14d76b9ce4794d7c9207d87851ba7e67",
-      "Name": "chs",
+      "Id": "1602413782",
+      "Name": "ChronoShip",
       "Label": "ChronoShip",
-      "Description": "Application fournie par Chronopost et installée sur les postes des équipes de gestion matérielle, elle permet dimprimer les étiquettes dexpédition avec une imprimante, elle aussi fournie.",
-      "Type": "Bureautique"
+      "Description": "Application fournie par Chronopost et install�e sur les postes des �quipes de gestion mat�rielle, elle permet d'imprimer les �tiquettes d'exp�dition avec une imprimante, elle aussi fournie.",
+      "Technologie": null,
+      "Type": "Bureautique",
+      "trigram": "chs"
     },
     {
-      "Id": "d5089d29788442a39970fa705c7af111",
-      "Name": "cle",
+      "Id": "3624834195",
+      "Name": "Cleemy",
       "Label": "Cleemy",
       "Description": "Application de gestion des notes de frais",
       "Technologie": "SaaS",
-      "Type": "SaaS"
+      "Type": "SaaS",
+      "trigram": "cle"
     },
     {
-      "Id": "cb45dddf1082471b98e2792bd4926757",
-      "Name": "col",
+      "Id": "778408974",
+      "Name": "Colis 21",
       "Label": "Colis 21",
-      "Description": "Projection, cadrage en cours. Application de gestion du cycle de vie colis, comprenant la communication avec les partenaires (transporteurs, gestionnaire de parc consigne, …), les moyens de scan (PDA Windows et Android) ainsi que linteraction les applications internes (facturation, anomalie, avisage...).",
-      "Type": "Interne"
+      "Description": "Projection, cadrage en cours. Application de gestion du cycle de vie colis, comprenant la communication avec les partenaires (transporteurs, gestionnaire de parc consigne, .), les moyens de scan (PDA Windows et Android) ainsi que l'interaction les applications internes (facturation, anomalie, avisage...).",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "col"
     },
     {
-      "Id": "b4a981e0191d4e3c88b64aac1f341bfb",
-      "Name": "con",
-      "Label": "Parcel Locker",
-      "Description": "Application des consignes, donc par nature distribuée. Les consignes communiquent via 3G. Le logiciel est développé par KEBA.",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "433ba7210cdb4ff5a352f216b52ef8df",
-      "Name": "cr2",
-      "Label": "CRM v2",
-      "Description": "Nouvelle version du CRM Pudo. Application cœur du domaine Pudo basée sur le CRM Salesforce dont lobjet account représente notamment un relais. Elle porte les référentiels Pudo et Réseau. Elle peut gérer lintégralité cycles de vie des Pudo, de la prospection à la fin dactivité en passant par lanimation des relais et la gestion des tickets ainsi que la gestion des réseaux.",
-      "Type": "SaaS"
-    },
-    {
-      "Id": "84b82b6203cf415a9a5941614912b386",
-      "Name": "crm",
+      "Id": "2614799098",
+      "Name": "CRM",
       "Label": "CRM",
-      "Description": "CRM Pudo. Application cœur du domaine Pudo basée sur le CRM Salesforce dont lobjet account représente un relais. Elle porte les référentiels Pudo et Réseau. Elle peut gérer lintégralité cycles de vie des Pudo, de la prospection à la fin dactivité en passant par lanimation des relais et la gestion des tickets ainsi que la gestion des réseaux.",
-      "Type": "SaaS"
+      "Description": "CRM Pudo. Application cour du domaine Pudo bas�e sur le CRM Salesforce dont l'objet account repr�sente un relais. Elle porte les r�f�rentiels Pudo et R�seau. Elle peut g�rer l'int�gralit� cycles de vie des Pudo, de la prospection � la fin d'activit� en passant par l'animation des relais et la gestion des tickets ainsi que la gestion des r�seaux.",
+      "Technologie": null,
+      "Type": "SaaS",
+      "trigram": "crm"
     },
     {
-      "Id": "bce1e638776b469fb4545c0dc0291bf7",
-      "Name": "cti",
-      "Label": "Keyyo CTI",
-      "Description": "Solution de gestion de la téléphonie sur IP permettant intégrer avec le CRM Salesforce : \n- La double écoute des conversations\n- Lenregistrement des conversations\n- Reconnaissance des numéros de téléphone de lancement de lappel\n- Consigne des taches dappels dans le CRM avec résultat",
-      "Type": "SaaS"
+      "Id": "674972948",
+      "Name": "CRM v2",
+      "Label": "CRM v2",
+      "Description": "Nouvelle version du CRM Pudo. Application cour du domaine Pudo bas�e sur le CRM Salesforce dont l'objet account repr�sente notamment un relais. Elle porte les r�f�rentiels Pudo et R�seau. Elle peut g�rer l'int�gralit� cycles de vie des Pudo, de la prospection � la fin d'activit� en passant par l'animation des relais et la gestion des tickets ainsi que la gestion des r�seaux.",
+      "Technologie": null,
+      "Type": "SaaS",
+      "trigram": "cr2"
     },
     {
-      "Id": "c7630dbae96c4ef5a0ec4834ee2c04dd",
-      "Name": "efo",
-      "Label": "E-formation",
-      "Description": "E-formation est une application offrant des contenus de formation aux Points-relais dont léditeur est Aptilink. Elle est accessible depuis le web via un navigateur et mobile depuis lapplication PSSA Scan (installée sur le PDA).",
-      "Technologie": "Mobile",
-      "Type": "SaaS"
-    },
-    {
-      "Id": "d8cb2d642b6c4851ac9fa40fa3925d5b",
-      "Name": "eft",
-      "Label": "Excel Facturation Transporteur",
-      "Description": "Fichier Excel utilisé par la personne en charge de la facturation des transporteurs, notamment pour la valorisation des activités.",
-      "Type": "Bureautique"
-    },
-    {
-      "Id": "e516e883f1264fa483544d0eef6c243d",
-      "Name": "elo",
-      "Label": "Eloquant",
-      "Description": "Envoi de messages voix",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "ed2b45b672c04acf831bd0d8bb77ade0",
-      "Name": "est",
-      "Label": "Esteria",
-      "Description": "Partenaire pour lenvoi des SMS Baltes.",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "f942bc0b2844497ab833066cdd5bab55",
-      "Name": "etd",
-      "Label": "Etudes",
-      "Description": "(En réflexion non développé !!!) La base étude sert le besoin doutillage pour le réseau pour étudier lopportunité de marché sur le maillage, les nouveaux services, etc...",
-      "Type": "Interne"
-    },
-    {
-      "Id": "97a8e501c9e449ce8ff1f74ffd95d179",
-      "Name": "fac",
-      "Label": "Facturation",
-      "Description": "Application de facturation des transporteurs (au nombre de colis et au poids) ainsi que lauto-facturation des points relais (indemnisation en fonction des colis traités).",
-      "Type": "Interne"
-    },
-    {
-      "Id": "f73d52b14463413b981c59e0f2ba7b58",
-      "Name": "fak",
-      "Label": "Facturation NG",
-      "Description": "Application de facturation des transporteurs (au nombre de colis et au poids) ainsi que lauto-facturation des points relais (indemnisation en fonction des colis traités).\n\nLapplication salimente de colis 21 et avisage 21\n",
-      "Technologie": "DOT.NET",
-      "Type": "Interne"
-    },
-    {
-      "Id": "f2d110e30e064e65897a6ff045c7cea2",
-      "Name": "flm",
-      "Label": "Fleet Manager",
-      "Description": "Nouvelle gestion matérielle, attribution device pickup à un PUDO",
-      "Type": "SaaS"
-    },
-    {
-      "Id": "0a0104942fa94cefbcff0b052472aae3",
-      "Name": "FPT",
-      "Label": "SI FermoPoint",
-      "Description": "SI Fermopoint matérialise la relation opérateur de points existants en Italie pour la gestion des points relais pour le compte du transporteur BRT de DPD Group",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "3ada1d6e1b4b4772a9c4a64a900c6964",
-      "Name": "ggm",
-      "Label": "Google Maps",
-      "Description": "Utilisation des cartes googles",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "715fe61643b2461493e4623088383e0b",
-      "Name": "glp",
-      "Label": "GLPI",
-      "Description": "Application utilisée par la production pour la gestion des tickets, mais aussi par le métier notamment dans le cas dopération de masse sur les points relais.",
-      "Type": "Infrastructure"
-    },
-    {
-      "Id": "6ca306ffd43440578f8f7690b9282ab7",
-      "Name": "gma",
-      "Label": "Gestion Materiels",
-      "Description": "Gestion matériels pickup (pdas, sacoches, etc.). Comprend la gestion des anomalies matérielles (PDA).",
-      "Type": "Utilisateur"
-    },
-    {
-      "Id": "130d94ef882e40cdbe19ae70007a5759",
-      "Name": "gpo",
-      "Label": "Geopost CPM",
-      "Description": "Remplacé par le nouveau portail sur la nouvelle structure.",
-      "Type": "Interne"
-    },
-    {
-      "Id": "cdf7a60c32a846da9f1e78678332317c",
-      "Name": "hub",
-      "Label": "HubPickup",
-      "Description": "Application listant des liens vers les applications en fonction des pays et opérateurs",
-      "Type": "Interne"
-    },
-    {
-      "Id": "bab9101994324af980b336e75c7b52d1",
-      "Name": "inf",
-      "Label": "Infobip",
-      "Description": "Envoi de sms",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "0e1629de688f4428b68d22a12e65b834",
-      "Name": "ism",
-      "Label": "Instances-Mixtes",
-      "Description": "Application de suggestion de points backup à une livraison domicile, elle permet aussi à la réception dun colis inconnu dans un Pudo de renseigner les informations sur celui-ci. Cette application possède sa propre base SQL/server.",
-      "Type": "Interne"
-    },
-    {
-      "Id": "49470fe73b0b4ee295e6d935255cf04a",
-      "Name": "isu",
-      "Label": "Identity Server",
-      "Description": "Application de gestion des authentifications, pour les utilisateurs externes (Pudo) et pour les partenaires du C2C.",
-      "Type": "Infrastructure"
-    },
-    {
-      "Id": "934aed91ce03495c81f783d6f060683f",
-      "Name": "kel",
-      "Label": "Kelio",
-      "Description": "Application de gestion des absences des collaborateurs pickup",
-      "Type": "SaaS"
-    },
-    {
-      "Id": "e87b05e3bd5443e1859745f6c9aac1a6",
-      "Name": "ker",
-      "Label": "Kern",
-      "Description": "Lapplication Kern est la déclinaison du gestionnaire de parc consigne NISS pour le périmètre des consignes en bureaux de poste",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "7cf07e4cd4cf401b861284745c185c1e",
-      "Name": "krw",
-      "Label": "Krawler",
-      "Description": "Cest lapplication qui analyse les sites concurrents de Pickup (Mondial Relay, Kiala, UPS,...) pour collecter tous les points relais de ces derniers. Elle intègre notamment lanalyse des sites chargeurs pour collecter tous les points-relais proposés par ces derniers.",
-      "Type": "Interne"
-    },
-    {
-      "Id": "61a1b97750d745439483ca6a3d4b46f6",
-      "Name": "ler",
-      "Label": "Le réseau (La poste)",
-      "Description": "Le réseau La Poste. Est une application générique pour représenter lopérateur de point de type agence postale",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "cb8a9255b6d74b62aca7a244157feec6",
-      "Name": "loc",
-      "Label": "Locker Gate",
-      "Description": "Cette plateforme de communication technique prend en charge les appels de la part des consignes.\nLapplication a pour rôle de prendre en charge les appels et de tracer la consommation.\n",
-      "Technologie": ".NET",
-      "Type": "Infrastructure"
-    },
-    {
-      "Id": "84387f078569488f8fcbc6e1ca3a6a0f",
-      "Name": "map",
-      "Label": "MapPickup",
-      "Description": "MapPickup est le composant cartographique de recherche et affichage des Pudos. Ce composant est intégré sur le site web Pickup.fr",
-      "Type": "Interne"
-    },
-    {
-      "Id": "9b54b711b19a46cc9bb7f52c19f391a2",
-      "Name": "mdm",
-      "Label": "WAMUS Mobile Device Management",
-      "Description": "Outil de gestion de versions de(s) application(s) pickup des pudo Android",
-      "Type": "Interne"
-    },
-    {
-      "Id": "f12e1f7913b94736bd5206e01073edcc",
-      "Name": "mev",
-      "Label": "Maileva",
-      "Description": "Plateforme partenaire pour limpression et la mise sous pli des factures Pudo.",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "75a521537c4a43549a9025d2cfd3f258",
-      "Name": "mon",
-      "Label": "Monoprix",
-      "Description": "Partenaire monoprix",
-      "Type": "Utilisateur"
-    },
-    {
-      "Id": "ebdedc350d2b49aead1b93b2d4d6d018",
-      "Name": "mpa",
-      "Label": "MyParcel",
-      "Description": "Application multi-magasin (basée sur le projet Pickup Store V1) permettant à des clients en magasin (grande surface, dans un premier temps monoprix) de faire la réception dun colis à partir dune borne en étant muni de leur référence client/QR code.\nPassera en POC/Prod dans 5 magasins monoprix (une fois la validation de leur CE obtenu)\n",
-      "Type": "Interne"
-    },
-    {
-      "Id": "9c155b2cb76040b399586d1b33a92c1f",
-      "Name": "mpu",
-      "Label": "Message Pudo",
-      "Description": "Interactions avec les périphériques de moyen de scan du pudo sous forme de message : \ninformations, message bloquant,... (futur: questionnaire) \nretourne un acquitement  \n",
-      "Technologie": ".Net et SQLServer",
-      "Type": "Interne"
-    },
-    {
-      "Id": "828fb7b519bf4e66b96c23fdf096d95d",
-      "Name": "mup",
-      "Label": "MUP",
-      "Description": "Gestion des mises à jour des devices (Multi Update Platform)",
-      "Type": "Interne"
-    },
-    {
-      "Id": "1c9f7c733014430aabf30497c02a27af",
-      "Name": "myp",
-      "Label": "MyPudo",
-      "Description": "Suggestion de points synchrone par webservice.",
-      "Type": "Interne"
-    },
-    {
-      "Id": "394bb9246b934b8f8c7c8d7cc76b445d",
-      "Name": "neo",
-      "Label": "ERP Neopost",
-      "Description": "Application Neopost de gestion, notamment pour la partie facturation.",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "0b6f2bbbf755428298a54b08e94a1ff5",
-      "Name": "nis",
-      "Label": "NISS",
-      "Description": "Application centrale Neopost, développée par Neopost, pour la gestion du service consigne, et notamment des flux. Cette application est le point de contact entre Pickup-Services et Neopost.",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "dd1aefbb77e54a009dffe2250edd9bd9",
-      "Name": "oci",
-      "Label": "Ocito",
-      "Description": "Envoi des SMS davisage aux clients finaux.",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "beded5b0e382445cab9f5da5a95e3bb9",
-      "Name": "off",
-      "Label": "Microsoft Office",
-      "Type": "Bureautique"
-    },
-    {
-      "Id": "1b8f4b34cd214b95919aa30dcda1459c",
-      "Name": "opt",
-      "Label": "Optitime",
-      "Description": "Organisation des tournées des animateurs",
-      "Type": "Progiciel"
-    },
-    {
-      "Id": "b60067414f6a430cbbba9975123beaab",
-      "Name": "ost",
-      "Label": "OSTIUM",
-      "Description": "Application utilisée par NeoPost et développé par KEBA de gestion des consignes et la communication avec ces dernières.",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "4fe4349785f249d9a6e6c92b0ff34cdf",
-      "Name": "pay",
-      "Label": "Paypal",
-      "Description": "Perstataire de paiement en ligne",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "0a7ec45bd9f9464ebe81d6f675ca9725",
-      "Name": "pco",
-      "Label": "Pudo-Colis",
-      "Description": "Nouvelle plateforme pour la gestion du cycle de vie du Pudo et du Colis.",
-      "Type": "Interne"
-    },
-    {
-      "Id": "a6b17e3b76214fa58f9faca2c642b272",
-      "Name": "PCU",
-      "Label": "Pickup Churn futur résiliant",
-      "Description": "Application de Machine Learning pour la détection des futurs résilients",
-      "Technologie": "Python",
-      "Type": "Interne"
-    },
-    {
-      "Id": "03dd60e188894735af424459642456f4",
-      "Name": "pda",
-      "Label": "Télécollecte",
-      "Description": "Gestion de la télécollecte des informations des PDAs, aussi appelée Admin-sync. Pour lAustralie, lapplication nest pas hébergée par Pickup. Repose sur de nombreux répertoires FTP permettant les échanges, sur lesquels les PDA et Pudo-Colis se connecte directement.",
-      "Type": "Interne"
-    },
-    {
-      "Id": "db8e9ede7bfa4e14a603ec3a3330f70b",
-      "Name": "pit",
-      "Label": "PickIT",
-      "Description": "Module de gestion et de supervision de stock et de réapprovisionnement de un ou plusieurs articles (sacoches bleues et grises, …). Cette application nest utilisée pour linstant que pour la France.",
-      "Type": "Interne"
-    },
-    {
-      "Id": "864a64b8df73479fa012dba8bfcaf836",
-      "Name": "pka",
-      "Label": "PickAction",
-      "Description": "Configuration des actions PDA par Pudo",
-      "Type": "Interne"
-    },
-    {
-      "Id": "06174347dbc3448fb1e8cbf0f22bdb52",
-      "Name": "pkt",
-      "Label": "PickTalk",
-      "Description": "Attention, la notion dapplication est ici un peu biaisée, PickTalk apparaît dans cette liste pour des raisons de facilité de compréhension, car celui-ci est plutôt un service dinfrastructure quune application dans le sens métier du terme.",
-      "Type": "Infrastructure"
-    },
-    {
-      "Id": "31b5e7ba4d2f47f7b3f6eacbb64d3d4d",
-      "Name": "prc",
-      "Label": "Prospects-candidatures",
-      "Description": "Gestion des prospects et des candidatures spontanées, affiché notamment en iFrame sur le site Pickup.Fr et Pickup-Services.Com",
-      "Type": "Interne"
-    },
-    {
-      "Id": "075548109da846758dcf52d54a6f6287",
-      "Name": "psc",
-      "Label": "PSSA Scan",
-      "Description": "Application hybride Cordova pour le scan dans les pudos. Soccupe aussi de la mise à jour",
-      "Type": "Interne"
-    },
-    {
-      "Id": "d1fa0935acf340788aae7eb675509dcd",
-      "Name": "pse",
-      "Label": "Portail Sécurité",
-      "Description": "Application de sécurité utiliser pour gérer les utilisateurs internes à Pickup (animateurs, …) pour leur permettre une utilisation des applications internes. Utilisé par le module Visu Colis (de lapplication Pudo-Colis) et lapplication FleetManager actuellement.",
-      "Type": "Infrastructure"
-    },
-    {
-      "Id": "14d415579073415ea7ae7e26b19d0077",
-      "Name": "ptv",
-      "Label": "PTV",
-      "Description": "Fournisseur dinformations de géocodage.",
-      "Type": "Progiciel"
-    },
-    {
-      "Id": "942150c6f1c144a98b56b0880e67bb05",
-      "Name": "pub",
-      "Label": "Publipostage",
-      "Description": "Génération de documents, notamment des contrats pour le relais.",
-      "Type": "Interne"
-    },
-    {
-      "Id": "4175ffe0fd40458a905f6ec19871a242",
-      "Name": "puf",
-      "Label": "Pickup.Fr",
-      "Description": "Extranet Pudo",
-      "Type": "Interne"
-    },
-    {
-      "Id": "1e5726eff20b4ab0ac6aba05f219033a",
-      "Name": "put",
-      "Label": "Pickup 360",
-      "Description": "Application de gestion des anomalies colis",
-      "Type": "Interne"
-    },
-    {
-      "Id": "86265273bcbf4a2ab721b457d6a3aa35",
-      "Name": "qlk",
-      "Label": "Qlikview",
-      "Description": "Décisionnel Pickup.",
-      "Type": "Progiciel"
-    },
-    {
-      "Id": "e4399631aa6e44759fa87bb208911ec6",
-      "Name": "rar",
-      "Label": "Reporting AR",
-      "Description": "Reporting Pudo à destination des Animateurs de réseaux.",
-      "Type": "Interne"
-    },
-    {
-      "Id": "45397cb4827141faaebdf72f5f9d03df",
-      "Name": "rcm",
-      "Label": "Excel Mission-Recrutement",
-      "Description": "Feuille Excel permettant la gestion des missions de recrutement.",
-      "Type": "Bureautique"
-    },
-    {
-      "Id": "8841f197e5484954b5ca7742e5de3de1",
-      "Name": "run",
-      "Label": "double run",
-      "Description": "Application technique permettant de comparer des ensembles de colis entre les deux systems colis",
-      "Type": "Interne"
-    },
-    {
-      "Id": "adccd89c4faf407eb676cecc71b9f29b",
-      "Name": "sag",
-      "Label": "SAGE",
-      "Description": "Progiciel de gestion de la comptabilité.",
-      "Type": "Progiciel"
-    },
-    {
-      "Id": "cc8ff077413b4dd490c69dd79a58f418",
-      "Name": "sam",
-      "Label": "Self access management SAM",
-      "Description": "Application en charge de la gestion des activation désactivation des comptes de connexion pour les progiciels.\n\nA ce jour lapplication ne pilote que les jetons du CRM\n",
-      "Technologie": ".Net",
-      "Type": "Interne"
-    },
-    {
-      "Id": "68c6f10ff8eb44a8809f187c855cd94d",
-      "Name": "sap",
-      "Label": "SAGE Paye",
-      "Description": "Application SAGE pour la paye, hébergée chez Global SP.",
-      "Type": "Progiciel"
-    },
-    {
-      "Id": "dae5f9d6a4534d3d93395f3c91cc4917",
-      "Name": "sar",
-      "Label": "Sarbacane",
-      "Description": "Permet de mener des campagnes emailing et sms\n",
-      "Type": "SaaS"
-    },
-    {
-      "Id": "b3596423f684470c92f034b00cb9d387",
-      "Name": "scc",
-      "Label": "Scan Contrats",
-      "Description": "Application de scan des contrats et de gestion électronique de documents (GED) pour larchivage des documents juridiques et des contrats des Pudos.",
-      "Type": "Interne"
-    },
-    {
-      "Id": "e6b9b5547cc8450184d385db36b66108",
-      "Name": "sch",
-      "Label": "Site chargeur",
-      "Description": "Site web du chargeur analysé par le Krawler.",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "af822843ce0e4d3a8ffbf14d3267f2d4",
-      "Name": "sco",
-      "Label": "Site concurrent",
-      "Description": "Site web du concurrent analysé par le Krawler.",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "1f47463035e84631a3bef2feb3c34016",
-      "Name": "sid",
-      "Label": "Décisionnel pickup",
-      "Description": "Le but de cet entrepot de donnée est de fournir un ensemble de données servant de référence unique, utilisée pour la prise de décisions dans lentreprise par le biais de statistiques et de rapports réalisés via des outils de reporting. Dun point de vue technique, il sert surtout à délester les bases de données opérationnelles des requêtes pouvant nuire à leurs performances.",
+      "Id": "2116325230",
+      "Name": "D�cisionnel pickup",
+      "Label": "D�cisionnel pickup",
+      "Description": "Le but de cet entrepot de donn�e est de fournir un ensemble de donn�es servant de r�f�rence unique, utilis�e pour la prise de d�cisions dans l'entreprise par le biais de statistiques et de rapports r�alis�s via des outils de reporting. D'un point de vue technique, il sert surtout � 'd�lester' les bases de donn�es op�rationnelles des requ�tes pouvant nuire � leurs performances.",
       "Technologie": "Sql server, Cube, PowerBI",
-      "Type": "Interne"
+      "Type": "Interne",
+      "trigram": "sid"
     },
     {
-      "Id": "7fd3aab60cec4254acb71d49f6518115",
-      "Name": "sip",
-      "Label": "SI Partenaire",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "11ca6c8c10c8495c85c9e8deb6067516",
-      "Name": "smt",
-      "Label": "Serveur SMTP",
-      "Description": "Serveut SMTP crée pour lenvoi demail de notification au client navette C2C",
-      "Type": "Infrastructure"
-    },
-    {
-      "Id": "25cb53630fb94b9e81a426d690fa4727",
-      "Name": "snp",
-      "Label": "SI Neopost",
-      "Description": "Système dinformation du partenaire Neopost, utilisé pour la gestion du parc de consigne.",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "b12292d6843c4c7daec4b3382c410762",
-      "Name": "spl",
-      "Label": "SI Splio",
-      "Description": "Partenaire pour la passerelle denvoi de mail.",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "0ad87041986b4bc0a86354c9af1711b0",
-      "Name": "str",
-      "Label": "Stuart",
-      "Description": "Prestation pour la livraison dernier kilomètre",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "b6c6aa35479142e29616f8c86f57727f",
-      "Name": "tcg",
-      "Label": "Téléconfig",
-      "Description": "Application en charge de mettre en forme puis diffuser la configuration fonctionnelle à un moyen de scan.",
-      "Type": "Interne"
-    },
-    {
-      "Id": "fd21963eab454209ab5b6c84f874facf",
-      "Name": "tia",
-      "Label": "Kraken",
-      "Description": "Le Kraken est un ensemble doutils permettant de réaliser des cas tests logiciels.\nIl est composé dun encéphale qui permet dorchestrer les exécutions tests et de tentacules qui réalisent les étapes qui composent un cas de tests.",
-      "Technologie": ".Net",
-      "Type": "Infrastructure"
-    },
-    {
-      "Id": "4ff66ac3e9d64242b62fef2c23b8ce0d",
-      "Name": "tkm",
-      "Label": "Ticket Manager",
-      "Description": "Gestion des tickets de supports",
-      "Type": "Interne"
-    },
-    {
-      "Id": "50232dd365914ad7a61c5df8f098eef7",
-      "Name": "tso",
-      "Label": "TalentSoft",
-      "Description": "Application de gestion des entretiens annuels RH.",
-      "Type": "SaaS"
-    },
-    {
-      "Id": "d5d78ba42c894d80ae36ae7e7cfb1897",
-      "Name": "tsp",
-      "Label": "SI Transporteur",
-      "Description": "Modélisation de la notion de transporteur de façon générale. Pour avoir plus de détail selon les pays, se référer aux vues des déclinaisons de cette notion. Par exemple, sur le périmètre France, lapplication transporteur est déclinée en 3, Chronopost, Coliposte et DPD France.",
-      "Type": "Partenaire"
-    },
-    {
-      "Id": "fcf28054a085437e9cdb859358c0fe1b",
-      "Name": "ude",
+      "Id": "1851656100",
+      "Name": "Destinataire Colis",
       "Label": "Destinataire Colis",
       "Description": "Interlocuteur destinataire du Colis",
-      "Type": "Utilisateur"
+      "Technologie": null,
+      "Type": "Utilisateur",
+      "trigram": "ude"
     },
     {
-      "Id": "8e623af85e764e559094ae4a290fc976",
-      "Name": "udo",
-      "Label": "Utilisateur DOR",
-      "Type": "Utilisateur"
+      "Id": "3928803171",
+      "Name": "double run",
+      "Label": "double run",
+      "Description": "Application technique permettant de comparer des ensembles de colis entre les deux systems colis",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "run"
     },
     {
-      "Id": "0cf23a6d06bd40c0b0410818721f2878",
-      "Name": "upi",
-      "Label": "Utilisateur Pickup",
-      "Description": "Employé de Pickup-Services.",
-      "Type": "Utilisateur"
+      "Id": "1913492051",
+      "Name": "E-formation",
+      "Label": "E-formation",
+      "Description": "E-formation est une application offrant des contenus de formation aux Points-relais dont l'�diteur est Aptilink. Elle est accessible depuis le web via un navigateur et mobile depuis l'application PSSA Scan (install�e sur le PDA).",
+      "Technologie": "Mobile",
+      "Type": "SaaS",
+      "trigram": "efo"
     },
     {
-      "Id": "54ce6e4e3e5442d0b3ed926034501117",
-      "Name": "ust",
-      "Label": "Url shortener",
-      "Description": "Url Shortener est un front chargé de transformer une adresse URL longue en une adresse URL courte et de faire la redirection.\nElle est utilisée dans le cadre des envois de message PDA avec un lien vers une application (par exemple, MyParcel pour la demande de préparation de commande)\n",
-      "Type": "Interne"
+      "Id": "902635874",
+      "Name": "Eloquant",
+      "Label": "Eloquant",
+      "Description": "Envoi de messages voix",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "elo"
     },
     {
-      "Id": "4caf4e1930774b999d2a539617d6c3df",
-      "Name": "vgd",
-      "Label": "Visual Guard",
-      "Description": "Tiers de confiance (authentification, sécurtés applicatifs)",
-      "Type": "Progiciel"
+      "Id": "1163732957",
+      "Name": "ERP Neopost",
+      "Label": "ERP Neopost",
+      "Description": "Application Neopost de gestion, notamment pour la partie facturation.",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "neo"
     },
     {
-      "Id": "5bc0358f0d5e4d16a3a9721a153abec2",
-      "Name": "wbh",
+      "Id": "268550003",
+      "Name": "Esteria",
+      "Label": "Esteria",
+      "Description": "Partenaire pour l'envoi des SMS Baltes.",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "est"
+    },
+    {
+      "Id": "655422835",
+      "Name": "Etudes",
+      "Label": "Etudes",
+      "Description": "(En r�flexion non d�velopp� !!!) La base �tude sert le besoin d'outillage pour le r�seau pour �tudier l'opportunit� de march� sur le maillage, les nouveaux services, etc...",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "etd"
+    },
+    {
+      "Id": "1098506522",
+      "Name": "Excel Facturation Transporteur",
+      "Label": "Excel Facturation Transporteur",
+      "Description": "Fichier Excel utilis� par la personne en charge de la facturation des transporteurs, notamment pour la valorisation des activit�s.",
+      "Technologie": null,
+      "Type": "Bureautique",
+      "trigram": "eft"
+    },
+    {
+      "Id": "1216534218",
+      "Name": "Excel Mission-Recrutement",
+      "Label": "Excel Mission-Recrutement",
+      "Description": "Feuille Excel permettant la gestion des missions de recrutement.",
+      "Technologie": null,
+      "Type": "Bureautique",
+      "trigram": "rcm"
+    },
+    {
+      "Id": "401297722",
+      "Name": "Facturation",
+      "Label": "Facturation",
+      "Description": "Application de facturation des transporteurs (au nombre de colis et au poids) ainsi que l'auto-facturation des points relais (indemnisation en fonction des colis trait�s).",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "fac"
+    },
+    {
+      "Id": "1353976029",
+      "Name": "Facturation NG",
+      "Label": "Facturation NG",
+      "Description": "Application de facturation des transporteurs (au nombre de colis et au poids) ainsi que l'auto-facturation des points relais (indemnisation en fonction des colis trait�s).\n\nL'application s'alimente de colis 21 et avisage 21\n",
+      "Technologie": "DOT.NET",
+      "Type": "Interne",
+      "trigram": "fak"
+    },
+    {
+      "Id": "2283562250",
+      "Name": "Fleet Manager",
+      "Label": "Fleet Manager",
+      "Description": "Nouvelle gestion mat�rielle, attribution device pickup � un PUDO",
+      "Technologie": null,
+      "Type": "SaaS",
+      "trigram": "flm"
+    },
+    {
+      "Id": "3603353753",
+      "Name": "Geopost CPM",
+      "Label": "Geopost CPM",
+      "Description": "Remplac� par le nouveau portail sur la nouvelle structure.",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "gpo"
+    },
+    {
+      "Id": "1981280032",
+      "Name": "Gestion Materiels",
+      "Label": "Gestion Materiels",
+      "Description": "Gestion mat�riels pickup (pda's, sacoches, etc.). Comprend la gestion des anomalies mat�rielles (PDA).",
+      "Technologie": null,
+      "Type": "Utilisateur",
+      "trigram": "gma"
+    },
+    {
+      "Id": "3710485224",
+      "Name": "GLPI",
+      "Label": "GLPI",
+      "Description": "Application utilis�e par la production pour la gestion des tickets, mais aussi par le m�tier notamment dans le cas d'op�ration de masse sur les points relais.",
+      "Technologie": null,
+      "Type": "Infrastructure",
+      "trigram": "glp"
+    },
+    {
+      "Id": "1547639251",
+      "Name": "Google Maps",
+      "Label": "Google Maps",
+      "Description": "Utilisation des cartes googles",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "ggm"
+    },
+    {
+      "Id": "158821748",
+      "Name": "HubPickup",
+      "Label": "HubPickup",
+      "Description": "Application listant des liens vers les applications en fonction des pays et op�rateurs",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "hub"
+    },
+    {
+      "Id": "974025626",
+      "Name": "Identity Server",
+      "Label": "Identity Server",
+      "Description": "Application de gestion des authentifications, pour les utilisateurs externes (Pudo) et pour les partenaires du C2C.",
+      "Technologie": null,
+      "Type": "Infrastructure",
+      "trigram": "isu"
+    },
+    {
+      "Id": "1809998662",
+      "Name": "Infobip",
+      "Label": "Infobip",
+      "Description": "Envoi de sms",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "inf"
+    },
+    {
+      "Id": "4127685395",
+      "Name": "Instances-Mixtes",
+      "Label": "Instances-Mixtes",
+      "Description": "Application de suggestion de points backup � une livraison domicile, elle permet aussi � la r�ception d'un colis inconnu dans un Pudo de renseigner les informations sur celui-ci. Cette application poss�de sa propre base SQL/server.",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "ism"
+    },
+    {
+      "Id": "214378515",
+      "Name": "Kelio",
+      "Label": "Kelio",
+      "Description": "Application de gestion des absences des collaborateurs pickup",
+      "Technologie": null,
+      "Type": "SaaS",
+      "trigram": "kel"
+    },
+    {
+      "Id": "880603646",
+      "Name": "Kern",
+      "Label": "Kern",
+      "Description": "L'application Kern est la d�clinaison du gestionnaire de parc consigne NISS pour le p�rim�tre des consignes en bureaux de poste",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "ker"
+    },
+    {
+      "Id": "3207276883",
+      "Name": "Keyyo CTI",
+      "Label": "Keyyo CTI",
+      "Description": "Solution de gestion de la t�l�phonie sur IP permettant int�grer avec le CRM Salesforce : \n- La double �coute des conversations\n- L'enregistrement des conversations\n- Reconnaissance des num�ros de t�l�phone de lancement de l'appel\n- Consigne des taches d'appels dans le CRM avec r�sultat",
+      "Technologie": null,
+      "Type": "SaaS",
+      "trigram": "cti"
+    },
+    {
+      "Id": "628853391",
+      "Name": "Kraken",
+      "Label": "Kraken",
+      "Description": "Le Kraken est un ensemble d'outils permettant de r�aliser des cas tests logiciels.\nIl est compos� d'un enc�phale qui permet d'orchestrer les ex�cutions tests et de tentacules qui r�alisent les �tapes qui composent un cas de tests.",
+      "Technologie": ".Net",
+      "Type": "Infrastructure",
+      "trigram": "tia"
+    },
+    {
+      "Id": "3888189637",
+      "Name": "Krawler",
+      "Label": "Krawler",
+      "Description": "C'est l'application qui analyse les sites concurrents de Pickup (Mondial Relay, Kiala, UPS,...) pour collecter tous les points relais de ces derniers. Elle int�gre notamment l'analyse des sites chargeurs pour collecter tous les points-relais propos�s par ces derniers.",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "krw"
+    },
+    {
+      "Id": "1720574696",
+      "Name": "Le r�seau (La poste)",
+      "Label": "Le r�seau (La poste)",
+      "Description": "Le r�seau La Poste. Est une application g�n�rique pour repr�senter l'op�rateur de point de type agence postale",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "ler"
+    },
+    {
+      "Id": "1041897332",
+      "Name": "Locker Gate",
+      "Label": "Locker Gate",
+      "Description": "Cette plateforme de communication technique prend en charge les appels de la part des consignes.\nL'application a pour r�le de prendre en charge les appels et de tracer la consommation.\n",
+      "Technologie": ".NET",
+      "Type": "Infrastructure",
+      "trigram": "loc"
+    },
+    {
+      "Id": "1555821910",
+      "Name": "Maileva",
+      "Label": "Maileva",
+      "Description": "Plateforme partenaire pour l'impression et la mise sous pli des factures Pudo.",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "mev"
+    },
+    {
+      "Id": "1263573517",
+      "Name": "MapPickup",
+      "Label": "MapPickup",
+      "Description": "MapPickup est le composant cartographique de recherche et affichage des Pudos. Ce composant est int�gr� sur le site web Pickup.fr",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "map"
+    },
+    {
+      "Id": "2692977735",
+      "Name": "Message Pudo",
+      "Label": "Message Pudo",
+      "Description": "Interactions avec les p�riph�riques de moyen de scan du pudo sous forme de message : \ninformations, message bloquant,... (futur: questionnaire) \nretourne un acquitement  \n",
+      "Technologie": ".Net et SQLServer",
+      "Type": "Interne",
+      "trigram": "mpu"
+    },
+    {
+      "Id": "2795005999",
+      "Name": "Microsoft Office",
+      "Label": "Microsoft Office",
+      "Description": null,
+      "Technologie": null,
+      "Type": "Bureautique",
+      "trigram": "off"
+    },
+    {
+      "Id": "2886069755",
+      "Name": "Monoprix",
+      "Label": "Monoprix",
+      "Description": "Partenaire monoprix",
+      "Technologie": null,
+      "Type": "Utilisateur",
+      "trigram": "mon"
+    },
+    {
+      "Id": "3171122670",
+      "Name": "MUP",
+      "Label": "MUP",
+      "Description": "Gestion des mises � jour des devices (Multi Update Platform)",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "mup"
+    },
+    {
+      "Id": "795149112",
+      "Name": "MyParcel",
+      "Label": "MyParcel",
+      "Description": "Application multi-magasin (bas�e sur le projet Pickup Store V1) permettant � des clients en magasin (grande surface, dans un premier temps monoprix) de faire la r�ception d'un colis � partir d'une borne en �tant muni de leur r�f�rence client/QR code.\nPassera en POC/Prod dans 5 magasins monoprix (une fois la validation de leur CE obtenu)\n",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "mpa"
+    },
+    {
+      "Id": "351528916",
+      "Name": "MyPudo",
+      "Label": "MyPudo",
+      "Description": "Suggestion de points synchrone par webservice.",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "myp"
+    },
+    {
+      "Id": "1889903920",
+      "Name": "NISS",
+      "Label": "NISS",
+      "Description": "Application centrale Neopost, d�velopp�e par Neopost, pour la gestion du service consigne, et notamment des flux. Cette application est le point de contact entre Pickup-Services et Neopost.",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "nis"
+    },
+    {
+      "Id": "629899256",
+      "Name": "Ocito",
+      "Label": "Ocito",
+      "Description": "Envoi des SMS d'avisage aux clients finaux.",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "oci"
+    },
+    {
+      "Id": "3401621735",
+      "Name": "Optitime",
+      "Label": "Optitime",
+      "Description": "Organisation des tourn�es des animateurs",
+      "Technologie": null,
+      "Type": "Progiciel",
+      "trigram": "opt"
+    },
+    {
+      "Id": "872599809",
+      "Name": "OSTIUM",
+      "Label": "OSTIUM",
+      "Description": "Application utilis�e par NeoPost et d�velopp� par KEBA de gestion des consignes et la communication avec ces derni�res.",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "ost"
+    },
+    {
+      "Id": "575582858",
+      "Name": "Parcel Locker",
+      "Label": "Parcel Locker",
+      "Description": "Application des consignes, donc par nature distribu�e. Les consignes communiquent via 3G. Le logiciel est d�velopp� par KEBA.",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "con"
+    },
+    {
+      "Id": "1687552588",
+      "Name": "Paypal",
+      "Label": "Paypal",
+      "Description": "Perstataire de paiement en ligne",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "pay"
+    },
+    {
+      "Id": "3302508647",
+      "Name": "PickAction",
+      "Label": "PickAction",
+      "Description": "Configuration des actions PDA par Pudo",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "pka"
+    },
+    {
+      "Id": "2693046457",
+      "Name": "PickIT",
+      "Label": "PickIT",
+      "Description": "Module de gestion et de supervision de stock et de r�approvisionnement de un ou plusieurs articles (sacoches bleues et grises, .). Cette application n'est utilis�e pour l'instant que pour la France.",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "pit"
+    },
+    {
+      "Id": "163477184",
+      "Name": "PickTalk",
+      "Label": "PickTalk",
+      "Description": "Attention, la notion d'application est ici un peu biais�e, PickTalk appara�t dans cette liste pour des raisons de facilit� de compr�hension, car celui-ci est plut�t un service d'infrastructure qu'une application dans le sens m�tier du terme.",
+      "Technologie": null,
+      "Type": "Infrastructure",
+      "trigram": "pkt"
+    },
+    {
+      "Id": "3532058681",
+      "Name": "Pickup 360",
+      "Label": "Pickup 360",
+      "Description": "Application de gestion des anomalies colis",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "put"
+    },
+    {
+      "Id": "3882094550",
+      "Name": "Pickup Churn futur r�siliant",
+      "Label": "Pickup Churn futur r�siliant",
+      "Description": "Application de Machine Learning pour la d�tection des futurs r�silients",
+      "Technologie": "Python",
+      "Type": "Interne",
+      "trigram": "PCU"
+    },
+    {
+      "Id": "845322408",
+      "Name": "Pickup.Fr",
+      "Label": "Pickup.Fr",
+      "Description": "Extranet Pudo",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "puf"
+    },
+    {
+      "Id": "3320313056",
+      "Name": "Portail S�curit�",
+      "Label": "Portail S�curit�",
+      "Description": "Application de s�curit� utiliser pour g�rer les utilisateurs internes � Pickup (animateurs, .) pour leur permettre une utilisation des applications internes. Utilis� par le module Visu Colis (de l'application Pudo-Colis) et l'application FleetManager actuellement.",
+      "Technologie": null,
+      "Type": "Infrastructure",
+      "trigram": "pse"
+    },
+    {
+      "Id": "3348962032",
+      "Name": "prospecter_de_nouveau_point",
+      "Label": "prospecter_de_nouveau_point",
+      "Description": null,
+      "Technologie": null,
+      "Type": null,
+      "trigram": null
+    },
+    {
+      "Id": "1118323527",
+      "Name": "Prospects-candidatures",
+      "Label": "Prospects-candidatures",
+      "Description": "Gestion des prospects et des candidatures spontan�es, affich� notamment en iFrame sur le site Pickup.Fr et Pickup-Services.Com",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "prc"
+    },
+    {
+      "Id": "3638675823",
+      "Name": "PSSA Scan",
+      "Label": "PSSA Scan",
+      "Description": "Application hybride Cordova pour le scan dans les pudos. S'occupe aussi de la mise � jour",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "psc"
+    },
+    {
+      "Id": "1501944249",
+      "Name": "PTV",
+      "Label": "PTV",
+      "Description": "Fournisseur d'informations de g�ocodage.",
+      "Technologie": null,
+      "Type": "Progiciel",
+      "trigram": "ptv"
+    },
+    {
+      "Id": "1637854615",
+      "Name": "Publipostage",
+      "Label": "Publipostage",
+      "Description": "G�n�ration de documents, notamment des contrats pour le relais.",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "pub"
+    },
+    {
+      "Id": "4117280018",
+      "Name": "Pudo-Colis",
+      "Label": "Pudo-Colis",
+      "Description": "Nouvelle plateforme pour la gestion du cycle de vie du Pudo et du Colis.",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "pco"
+    },
+    {
+      "Id": "1466827946",
+      "Name": "Qlikview",
+      "Label": "Qlikview",
+      "Description": "D�cisionnel Pickup.",
+      "Technologie": null,
+      "Type": "Progiciel",
+      "trigram": "qlk"
+    },
+    {
+      "Id": "679831714",
+      "Name": "Reporting AR",
+      "Label": "Reporting AR",
+      "Description": "Reporting Pudo � destination des Animateurs de r�seaux.",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "rar"
+    },
+    {
+      "Id": "113187278",
+      "Name": "SAGE",
+      "Label": "SAGE",
+      "Description": "Progiciel de gestion de la comptabilit�.",
+      "Technologie": null,
+      "Type": "Progiciel",
+      "trigram": "sag"
+    },
+    {
+      "Id": "3473973111",
+      "Name": "SAGE Paye",
+      "Label": "SAGE Paye",
+      "Description": "Application SAGE pour la paye, h�berg�e chez Global SP.",
+      "Technologie": null,
+      "Type": "Progiciel",
+      "trigram": "sap"
+    },
+    {
+      "Id": "266293297",
+      "Name": "Sarbacane",
+      "Label": "Sarbacane",
+      "Description": "Permet de mener des campagnes emailing et sms\n",
+      "Technologie": null,
+      "Type": "SaaS",
+      "trigram": "sar"
+    },
+    {
+      "Id": "1559868975",
+      "Name": "Scan Contrats",
+      "Label": "Scan Contrats",
+      "Description": "Application de scan des contrats et de gestion �lectronique de documents (GED) pour l'archivage des documents juridiques et des contrats des Pudos.",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "scc"
+    },
+    {
+      "Id": "3563499037",
+      "Name": "Securit� (ADFS)",
+      "Label": "Securit� (ADFS)",
+      "Description": "Gestion des utilisateurs",
+      "Technologie": null,
+      "Type": "Infrastructure",
+      "trigram": "adr"
+    },
+    {
+      "Id": "2833081303",
+      "Name": "Self access management SAM",
+      "Label": "Self access management SAM",
+      "Description": "Application en charge de la gestion des activation d�sactivation des comptes de connexion pour les progiciels.\n\nA ce jour l'application ne pilote que les jetons du CRM\n",
+      "Technologie": ".Net",
+      "Type": "Interne",
+      "trigram": "sam"
+    },
+    {
+      "Id": "2890133310",
+      "Name": "Serveur SMTP",
+      "Label": "Serveur SMTP",
+      "Description": "Serveut SMTP cr�e pour l'envoi d'email de notification au client navette C2C",
+      "Technologie": null,
+      "Type": "Infrastructure",
+      "trigram": "smt"
+    },
+    {
+      "Id": "1508321971",
+      "Name": "SI Banque",
+      "Label": "SI Banque",
+      "Description": "SI du partenaire bancaire.",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "bnq"
+    },
+    {
+      "Id": "3231284386",
+      "Name": "SI Cdiscount",
+      "Label": "SI Cdiscount",
+      "Description": "Dialogue directement avec le SI du partenaire Cdiscount.",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "cdt"
+    },
+    {
+      "Id": "1168412532",
+      "Name": "SI FermoPoint",
+      "Label": "SI FermoPoint",
+      "Description": "SI Fermopoint mat�rialise la relation op�rateur de points existants en Italie pour la gestion des points relais pour le compte du transporteur BRT de DPD Group",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "FPT"
+    },
+    {
+      "Id": "60795506",
+      "Name": "SI Neopost",
+      "Label": "SI Neopost",
+      "Description": "Syst�me d'information du partenaire Neopost, utilis� pour la gestion du parc de consigne.",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "snp"
+    },
+    {
+      "Id": "3538810579",
+      "Name": "SI Partenaire",
+      "Label": "SI Partenaire",
+      "Description": null,
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "sip"
+    },
+    {
+      "Id": "2460348346",
+      "Name": "SI Splio",
+      "Label": "SI Splio",
+      "Description": "Partenaire pour la passerelle d'envoi de mail.",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "spl"
+    },
+    {
+      "Id": "391164149",
+      "Name": "SI Transporteur",
+      "Label": "SI Transporteur",
+      "Description": "Mod�lisation de la notion de transporteur de fa�on g�n�rale. Pour avoir plus de d�tail selon les pays, se r�f�rer aux vues des d�clinaisons de cette notion. Par exemple, sur le p�rim�tre France, l'application transporteur est d�clin�e en 3, Chronopost, Coliposte et DPD France.",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "tsp"
+    },
+    {
+      "Id": "1531217919",
+      "Name": "SI WebHelp",
       "Label": "SI WebHelp",
-      "Description": "Centre dappel pour la relation client.",
-      "Type": "Partenaire"
+      "Description": "Centre d'appel pour la relation client.",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "wbh"
     },
     {
-      "Id": "62d9b21e7ca44afcb35d1f3d3c0dc667",
-      "Name": "wkl",
+      "Id": "1223118215",
+      "Name": "Site chargeur",
+      "Label": "Site chargeur",
+      "Description": "Site web du chargeur analys� par le Krawler.",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "sch"
+    },
+    {
+      "Id": "4125628388",
+      "Name": "Site concurrent",
+      "Label": "Site concurrent",
+      "Description": "Site web du concurrent analys� par le Krawler.",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "sco"
+    },
+    {
+      "Id": "1874052907",
+      "Name": "Stuart",
+      "Label": "Stuart",
+      "Description": "Prestation pour la livraison dernier kilom�tre",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "str"
+    },
+    {
+      "Id": "1771625611",
+      "Name": "TalentSoft",
+      "Label": "TalentSoft",
+      "Description": "Application de gestion des entretiens annuels RH.",
+      "Technologie": null,
+      "Type": "SaaS",
+      "trigram": "tso"
+    },
+    {
+      "Id": "2532551280",
+      "Name": "T�l�collecte",
+      "Label": "T�l�collecte",
+      "Description": "Gestion de la t�l�collecte des informations des PDA's, aussi appel�e Admin-sync. Pour l'Australie, l'application n'est pas h�berg�e par Pickup. Repose sur de nombreux r�pertoires FTP permettant les �changes, sur lesquels les PDA et Pudo-Colis se connecte directement.",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "pda"
+    },
+    {
+      "Id": "1684465741",
+      "Name": "T�l�config",
+      "Label": "T�l�config",
+      "Description": "Application en charge de mettre en forme puis diffuser la configuration fonctionnelle � un moyen de scan.",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "tcg"
+    },
+    {
+      "Id": "2035656945",
+      "Name": "Ticket Manager",
+      "Label": "Ticket Manager",
+      "Description": "Gestion des tickets de supports",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "tkm"
+    },
+    {
+      "Id": "3221209977",
+      "Name": "Url shortener",
+      "Label": "Url shortener",
+      "Description": "Url Shortener est un front charg� de transformer une adresse URL longue en une adresse URL courte et de faire la redirection.\nElle est utilis�e dans le cadre des envois de message PDA avec un lien vers une application (par exemple, MyParcel pour la demande de pr�paration de commande)\n",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "ust"
+    },
+    {
+      "Id": "1899559401",
+      "Name": "Utilisateur DOR",
+      "Label": "Utilisateur DOR",
+      "Description": null,
+      "Technologie": null,
+      "Type": "Utilisateur",
+      "trigram": "udo"
+    },
+    {
+      "Id": "224628159",
+      "Name": "Utilisateur Pickup",
+      "Label": "Utilisateur Pickup",
+      "Description": "Employ� de Pickup-Services.",
+      "Technologie": null,
+      "Type": "Utilisateur",
+      "trigram": "upi"
+    },
+    {
+      "Id": "1186663075",
+      "Name": "Visual Guard",
+      "Label": "Visual Guard",
+      "Description": "Tiers de confiance (authentification, s�curt�s applicatifs)",
+      "Technologie": null,
+      "Type": "Progiciel",
+      "trigram": "vgd"
+    },
+    {
+      "Id": "3679333984",
+      "Name": "WalkMe",
       "Label": "WalkMe",
-      "Description": "Application du catalogue Salesforce pour laide à la saisie des informations",
+      "Description": "Application du catalogue Salesforce pour l'aide � la saisie des informations",
       "Technologie": "JavaScript Salesforce",
-      "Type": "Progiciel"
+      "Type": "Progiciel",
+      "trigram": "wkl"
     },
     {
-      "Id": "a182fcaeb38b4383ac7a3c546aa35517",
-      "Name": "zbc",
+      "Id": "1083564563",
+      "Name": "WAMUS Mobile Device Management",
+      "Label": "WAMUS Mobile Device Management",
+      "Description": "Outil de gestion de versions de(s) application(s) pickup des pudo Android",
+      "Technologie": null,
+      "Type": "Interne",
+      "trigram": "mdm"
+    },
+    {
+      "Id": "4074264936",
+      "Name": "Zabbix Consigne",
       "Label": "Zabbix Consigne",
-      "Description": "Logiciel de monitoring Zabbix installé sur les consignes. Celui-ci fait le monitoring de létat réseau, électricité, mais aussi fait un rapport avec des alarmes sur les casiers ouverts en fonction des logs du logiciel de la consigne Parcel Locker.",
-      "Type": "Partenaire"
+      "Description": "Logiciel de monitoring Zabbix install� sur les consignes. Celui-ci fait le monitoring de l'�tat r�seau, �lectricit�, mais aussi fait un rapport avec des alarmes sur les casiers ouverts en fonction des logs du logiciel de la consigne Parcel Locker.",
+      "Technologie": null,
+      "Type": "Partenaire",
+      "trigram": "zbc"
     }
   ]
 }

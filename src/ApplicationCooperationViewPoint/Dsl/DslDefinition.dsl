@@ -389,7 +389,7 @@
     </GeometryShape>
     <GeometryShape Id="c0e7a566-72f7-42db-a7a1-75e48652eb37" Description="Shape used to represent ExampleElements on a Diagram." Name="ConceptShape" DisplayName="Concept Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" FixedTooltipText="Concept Shape" OutlineColor="Blue" InitialWidth="2" InitialHeight="0.75" OutlineDashStyle="Dash" OutlineThickness="0.01" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="Rectangle">
       <Notes>The shape has a text decorator used to display the Name property of the mapped ExampleElement.</Notes>
-      <ShapeHasDecorators Position="OuterTopCenter" HorizontalOffset="0" VerticalOffset="2">
+      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="2">
         <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontSize="12" />
       </ShapeHasDecorators>
     </GeometryShape>

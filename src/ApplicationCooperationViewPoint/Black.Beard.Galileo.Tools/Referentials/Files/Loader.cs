@@ -99,9 +99,8 @@ namespace Bb.Galileo.Files
 
             if (file.Schema == null)
             {
-
+                file.Parent.Diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, Text = "the schema can't be resolved.", File = file.FullPath });
                 return null;
-
             }
 
             switch (file.Schema.Kind)
@@ -245,8 +244,8 @@ namespace Bb.Galileo.Files
             if (converter.Exception != null)
                 throw converter.Exception;
 
-            if (model.HasChangedOnLoading)
-                model.Save(file.FullPath, Formatting.Indented, converter);
+            //if (model.HasChangedOnLoading)
+            //    model.Save(file.FullPath, Formatting.Indented, converter);
 
             List<ReferentialRelationship> _removed = new List<ReferentialRelationship>();
 
@@ -313,8 +312,8 @@ namespace Bb.Galileo.Files
             if (converter.Exception != null)
                 throw converter.Exception;
 
-            if (model.HasChangedOnLoading)
-                model.Save(file.FullPath, Formatting.Indented, converter);
+            //if (model.HasChangedOnLoading)
+            //    model.Save(file.FullPath, Formatting.Indented, converter);
 
             var items = this._parent.CollectContentOfFile<ReferentialEntity>(file).ToList();
 

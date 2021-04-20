@@ -4,8 +4,6 @@
     {
         string Target { get; set; }
 
-        string InheritFromTarget { get; set; }
-
     }
 
 
