@@ -32,16 +32,16 @@
               </xsd:sequence>
             </xsd:complexType>
           </xsd:element>
-          <!-- Relationship: ModelHasConcept -->
-          <xsd:element name="concept" minOccurs="0" maxOccurs="1">
+          <!-- Relationship: ModelHasConcepts -->
+          <xsd:element name="concepts" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-              <xsd:documentation>Instances of ModelHasConcept</xsd:documentation>
+              <xsd:documentation>Instances of ModelHasConcepts</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element ref="modelHasConcept" minOccurs="0" maxOccurs="unbounded">
+                <xsd:element ref="modelHasConcepts" minOccurs="0" maxOccurs="unbounded">
                   <xsd:annotation>
-                    <xsd:documentation>[Instance of ModelHasConcept needs to be serialized in full-form]</xsd:documentation>
+                    <xsd:documentation>[Instance of ModelHasConcepts needs to be serialized in full-form]</xsd:documentation>
                   </xsd:annotation>
                 </xsd:element>
               </xsd:sequence>
@@ -111,16 +111,16 @@
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
-          <!-- Relationship: ModelElementHasParent -->
-          <xsd:element name="parent" minOccurs="0" maxOccurs="1">
+          <!-- Relationship: ModelElementHasChildren -->
+          <xsd:element name="children" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-              <xsd:documentation>Instances of ModelElementHasParent</xsd:documentation>
+              <xsd:documentation>Instances of ModelElementHasChildren</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element ref="modelElementHasParent" minOccurs="0" maxOccurs="unbounded">
+                <xsd:element ref="modelElementHasChildren" minOccurs="0" maxOccurs="unbounded">
                   <xsd:annotation>
-                    <xsd:documentation>[Instance of ModelElementHasParent needs to be serialized in full-form]</xsd:documentation>
+                    <xsd:documentation>[Instance of ModelElementHasChildren needs to be serialized in full-form]</xsd:documentation>
                   </xsd:annotation>
                 </xsd:element>
               </xsd:sequence>
@@ -142,7 +142,11 @@
         <!-- Property: Type -->
         <xsd:attribute name="type" type="xsd:string" />
         <!-- Property: Name -->
-        <xsd:attribute name="name" type="xsd:string" />
+        <xsd:attribute name="name" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Name of the element</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -225,16 +229,16 @@
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
-          <!-- Relationship: ConceptHasConceptElement -->
-          <xsd:element name="conceptElement" minOccurs="0" maxOccurs="1">
+          <!-- Relationship: ConceptHasChildren -->
+          <xsd:element name="children" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-              <xsd:documentation>Instances of ConceptHasConceptElement</xsd:documentation>
+              <xsd:documentation>Instances of ConceptHasChildren</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element ref="conceptHasConceptElement" minOccurs="0" maxOccurs="unbounded">
+                <xsd:element ref="conceptHasChildren" minOccurs="0" maxOccurs="unbounded">
                   <xsd:annotation>
-                    <xsd:documentation>[Instance of ConceptHasConceptElement needs to be serialized in full-form]</xsd:documentation>
+                    <xsd:documentation>[Instance of ConceptHasChildren needs to be serialized in full-form]</xsd:documentation>
                   </xsd:annotation>
                 </xsd:element>
               </xsd:sequence>
@@ -266,6 +270,8 @@
         <xsd:attribute name="referenceSource" type="xsd:string" />
         <!-- Property: Name -->
         <xsd:attribute name="name" type="xsd:string" />
+        <!-- Property: Type -->
+        <xsd:attribute name="type" type="xsd:string" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -293,16 +299,16 @@
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
-          <!-- Relationship: ConceptElementHasConceptSubElement -->
-          <xsd:element name="conceptSubElement" minOccurs="0" maxOccurs="1">
+          <!-- Relationship: ConceptElementHasChildren -->
+          <xsd:element name="children" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-              <xsd:documentation>Instances of ConceptElementHasConceptSubElement</xsd:documentation>
+              <xsd:documentation>Instances of ConceptElementHasChildren</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element ref="conceptElementHasConceptSubElement" minOccurs="0" maxOccurs="unbounded">
+                <xsd:element ref="conceptElementHasChildren" minOccurs="0" maxOccurs="unbounded">
                   <xsd:annotation>
-                    <xsd:documentation>[Instance of ConceptElementHasConceptSubElement needs to be serialized in full-form]</xsd:documentation>
+                    <xsd:documentation>[Instance of ConceptElementHasChildren needs to be serialized in full-form]</xsd:documentation>
                   </xsd:annotation>
                 </xsd:element>
               </xsd:sequence>
@@ -491,9 +497,9 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- ModelElementHasParent -->
-  <xsd:element name="modelElementHasParent" type="ModelElementHasParent" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="ModelElementHasParent">
+  <!-- ModelElementHasChildren -->
+  <xsd:element name="modelElementHasChildren" type="ModelElementHasChildren" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ModelElementHasChildren">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
@@ -514,11 +520,11 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- ModelElementHasParent Moniker -->
-  <xsd:element name="modelElementHasParentMoniker" type="ModelElementHasParentMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="ModelElementHasParentMoniker">
+  <!-- ModelElementHasChildren Moniker -->
+  <xsd:element name="modelElementHasChildrenMoniker" type="ModelElementHasChildrenMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ModelElementHasChildrenMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for ModelElementHasParent instance.</xsd:documentation>
+      <xsd:documentation>Moniker for ModelElementHasChildren instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
@@ -531,9 +537,9 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- ModelHasConcept -->
-  <xsd:element name="modelHasConcept" type="ModelHasConcept" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="ModelHasConcept">
+  <!-- ModelHasConcepts -->
+  <xsd:element name="modelHasConcepts" type="ModelHasConcepts" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ModelHasConcepts">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
@@ -554,11 +560,11 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- ModelHasConcept Moniker -->
-  <xsd:element name="modelHasConceptMoniker" type="ModelHasConceptMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="ModelHasConceptMoniker">
+  <!-- ModelHasConcepts Moniker -->
+  <xsd:element name="modelHasConceptsMoniker" type="ModelHasConceptsMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ModelHasConceptsMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for ModelHasConcept instance.</xsd:documentation>
+      <xsd:documentation>Moniker for ModelHasConcepts instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
@@ -571,9 +577,9 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- ConceptHasConceptElement -->
-  <xsd:element name="conceptHasConceptElement" type="ConceptHasConceptElement" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="ConceptHasConceptElement">
+  <!-- ConceptHasChildren -->
+  <xsd:element name="conceptHasChildren" type="ConceptHasChildren" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ConceptHasChildren">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
@@ -594,11 +600,11 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- ConceptHasConceptElement Moniker -->
-  <xsd:element name="conceptHasConceptElementMoniker" type="ConceptHasConceptElementMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="ConceptHasConceptElementMoniker">
+  <!-- ConceptHasChildren Moniker -->
+  <xsd:element name="conceptHasChildrenMoniker" type="ConceptHasChildrenMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ConceptHasChildrenMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for ConceptHasConceptElement instance.</xsd:documentation>
+      <xsd:documentation>Moniker for ConceptHasChildren instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
@@ -611,9 +617,9 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- ConceptElementHasConceptSubElement -->
-  <xsd:element name="conceptElementHasConceptSubElement" type="ConceptElementHasConceptSubElement" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="ConceptElementHasConceptSubElement">
+  <!-- ConceptElementHasChildren -->
+  <xsd:element name="conceptElementHasChildren" type="ConceptElementHasChildren" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ConceptElementHasChildren">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
@@ -634,11 +640,11 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- ConceptElementHasConceptSubElement Moniker -->
-  <xsd:element name="conceptElementHasConceptSubElementMoniker" type="ConceptElementHasConceptSubElementMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="ConceptElementHasConceptSubElementMoniker">
+  <!-- ConceptElementHasChildren Moniker -->
+  <xsd:element name="conceptElementHasChildrenMoniker" type="ConceptElementHasChildrenMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ConceptElementHasChildrenMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for ConceptElementHasConceptSubElement instance.</xsd:documentation>
+      <xsd:documentation>Moniker for ConceptElementHasChildren instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">

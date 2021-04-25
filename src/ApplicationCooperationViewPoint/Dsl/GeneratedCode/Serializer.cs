@@ -269,16 +269,16 @@ namespace Bb.ApplicationCooperationViewPoint
 							DslModeling::SerializationUtilities.Skip(reader);  // Skip the close tag of </elements>
 						}
 						break;
-					case "concept":	// Relationship "ModelHasConcept"
+					case "concepts":	// Relationship "ModelHasConcepts"
 						if (reader.IsEmptyElement)
 						{	// No instance of this relationship, just skip
 							DslModeling::SerializationUtilities.Skip(reader);
 						}
 						else
 						{
-							DslModeling::SerializationUtilities.SkipToFirstChild(reader);  // Skip the open tag of <concept>
-							ReadModelHasConceptInstances(serializationContext, element, reader);
-							DslModeling::SerializationUtilities.Skip(reader);  // Skip the close tag of </concept>
+							DslModeling::SerializationUtilities.SkipToFirstChild(reader);  // Skip the open tag of <concepts>
+							ReadModelHasConceptsInstances(serializationContext, element, reader);
+							DslModeling::SerializationUtilities.Skip(reader);  // Skip the close tag of </concepts>
 						}
 						break;
 					case "relationships":	// Relationship "ModelHasRelationships"
@@ -350,7 +350,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// Reads all instances of relationship ModelHasConcept.
+		/// Reads all instances of relationship ModelHasConcepts.
 		/// </summary>
 		/// <remarks>
 		/// The caller will position the reader at the open tag of the first XML element inside the relationship tag, so it can be
@@ -360,32 +360,32 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="element">In-memory Model instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
-		private static void ReadModelHasConceptInstances(DslModeling::SerializationContext serializationContext, Model element, global::System.Xml.XmlReader reader)
+		private static void ReadModelHasConceptsInstances(DslModeling::SerializationContext serializationContext, Model element, global::System.Xml.XmlReader reader)
 		{
 			while (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 			{
-				DslModeling::DomainClassXmlSerializer newModelHasConceptSerializer = serializationContext.Directory.GetSerializer(ModelHasConcept.DomainClassId);
-				global::System.Diagnostics.Debug.Assert(newModelHasConceptSerializer != null, "Cannot find serializer for ModelHasConcept!");
-				ModelHasConcept newModelHasConcept = newModelHasConceptSerializer.TryCreateInstance (serializationContext, reader, element.Partition) as ModelHasConcept;
-				if (newModelHasConcept != null)
+				DslModeling::DomainClassXmlSerializer newModelHasConceptsSerializer = serializationContext.Directory.GetSerializer(ModelHasConcepts.DomainClassId);
+				global::System.Diagnostics.Debug.Assert(newModelHasConceptsSerializer != null, "Cannot find serializer for ModelHasConcepts!");
+				ModelHasConcepts newModelHasConcepts = newModelHasConceptsSerializer.TryCreateInstance (serializationContext, reader, element.Partition) as ModelHasConcepts;
+				if (newModelHasConcepts != null)
 				{
-					DslModeling::DomainRoleInfo.SetRolePlayer (newModelHasConcept, ModelHasConcept.ModelDomainRoleId, element);
-					DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newModelHasConcept.GetDomainClass().Id);	
-					global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newModelHasConcept.GetDomainClass().Name + "!");
-					targetSerializer.Read(serializationContext, newModelHasConcept, reader);
+					DslModeling::DomainRoleInfo.SetRolePlayer (newModelHasConcepts, ModelHasConcepts.ModelDomainRoleId, element);
+					DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newModelHasConcepts.GetDomainClass().Id);	
+					global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newModelHasConcepts.GetDomainClass().Name + "!");
+					targetSerializer.Read(serializationContext, newModelHasConcepts, reader);
 				}
 				else
 				{	// Maybe the relationship is serialized in short-form by mistake.
-					DslModeling::DomainClassXmlSerializer newConceptOfModelHasConceptSerializer = serializationContext.Directory.GetSerializer(Concept.DomainClassId);
-					global::System.Diagnostics.Debug.Assert(newConceptOfModelHasConceptSerializer != null, "Cannot find serializer for Concept!");
-					Concept newConceptOfModelHasConcept = newConceptOfModelHasConceptSerializer.TryCreateInstance(serializationContext, reader, element.Partition) as Concept;
-					if (newConceptOfModelHasConcept != null)
+					DslModeling::DomainClassXmlSerializer newConceptOfModelHasConceptsSerializer = serializationContext.Directory.GetSerializer(Concept.DomainClassId);
+					global::System.Diagnostics.Debug.Assert(newConceptOfModelHasConceptsSerializer != null, "Cannot find serializer for Concept!");
+					Concept newConceptOfModelHasConcepts = newConceptOfModelHasConceptsSerializer.TryCreateInstance(serializationContext, reader, element.Partition) as Concept;
+					if (newConceptOfModelHasConcepts != null)
 					{
-						ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.ExpectingFullFormRelationship(serializationContext, reader, typeof(ModelHasConcept));
-						element.Concept.Add(newConceptOfModelHasConcept);
-						DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newConceptOfModelHasConcept.GetDomainClass().Id);	
-						global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newConceptOfModelHasConcept.GetDomainClass().Name + "!");
-						targetSerializer.Read(serializationContext, newConceptOfModelHasConcept, reader);
+						ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.ExpectingFullFormRelationship(serializationContext, reader, typeof(ModelHasConcepts));
+						element.Concepts.Add(newConceptOfModelHasConcepts);
+						DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newConceptOfModelHasConcepts.GetDomainClass().Id);	
+						global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newConceptOfModelHasConcepts.GetDomainClass().Name + "!");
+						targetSerializer.Read(serializationContext, newConceptOfModelHasConcepts, reader);
 					}
 					else
 					{	// Unknown element, skip.
@@ -858,9 +858,10 @@ namespace Bb.ApplicationCooperationViewPoint
 				global::System.String propValue = instanceOfModel.Target;
 				if (!serializationContext.Result.Failed)
 				{
-					if (!string.IsNullOrEmpty(propValue))
+					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "Current") != 0))
+					{	// No need to write the value out if it's the same as default value.
 						ApplicationCooperationViewPointSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "target", propValue);
-	
+					}
 				}
 			}
 			// ViewpointType
@@ -934,19 +935,19 @@ namespace Bb.ApplicationCooperationViewPoint
 				writer.WriteEndElement();
 			}
 	
-			// ModelHasConcept
-			global::System.Collections.ObjectModel.ReadOnlyCollection<ModelHasConcept> allModelHasConceptInstances = ModelHasConcept.GetLinksToConcept(element);
-			if (!serializationContext.Result.Failed && allModelHasConceptInstances.Count > 0)
+			// ModelHasConcepts
+			global::System.Collections.ObjectModel.ReadOnlyCollection<ModelHasConcepts> allModelHasConceptsInstances = ModelHasConcepts.GetLinksToConcepts(element);
+			if (!serializationContext.Result.Failed && allModelHasConceptsInstances.Count > 0)
 			{
-				writer.WriteStartElement("concept");
-				foreach (ModelHasConcept eachModelHasConceptInstance in allModelHasConceptInstances)
+				writer.WriteStartElement("concepts");
+				foreach (ModelHasConcepts eachModelHasConceptsInstance in allModelHasConceptsInstances)
 				{
 					if (serializationContext.Result.Failed)
 						break;
 	
-					DslModeling::DomainClassXmlSerializer relSerializer = serializationContext.Directory.GetSerializer(eachModelHasConceptInstance.GetDomainClass().Id);
-					global::System.Diagnostics.Debug.Assert(relSerializer != null, "Cannot find serializer for " + eachModelHasConceptInstance.GetDomainClass().Name + "!");
-					relSerializer.Write(serializationContext, eachModelHasConceptInstance, writer);
+					DslModeling::DomainClassXmlSerializer relSerializer = serializationContext.Directory.GetSerializer(eachModelHasConceptsInstance.GetDomainClass().Id);
+					global::System.Diagnostics.Debug.Assert(relSerializer != null, "Cannot find serializer for " + eachModelHasConceptsInstance.GetDomainClass().Name + "!");
+					relSerializer.Write(serializationContext, eachModelHasConceptsInstance, writer);
 				}
 				writer.WriteEndElement();
 			}
@@ -1042,15 +1043,15 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// Serializer ModelElementSerializer for DomainClass ModelElement.
+	/// Serializer ModelElementSerializerBase for DomainClass ModelElement.
 	/// </summary>
-	public partial class ModelElementSerializer : DslModeling::DomainClassXmlSerializer
+	public abstract partial class ModelElementSerializerBase : DslModeling::DomainClassXmlSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// ModelElementSerializer Constructor
+		/// ModelElementSerializerBase Constructor
 		/// </summary>
-		public ModelElementSerializer ()
+		protected ModelElementSerializerBase ()
 			: base ()
 		{
 		}
@@ -1284,7 +1285,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		{
 			if (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 			{
-				if (string.Compare(reader.LocalName, "parent", global::System.StringComparison.CurrentCulture) == 0)
+				if (string.Compare(reader.LocalName, "children", global::System.StringComparison.CurrentCulture) == 0)
 				{
 					if (reader.IsEmptyElement)
 					{	// No instance of this relationship, just skip
@@ -1292,16 +1293,16 @@ namespace Bb.ApplicationCooperationViewPoint
 					}
 					else
 					{
-						DslModeling::SerializationUtilities.SkipToFirstChild(reader);  // Skip the open tag of <parent>
-						ReadModelElementHasParentInstances(serializationContext, element, reader);
-						DslModeling::SerializationUtilities.Skip(reader);  // Skip the close tag of </parent>
+						DslModeling::SerializationUtilities.SkipToFirstChild(reader);  // Skip the open tag of <children>
+						ReadModelElementHasChildrenInstances(serializationContext, element, reader);
+						DslModeling::SerializationUtilities.Skip(reader);  // Skip the close tag of </children>
 					}
 				}
 			}
 		}
 	
 		/// <summary>
-		/// Reads all instances of relationship ModelElementHasParent.
+		/// Reads all instances of relationship ModelElementHasChildren.
 		/// </summary>
 		/// <remarks>
 		/// The caller will position the reader at the open tag of the first XML element inside the relationship tag, so it can be
@@ -1311,32 +1312,32 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="element">In-memory ModelElement instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
-		private static void ReadModelElementHasParentInstances(DslModeling::SerializationContext serializationContext, ModelElement element, global::System.Xml.XmlReader reader)
+		private static void ReadModelElementHasChildrenInstances(DslModeling::SerializationContext serializationContext, ModelElement element, global::System.Xml.XmlReader reader)
 		{
 			while (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 			{
-				DslModeling::DomainClassXmlSerializer newModelElementHasParentSerializer = serializationContext.Directory.GetSerializer(ModelElementHasParent.DomainClassId);
-				global::System.Diagnostics.Debug.Assert(newModelElementHasParentSerializer != null, "Cannot find serializer for ModelElementHasParent!");
-				ModelElementHasParent newModelElementHasParent = newModelElementHasParentSerializer.TryCreateInstance (serializationContext, reader, element.Partition) as ModelElementHasParent;
-				if (newModelElementHasParent != null)
+				DslModeling::DomainClassXmlSerializer newModelElementHasChildrenSerializer = serializationContext.Directory.GetSerializer(ModelElementHasChildren.DomainClassId);
+				global::System.Diagnostics.Debug.Assert(newModelElementHasChildrenSerializer != null, "Cannot find serializer for ModelElementHasChildren!");
+				ModelElementHasChildren newModelElementHasChildren = newModelElementHasChildrenSerializer.TryCreateInstance (serializationContext, reader, element.Partition) as ModelElementHasChildren;
+				if (newModelElementHasChildren != null)
 				{
-					DslModeling::DomainRoleInfo.SetRolePlayer (newModelElementHasParent, ModelElementHasParent.ModelElementDomainRoleId, element);
-					DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newModelElementHasParent.GetDomainClass().Id);	
-					global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newModelElementHasParent.GetDomainClass().Name + "!");
-					targetSerializer.Read(serializationContext, newModelElementHasParent, reader);
+					DslModeling::DomainRoleInfo.SetRolePlayer (newModelElementHasChildren, ModelElementHasChildren.ModelElementDomainRoleId, element);
+					DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newModelElementHasChildren.GetDomainClass().Id);	
+					global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newModelElementHasChildren.GetDomainClass().Name + "!");
+					targetSerializer.Read(serializationContext, newModelElementHasChildren, reader);
 				}
 				else
 				{	// Maybe the relationship is serialized in short-form by mistake.
-					DslModeling::DomainClassXmlSerializer newSubElementOfModelElementHasParentSerializer = serializationContext.Directory.GetSerializer(SubElement.DomainClassId);
-					global::System.Diagnostics.Debug.Assert(newSubElementOfModelElementHasParentSerializer != null, "Cannot find serializer for SubElement!");
-					SubElement newSubElementOfModelElementHasParent = newSubElementOfModelElementHasParentSerializer.TryCreateInstance(serializationContext, reader, element.Partition) as SubElement;
-					if (newSubElementOfModelElementHasParent != null)
+					DslModeling::DomainClassXmlSerializer newSubElementOfModelElementHasChildrenSerializer = serializationContext.Directory.GetSerializer(SubElement.DomainClassId);
+					global::System.Diagnostics.Debug.Assert(newSubElementOfModelElementHasChildrenSerializer != null, "Cannot find serializer for SubElement!");
+					SubElement newSubElementOfModelElementHasChildren = newSubElementOfModelElementHasChildrenSerializer.TryCreateInstance(serializationContext, reader, element.Partition) as SubElement;
+					if (newSubElementOfModelElementHasChildren != null)
 					{
-						ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.ExpectingFullFormRelationship(serializationContext, reader, typeof(ModelElementHasParent));
-						element.Parent.Add(newSubElementOfModelElementHasParent);
-						DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newSubElementOfModelElementHasParent.GetDomainClass().Id);	
-						global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newSubElementOfModelElementHasParent.GetDomainClass().Name + "!");
-						targetSerializer.Read(serializationContext, newSubElementOfModelElementHasParent, reader);
+						ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.ExpectingFullFormRelationship(serializationContext, reader, typeof(ModelElementHasChildren));
+						element.Children.Add(newSubElementOfModelElementHasChildren);
+						DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newSubElementOfModelElementHasChildren.GetDomainClass().Id);	
+						global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newSubElementOfModelElementHasChildren.GetDomainClass().Name + "!");
+						targetSerializer.Read(serializationContext, newSubElementOfModelElementHasChildren, reader);
 					}
 					else
 					{	// Unknown element, skip.
@@ -1390,7 +1391,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class instance.
-						ModelElementSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ModelElementSerializer;
+						ModelElementSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ModelElementSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -1536,7 +1537,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						ModelElementSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ModelElementSerializer;
+						ModelElementSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ModelElementSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -1796,19 +1797,19 @@ namespace Bb.ApplicationCooperationViewPoint
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1506:AvoidExcessiveClassCoupling", Justification = "Generated code.")]		
 		private static void WriteChildElements(DslModeling::SerializationContext serializationContext, ModelElement element, global::System.Xml.XmlWriter writer)
 		{
-			// ModelElementHasParent
-			global::System.Collections.ObjectModel.ReadOnlyCollection<ModelElementHasParent> allModelElementHasParentInstances = ModelElementHasParent.GetLinksToParent(element);
-			if (!serializationContext.Result.Failed && allModelElementHasParentInstances.Count > 0)
+			// ModelElementHasChildren
+			global::System.Collections.ObjectModel.ReadOnlyCollection<ModelElementHasChildren> allModelElementHasChildrenInstances = ModelElementHasChildren.GetLinksToChildren(element);
+			if (!serializationContext.Result.Failed && allModelElementHasChildrenInstances.Count > 0)
 			{
-				writer.WriteStartElement("parent");
-				foreach (ModelElementHasParent eachModelElementHasParentInstance in allModelElementHasParentInstances)
+				writer.WriteStartElement("children");
+				foreach (ModelElementHasChildren eachModelElementHasChildrenInstance in allModelElementHasChildrenInstances)
 				{
 					if (serializationContext.Result.Failed)
 						break;
 	
-					DslModeling::DomainClassXmlSerializer relSerializer = serializationContext.Directory.GetSerializer(eachModelElementHasParentInstance.GetDomainClass().Id);
-					global::System.Diagnostics.Debug.Assert(relSerializer != null, "Cannot find serializer for " + eachModelElementHasParentInstance.GetDomainClass().Name + "!");
-					relSerializer.Write(serializationContext, eachModelElementHasParentInstance, writer);
+					DslModeling::DomainClassXmlSerializer relSerializer = serializationContext.Directory.GetSerializer(eachModelElementHasChildrenInstance.GetDomainClass().Id);
+					global::System.Diagnostics.Debug.Assert(relSerializer != null, "Cannot find serializer for " + eachModelElementHasChildrenInstance.GetDomainClass().Name + "!");
+					relSerializer.Write(serializationContext, eachModelElementHasChildrenInstance, writer);
 				}
 				writer.WriteEndElement();
 			}
@@ -1895,6 +1896,22 @@ namespace Bb.ApplicationCooperationViewPoint
 			{
 				return string.Empty;
 			}
+		}
+		#endregion
+	}
+	
+	/// <summary>
+	/// Serializer ModelElementSerializer for DomainClass ModelElement.
+	/// </summary>
+	public partial class ModelElementSerializer : ModelElementSerializerBase
+	{
+		#region Constructor
+		/// <summary>
+		/// ModelElementSerializer Constructor
+		/// </summary>
+		public ModelElementSerializer ()
+			: base ()
+		{
 		}
 		#endregion
 	}
@@ -2937,6 +2954,23 @@ namespace Bb.ApplicationCooperationViewPoint
 					}
 				}
 			}
+			// Type
+			if (!serializationContext.Result.Failed)
+			{
+				string attribType = ApplicationCooperationViewPointSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "type");
+				if (attribType != null)
+				{
+					global::System.String valueOfType;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribType, out valueOfType))
+					{
+						instanceOfConcept.Type = valueOfType;
+					}
+					else
+					{	// Invalid property value, ignored.
+						ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "type", typeof(global::System.String), attribType);
+					}
+				}
+			}
 		}
 	
 		/// <summary>
@@ -2989,16 +3023,16 @@ namespace Bb.ApplicationCooperationViewPoint
 			{
 				switch (reader.LocalName)
 				{
-					case "conceptElement":	// Relationship "ConceptHasConceptElement"
+					case "children":	// Relationship "ConceptHasChildren"
 						if (reader.IsEmptyElement)
 						{	// No instance of this relationship, just skip
 							DslModeling::SerializationUtilities.Skip(reader);
 						}
 						else
 						{
-							DslModeling::SerializationUtilities.SkipToFirstChild(reader);  // Skip the open tag of <conceptElement>
-							ReadConceptHasConceptElementInstances(serializationContext, element, reader);
-							DslModeling::SerializationUtilities.Skip(reader);  // Skip the close tag of </conceptElement>
+							DslModeling::SerializationUtilities.SkipToFirstChild(reader);  // Skip the open tag of <children>
+							ReadConceptHasChildrenInstances(serializationContext, element, reader);
+							DslModeling::SerializationUtilities.Skip(reader);  // Skip the close tag of </children>
 						}
 						break;
 					case "relationship":	// Relationship "ConceptReferencesRelationship"
@@ -3020,7 +3054,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// Reads all instances of relationship ConceptHasConceptElement.
+		/// Reads all instances of relationship ConceptHasChildren.
 		/// </summary>
 		/// <remarks>
 		/// The caller will position the reader at the open tag of the first XML element inside the relationship tag, so it can be
@@ -3030,32 +3064,32 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="element">In-memory Concept instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
-		private static void ReadConceptHasConceptElementInstances(DslModeling::SerializationContext serializationContext, Concept element, global::System.Xml.XmlReader reader)
+		private static void ReadConceptHasChildrenInstances(DslModeling::SerializationContext serializationContext, Concept element, global::System.Xml.XmlReader reader)
 		{
 			while (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 			{
-				DslModeling::DomainClassXmlSerializer newConceptHasConceptElementSerializer = serializationContext.Directory.GetSerializer(ConceptHasConceptElement.DomainClassId);
-				global::System.Diagnostics.Debug.Assert(newConceptHasConceptElementSerializer != null, "Cannot find serializer for ConceptHasConceptElement!");
-				ConceptHasConceptElement newConceptHasConceptElement = newConceptHasConceptElementSerializer.TryCreateInstance (serializationContext, reader, element.Partition) as ConceptHasConceptElement;
-				if (newConceptHasConceptElement != null)
+				DslModeling::DomainClassXmlSerializer newConceptHasChildrenSerializer = serializationContext.Directory.GetSerializer(ConceptHasChildren.DomainClassId);
+				global::System.Diagnostics.Debug.Assert(newConceptHasChildrenSerializer != null, "Cannot find serializer for ConceptHasChildren!");
+				ConceptHasChildren newConceptHasChildren = newConceptHasChildrenSerializer.TryCreateInstance (serializationContext, reader, element.Partition) as ConceptHasChildren;
+				if (newConceptHasChildren != null)
 				{
-					DslModeling::DomainRoleInfo.SetRolePlayer (newConceptHasConceptElement, ConceptHasConceptElement.ConceptDomainRoleId, element);
-					DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newConceptHasConceptElement.GetDomainClass().Id);	
-					global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newConceptHasConceptElement.GetDomainClass().Name + "!");
-					targetSerializer.Read(serializationContext, newConceptHasConceptElement, reader);
+					DslModeling::DomainRoleInfo.SetRolePlayer (newConceptHasChildren, ConceptHasChildren.ConceptDomainRoleId, element);
+					DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newConceptHasChildren.GetDomainClass().Id);	
+					global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newConceptHasChildren.GetDomainClass().Name + "!");
+					targetSerializer.Read(serializationContext, newConceptHasChildren, reader);
 				}
 				else
 				{	// Maybe the relationship is serialized in short-form by mistake.
-					DslModeling::DomainClassXmlSerializer newConceptElementOfConceptHasConceptElementSerializer = serializationContext.Directory.GetSerializer(ConceptElement.DomainClassId);
-					global::System.Diagnostics.Debug.Assert(newConceptElementOfConceptHasConceptElementSerializer != null, "Cannot find serializer for ConceptElement!");
-					ConceptElement newConceptElementOfConceptHasConceptElement = newConceptElementOfConceptHasConceptElementSerializer.TryCreateInstance(serializationContext, reader, element.Partition) as ConceptElement;
-					if (newConceptElementOfConceptHasConceptElement != null)
+					DslModeling::DomainClassXmlSerializer newConceptElementOfConceptHasChildrenSerializer = serializationContext.Directory.GetSerializer(ConceptElement.DomainClassId);
+					global::System.Diagnostics.Debug.Assert(newConceptElementOfConceptHasChildrenSerializer != null, "Cannot find serializer for ConceptElement!");
+					ConceptElement newConceptElementOfConceptHasChildren = newConceptElementOfConceptHasChildrenSerializer.TryCreateInstance(serializationContext, reader, element.Partition) as ConceptElement;
+					if (newConceptElementOfConceptHasChildren != null)
 					{
-						ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.ExpectingFullFormRelationship(serializationContext, reader, typeof(ConceptHasConceptElement));
-						element.ConceptElement.Add(newConceptElementOfConceptHasConceptElement);
-						DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newConceptElementOfConceptHasConceptElement.GetDomainClass().Id);	
-						global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newConceptElementOfConceptHasConceptElement.GetDomainClass().Name + "!");
-						targetSerializer.Read(serializationContext, newConceptElementOfConceptHasConceptElement, reader);
+						ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.ExpectingFullFormRelationship(serializationContext, reader, typeof(ConceptHasChildren));
+						element.Children.Add(newConceptElementOfConceptHasChildren);
+						DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newConceptElementOfConceptHasChildren.GetDomainClass().Id);	
+						global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newConceptElementOfConceptHasChildren.GetDomainClass().Name + "!");
+						targetSerializer.Read(serializationContext, newConceptElementOfConceptHasChildren, reader);
 					}
 					else
 					{	// Unknown element, skip.
@@ -3533,6 +3567,17 @@ namespace Bb.ApplicationCooperationViewPoint
 					}
 				}
 			}
+			// Type
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.String propValue = instanceOfConcept.Type;
+				if (!serializationContext.Result.Failed)
+				{
+					if (!string.IsNullOrEmpty(propValue))
+						ApplicationCooperationViewPointSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "type", propValue);
+	
+				}
+			}
 		}
 	
 		/// <summary>
@@ -3565,19 +3610,19 @@ namespace Bb.ApplicationCooperationViewPoint
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1506:AvoidExcessiveClassCoupling", Justification = "Generated code.")]		
 		private static void WriteChildElements(DslModeling::SerializationContext serializationContext, Concept element, global::System.Xml.XmlWriter writer)
 		{
-			// ConceptHasConceptElement
-			global::System.Collections.ObjectModel.ReadOnlyCollection<ConceptHasConceptElement> allConceptHasConceptElementInstances = ConceptHasConceptElement.GetLinksToConceptElement(element);
-			if (!serializationContext.Result.Failed && allConceptHasConceptElementInstances.Count > 0)
+			// ConceptHasChildren
+			global::System.Collections.ObjectModel.ReadOnlyCollection<ConceptHasChildren> allConceptHasChildrenInstances = ConceptHasChildren.GetLinksToChildren(element);
+			if (!serializationContext.Result.Failed && allConceptHasChildrenInstances.Count > 0)
 			{
-				writer.WriteStartElement("conceptElement");
-				foreach (ConceptHasConceptElement eachConceptHasConceptElementInstance in allConceptHasConceptElementInstances)
+				writer.WriteStartElement("children");
+				foreach (ConceptHasChildren eachConceptHasChildrenInstance in allConceptHasChildrenInstances)
 				{
 					if (serializationContext.Result.Failed)
 						break;
 	
-					DslModeling::DomainClassXmlSerializer relSerializer = serializationContext.Directory.GetSerializer(eachConceptHasConceptElementInstance.GetDomainClass().Id);
-					global::System.Diagnostics.Debug.Assert(relSerializer != null, "Cannot find serializer for " + eachConceptHasConceptElementInstance.GetDomainClass().Name + "!");
-					relSerializer.Write(serializationContext, eachConceptHasConceptElementInstance, writer);
+					DslModeling::DomainClassXmlSerializer relSerializer = serializationContext.Directory.GetSerializer(eachConceptHasChildrenInstance.GetDomainClass().Id);
+					global::System.Diagnostics.Debug.Assert(relSerializer != null, "Cannot find serializer for " + eachConceptHasChildrenInstance.GetDomainClass().Name + "!");
+					relSerializer.Write(serializationContext, eachConceptHasChildrenInstance, writer);
 				}
 				writer.WriteEndElement();
 			}
@@ -3917,16 +3962,16 @@ namespace Bb.ApplicationCooperationViewPoint
 			{
 				switch (reader.LocalName)
 				{
-					case "conceptSubElement":	// Relationship "ConceptElementHasConceptSubElement"
+					case "children":	// Relationship "ConceptElementHasChildren"
 						if (reader.IsEmptyElement)
 						{	// No instance of this relationship, just skip
 							DslModeling::SerializationUtilities.Skip(reader);
 						}
 						else
 						{
-							DslModeling::SerializationUtilities.SkipToFirstChild(reader);  // Skip the open tag of <conceptSubElement>
-							ReadConceptElementHasConceptSubElementInstances(serializationContext, element, reader);
-							DslModeling::SerializationUtilities.Skip(reader);  // Skip the close tag of </conceptSubElement>
+							DslModeling::SerializationUtilities.SkipToFirstChild(reader);  // Skip the open tag of <children>
+							ReadConceptElementHasChildrenInstances(serializationContext, element, reader);
+							DslModeling::SerializationUtilities.Skip(reader);  // Skip the close tag of </children>
 						}
 						break;
 					case "relationship":	// Relationship "ConceptElementReferencesRelationship"
@@ -3948,7 +3993,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// Reads all instances of relationship ConceptElementHasConceptSubElement.
+		/// Reads all instances of relationship ConceptElementHasChildren.
 		/// </summary>
 		/// <remarks>
 		/// The caller will position the reader at the open tag of the first XML element inside the relationship tag, so it can be
@@ -3958,32 +4003,32 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="element">In-memory ConceptElement instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
-		private static void ReadConceptElementHasConceptSubElementInstances(DslModeling::SerializationContext serializationContext, ConceptElement element, global::System.Xml.XmlReader reader)
+		private static void ReadConceptElementHasChildrenInstances(DslModeling::SerializationContext serializationContext, ConceptElement element, global::System.Xml.XmlReader reader)
 		{
 			while (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 			{
-				DslModeling::DomainClassXmlSerializer newConceptElementHasConceptSubElementSerializer = serializationContext.Directory.GetSerializer(ConceptElementHasConceptSubElement.DomainClassId);
-				global::System.Diagnostics.Debug.Assert(newConceptElementHasConceptSubElementSerializer != null, "Cannot find serializer for ConceptElementHasConceptSubElement!");
-				ConceptElementHasConceptSubElement newConceptElementHasConceptSubElement = newConceptElementHasConceptSubElementSerializer.TryCreateInstance (serializationContext, reader, element.Partition) as ConceptElementHasConceptSubElement;
-				if (newConceptElementHasConceptSubElement != null)
+				DslModeling::DomainClassXmlSerializer newConceptElementHasChildrenSerializer = serializationContext.Directory.GetSerializer(ConceptElementHasChildren.DomainClassId);
+				global::System.Diagnostics.Debug.Assert(newConceptElementHasChildrenSerializer != null, "Cannot find serializer for ConceptElementHasChildren!");
+				ConceptElementHasChildren newConceptElementHasChildren = newConceptElementHasChildrenSerializer.TryCreateInstance (serializationContext, reader, element.Partition) as ConceptElementHasChildren;
+				if (newConceptElementHasChildren != null)
 				{
-					DslModeling::DomainRoleInfo.SetRolePlayer (newConceptElementHasConceptSubElement, ConceptElementHasConceptSubElement.ConceptElementDomainRoleId, element);
-					DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newConceptElementHasConceptSubElement.GetDomainClass().Id);	
-					global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newConceptElementHasConceptSubElement.GetDomainClass().Name + "!");
-					targetSerializer.Read(serializationContext, newConceptElementHasConceptSubElement, reader);
+					DslModeling::DomainRoleInfo.SetRolePlayer (newConceptElementHasChildren, ConceptElementHasChildren.ConceptElementDomainRoleId, element);
+					DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newConceptElementHasChildren.GetDomainClass().Id);	
+					global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newConceptElementHasChildren.GetDomainClass().Name + "!");
+					targetSerializer.Read(serializationContext, newConceptElementHasChildren, reader);
 				}
 				else
 				{	// Maybe the relationship is serialized in short-form by mistake.
-					DslModeling::DomainClassXmlSerializer newConceptSubElementOfConceptElementHasConceptSubElementSerializer = serializationContext.Directory.GetSerializer(ConceptSubElement.DomainClassId);
-					global::System.Diagnostics.Debug.Assert(newConceptSubElementOfConceptElementHasConceptSubElementSerializer != null, "Cannot find serializer for ConceptSubElement!");
-					ConceptSubElement newConceptSubElementOfConceptElementHasConceptSubElement = newConceptSubElementOfConceptElementHasConceptSubElementSerializer.TryCreateInstance(serializationContext, reader, element.Partition) as ConceptSubElement;
-					if (newConceptSubElementOfConceptElementHasConceptSubElement != null)
+					DslModeling::DomainClassXmlSerializer newConceptSubElementOfConceptElementHasChildrenSerializer = serializationContext.Directory.GetSerializer(ConceptSubElement.DomainClassId);
+					global::System.Diagnostics.Debug.Assert(newConceptSubElementOfConceptElementHasChildrenSerializer != null, "Cannot find serializer for ConceptSubElement!");
+					ConceptSubElement newConceptSubElementOfConceptElementHasChildren = newConceptSubElementOfConceptElementHasChildrenSerializer.TryCreateInstance(serializationContext, reader, element.Partition) as ConceptSubElement;
+					if (newConceptSubElementOfConceptElementHasChildren != null)
 					{
-						ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.ExpectingFullFormRelationship(serializationContext, reader, typeof(ConceptElementHasConceptSubElement));
-						element.ConceptSubElement.Add(newConceptSubElementOfConceptElementHasConceptSubElement);
-						DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newConceptSubElementOfConceptElementHasConceptSubElement.GetDomainClass().Id);	
-						global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newConceptSubElementOfConceptElementHasConceptSubElement.GetDomainClass().Name + "!");
-						targetSerializer.Read(serializationContext, newConceptSubElementOfConceptElementHasConceptSubElement, reader);
+						ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.ExpectingFullFormRelationship(serializationContext, reader, typeof(ConceptElementHasChildren));
+						element.Children.Add(newConceptSubElementOfConceptElementHasChildren);
+						DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newConceptSubElementOfConceptElementHasChildren.GetDomainClass().Id);	
+						global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newConceptSubElementOfConceptElementHasChildren.GetDomainClass().Name + "!");
+						targetSerializer.Read(serializationContext, newConceptSubElementOfConceptElementHasChildren, reader);
 					}
 					else
 					{	// Unknown element, skip.
@@ -4505,19 +4550,19 @@ namespace Bb.ApplicationCooperationViewPoint
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1506:AvoidExcessiveClassCoupling", Justification = "Generated code.")]		
 		private static void WriteChildElements(DslModeling::SerializationContext serializationContext, ConceptElement element, global::System.Xml.XmlWriter writer)
 		{
-			// ConceptElementHasConceptSubElement
-			global::System.Collections.ObjectModel.ReadOnlyCollection<ConceptElementHasConceptSubElement> allConceptElementHasConceptSubElementInstances = ConceptElementHasConceptSubElement.GetLinksToConceptSubElement(element);
-			if (!serializationContext.Result.Failed && allConceptElementHasConceptSubElementInstances.Count > 0)
+			// ConceptElementHasChildren
+			global::System.Collections.ObjectModel.ReadOnlyCollection<ConceptElementHasChildren> allConceptElementHasChildrenInstances = ConceptElementHasChildren.GetLinksToChildren(element);
+			if (!serializationContext.Result.Failed && allConceptElementHasChildrenInstances.Count > 0)
 			{
-				writer.WriteStartElement("conceptSubElement");
-				foreach (ConceptElementHasConceptSubElement eachConceptElementHasConceptSubElementInstance in allConceptElementHasConceptSubElementInstances)
+				writer.WriteStartElement("children");
+				foreach (ConceptElementHasChildren eachConceptElementHasChildrenInstance in allConceptElementHasChildrenInstances)
 				{
 					if (serializationContext.Result.Failed)
 						break;
 	
-					DslModeling::DomainClassXmlSerializer relSerializer = serializationContext.Directory.GetSerializer(eachConceptElementHasConceptSubElementInstance.GetDomainClass().Id);
-					global::System.Diagnostics.Debug.Assert(relSerializer != null, "Cannot find serializer for " + eachConceptElementHasConceptSubElementInstance.GetDomainClass().Name + "!");
-					relSerializer.Write(serializationContext, eachConceptElementHasConceptSubElementInstance, writer);
+					DslModeling::DomainClassXmlSerializer relSerializer = serializationContext.Directory.GetSerializer(eachConceptElementHasChildrenInstance.GetDomainClass().Id);
+					global::System.Diagnostics.Debug.Assert(relSerializer != null, "Cannot find serializer for " + eachConceptElementHasChildrenInstance.GetDomainClass().Name + "!");
+					relSerializer.Write(serializationContext, eachConceptElementHasChildrenInstance, writer);
 				}
 				writer.WriteEndElement();
 			}
@@ -6916,15 +6961,15 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// Serializer ModelElementHasParentSerializer for DomainClass ModelElementHasParent.
+	/// Serializer ModelElementHasChildrenSerializer for DomainClass ModelElementHasChildren.
 	/// </summary>
-	public partial class ModelElementHasParentSerializer : DslModeling::DomainRelationshipXmlSerializer
+	public partial class ModelElementHasChildrenSerializer : DslModeling::DomainRelationshipXmlSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// ModelElementHasParentSerializer Constructor
+		/// ModelElementHasChildrenSerializer Constructor
 		/// </summary>
-		public ModelElementHasParentSerializer ()
+		public ModelElementHasChildrenSerializer ()
 			: base ()
 		{
 		}
@@ -6950,25 +6995,25 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region Public Properties
 		/// <summary>
-		/// This is the XML tag name used to serialize an instance of ModelElementHasParent.
+		/// This is the XML tag name used to serialize an instance of ModelElementHasChildren.
 		/// </summary>
 		public override string XmlTagName
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
-			get { return @"modelElementHasParent"; }
+			get { return @"modelElementHasChildren"; }
 		}
 	
 		/// <summary>
-		/// This is the XML tag name used to serialize a monikerized instance of ModelElementHasParent.
+		/// This is the XML tag name used to serialize a monikerized instance of ModelElementHasChildren.
 		/// </summary>
 		public override string MonikerTagName
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
-			get { return @"modelElementHasParentMoniker"; }
+			get { return @"modelElementHasChildrenMoniker"; }
 		}
 		
 		/// <summary>
-		/// This is the name of the XML attribute that stores the moniker of ModelElementHasParent in a serialized monikerized instance.
+		/// This is the name of the XML attribute that stores the moniker of ModelElementHasChildren in a serialized monikerized instance.
 		/// </summary>
 		public override string MonikerAttributeName
 		{
@@ -6979,16 +7024,16 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region Read Methods
 		/// <summary>
-		/// Public Read() method that deserializes one ModelElementHasParent instance from XML.
+		/// Public Read() method that deserializes one ModelElementHasChildren instance from XML.
 		/// </summary>
 		/// <remarks>
 		/// When this method is called, caller guarantees that the passed-in XML reader is positioned at the open XML tag
-		/// of the ModelElementHasParent element that is about to be deserialized. 
+		/// of the ModelElementHasChildren element that is about to be deserialized. 
 		/// The method needs to ensure that when it returns, the reader is positioned at the open XML tag of the next sibling element,
 		/// or the close tag of the parent element (or EOF).
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory ModelElementHasParent instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory ModelElementHasChildren instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		public override void Read(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -7036,7 +7081,7 @@ namespace Bb.ApplicationCooperationViewPoint
 				}
 				else
 				{
-					ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "ModelElementHasParent");
+					ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "ModelElementHasChildren");
 				}
 			}
 	
@@ -7060,7 +7105,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// 3) EOF.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory ModelElementHasParent instance that will link to the target SubElement instance.</param>
+		/// <param name="element">In-memory ModelElementHasChildren instance that will link to the target SubElement instance.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		protected virtual void ReadTargetRolePlayer(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -7087,7 +7132,7 @@ namespace Bb.ApplicationCooperationViewPoint
 				if (targetRolePlayer != null)
 				{
 					// Attach the target role-player.
-					DslModeling::DomainRoleInfo.SetRolePlayer(element as DslModeling::ElementLink, ModelElementHasParent.SubElementDomainRoleId, targetRolePlayer);
+					DslModeling::DomainRoleInfo.SetRolePlayer(element as DslModeling::ElementLink, ModelElementHasChildren.SubElementDomainRoleId, targetRolePlayer);
 					// Read target role-player.
 					DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (targetRolePlayer.GetDomainClass().Id);	
 					global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + targetRolePlayer.GetDomainClass().Name + "!");
@@ -7100,7 +7145,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 			if (targetRolePlayer == null)
 			{
-				ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "ModelElementHasParent");
+				ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "ModelElementHasChildren");
 			}
 		}
 	
@@ -7112,7 +7157,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// The caller will guarantee that the reader is positioned on the open XML tag of the current element being deserialized.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory ModelElementHasParent instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory ModelElementHasChildren instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
 		protected override void ReadPropertiesFromAttributes(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
@@ -7137,7 +7182,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// 3) EOF.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory ModelElementHasParent instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory ModelElementHasChildren instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		protected override void ReadElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -7148,8 +7193,8 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region TryCreateInstance & TryCreateDerivedInstance
 		/// <summary>
-		/// This method creates a correct instance of ModelElementHasParent based on the tag currently pointed by the reader. If the reader
-		/// is positioned at a serialized ModelElementHasParent, a new ModelElementHasParent instance will be created in the given partition, otherwise 
+		/// This method creates a correct instance of ModelElementHasChildren based on the tag currently pointed by the reader. If the reader
+		/// is positioned at a serialized ModelElementHasChildren, a new ModelElementHasChildren instance will be created in the given partition, otherwise 
 		/// null is returned.
 		/// </summary>
 		/// <remarks>
@@ -7159,7 +7204,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		/// <param name="partition">Partition in which new elements should be created.</param>	
-		/// <returns>Created ModelElementHasParent instance, or null if the reader is not pointing to a serialized ModelElementHasParent instance.</returns>
+		/// <returns>Created ModelElementHasChildren instance, or null if the reader is not pointing to a serialized ModelElementHasChildren instance.</returns>
 		public override DslModeling::ModelElement TryCreateInstance(DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			#region Check Parameters
@@ -7178,9 +7223,9 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// This method creates a correct derived instance of ModelElementHasParent based on the tag currently pointed by the reader.
+		/// This method creates a correct derived instance of ModelElementHasChildren based on the tag currently pointed by the reader.
 		/// Note that the difference between this method and the above one is that this method will never create an instance of the
-		/// ModelElementHasParent type itself, only derived types are checked.
+		/// ModelElementHasChildren type itself, only derived types are checked.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -7189,7 +7234,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		/// <param name="partition">Partition in which new elements should be created.</param>
-		/// <returns>Created instance that derives from ModelElementHasParent, or null if the reader is not pointing to such a serialized instance.</returns>
+		/// <returns>Created instance that derives from ModelElementHasChildren, or null if the reader is not pointing to such a serialized instance.</returns>
 		public override DslModeling::ElementLink TryCreateDerivedInstance (DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			#region Check Parameters
@@ -7221,18 +7266,18 @@ namespace Bb.ApplicationCooperationViewPoint
 			{
 				string localName = reader.LocalName;
 				if (!derivedTypesOnly && string.Compare (localName, this.XmlTagName, global::System.StringComparison.CurrentCulture) == 0)
-				{	// New "ModelElementHasParent" instance.
+				{	// New "ModelElementHasChildren" instance.
 					result = this.CreateInstance(serializationContext, reader, partition);
 				}
 				else
-				{	// Check for derived classes of "ModelElementHasParent".
+				{	// Check for derived classes of "ModelElementHasChildren".
 					if (this.derivedClasses == null)
 						this.ConstructDerivedClassesLookupTable(serializationContext, partition.DomainDataDirectory);
 					global::System.Diagnostics.Debug.Assert (this.derivedClasses != null);
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived relationship instance.
-						ModelElementHasParentSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ModelElementHasParentSerializer;
+						ModelElementHasChildrenSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ModelElementHasChildrenSerializer;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -7243,8 +7288,8 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// This method creates an instance of ModelElementHasParent based on the tag currently pointed by the reader. The reader is guaranteed (by the caller)
-		/// to be pointed at a serialized instance of ModelElementHasParent.
+		/// This method creates an instance of ModelElementHasChildren based on the tag currently pointed by the reader. The reader is guaranteed (by the caller)
+		/// to be pointed at a serialized instance of ModelElementHasChildren.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the ModelRoot instance being read. This method should
@@ -7252,8 +7297,8 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
-		/// <param name="partition">Partition in which new ModelElementHasParent instance should be created.</param>	
-		/// <returns>Created ModelElementHasParent instance.</returns>
+		/// <param name="partition">Partition in which new ModelElementHasChildren instance should be created.</param>	
+		/// <returns>Created ModelElementHasChildren instance.</returns>
 		protected override DslModeling::ModelElement CreateInstance(DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			string idStr = reader.GetAttribute ("Id");
@@ -7270,11 +7315,11 @@ namespace Bb.ApplicationCooperationViewPoint
 					id = new global::System.Guid (idStr);
 				}
 				// Create the link with place-holder role-players.
-				return new ModelElementHasParent(
+				return new ModelElementHasChildren(
 					partition,
 					new DslModeling::RoleAssignment[] {
-						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (ModelElementHasParent.ModelElementDomainRoleId), 
-						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (ModelElementHasParent.SubElementDomainRoleId)
+						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (ModelElementHasChildren.ModelElementDomainRoleId), 
+						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (ModelElementHasChildren.SubElementDomainRoleId)
 					},
 					new DslModeling::PropertyAssignment[] {
 						new DslModeling::PropertyAssignment(DslModeling::ElementFactory.IdPropertyAssignment, id)
@@ -7297,12 +7342,12 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// Stores a mapping from XmlTagName to DomainClassInfo that derives from ModelElementHasParent, created on demand.
+		/// Stores a mapping from XmlTagName to DomainClassInfo that derives from ModelElementHasChildren, created on demand.
 		/// </summary>
 		private global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> derivedClasses;
 	
 		/// <summary>
-		/// Construct the apping from XmlTagName to DomainClassInfo that derives from ModelElementHasParent.
+		/// Construct the apping from XmlTagName to DomainClassInfo that derives from ModelElementHasChildren.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="domainDataDirectory">DomainDataDirectory to be used to discover all derived classes.</param>
@@ -7311,7 +7356,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			global::System.Diagnostics.Debug.Assert(this.derivedClasses == null); // Shouldn't construct the table more than once.
 			this.derivedClasses = new global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> (global::System.StringComparer.CurrentCulture);
 	
-			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(ModelElementHasParent.DomainClassId);
+			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(ModelElementHasChildren.DomainClassId);
 			global::System.Diagnostics.Debug.Assert(thisClass != null, "Cannot find DomainClassInfo for ModelRoot!");
 	
 			global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::DomainClassInfo> descendents = thisClass.AllDescendants;
@@ -7343,7 +7388,7 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region TryCreateMonikerInstance
 		/// <summary>
-		/// This method creates a Moniker of the correct derived (including ModelElementHasParent itself) instance of ModelElementHasParent based on the tag currently pointed by the reader.
+		/// This method creates a Moniker of the correct derived (including ModelElementHasChildren itself) instance of ModelElementHasChildren based on the tag currently pointed by the reader.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -7377,18 +7422,18 @@ namespace Bb.ApplicationCooperationViewPoint
 			{
 				string localName = reader.LocalName;
 				if (string.Compare (localName, this.MonikerTagName, global::System.StringComparison.CurrentCulture) == 0)
-				{	// New "ModelElementHasParent" moniker instance.
+				{	// New "ModelElementHasChildren" moniker instance.
 					result = this.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 				}
 				else
-				{	// Check for derived classes of "ModelElementHasParent".
+				{	// Check for derived classes of "ModelElementHasChildren".
 					if (this.derivedClassMonikers == null)
 						this.ConstructDerivedClassMonikersLookupTable(serializationContext, partition.DomainDataDirectory);
 					global::System.Diagnostics.Debug.Assert(this.derivedClassMonikers != null);
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						ModelElementHasParentSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ModelElementHasParentSerializer;
+						ModelElementHasChildrenSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ModelElementHasChildrenSerializer;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -7399,7 +7444,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		
 		/// <summary>
-		/// This method creates a Moniker of ModelElementHasParent based on the tag currently pointed by the reader.
+		/// This method creates a Moniker of ModelElementHasChildren based on the tag currently pointed by the reader.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -7424,7 +7469,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			{	// Normalize the Id.
 				global::System.Guid id = new global::System.Guid(monikerString);
 				monikerString = id.ToString("D", global::System.Globalization.CultureInfo.CurrentCulture);
-				DslModeling::Moniker result = new DslModeling::Moniker(new DslModeling::MonikerKey(monikerString, relDomainClassId, ModelElementHasParent.DomainClassId, partition.Store), partition.Store);
+				DslModeling::Moniker result = new DslModeling::Moniker(new DslModeling::MonikerKey(monikerString, relDomainClassId, ModelElementHasChildren.DomainClassId, partition.Store), partition.Store);
 				// Set location info if possible.
 				result.Location = serializationContext.Location;
 				global::System.Xml.IXmlLineInfo xmlLineInfo = reader as global::System.Xml.IXmlLineInfo;
@@ -7448,12 +7493,12 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// Stores a mapping from Moniker Xml tag name to DomainClassInfo that derives from ModelElementHasParent, created on demand.
+		/// Stores a mapping from Moniker Xml tag name to DomainClassInfo that derives from ModelElementHasChildren, created on demand.
 		/// </summary>
 		private global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> derivedClassMonikers;
 	
 		/// <summary>
-		/// Construct the mapping from Moniker Xml tag name to DomainClassInfo that derives from ModelElementHasParent.
+		/// Construct the mapping from Moniker Xml tag name to DomainClassInfo that derives from ModelElementHasChildren.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="domainDataDirectory">DomainDataDirectory to be used to discover all derived classes.</param>
@@ -7462,7 +7507,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			global::System.Diagnostics.Debug.Assert(this.derivedClassMonikers == null); // Shouldn't construct the table more than once.
 			this.derivedClassMonikers = new global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> (global::System.StringComparer.CurrentCulture);
 	
-			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(ModelElementHasParent.DomainClassId);
+			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(ModelElementHasChildren.DomainClassId);
 			global::System.Diagnostics.Debug.Assert(thisClass != null, "Cannot find DomainClassInfo for ModelRoot!");
 	
 			global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::DomainClassInfo> descendents = thisClass.AllDescendants;
@@ -7488,13 +7533,13 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region Write Methods
 		/// <summary>
-		/// Public WriteMoniker() method that writes a monikerized ModelElementHasParent instance into XML.
+		/// Public WriteMoniker() method that writes a monikerized ModelElementHasChildren instance into XML.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">ModelElementHasParent instance to be monikerized.</param>
+		/// <param name="element">ModelElementHasChildren instance to be monikerized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>
-		/// <param name="sourceRolePlayer">Source element that references the ModelElementHasParent instance being monikerized.</param>
-		/// <param name="relSerializer">Serializer that handles the relationship connecting the source element to the ModelElementHasParent instance being monikerized.</param>
+		/// <param name="sourceRolePlayer">Source element that references the ModelElementHasChildren instance being monikerized.</param>
+		/// <param name="relSerializer">Serializer that handles the relationship connecting the source element to the ModelElementHasChildren instance being monikerized.</param>
 		public override void WriteMoniker(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer, DslModeling::ModelElement sourceRolePlayer, DslModeling::DomainRelationshipXmlSerializer relSerializer)
 		{
 			#region Check Parameters
@@ -7523,10 +7568,10 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		
 		/// <summary>
-		/// Public Write() method that serializes one ModelElementHasParent instance into XML.
+		/// Public Write() method that serializes one ModelElementHasChildren instance into XML.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">ModelElementHasParent instance to be serialized.</param>
+		/// <param name="element">ModelElementHasChildren instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>
 		/// <param name="rootElementSettings">
 		/// The root element settings if the passed in element is serialized as a root element in the XML. The root element contains additional
@@ -7575,8 +7620,8 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 	
 			// Write the target role-player instance.
-			ModelElementHasParent instance = element as ModelElementHasParent;
-			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of ModelElementHasParent!");
+			ModelElementHasChildren instance = element as ModelElementHasChildren;
+			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of ModelElementHasChildren!");
 	
 			DslModeling::ModelElement targetElement = instance.SubElement;
 			DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer(targetElement.GetDomainClass().Id);
@@ -7596,7 +7641,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// Write all properties that need to be serialized as XML attributes.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">ModelElementHasParent instance to be serialized.</param>
+		/// <param name="element">ModelElementHasChildren instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param> 
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
 		protected override void WritePropertiesAsAttributes(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
@@ -7611,7 +7656,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// This methods serializes 1) properties serialized as nested XML elements and 2) child model elements into XML. 
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">ModelElementHasParent instance to be serialized.</param>
+		/// <param name="element">ModelElementHasChildren instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>        
 		protected override void WriteElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
 		{
@@ -7624,11 +7669,11 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region Moniker Support
 		/// <summary>
-		/// This method calculates a moniker to a given ModelElementHasParent instance.
+		/// This method calculates a moniker to a given ModelElementHasChildren instance.
 		/// </summary>
 		/// <param name="directory">Directory to look up serializer based on model element type.</param>
-		/// <param name="element">ModelElementHasParent instance to calculate qualified name for.</param>
-		/// <returns>A fully qualified string moniker to the ModelElementHasParent instance.</returns>
+		/// <param name="element">ModelElementHasChildren instance to calculate qualified name for.</param>
+		/// <returns>A fully qualified string moniker to the ModelElementHasChildren instance.</returns>
 		public override string CalculateQualifiedName(DslModeling::DomainXmlSerializerDirectory directory, DslModeling::ModelElement element)
 		{
 			#region Check Parameters
@@ -7640,8 +7685,8 @@ namespace Bb.ApplicationCooperationViewPoint
 				throw new global::System.ArgumentNullException("element");
 			#endregion	
 			
-			ModelElementHasParent instance = element as ModelElementHasParent;
-			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of ModelElementHasParent!");
+			ModelElementHasChildren instance = element as ModelElementHasChildren;
+			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of ModelElementHasChildren!");
 	
 			return instance.Id.ToString("D", global::System.Globalization.CultureInfo.CurrentCulture);
 		}
@@ -7652,7 +7697,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// returns empty string.
 		/// </summary>
 		/// <param name="directory">Directory to look up serializer based on model element type.</param>
-		/// <param name="element">ModelElementHasParent instance to get moniker qualifier from.</param>
+		/// <param name="element">ModelElementHasChildren instance to get moniker qualifier from.</param>
 		/// <returns>
 		/// Value of this element's moniker qualifier property, if it has one, or the value of the container's moniker qualifier property. Or empty string if this
 		/// element is not monikerized using standard /qualifier/key mechanism.
@@ -7701,15 +7746,15 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// Serializer ModelHasConceptSerializer for DomainClass ModelHasConcept.
+	/// Serializer ModelHasConceptsSerializer for DomainClass ModelHasConcepts.
 	/// </summary>
-	public partial class ModelHasConceptSerializer : DslModeling::DomainRelationshipXmlSerializer
+	public partial class ModelHasConceptsSerializer : DslModeling::DomainRelationshipXmlSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// ModelHasConceptSerializer Constructor
+		/// ModelHasConceptsSerializer Constructor
 		/// </summary>
-		public ModelHasConceptSerializer ()
+		public ModelHasConceptsSerializer ()
 			: base ()
 		{
 		}
@@ -7735,25 +7780,25 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region Public Properties
 		/// <summary>
-		/// This is the XML tag name used to serialize an instance of ModelHasConcept.
+		/// This is the XML tag name used to serialize an instance of ModelHasConcepts.
 		/// </summary>
 		public override string XmlTagName
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
-			get { return @"modelHasConcept"; }
+			get { return @"modelHasConcepts"; }
 		}
 	
 		/// <summary>
-		/// This is the XML tag name used to serialize a monikerized instance of ModelHasConcept.
+		/// This is the XML tag name used to serialize a monikerized instance of ModelHasConcepts.
 		/// </summary>
 		public override string MonikerTagName
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
-			get { return @"modelHasConceptMoniker"; }
+			get { return @"modelHasConceptsMoniker"; }
 		}
 		
 		/// <summary>
-		/// This is the name of the XML attribute that stores the moniker of ModelHasConcept in a serialized monikerized instance.
+		/// This is the name of the XML attribute that stores the moniker of ModelHasConcepts in a serialized monikerized instance.
 		/// </summary>
 		public override string MonikerAttributeName
 		{
@@ -7764,16 +7809,16 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region Read Methods
 		/// <summary>
-		/// Public Read() method that deserializes one ModelHasConcept instance from XML.
+		/// Public Read() method that deserializes one ModelHasConcepts instance from XML.
 		/// </summary>
 		/// <remarks>
 		/// When this method is called, caller guarantees that the passed-in XML reader is positioned at the open XML tag
-		/// of the ModelHasConcept element that is about to be deserialized. 
+		/// of the ModelHasConcepts element that is about to be deserialized. 
 		/// The method needs to ensure that when it returns, the reader is positioned at the open XML tag of the next sibling element,
 		/// or the close tag of the parent element (or EOF).
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory ModelHasConcept instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory ModelHasConcepts instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		public override void Read(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -7821,7 +7866,7 @@ namespace Bb.ApplicationCooperationViewPoint
 				}
 				else
 				{
-					ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "ModelHasConcept");
+					ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "ModelHasConcepts");
 				}
 			}
 	
@@ -7845,7 +7890,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// 3) EOF.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory ModelHasConcept instance that will link to the target Concept instance.</param>
+		/// <param name="element">In-memory ModelHasConcepts instance that will link to the target Concept instance.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		protected virtual void ReadTargetRolePlayer(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -7872,7 +7917,7 @@ namespace Bb.ApplicationCooperationViewPoint
 				if (targetRolePlayer != null)
 				{
 					// Attach the target role-player.
-					DslModeling::DomainRoleInfo.SetRolePlayer(element as DslModeling::ElementLink, ModelHasConcept.ConceptDomainRoleId, targetRolePlayer);
+					DslModeling::DomainRoleInfo.SetRolePlayer(element as DslModeling::ElementLink, ModelHasConcepts.ConceptDomainRoleId, targetRolePlayer);
 					// Read target role-player.
 					DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (targetRolePlayer.GetDomainClass().Id);	
 					global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + targetRolePlayer.GetDomainClass().Name + "!");
@@ -7885,7 +7930,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 			if (targetRolePlayer == null)
 			{
-				ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "ModelHasConcept");
+				ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "ModelHasConcepts");
 			}
 		}
 	
@@ -7897,7 +7942,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// The caller will guarantee that the reader is positioned on the open XML tag of the current element being deserialized.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory ModelHasConcept instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory ModelHasConcepts instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
 		protected override void ReadPropertiesFromAttributes(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
@@ -7922,7 +7967,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// 3) EOF.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory ModelHasConcept instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory ModelHasConcepts instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		protected override void ReadElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -7933,8 +7978,8 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region TryCreateInstance & TryCreateDerivedInstance
 		/// <summary>
-		/// This method creates a correct instance of ModelHasConcept based on the tag currently pointed by the reader. If the reader
-		/// is positioned at a serialized ModelHasConcept, a new ModelHasConcept instance will be created in the given partition, otherwise 
+		/// This method creates a correct instance of ModelHasConcepts based on the tag currently pointed by the reader. If the reader
+		/// is positioned at a serialized ModelHasConcepts, a new ModelHasConcepts instance will be created in the given partition, otherwise 
 		/// null is returned.
 		/// </summary>
 		/// <remarks>
@@ -7944,7 +7989,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		/// <param name="partition">Partition in which new elements should be created.</param>	
-		/// <returns>Created ModelHasConcept instance, or null if the reader is not pointing to a serialized ModelHasConcept instance.</returns>
+		/// <returns>Created ModelHasConcepts instance, or null if the reader is not pointing to a serialized ModelHasConcepts instance.</returns>
 		public override DslModeling::ModelElement TryCreateInstance(DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			#region Check Parameters
@@ -7963,9 +8008,9 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// This method creates a correct derived instance of ModelHasConcept based on the tag currently pointed by the reader.
+		/// This method creates a correct derived instance of ModelHasConcepts based on the tag currently pointed by the reader.
 		/// Note that the difference between this method and the above one is that this method will never create an instance of the
-		/// ModelHasConcept type itself, only derived types are checked.
+		/// ModelHasConcepts type itself, only derived types are checked.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -7974,7 +8019,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		/// <param name="partition">Partition in which new elements should be created.</param>
-		/// <returns>Created instance that derives from ModelHasConcept, or null if the reader is not pointing to such a serialized instance.</returns>
+		/// <returns>Created instance that derives from ModelHasConcepts, or null if the reader is not pointing to such a serialized instance.</returns>
 		public override DslModeling::ElementLink TryCreateDerivedInstance (DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			#region Check Parameters
@@ -8006,18 +8051,18 @@ namespace Bb.ApplicationCooperationViewPoint
 			{
 				string localName = reader.LocalName;
 				if (!derivedTypesOnly && string.Compare (localName, this.XmlTagName, global::System.StringComparison.CurrentCulture) == 0)
-				{	// New "ModelHasConcept" instance.
+				{	// New "ModelHasConcepts" instance.
 					result = this.CreateInstance(serializationContext, reader, partition);
 				}
 				else
-				{	// Check for derived classes of "ModelHasConcept".
+				{	// Check for derived classes of "ModelHasConcepts".
 					if (this.derivedClasses == null)
 						this.ConstructDerivedClassesLookupTable(serializationContext, partition.DomainDataDirectory);
 					global::System.Diagnostics.Debug.Assert (this.derivedClasses != null);
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived relationship instance.
-						ModelHasConceptSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ModelHasConceptSerializer;
+						ModelHasConceptsSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ModelHasConceptsSerializer;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -8028,8 +8073,8 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// This method creates an instance of ModelHasConcept based on the tag currently pointed by the reader. The reader is guaranteed (by the caller)
-		/// to be pointed at a serialized instance of ModelHasConcept.
+		/// This method creates an instance of ModelHasConcepts based on the tag currently pointed by the reader. The reader is guaranteed (by the caller)
+		/// to be pointed at a serialized instance of ModelHasConcepts.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the ModelRoot instance being read. This method should
@@ -8037,8 +8082,8 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
-		/// <param name="partition">Partition in which new ModelHasConcept instance should be created.</param>	
-		/// <returns>Created ModelHasConcept instance.</returns>
+		/// <param name="partition">Partition in which new ModelHasConcepts instance should be created.</param>	
+		/// <returns>Created ModelHasConcepts instance.</returns>
 		protected override DslModeling::ModelElement CreateInstance(DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			string idStr = reader.GetAttribute ("Id");
@@ -8055,11 +8100,11 @@ namespace Bb.ApplicationCooperationViewPoint
 					id = new global::System.Guid (idStr);
 				}
 				// Create the link with place-holder role-players.
-				return new ModelHasConcept(
+				return new ModelHasConcepts(
 					partition,
 					new DslModeling::RoleAssignment[] {
-						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (ModelHasConcept.ModelDomainRoleId), 
-						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (ModelHasConcept.ConceptDomainRoleId)
+						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (ModelHasConcepts.ModelDomainRoleId), 
+						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (ModelHasConcepts.ConceptDomainRoleId)
 					},
 					new DslModeling::PropertyAssignment[] {
 						new DslModeling::PropertyAssignment(DslModeling::ElementFactory.IdPropertyAssignment, id)
@@ -8082,12 +8127,12 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// Stores a mapping from XmlTagName to DomainClassInfo that derives from ModelHasConcept, created on demand.
+		/// Stores a mapping from XmlTagName to DomainClassInfo that derives from ModelHasConcepts, created on demand.
 		/// </summary>
 		private global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> derivedClasses;
 	
 		/// <summary>
-		/// Construct the apping from XmlTagName to DomainClassInfo that derives from ModelHasConcept.
+		/// Construct the apping from XmlTagName to DomainClassInfo that derives from ModelHasConcepts.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="domainDataDirectory">DomainDataDirectory to be used to discover all derived classes.</param>
@@ -8096,7 +8141,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			global::System.Diagnostics.Debug.Assert(this.derivedClasses == null); // Shouldn't construct the table more than once.
 			this.derivedClasses = new global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> (global::System.StringComparer.CurrentCulture);
 	
-			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(ModelHasConcept.DomainClassId);
+			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(ModelHasConcepts.DomainClassId);
 			global::System.Diagnostics.Debug.Assert(thisClass != null, "Cannot find DomainClassInfo for ModelRoot!");
 	
 			global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::DomainClassInfo> descendents = thisClass.AllDescendants;
@@ -8128,7 +8173,7 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region TryCreateMonikerInstance
 		/// <summary>
-		/// This method creates a Moniker of the correct derived (including ModelHasConcept itself) instance of ModelHasConcept based on the tag currently pointed by the reader.
+		/// This method creates a Moniker of the correct derived (including ModelHasConcepts itself) instance of ModelHasConcepts based on the tag currently pointed by the reader.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -8162,18 +8207,18 @@ namespace Bb.ApplicationCooperationViewPoint
 			{
 				string localName = reader.LocalName;
 				if (string.Compare (localName, this.MonikerTagName, global::System.StringComparison.CurrentCulture) == 0)
-				{	// New "ModelHasConcept" moniker instance.
+				{	// New "ModelHasConcepts" moniker instance.
 					result = this.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 				}
 				else
-				{	// Check for derived classes of "ModelHasConcept".
+				{	// Check for derived classes of "ModelHasConcepts".
 					if (this.derivedClassMonikers == null)
 						this.ConstructDerivedClassMonikersLookupTable(serializationContext, partition.DomainDataDirectory);
 					global::System.Diagnostics.Debug.Assert(this.derivedClassMonikers != null);
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						ModelHasConceptSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ModelHasConceptSerializer;
+						ModelHasConceptsSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ModelHasConceptsSerializer;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -8184,7 +8229,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		
 		/// <summary>
-		/// This method creates a Moniker of ModelHasConcept based on the tag currently pointed by the reader.
+		/// This method creates a Moniker of ModelHasConcepts based on the tag currently pointed by the reader.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -8209,7 +8254,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			{	// Normalize the Id.
 				global::System.Guid id = new global::System.Guid(monikerString);
 				monikerString = id.ToString("D", global::System.Globalization.CultureInfo.CurrentCulture);
-				DslModeling::Moniker result = new DslModeling::Moniker(new DslModeling::MonikerKey(monikerString, relDomainClassId, ModelHasConcept.DomainClassId, partition.Store), partition.Store);
+				DslModeling::Moniker result = new DslModeling::Moniker(new DslModeling::MonikerKey(monikerString, relDomainClassId, ModelHasConcepts.DomainClassId, partition.Store), partition.Store);
 				// Set location info if possible.
 				result.Location = serializationContext.Location;
 				global::System.Xml.IXmlLineInfo xmlLineInfo = reader as global::System.Xml.IXmlLineInfo;
@@ -8233,12 +8278,12 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// Stores a mapping from Moniker Xml tag name to DomainClassInfo that derives from ModelHasConcept, created on demand.
+		/// Stores a mapping from Moniker Xml tag name to DomainClassInfo that derives from ModelHasConcepts, created on demand.
 		/// </summary>
 		private global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> derivedClassMonikers;
 	
 		/// <summary>
-		/// Construct the mapping from Moniker Xml tag name to DomainClassInfo that derives from ModelHasConcept.
+		/// Construct the mapping from Moniker Xml tag name to DomainClassInfo that derives from ModelHasConcepts.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="domainDataDirectory">DomainDataDirectory to be used to discover all derived classes.</param>
@@ -8247,7 +8292,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			global::System.Diagnostics.Debug.Assert(this.derivedClassMonikers == null); // Shouldn't construct the table more than once.
 			this.derivedClassMonikers = new global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> (global::System.StringComparer.CurrentCulture);
 	
-			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(ModelHasConcept.DomainClassId);
+			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(ModelHasConcepts.DomainClassId);
 			global::System.Diagnostics.Debug.Assert(thisClass != null, "Cannot find DomainClassInfo for ModelRoot!");
 	
 			global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::DomainClassInfo> descendents = thisClass.AllDescendants;
@@ -8273,13 +8318,13 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region Write Methods
 		/// <summary>
-		/// Public WriteMoniker() method that writes a monikerized ModelHasConcept instance into XML.
+		/// Public WriteMoniker() method that writes a monikerized ModelHasConcepts instance into XML.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">ModelHasConcept instance to be monikerized.</param>
+		/// <param name="element">ModelHasConcepts instance to be monikerized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>
-		/// <param name="sourceRolePlayer">Source element that references the ModelHasConcept instance being monikerized.</param>
-		/// <param name="relSerializer">Serializer that handles the relationship connecting the source element to the ModelHasConcept instance being monikerized.</param>
+		/// <param name="sourceRolePlayer">Source element that references the ModelHasConcepts instance being monikerized.</param>
+		/// <param name="relSerializer">Serializer that handles the relationship connecting the source element to the ModelHasConcepts instance being monikerized.</param>
 		public override void WriteMoniker(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer, DslModeling::ModelElement sourceRolePlayer, DslModeling::DomainRelationshipXmlSerializer relSerializer)
 		{
 			#region Check Parameters
@@ -8308,10 +8353,10 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		
 		/// <summary>
-		/// Public Write() method that serializes one ModelHasConcept instance into XML.
+		/// Public Write() method that serializes one ModelHasConcepts instance into XML.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">ModelHasConcept instance to be serialized.</param>
+		/// <param name="element">ModelHasConcepts instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>
 		/// <param name="rootElementSettings">
 		/// The root element settings if the passed in element is serialized as a root element in the XML. The root element contains additional
@@ -8360,8 +8405,8 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 	
 			// Write the target role-player instance.
-			ModelHasConcept instance = element as ModelHasConcept;
-			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of ModelHasConcept!");
+			ModelHasConcepts instance = element as ModelHasConcepts;
+			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of ModelHasConcepts!");
 	
 			DslModeling::ModelElement targetElement = instance.Concept;
 			DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer(targetElement.GetDomainClass().Id);
@@ -8381,7 +8426,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// Write all properties that need to be serialized as XML attributes.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">ModelHasConcept instance to be serialized.</param>
+		/// <param name="element">ModelHasConcepts instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param> 
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
 		protected override void WritePropertiesAsAttributes(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
@@ -8396,7 +8441,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// This methods serializes 1) properties serialized as nested XML elements and 2) child model elements into XML. 
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">ModelHasConcept instance to be serialized.</param>
+		/// <param name="element">ModelHasConcepts instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>        
 		protected override void WriteElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
 		{
@@ -8409,11 +8454,11 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region Moniker Support
 		/// <summary>
-		/// This method calculates a moniker to a given ModelHasConcept instance.
+		/// This method calculates a moniker to a given ModelHasConcepts instance.
 		/// </summary>
 		/// <param name="directory">Directory to look up serializer based on model element type.</param>
-		/// <param name="element">ModelHasConcept instance to calculate qualified name for.</param>
-		/// <returns>A fully qualified string moniker to the ModelHasConcept instance.</returns>
+		/// <param name="element">ModelHasConcepts instance to calculate qualified name for.</param>
+		/// <returns>A fully qualified string moniker to the ModelHasConcepts instance.</returns>
 		public override string CalculateQualifiedName(DslModeling::DomainXmlSerializerDirectory directory, DslModeling::ModelElement element)
 		{
 			#region Check Parameters
@@ -8425,8 +8470,8 @@ namespace Bb.ApplicationCooperationViewPoint
 				throw new global::System.ArgumentNullException("element");
 			#endregion	
 			
-			ModelHasConcept instance = element as ModelHasConcept;
-			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of ModelHasConcept!");
+			ModelHasConcepts instance = element as ModelHasConcepts;
+			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of ModelHasConcepts!");
 	
 			return instance.Id.ToString("D", global::System.Globalization.CultureInfo.CurrentCulture);
 		}
@@ -8437,7 +8482,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// returns empty string.
 		/// </summary>
 		/// <param name="directory">Directory to look up serializer based on model element type.</param>
-		/// <param name="element">ModelHasConcept instance to get moniker qualifier from.</param>
+		/// <param name="element">ModelHasConcepts instance to get moniker qualifier from.</param>
 		/// <returns>
 		/// Value of this element's moniker qualifier property, if it has one, or the value of the container's moniker qualifier property. Or empty string if this
 		/// element is not monikerized using standard /qualifier/key mechanism.
@@ -8486,15 +8531,15 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// Serializer ConceptHasConceptElementSerializer for DomainClass ConceptHasConceptElement.
+	/// Serializer ConceptHasChildrenSerializer for DomainClass ConceptHasChildren.
 	/// </summary>
-	public partial class ConceptHasConceptElementSerializer : DslModeling::DomainRelationshipXmlSerializer
+	public partial class ConceptHasChildrenSerializer : DslModeling::DomainRelationshipXmlSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// ConceptHasConceptElementSerializer Constructor
+		/// ConceptHasChildrenSerializer Constructor
 		/// </summary>
-		public ConceptHasConceptElementSerializer ()
+		public ConceptHasChildrenSerializer ()
 			: base ()
 		{
 		}
@@ -8520,25 +8565,25 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region Public Properties
 		/// <summary>
-		/// This is the XML tag name used to serialize an instance of ConceptHasConceptElement.
+		/// This is the XML tag name used to serialize an instance of ConceptHasChildren.
 		/// </summary>
 		public override string XmlTagName
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
-			get { return @"conceptHasConceptElement"; }
+			get { return @"conceptHasChildren"; }
 		}
 	
 		/// <summary>
-		/// This is the XML tag name used to serialize a monikerized instance of ConceptHasConceptElement.
+		/// This is the XML tag name used to serialize a monikerized instance of ConceptHasChildren.
 		/// </summary>
 		public override string MonikerTagName
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
-			get { return @"conceptHasConceptElementMoniker"; }
+			get { return @"conceptHasChildrenMoniker"; }
 		}
 		
 		/// <summary>
-		/// This is the name of the XML attribute that stores the moniker of ConceptHasConceptElement in a serialized monikerized instance.
+		/// This is the name of the XML attribute that stores the moniker of ConceptHasChildren in a serialized monikerized instance.
 		/// </summary>
 		public override string MonikerAttributeName
 		{
@@ -8549,16 +8594,16 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region Read Methods
 		/// <summary>
-		/// Public Read() method that deserializes one ConceptHasConceptElement instance from XML.
+		/// Public Read() method that deserializes one ConceptHasChildren instance from XML.
 		/// </summary>
 		/// <remarks>
 		/// When this method is called, caller guarantees that the passed-in XML reader is positioned at the open XML tag
-		/// of the ConceptHasConceptElement element that is about to be deserialized. 
+		/// of the ConceptHasChildren element that is about to be deserialized. 
 		/// The method needs to ensure that when it returns, the reader is positioned at the open XML tag of the next sibling element,
 		/// or the close tag of the parent element (or EOF).
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory ConceptHasConceptElement instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory ConceptHasChildren instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		public override void Read(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -8606,7 +8651,7 @@ namespace Bb.ApplicationCooperationViewPoint
 				}
 				else
 				{
-					ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "ConceptHasConceptElement");
+					ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "ConceptHasChildren");
 				}
 			}
 	
@@ -8630,7 +8675,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// 3) EOF.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory ConceptHasConceptElement instance that will link to the target ConceptElement instance.</param>
+		/// <param name="element">In-memory ConceptHasChildren instance that will link to the target ConceptElement instance.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		protected virtual void ReadTargetRolePlayer(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -8657,7 +8702,7 @@ namespace Bb.ApplicationCooperationViewPoint
 				if (targetRolePlayer != null)
 				{
 					// Attach the target role-player.
-					DslModeling::DomainRoleInfo.SetRolePlayer(element as DslModeling::ElementLink, ConceptHasConceptElement.ConceptElementDomainRoleId, targetRolePlayer);
+					DslModeling::DomainRoleInfo.SetRolePlayer(element as DslModeling::ElementLink, ConceptHasChildren.ConceptElementDomainRoleId, targetRolePlayer);
 					// Read target role-player.
 					DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (targetRolePlayer.GetDomainClass().Id);	
 					global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + targetRolePlayer.GetDomainClass().Name + "!");
@@ -8670,7 +8715,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 			if (targetRolePlayer == null)
 			{
-				ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "ConceptHasConceptElement");
+				ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "ConceptHasChildren");
 			}
 		}
 	
@@ -8682,7 +8727,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// The caller will guarantee that the reader is positioned on the open XML tag of the current element being deserialized.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory ConceptHasConceptElement instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory ConceptHasChildren instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
 		protected override void ReadPropertiesFromAttributes(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
@@ -8707,7 +8752,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// 3) EOF.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory ConceptHasConceptElement instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory ConceptHasChildren instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		protected override void ReadElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -8718,8 +8763,8 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region TryCreateInstance & TryCreateDerivedInstance
 		/// <summary>
-		/// This method creates a correct instance of ConceptHasConceptElement based on the tag currently pointed by the reader. If the reader
-		/// is positioned at a serialized ConceptHasConceptElement, a new ConceptHasConceptElement instance will be created in the given partition, otherwise 
+		/// This method creates a correct instance of ConceptHasChildren based on the tag currently pointed by the reader. If the reader
+		/// is positioned at a serialized ConceptHasChildren, a new ConceptHasChildren instance will be created in the given partition, otherwise 
 		/// null is returned.
 		/// </summary>
 		/// <remarks>
@@ -8729,7 +8774,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		/// <param name="partition">Partition in which new elements should be created.</param>	
-		/// <returns>Created ConceptHasConceptElement instance, or null if the reader is not pointing to a serialized ConceptHasConceptElement instance.</returns>
+		/// <returns>Created ConceptHasChildren instance, or null if the reader is not pointing to a serialized ConceptHasChildren instance.</returns>
 		public override DslModeling::ModelElement TryCreateInstance(DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			#region Check Parameters
@@ -8748,9 +8793,9 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// This method creates a correct derived instance of ConceptHasConceptElement based on the tag currently pointed by the reader.
+		/// This method creates a correct derived instance of ConceptHasChildren based on the tag currently pointed by the reader.
 		/// Note that the difference between this method and the above one is that this method will never create an instance of the
-		/// ConceptHasConceptElement type itself, only derived types are checked.
+		/// ConceptHasChildren type itself, only derived types are checked.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -8759,7 +8804,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		/// <param name="partition">Partition in which new elements should be created.</param>
-		/// <returns>Created instance that derives from ConceptHasConceptElement, or null if the reader is not pointing to such a serialized instance.</returns>
+		/// <returns>Created instance that derives from ConceptHasChildren, or null if the reader is not pointing to such a serialized instance.</returns>
 		public override DslModeling::ElementLink TryCreateDerivedInstance (DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			#region Check Parameters
@@ -8791,18 +8836,18 @@ namespace Bb.ApplicationCooperationViewPoint
 			{
 				string localName = reader.LocalName;
 				if (!derivedTypesOnly && string.Compare (localName, this.XmlTagName, global::System.StringComparison.CurrentCulture) == 0)
-				{	// New "ConceptHasConceptElement" instance.
+				{	// New "ConceptHasChildren" instance.
 					result = this.CreateInstance(serializationContext, reader, partition);
 				}
 				else
-				{	// Check for derived classes of "ConceptHasConceptElement".
+				{	// Check for derived classes of "ConceptHasChildren".
 					if (this.derivedClasses == null)
 						this.ConstructDerivedClassesLookupTable(serializationContext, partition.DomainDataDirectory);
 					global::System.Diagnostics.Debug.Assert (this.derivedClasses != null);
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived relationship instance.
-						ConceptHasConceptElementSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptHasConceptElementSerializer;
+						ConceptHasChildrenSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptHasChildrenSerializer;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -8813,8 +8858,8 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// This method creates an instance of ConceptHasConceptElement based on the tag currently pointed by the reader. The reader is guaranteed (by the caller)
-		/// to be pointed at a serialized instance of ConceptHasConceptElement.
+		/// This method creates an instance of ConceptHasChildren based on the tag currently pointed by the reader. The reader is guaranteed (by the caller)
+		/// to be pointed at a serialized instance of ConceptHasChildren.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the ModelRoot instance being read. This method should
@@ -8822,8 +8867,8 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
-		/// <param name="partition">Partition in which new ConceptHasConceptElement instance should be created.</param>	
-		/// <returns>Created ConceptHasConceptElement instance.</returns>
+		/// <param name="partition">Partition in which new ConceptHasChildren instance should be created.</param>	
+		/// <returns>Created ConceptHasChildren instance.</returns>
 		protected override DslModeling::ModelElement CreateInstance(DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			string idStr = reader.GetAttribute ("Id");
@@ -8840,11 +8885,11 @@ namespace Bb.ApplicationCooperationViewPoint
 					id = new global::System.Guid (idStr);
 				}
 				// Create the link with place-holder role-players.
-				return new ConceptHasConceptElement(
+				return new ConceptHasChildren(
 					partition,
 					new DslModeling::RoleAssignment[] {
-						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (ConceptHasConceptElement.ConceptDomainRoleId), 
-						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (ConceptHasConceptElement.ConceptElementDomainRoleId)
+						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (ConceptHasChildren.ConceptDomainRoleId), 
+						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (ConceptHasChildren.ConceptElementDomainRoleId)
 					},
 					new DslModeling::PropertyAssignment[] {
 						new DslModeling::PropertyAssignment(DslModeling::ElementFactory.IdPropertyAssignment, id)
@@ -8867,12 +8912,12 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// Stores a mapping from XmlTagName to DomainClassInfo that derives from ConceptHasConceptElement, created on demand.
+		/// Stores a mapping from XmlTagName to DomainClassInfo that derives from ConceptHasChildren, created on demand.
 		/// </summary>
 		private global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> derivedClasses;
 	
 		/// <summary>
-		/// Construct the apping from XmlTagName to DomainClassInfo that derives from ConceptHasConceptElement.
+		/// Construct the apping from XmlTagName to DomainClassInfo that derives from ConceptHasChildren.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="domainDataDirectory">DomainDataDirectory to be used to discover all derived classes.</param>
@@ -8881,7 +8926,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			global::System.Diagnostics.Debug.Assert(this.derivedClasses == null); // Shouldn't construct the table more than once.
 			this.derivedClasses = new global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> (global::System.StringComparer.CurrentCulture);
 	
-			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(ConceptHasConceptElement.DomainClassId);
+			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(ConceptHasChildren.DomainClassId);
 			global::System.Diagnostics.Debug.Assert(thisClass != null, "Cannot find DomainClassInfo for ModelRoot!");
 	
 			global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::DomainClassInfo> descendents = thisClass.AllDescendants;
@@ -8913,7 +8958,7 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region TryCreateMonikerInstance
 		/// <summary>
-		/// This method creates a Moniker of the correct derived (including ConceptHasConceptElement itself) instance of ConceptHasConceptElement based on the tag currently pointed by the reader.
+		/// This method creates a Moniker of the correct derived (including ConceptHasChildren itself) instance of ConceptHasChildren based on the tag currently pointed by the reader.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -8947,18 +8992,18 @@ namespace Bb.ApplicationCooperationViewPoint
 			{
 				string localName = reader.LocalName;
 				if (string.Compare (localName, this.MonikerTagName, global::System.StringComparison.CurrentCulture) == 0)
-				{	// New "ConceptHasConceptElement" moniker instance.
+				{	// New "ConceptHasChildren" moniker instance.
 					result = this.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 				}
 				else
-				{	// Check for derived classes of "ConceptHasConceptElement".
+				{	// Check for derived classes of "ConceptHasChildren".
 					if (this.derivedClassMonikers == null)
 						this.ConstructDerivedClassMonikersLookupTable(serializationContext, partition.DomainDataDirectory);
 					global::System.Diagnostics.Debug.Assert(this.derivedClassMonikers != null);
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						ConceptHasConceptElementSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptHasConceptElementSerializer;
+						ConceptHasChildrenSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptHasChildrenSerializer;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -8969,7 +9014,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		
 		/// <summary>
-		/// This method creates a Moniker of ConceptHasConceptElement based on the tag currently pointed by the reader.
+		/// This method creates a Moniker of ConceptHasChildren based on the tag currently pointed by the reader.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -8994,7 +9039,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			{	// Normalize the Id.
 				global::System.Guid id = new global::System.Guid(monikerString);
 				monikerString = id.ToString("D", global::System.Globalization.CultureInfo.CurrentCulture);
-				DslModeling::Moniker result = new DslModeling::Moniker(new DslModeling::MonikerKey(monikerString, relDomainClassId, ConceptHasConceptElement.DomainClassId, partition.Store), partition.Store);
+				DslModeling::Moniker result = new DslModeling::Moniker(new DslModeling::MonikerKey(monikerString, relDomainClassId, ConceptHasChildren.DomainClassId, partition.Store), partition.Store);
 				// Set location info if possible.
 				result.Location = serializationContext.Location;
 				global::System.Xml.IXmlLineInfo xmlLineInfo = reader as global::System.Xml.IXmlLineInfo;
@@ -9018,12 +9063,12 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// Stores a mapping from Moniker Xml tag name to DomainClassInfo that derives from ConceptHasConceptElement, created on demand.
+		/// Stores a mapping from Moniker Xml tag name to DomainClassInfo that derives from ConceptHasChildren, created on demand.
 		/// </summary>
 		private global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> derivedClassMonikers;
 	
 		/// <summary>
-		/// Construct the mapping from Moniker Xml tag name to DomainClassInfo that derives from ConceptHasConceptElement.
+		/// Construct the mapping from Moniker Xml tag name to DomainClassInfo that derives from ConceptHasChildren.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="domainDataDirectory">DomainDataDirectory to be used to discover all derived classes.</param>
@@ -9032,7 +9077,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			global::System.Diagnostics.Debug.Assert(this.derivedClassMonikers == null); // Shouldn't construct the table more than once.
 			this.derivedClassMonikers = new global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> (global::System.StringComparer.CurrentCulture);
 	
-			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(ConceptHasConceptElement.DomainClassId);
+			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(ConceptHasChildren.DomainClassId);
 			global::System.Diagnostics.Debug.Assert(thisClass != null, "Cannot find DomainClassInfo for ModelRoot!");
 	
 			global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::DomainClassInfo> descendents = thisClass.AllDescendants;
@@ -9058,13 +9103,13 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region Write Methods
 		/// <summary>
-		/// Public WriteMoniker() method that writes a monikerized ConceptHasConceptElement instance into XML.
+		/// Public WriteMoniker() method that writes a monikerized ConceptHasChildren instance into XML.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">ConceptHasConceptElement instance to be monikerized.</param>
+		/// <param name="element">ConceptHasChildren instance to be monikerized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>
-		/// <param name="sourceRolePlayer">Source element that references the ConceptHasConceptElement instance being monikerized.</param>
-		/// <param name="relSerializer">Serializer that handles the relationship connecting the source element to the ConceptHasConceptElement instance being monikerized.</param>
+		/// <param name="sourceRolePlayer">Source element that references the ConceptHasChildren instance being monikerized.</param>
+		/// <param name="relSerializer">Serializer that handles the relationship connecting the source element to the ConceptHasChildren instance being monikerized.</param>
 		public override void WriteMoniker(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer, DslModeling::ModelElement sourceRolePlayer, DslModeling::DomainRelationshipXmlSerializer relSerializer)
 		{
 			#region Check Parameters
@@ -9093,10 +9138,10 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		
 		/// <summary>
-		/// Public Write() method that serializes one ConceptHasConceptElement instance into XML.
+		/// Public Write() method that serializes one ConceptHasChildren instance into XML.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">ConceptHasConceptElement instance to be serialized.</param>
+		/// <param name="element">ConceptHasChildren instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>
 		/// <param name="rootElementSettings">
 		/// The root element settings if the passed in element is serialized as a root element in the XML. The root element contains additional
@@ -9145,8 +9190,8 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 	
 			// Write the target role-player instance.
-			ConceptHasConceptElement instance = element as ConceptHasConceptElement;
-			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of ConceptHasConceptElement!");
+			ConceptHasChildren instance = element as ConceptHasChildren;
+			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of ConceptHasChildren!");
 	
 			DslModeling::ModelElement targetElement = instance.ConceptElement;
 			DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer(targetElement.GetDomainClass().Id);
@@ -9166,7 +9211,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// Write all properties that need to be serialized as XML attributes.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">ConceptHasConceptElement instance to be serialized.</param>
+		/// <param name="element">ConceptHasChildren instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param> 
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
 		protected override void WritePropertiesAsAttributes(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
@@ -9181,7 +9226,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// This methods serializes 1) properties serialized as nested XML elements and 2) child model elements into XML. 
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">ConceptHasConceptElement instance to be serialized.</param>
+		/// <param name="element">ConceptHasChildren instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>        
 		protected override void WriteElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
 		{
@@ -9194,11 +9239,11 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region Moniker Support
 		/// <summary>
-		/// This method calculates a moniker to a given ConceptHasConceptElement instance.
+		/// This method calculates a moniker to a given ConceptHasChildren instance.
 		/// </summary>
 		/// <param name="directory">Directory to look up serializer based on model element type.</param>
-		/// <param name="element">ConceptHasConceptElement instance to calculate qualified name for.</param>
-		/// <returns>A fully qualified string moniker to the ConceptHasConceptElement instance.</returns>
+		/// <param name="element">ConceptHasChildren instance to calculate qualified name for.</param>
+		/// <returns>A fully qualified string moniker to the ConceptHasChildren instance.</returns>
 		public override string CalculateQualifiedName(DslModeling::DomainXmlSerializerDirectory directory, DslModeling::ModelElement element)
 		{
 			#region Check Parameters
@@ -9210,8 +9255,8 @@ namespace Bb.ApplicationCooperationViewPoint
 				throw new global::System.ArgumentNullException("element");
 			#endregion	
 			
-			ConceptHasConceptElement instance = element as ConceptHasConceptElement;
-			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of ConceptHasConceptElement!");
+			ConceptHasChildren instance = element as ConceptHasChildren;
+			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of ConceptHasChildren!");
 	
 			return instance.Id.ToString("D", global::System.Globalization.CultureInfo.CurrentCulture);
 		}
@@ -9222,7 +9267,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// returns empty string.
 		/// </summary>
 		/// <param name="directory">Directory to look up serializer based on model element type.</param>
-		/// <param name="element">ConceptHasConceptElement instance to get moniker qualifier from.</param>
+		/// <param name="element">ConceptHasChildren instance to get moniker qualifier from.</param>
 		/// <returns>
 		/// Value of this element's moniker qualifier property, if it has one, or the value of the container's moniker qualifier property. Or empty string if this
 		/// element is not monikerized using standard /qualifier/key mechanism.
@@ -9271,15 +9316,15 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// Serializer ConceptElementHasConceptSubElementSerializer for DomainClass ConceptElementHasConceptSubElement.
+	/// Serializer ConceptElementHasChildrenSerializer for DomainClass ConceptElementHasChildren.
 	/// </summary>
-	public partial class ConceptElementHasConceptSubElementSerializer : DslModeling::DomainRelationshipXmlSerializer
+	public partial class ConceptElementHasChildrenSerializer : DslModeling::DomainRelationshipXmlSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// ConceptElementHasConceptSubElementSerializer Constructor
+		/// ConceptElementHasChildrenSerializer Constructor
 		/// </summary>
-		public ConceptElementHasConceptSubElementSerializer ()
+		public ConceptElementHasChildrenSerializer ()
 			: base ()
 		{
 		}
@@ -9305,25 +9350,25 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region Public Properties
 		/// <summary>
-		/// This is the XML tag name used to serialize an instance of ConceptElementHasConceptSubElement.
+		/// This is the XML tag name used to serialize an instance of ConceptElementHasChildren.
 		/// </summary>
 		public override string XmlTagName
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
-			get { return @"conceptElementHasConceptSubElement"; }
+			get { return @"conceptElementHasChildren"; }
 		}
 	
 		/// <summary>
-		/// This is the XML tag name used to serialize a monikerized instance of ConceptElementHasConceptSubElement.
+		/// This is the XML tag name used to serialize a monikerized instance of ConceptElementHasChildren.
 		/// </summary>
 		public override string MonikerTagName
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
-			get { return @"conceptElementHasConceptSubElementMoniker"; }
+			get { return @"conceptElementHasChildrenMoniker"; }
 		}
 		
 		/// <summary>
-		/// This is the name of the XML attribute that stores the moniker of ConceptElementHasConceptSubElement in a serialized monikerized instance.
+		/// This is the name of the XML attribute that stores the moniker of ConceptElementHasChildren in a serialized monikerized instance.
 		/// </summary>
 		public override string MonikerAttributeName
 		{
@@ -9334,16 +9379,16 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region Read Methods
 		/// <summary>
-		/// Public Read() method that deserializes one ConceptElementHasConceptSubElement instance from XML.
+		/// Public Read() method that deserializes one ConceptElementHasChildren instance from XML.
 		/// </summary>
 		/// <remarks>
 		/// When this method is called, caller guarantees that the passed-in XML reader is positioned at the open XML tag
-		/// of the ConceptElementHasConceptSubElement element that is about to be deserialized. 
+		/// of the ConceptElementHasChildren element that is about to be deserialized. 
 		/// The method needs to ensure that when it returns, the reader is positioned at the open XML tag of the next sibling element,
 		/// or the close tag of the parent element (or EOF).
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory ConceptElementHasConceptSubElement instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory ConceptElementHasChildren instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		public override void Read(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -9391,7 +9436,7 @@ namespace Bb.ApplicationCooperationViewPoint
 				}
 				else
 				{
-					ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "ConceptElementHasConceptSubElement");
+					ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "ConceptElementHasChildren");
 				}
 			}
 	
@@ -9415,7 +9460,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// 3) EOF.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory ConceptElementHasConceptSubElement instance that will link to the target ConceptSubElement instance.</param>
+		/// <param name="element">In-memory ConceptElementHasChildren instance that will link to the target ConceptSubElement instance.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		protected virtual void ReadTargetRolePlayer(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -9442,7 +9487,7 @@ namespace Bb.ApplicationCooperationViewPoint
 				if (targetRolePlayer != null)
 				{
 					// Attach the target role-player.
-					DslModeling::DomainRoleInfo.SetRolePlayer(element as DslModeling::ElementLink, ConceptElementHasConceptSubElement.ConceptSubElementDomainRoleId, targetRolePlayer);
+					DslModeling::DomainRoleInfo.SetRolePlayer(element as DslModeling::ElementLink, ConceptElementHasChildren.ConceptSubElementDomainRoleId, targetRolePlayer);
 					// Read target role-player.
 					DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (targetRolePlayer.GetDomainClass().Id);	
 					global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + targetRolePlayer.GetDomainClass().Name + "!");
@@ -9455,7 +9500,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 			if (targetRolePlayer == null)
 			{
-				ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "ConceptElementHasConceptSubElement");
+				ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "ConceptElementHasChildren");
 			}
 		}
 	
@@ -9467,7 +9512,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// The caller will guarantee that the reader is positioned on the open XML tag of the current element being deserialized.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory ConceptElementHasConceptSubElement instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory ConceptElementHasChildren instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
 		protected override void ReadPropertiesFromAttributes(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
@@ -9492,7 +9537,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// 3) EOF.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory ConceptElementHasConceptSubElement instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory ConceptElementHasChildren instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		protected override void ReadElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -9503,8 +9548,8 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region TryCreateInstance & TryCreateDerivedInstance
 		/// <summary>
-		/// This method creates a correct instance of ConceptElementHasConceptSubElement based on the tag currently pointed by the reader. If the reader
-		/// is positioned at a serialized ConceptElementHasConceptSubElement, a new ConceptElementHasConceptSubElement instance will be created in the given partition, otherwise 
+		/// This method creates a correct instance of ConceptElementHasChildren based on the tag currently pointed by the reader. If the reader
+		/// is positioned at a serialized ConceptElementHasChildren, a new ConceptElementHasChildren instance will be created in the given partition, otherwise 
 		/// null is returned.
 		/// </summary>
 		/// <remarks>
@@ -9514,7 +9559,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		/// <param name="partition">Partition in which new elements should be created.</param>	
-		/// <returns>Created ConceptElementHasConceptSubElement instance, or null if the reader is not pointing to a serialized ConceptElementHasConceptSubElement instance.</returns>
+		/// <returns>Created ConceptElementHasChildren instance, or null if the reader is not pointing to a serialized ConceptElementHasChildren instance.</returns>
 		public override DslModeling::ModelElement TryCreateInstance(DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			#region Check Parameters
@@ -9533,9 +9578,9 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// This method creates a correct derived instance of ConceptElementHasConceptSubElement based on the tag currently pointed by the reader.
+		/// This method creates a correct derived instance of ConceptElementHasChildren based on the tag currently pointed by the reader.
 		/// Note that the difference between this method and the above one is that this method will never create an instance of the
-		/// ConceptElementHasConceptSubElement type itself, only derived types are checked.
+		/// ConceptElementHasChildren type itself, only derived types are checked.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -9544,7 +9589,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		/// <param name="partition">Partition in which new elements should be created.</param>
-		/// <returns>Created instance that derives from ConceptElementHasConceptSubElement, or null if the reader is not pointing to such a serialized instance.</returns>
+		/// <returns>Created instance that derives from ConceptElementHasChildren, or null if the reader is not pointing to such a serialized instance.</returns>
 		public override DslModeling::ElementLink TryCreateDerivedInstance (DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			#region Check Parameters
@@ -9576,18 +9621,18 @@ namespace Bb.ApplicationCooperationViewPoint
 			{
 				string localName = reader.LocalName;
 				if (!derivedTypesOnly && string.Compare (localName, this.XmlTagName, global::System.StringComparison.CurrentCulture) == 0)
-				{	// New "ConceptElementHasConceptSubElement" instance.
+				{	// New "ConceptElementHasChildren" instance.
 					result = this.CreateInstance(serializationContext, reader, partition);
 				}
 				else
-				{	// Check for derived classes of "ConceptElementHasConceptSubElement".
+				{	// Check for derived classes of "ConceptElementHasChildren".
 					if (this.derivedClasses == null)
 						this.ConstructDerivedClassesLookupTable(serializationContext, partition.DomainDataDirectory);
 					global::System.Diagnostics.Debug.Assert (this.derivedClasses != null);
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived relationship instance.
-						ConceptElementHasConceptSubElementSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptElementHasConceptSubElementSerializer;
+						ConceptElementHasChildrenSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptElementHasChildrenSerializer;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -9598,8 +9643,8 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// This method creates an instance of ConceptElementHasConceptSubElement based on the tag currently pointed by the reader. The reader is guaranteed (by the caller)
-		/// to be pointed at a serialized instance of ConceptElementHasConceptSubElement.
+		/// This method creates an instance of ConceptElementHasChildren based on the tag currently pointed by the reader. The reader is guaranteed (by the caller)
+		/// to be pointed at a serialized instance of ConceptElementHasChildren.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the ModelRoot instance being read. This method should
@@ -9607,8 +9652,8 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
-		/// <param name="partition">Partition in which new ConceptElementHasConceptSubElement instance should be created.</param>	
-		/// <returns>Created ConceptElementHasConceptSubElement instance.</returns>
+		/// <param name="partition">Partition in which new ConceptElementHasChildren instance should be created.</param>	
+		/// <returns>Created ConceptElementHasChildren instance.</returns>
 		protected override DslModeling::ModelElement CreateInstance(DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			string idStr = reader.GetAttribute ("Id");
@@ -9625,11 +9670,11 @@ namespace Bb.ApplicationCooperationViewPoint
 					id = new global::System.Guid (idStr);
 				}
 				// Create the link with place-holder role-players.
-				return new ConceptElementHasConceptSubElement(
+				return new ConceptElementHasChildren(
 					partition,
 					new DslModeling::RoleAssignment[] {
-						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (ConceptElementHasConceptSubElement.ConceptElementDomainRoleId), 
-						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (ConceptElementHasConceptSubElement.ConceptSubElementDomainRoleId)
+						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (ConceptElementHasChildren.ConceptElementDomainRoleId), 
+						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (ConceptElementHasChildren.ConceptSubElementDomainRoleId)
 					},
 					new DslModeling::PropertyAssignment[] {
 						new DslModeling::PropertyAssignment(DslModeling::ElementFactory.IdPropertyAssignment, id)
@@ -9652,12 +9697,12 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// Stores a mapping from XmlTagName to DomainClassInfo that derives from ConceptElementHasConceptSubElement, created on demand.
+		/// Stores a mapping from XmlTagName to DomainClassInfo that derives from ConceptElementHasChildren, created on demand.
 		/// </summary>
 		private global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> derivedClasses;
 	
 		/// <summary>
-		/// Construct the apping from XmlTagName to DomainClassInfo that derives from ConceptElementHasConceptSubElement.
+		/// Construct the apping from XmlTagName to DomainClassInfo that derives from ConceptElementHasChildren.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="domainDataDirectory">DomainDataDirectory to be used to discover all derived classes.</param>
@@ -9666,7 +9711,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			global::System.Diagnostics.Debug.Assert(this.derivedClasses == null); // Shouldn't construct the table more than once.
 			this.derivedClasses = new global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> (global::System.StringComparer.CurrentCulture);
 	
-			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(ConceptElementHasConceptSubElement.DomainClassId);
+			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(ConceptElementHasChildren.DomainClassId);
 			global::System.Diagnostics.Debug.Assert(thisClass != null, "Cannot find DomainClassInfo for ModelRoot!");
 	
 			global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::DomainClassInfo> descendents = thisClass.AllDescendants;
@@ -9698,7 +9743,7 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region TryCreateMonikerInstance
 		/// <summary>
-		/// This method creates a Moniker of the correct derived (including ConceptElementHasConceptSubElement itself) instance of ConceptElementHasConceptSubElement based on the tag currently pointed by the reader.
+		/// This method creates a Moniker of the correct derived (including ConceptElementHasChildren itself) instance of ConceptElementHasChildren based on the tag currently pointed by the reader.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -9732,18 +9777,18 @@ namespace Bb.ApplicationCooperationViewPoint
 			{
 				string localName = reader.LocalName;
 				if (string.Compare (localName, this.MonikerTagName, global::System.StringComparison.CurrentCulture) == 0)
-				{	// New "ConceptElementHasConceptSubElement" moniker instance.
+				{	// New "ConceptElementHasChildren" moniker instance.
 					result = this.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 				}
 				else
-				{	// Check for derived classes of "ConceptElementHasConceptSubElement".
+				{	// Check for derived classes of "ConceptElementHasChildren".
 					if (this.derivedClassMonikers == null)
 						this.ConstructDerivedClassMonikersLookupTable(serializationContext, partition.DomainDataDirectory);
 					global::System.Diagnostics.Debug.Assert(this.derivedClassMonikers != null);
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						ConceptElementHasConceptSubElementSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptElementHasConceptSubElementSerializer;
+						ConceptElementHasChildrenSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptElementHasChildrenSerializer;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -9754,7 +9799,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		
 		/// <summary>
-		/// This method creates a Moniker of ConceptElementHasConceptSubElement based on the tag currently pointed by the reader.
+		/// This method creates a Moniker of ConceptElementHasChildren based on the tag currently pointed by the reader.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -9779,7 +9824,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			{	// Normalize the Id.
 				global::System.Guid id = new global::System.Guid(monikerString);
 				monikerString = id.ToString("D", global::System.Globalization.CultureInfo.CurrentCulture);
-				DslModeling::Moniker result = new DslModeling::Moniker(new DslModeling::MonikerKey(monikerString, relDomainClassId, ConceptElementHasConceptSubElement.DomainClassId, partition.Store), partition.Store);
+				DslModeling::Moniker result = new DslModeling::Moniker(new DslModeling::MonikerKey(monikerString, relDomainClassId, ConceptElementHasChildren.DomainClassId, partition.Store), partition.Store);
 				// Set location info if possible.
 				result.Location = serializationContext.Location;
 				global::System.Xml.IXmlLineInfo xmlLineInfo = reader as global::System.Xml.IXmlLineInfo;
@@ -9803,12 +9848,12 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 	
 		/// <summary>
-		/// Stores a mapping from Moniker Xml tag name to DomainClassInfo that derives from ConceptElementHasConceptSubElement, created on demand.
+		/// Stores a mapping from Moniker Xml tag name to DomainClassInfo that derives from ConceptElementHasChildren, created on demand.
 		/// </summary>
 		private global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> derivedClassMonikers;
 	
 		/// <summary>
-		/// Construct the mapping from Moniker Xml tag name to DomainClassInfo that derives from ConceptElementHasConceptSubElement.
+		/// Construct the mapping from Moniker Xml tag name to DomainClassInfo that derives from ConceptElementHasChildren.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="domainDataDirectory">DomainDataDirectory to be used to discover all derived classes.</param>
@@ -9817,7 +9862,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			global::System.Diagnostics.Debug.Assert(this.derivedClassMonikers == null); // Shouldn't construct the table more than once.
 			this.derivedClassMonikers = new global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> (global::System.StringComparer.CurrentCulture);
 	
-			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(ConceptElementHasConceptSubElement.DomainClassId);
+			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(ConceptElementHasChildren.DomainClassId);
 			global::System.Diagnostics.Debug.Assert(thisClass != null, "Cannot find DomainClassInfo for ModelRoot!");
 	
 			global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::DomainClassInfo> descendents = thisClass.AllDescendants;
@@ -9843,13 +9888,13 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region Write Methods
 		/// <summary>
-		/// Public WriteMoniker() method that writes a monikerized ConceptElementHasConceptSubElement instance into XML.
+		/// Public WriteMoniker() method that writes a monikerized ConceptElementHasChildren instance into XML.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">ConceptElementHasConceptSubElement instance to be monikerized.</param>
+		/// <param name="element">ConceptElementHasChildren instance to be monikerized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>
-		/// <param name="sourceRolePlayer">Source element that references the ConceptElementHasConceptSubElement instance being monikerized.</param>
-		/// <param name="relSerializer">Serializer that handles the relationship connecting the source element to the ConceptElementHasConceptSubElement instance being monikerized.</param>
+		/// <param name="sourceRolePlayer">Source element that references the ConceptElementHasChildren instance being monikerized.</param>
+		/// <param name="relSerializer">Serializer that handles the relationship connecting the source element to the ConceptElementHasChildren instance being monikerized.</param>
 		public override void WriteMoniker(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer, DslModeling::ModelElement sourceRolePlayer, DslModeling::DomainRelationshipXmlSerializer relSerializer)
 		{
 			#region Check Parameters
@@ -9878,10 +9923,10 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		
 		/// <summary>
-		/// Public Write() method that serializes one ConceptElementHasConceptSubElement instance into XML.
+		/// Public Write() method that serializes one ConceptElementHasChildren instance into XML.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">ConceptElementHasConceptSubElement instance to be serialized.</param>
+		/// <param name="element">ConceptElementHasChildren instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>
 		/// <param name="rootElementSettings">
 		/// The root element settings if the passed in element is serialized as a root element in the XML. The root element contains additional
@@ -9930,8 +9975,8 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 	
 			// Write the target role-player instance.
-			ConceptElementHasConceptSubElement instance = element as ConceptElementHasConceptSubElement;
-			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of ConceptElementHasConceptSubElement!");
+			ConceptElementHasChildren instance = element as ConceptElementHasChildren;
+			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of ConceptElementHasChildren!");
 	
 			DslModeling::ModelElement targetElement = instance.ConceptSubElement;
 			DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer(targetElement.GetDomainClass().Id);
@@ -9951,7 +9996,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// Write all properties that need to be serialized as XML attributes.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">ConceptElementHasConceptSubElement instance to be serialized.</param>
+		/// <param name="element">ConceptElementHasChildren instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param> 
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
 		protected override void WritePropertiesAsAttributes(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
@@ -9966,7 +10011,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// This methods serializes 1) properties serialized as nested XML elements and 2) child model elements into XML. 
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">ConceptElementHasConceptSubElement instance to be serialized.</param>
+		/// <param name="element">ConceptElementHasChildren instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>        
 		protected override void WriteElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
 		{
@@ -9979,11 +10024,11 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 		#region Moniker Support
 		/// <summary>
-		/// This method calculates a moniker to a given ConceptElementHasConceptSubElement instance.
+		/// This method calculates a moniker to a given ConceptElementHasChildren instance.
 		/// </summary>
 		/// <param name="directory">Directory to look up serializer based on model element type.</param>
-		/// <param name="element">ConceptElementHasConceptSubElement instance to calculate qualified name for.</param>
-		/// <returns>A fully qualified string moniker to the ConceptElementHasConceptSubElement instance.</returns>
+		/// <param name="element">ConceptElementHasChildren instance to calculate qualified name for.</param>
+		/// <returns>A fully qualified string moniker to the ConceptElementHasChildren instance.</returns>
 		public override string CalculateQualifiedName(DslModeling::DomainXmlSerializerDirectory directory, DslModeling::ModelElement element)
 		{
 			#region Check Parameters
@@ -9995,8 +10040,8 @@ namespace Bb.ApplicationCooperationViewPoint
 				throw new global::System.ArgumentNullException("element");
 			#endregion	
 			
-			ConceptElementHasConceptSubElement instance = element as ConceptElementHasConceptSubElement;
-			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of ConceptElementHasConceptSubElement!");
+			ConceptElementHasChildren instance = element as ConceptElementHasChildren;
+			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of ConceptElementHasChildren!");
 	
 			return instance.Id.ToString("D", global::System.Globalization.CultureInfo.CurrentCulture);
 		}
@@ -10007,7 +10052,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// returns empty string.
 		/// </summary>
 		/// <param name="directory">Directory to look up serializer based on model element type.</param>
-		/// <param name="element">ConceptElementHasConceptSubElement instance to get moniker qualifier from.</param>
+		/// <param name="element">ConceptElementHasChildren instance to get moniker qualifier from.</param>
 		/// <returns>
 		/// Value of this element's moniker qualifier property, if it has one, or the value of the container's moniker qualifier property. Or empty string if this
 		/// element is not monikerized using standard /qualifier/key mechanism.
@@ -14337,15 +14382,15 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// Serializer CooperationShapeSerializer for DomainClass CooperationShape.
+	/// Serializer CooperationShapeSerializerBase for DomainClass CooperationShape.
 	/// </summary>
-	public partial class CooperationShapeSerializer : DslDiagrams::NodeShapeSerializer
+	public abstract partial class CooperationShapeSerializerBase : DslDiagrams::NodeShapeSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// CooperationShapeSerializer Constructor
+		/// CooperationShapeSerializerBase Constructor
 		/// </summary>
-		public CooperationShapeSerializer ()
+		protected CooperationShapeSerializerBase ()
 			: base ()
 		{
 		}
@@ -14443,7 +14488,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					// model elements.
 					while (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 					{
-						base.ReadElements(serializationContext, element, reader);
+						ReadElements(serializationContext, element, reader);
 						if (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 						{
 							// Encountered one unknown XML element, skip it and keep reading.
@@ -14458,6 +14503,29 @@ namespace Bb.ApplicationCooperationViewPoint
 			DslModeling::SerializationUtilities.Skip(reader);
 		}
 		
+	
+		/// <summary>
+		/// This methods deserializes nested XML elements inside the passed-in element.
+		/// </summary>
+		/// <remarks>
+		/// The caller will guarantee that the current element does have nested XML elements, and the call will position the 
+		/// reader at the open tag of the first child XML element.
+		/// This method will read as many child XML elements as it can. It returns under three circumstances:
+		/// 1) When an unknown child XML element is encountered. In this case, this method will position the reader at the open 
+		///    tag of the unknown element. This implies that if the first child XML element is unknown, this method should return 
+		///    immediately and do nothing.
+		/// 2) When all child XML elemnets are read. In this case, the reader will be positioned at the end tag of the parent element.
+		/// 3) EOF.
+		/// </remarks>
+		/// <param name="serializationContext">Serialization context.</param>
+		/// <param name="element">In-memory CooperationShape instance that will get the deserialized data.</param>
+		/// <param name="reader">XmlReader to read serialized data from.</param>
+		protected override void ReadElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
+		{
+			// Always call the base class so any extensions are deserialized
+			base.ReadElements(serializationContext, element, reader);
+	
+		}
 	
 		#region TryCreateInstance
 		/// <summary>
@@ -14503,7 +14571,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class instance.
-						CooperationShapeSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as CooperationShapeSerializer;
+						CooperationShapeSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as CooperationShapeSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -14649,7 +14717,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						CooperationShapeSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as CooperationShapeSerializer;
+						CooperationShapeSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as CooperationShapeSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -14838,11 +14906,25 @@ namespace Bb.ApplicationCooperationViewPoint
 			if (!serializationContext.Result.Failed)
 			{
 				// Write 1) properties serialized as nested XML elements and 2) child model elements into XML.
-				base.WriteElements(serializationContext, element, writer);
+				WriteElements(serializationContext, element, writer);
 			}
 	
 			writer.WriteEndElement();
 		}
+	
+		/// <summary>
+		/// This methods serializes 1) properties serialized as nested XML elements and 2) child model elements into XML. 
+		/// </summary>
+		/// <param name="serializationContext">Serialization context.</param>
+		/// <param name="element">CooperationShape instance to be serialized.</param>
+		/// <param name="writer">XmlWriter to write serialized data to.</param>        
+		protected override void WriteElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
+		{
+			// Always call the base class so any extensions are serialized
+			base.WriteElements(serializationContext, element, writer);
+	
+		}
+		
 		#endregion
 	
 		#region Moniker Support
@@ -14895,20 +14977,36 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		#endregion
 	}
+	
+	/// <summary>
+	/// Serializer CooperationShapeSerializer for DomainClass CooperationShape.
+	/// </summary>
+	public partial class CooperationShapeSerializer : CooperationShapeSerializerBase
+	{
+		#region Constructor
+		/// <summary>
+		/// CooperationShapeSerializer Constructor
+		/// </summary>
+		public CooperationShapeSerializer ()
+			: base ()
+		{
+		}
+		#endregion
+	}
 }
 
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// Serializer CooperationSubShapeSerializer for DomainClass CooperationSubShape.
+	/// Serializer CooperationSubShapeSerializerBase for DomainClass CooperationSubShape.
 	/// </summary>
-	public partial class CooperationSubShapeSerializer : DslDiagrams::NodeShapeSerializer
+	public abstract partial class CooperationSubShapeSerializerBase : DslDiagrams::NodeShapeSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// CooperationSubShapeSerializer Constructor
+		/// CooperationSubShapeSerializerBase Constructor
 		/// </summary>
-		public CooperationSubShapeSerializer ()
+		protected CooperationSubShapeSerializerBase ()
 			: base ()
 		{
 		}
@@ -15006,7 +15104,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					// model elements.
 					while (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 					{
-						base.ReadElements(serializationContext, element, reader);
+						ReadElements(serializationContext, element, reader);
 						if (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 						{
 							// Encountered one unknown XML element, skip it and keep reading.
@@ -15021,6 +15119,29 @@ namespace Bb.ApplicationCooperationViewPoint
 			DslModeling::SerializationUtilities.Skip(reader);
 		}
 		
+	
+		/// <summary>
+		/// This methods deserializes nested XML elements inside the passed-in element.
+		/// </summary>
+		/// <remarks>
+		/// The caller will guarantee that the current element does have nested XML elements, and the call will position the 
+		/// reader at the open tag of the first child XML element.
+		/// This method will read as many child XML elements as it can. It returns under three circumstances:
+		/// 1) When an unknown child XML element is encountered. In this case, this method will position the reader at the open 
+		///    tag of the unknown element. This implies that if the first child XML element is unknown, this method should return 
+		///    immediately and do nothing.
+		/// 2) When all child XML elemnets are read. In this case, the reader will be positioned at the end tag of the parent element.
+		/// 3) EOF.
+		/// </remarks>
+		/// <param name="serializationContext">Serialization context.</param>
+		/// <param name="element">In-memory CooperationSubShape instance that will get the deserialized data.</param>
+		/// <param name="reader">XmlReader to read serialized data from.</param>
+		protected override void ReadElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
+		{
+			// Always call the base class so any extensions are deserialized
+			base.ReadElements(serializationContext, element, reader);
+	
+		}
 	
 		#region TryCreateInstance
 		/// <summary>
@@ -15066,7 +15187,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class instance.
-						CooperationSubShapeSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as CooperationSubShapeSerializer;
+						CooperationSubShapeSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as CooperationSubShapeSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -15212,7 +15333,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						CooperationSubShapeSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as CooperationSubShapeSerializer;
+						CooperationSubShapeSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as CooperationSubShapeSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -15401,11 +15522,25 @@ namespace Bb.ApplicationCooperationViewPoint
 			if (!serializationContext.Result.Failed)
 			{
 				// Write 1) properties serialized as nested XML elements and 2) child model elements into XML.
-				base.WriteElements(serializationContext, element, writer);
+				WriteElements(serializationContext, element, writer);
 			}
 	
 			writer.WriteEndElement();
 		}
+	
+		/// <summary>
+		/// This methods serializes 1) properties serialized as nested XML elements and 2) child model elements into XML. 
+		/// </summary>
+		/// <param name="serializationContext">Serialization context.</param>
+		/// <param name="element">CooperationSubShape instance to be serialized.</param>
+		/// <param name="writer">XmlWriter to write serialized data to.</param>        
+		protected override void WriteElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
+		{
+			// Always call the base class so any extensions are serialized
+			base.WriteElements(serializationContext, element, writer);
+	
+		}
+		
 		#endregion
 	
 		#region Moniker Support
@@ -15458,20 +15593,36 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		#endregion
 	}
+	
+	/// <summary>
+	/// Serializer CooperationSubShapeSerializer for DomainClass CooperationSubShape.
+	/// </summary>
+	public partial class CooperationSubShapeSerializer : CooperationSubShapeSerializerBase
+	{
+		#region Constructor
+		/// <summary>
+		/// CooperationSubShapeSerializer Constructor
+		/// </summary>
+		public CooperationSubShapeSerializer ()
+			: base ()
+		{
+		}
+		#endregion
+	}
 }
 
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// Serializer ConceptShapeSerializer for DomainClass ConceptShape.
+	/// Serializer ConceptShapeSerializerBase for DomainClass ConceptShape.
 	/// </summary>
-	public partial class ConceptShapeSerializer : DslDiagrams::NodeShapeSerializer
+	public abstract partial class ConceptShapeSerializerBase : DslDiagrams::NodeShapeSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// ConceptShapeSerializer Constructor
+		/// ConceptShapeSerializerBase Constructor
 		/// </summary>
-		public ConceptShapeSerializer ()
+		protected ConceptShapeSerializerBase ()
 			: base ()
 		{
 		}
@@ -15569,7 +15720,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					// model elements.
 					while (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 					{
-						base.ReadElements(serializationContext, element, reader);
+						ReadElements(serializationContext, element, reader);
 						if (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 						{
 							// Encountered one unknown XML element, skip it and keep reading.
@@ -15584,6 +15735,29 @@ namespace Bb.ApplicationCooperationViewPoint
 			DslModeling::SerializationUtilities.Skip(reader);
 		}
 		
+	
+		/// <summary>
+		/// This methods deserializes nested XML elements inside the passed-in element.
+		/// </summary>
+		/// <remarks>
+		/// The caller will guarantee that the current element does have nested XML elements, and the call will position the 
+		/// reader at the open tag of the first child XML element.
+		/// This method will read as many child XML elements as it can. It returns under three circumstances:
+		/// 1) When an unknown child XML element is encountered. In this case, this method will position the reader at the open 
+		///    tag of the unknown element. This implies that if the first child XML element is unknown, this method should return 
+		///    immediately and do nothing.
+		/// 2) When all child XML elemnets are read. In this case, the reader will be positioned at the end tag of the parent element.
+		/// 3) EOF.
+		/// </remarks>
+		/// <param name="serializationContext">Serialization context.</param>
+		/// <param name="element">In-memory ConceptShape instance that will get the deserialized data.</param>
+		/// <param name="reader">XmlReader to read serialized data from.</param>
+		protected override void ReadElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
+		{
+			// Always call the base class so any extensions are deserialized
+			base.ReadElements(serializationContext, element, reader);
+	
+		}
 	
 		#region TryCreateInstance
 		/// <summary>
@@ -15629,7 +15803,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class instance.
-						ConceptShapeSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptShapeSerializer;
+						ConceptShapeSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptShapeSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -15775,7 +15949,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						ConceptShapeSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptShapeSerializer;
+						ConceptShapeSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptShapeSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -15964,11 +16138,25 @@ namespace Bb.ApplicationCooperationViewPoint
 			if (!serializationContext.Result.Failed)
 			{
 				// Write 1) properties serialized as nested XML elements and 2) child model elements into XML.
-				base.WriteElements(serializationContext, element, writer);
+				WriteElements(serializationContext, element, writer);
 			}
 	
 			writer.WriteEndElement();
 		}
+	
+		/// <summary>
+		/// This methods serializes 1) properties serialized as nested XML elements and 2) child model elements into XML. 
+		/// </summary>
+		/// <param name="serializationContext">Serialization context.</param>
+		/// <param name="element">ConceptShape instance to be serialized.</param>
+		/// <param name="writer">XmlWriter to write serialized data to.</param>        
+		protected override void WriteElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
+		{
+			// Always call the base class so any extensions are serialized
+			base.WriteElements(serializationContext, element, writer);
+	
+		}
+		
 		#endregion
 	
 		#region Moniker Support
@@ -16021,20 +16209,36 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		#endregion
 	}
+	
+	/// <summary>
+	/// Serializer ConceptShapeSerializer for DomainClass ConceptShape.
+	/// </summary>
+	public partial class ConceptShapeSerializer : ConceptShapeSerializerBase
+	{
+		#region Constructor
+		/// <summary>
+		/// ConceptShapeSerializer Constructor
+		/// </summary>
+		public ConceptShapeSerializer ()
+			: base ()
+		{
+		}
+		#endregion
+	}
 }
 
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// Serializer ConceptElementShapeSerializer for DomainClass ConceptElementShape.
+	/// Serializer ConceptElementShapeSerializerBase for DomainClass ConceptElementShape.
 	/// </summary>
-	public partial class ConceptElementShapeSerializer : DslDiagrams::NodeShapeSerializer
+	public abstract partial class ConceptElementShapeSerializerBase : DslDiagrams::NodeShapeSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// ConceptElementShapeSerializer Constructor
+		/// ConceptElementShapeSerializerBase Constructor
 		/// </summary>
-		public ConceptElementShapeSerializer ()
+		protected ConceptElementShapeSerializerBase ()
 			: base ()
 		{
 		}
@@ -16132,7 +16336,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					// model elements.
 					while (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 					{
-						base.ReadElements(serializationContext, element, reader);
+						ReadElements(serializationContext, element, reader);
 						if (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 						{
 							// Encountered one unknown XML element, skip it and keep reading.
@@ -16147,6 +16351,29 @@ namespace Bb.ApplicationCooperationViewPoint
 			DslModeling::SerializationUtilities.Skip(reader);
 		}
 		
+	
+		/// <summary>
+		/// This methods deserializes nested XML elements inside the passed-in element.
+		/// </summary>
+		/// <remarks>
+		/// The caller will guarantee that the current element does have nested XML elements, and the call will position the 
+		/// reader at the open tag of the first child XML element.
+		/// This method will read as many child XML elements as it can. It returns under three circumstances:
+		/// 1) When an unknown child XML element is encountered. In this case, this method will position the reader at the open 
+		///    tag of the unknown element. This implies that if the first child XML element is unknown, this method should return 
+		///    immediately and do nothing.
+		/// 2) When all child XML elemnets are read. In this case, the reader will be positioned at the end tag of the parent element.
+		/// 3) EOF.
+		/// </remarks>
+		/// <param name="serializationContext">Serialization context.</param>
+		/// <param name="element">In-memory ConceptElementShape instance that will get the deserialized data.</param>
+		/// <param name="reader">XmlReader to read serialized data from.</param>
+		protected override void ReadElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
+		{
+			// Always call the base class so any extensions are deserialized
+			base.ReadElements(serializationContext, element, reader);
+	
+		}
 	
 		#region TryCreateInstance
 		/// <summary>
@@ -16192,7 +16419,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class instance.
-						ConceptElementShapeSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptElementShapeSerializer;
+						ConceptElementShapeSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptElementShapeSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -16338,7 +16565,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						ConceptElementShapeSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptElementShapeSerializer;
+						ConceptElementShapeSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptElementShapeSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -16527,11 +16754,25 @@ namespace Bb.ApplicationCooperationViewPoint
 			if (!serializationContext.Result.Failed)
 			{
 				// Write 1) properties serialized as nested XML elements and 2) child model elements into XML.
-				base.WriteElements(serializationContext, element, writer);
+				WriteElements(serializationContext, element, writer);
 			}
 	
 			writer.WriteEndElement();
 		}
+	
+		/// <summary>
+		/// This methods serializes 1) properties serialized as nested XML elements and 2) child model elements into XML. 
+		/// </summary>
+		/// <param name="serializationContext">Serialization context.</param>
+		/// <param name="element">ConceptElementShape instance to be serialized.</param>
+		/// <param name="writer">XmlWriter to write serialized data to.</param>        
+		protected override void WriteElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
+		{
+			// Always call the base class so any extensions are serialized
+			base.WriteElements(serializationContext, element, writer);
+	
+		}
+		
 		#endregion
 	
 		#region Moniker Support
@@ -16584,20 +16825,36 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		#endregion
 	}
+	
+	/// <summary>
+	/// Serializer ConceptElementShapeSerializer for DomainClass ConceptElementShape.
+	/// </summary>
+	public partial class ConceptElementShapeSerializer : ConceptElementShapeSerializerBase
+	{
+		#region Constructor
+		/// <summary>
+		/// ConceptElementShapeSerializer Constructor
+		/// </summary>
+		public ConceptElementShapeSerializer ()
+			: base ()
+		{
+		}
+		#endregion
+	}
 }
 
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// Serializer ConceptSubElementShapeSerializer for DomainClass ConceptSubElementShape.
+	/// Serializer ConceptSubElementShapeSerializerBase for DomainClass ConceptSubElementShape.
 	/// </summary>
-	public partial class ConceptSubElementShapeSerializer : DslDiagrams::NodeShapeSerializer
+	public abstract partial class ConceptSubElementShapeSerializerBase : DslDiagrams::NodeShapeSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// ConceptSubElementShapeSerializer Constructor
+		/// ConceptSubElementShapeSerializerBase Constructor
 		/// </summary>
-		public ConceptSubElementShapeSerializer ()
+		protected ConceptSubElementShapeSerializerBase ()
 			: base ()
 		{
 		}
@@ -16695,7 +16952,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					// model elements.
 					while (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 					{
-						base.ReadElements(serializationContext, element, reader);
+						ReadElements(serializationContext, element, reader);
 						if (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 						{
 							// Encountered one unknown XML element, skip it and keep reading.
@@ -16710,6 +16967,29 @@ namespace Bb.ApplicationCooperationViewPoint
 			DslModeling::SerializationUtilities.Skip(reader);
 		}
 		
+	
+		/// <summary>
+		/// This methods deserializes nested XML elements inside the passed-in element.
+		/// </summary>
+		/// <remarks>
+		/// The caller will guarantee that the current element does have nested XML elements, and the call will position the 
+		/// reader at the open tag of the first child XML element.
+		/// This method will read as many child XML elements as it can. It returns under three circumstances:
+		/// 1) When an unknown child XML element is encountered. In this case, this method will position the reader at the open 
+		///    tag of the unknown element. This implies that if the first child XML element is unknown, this method should return 
+		///    immediately and do nothing.
+		/// 2) When all child XML elemnets are read. In this case, the reader will be positioned at the end tag of the parent element.
+		/// 3) EOF.
+		/// </remarks>
+		/// <param name="serializationContext">Serialization context.</param>
+		/// <param name="element">In-memory ConceptSubElementShape instance that will get the deserialized data.</param>
+		/// <param name="reader">XmlReader to read serialized data from.</param>
+		protected override void ReadElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
+		{
+			// Always call the base class so any extensions are deserialized
+			base.ReadElements(serializationContext, element, reader);
+	
+		}
 	
 		#region TryCreateInstance
 		/// <summary>
@@ -16755,7 +17035,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class instance.
-						ConceptSubElementShapeSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptSubElementShapeSerializer;
+						ConceptSubElementShapeSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptSubElementShapeSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -16901,7 +17181,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						ConceptSubElementShapeSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptSubElementShapeSerializer;
+						ConceptSubElementShapeSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as ConceptSubElementShapeSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -17090,11 +17370,25 @@ namespace Bb.ApplicationCooperationViewPoint
 			if (!serializationContext.Result.Failed)
 			{
 				// Write 1) properties serialized as nested XML elements and 2) child model elements into XML.
-				base.WriteElements(serializationContext, element, writer);
+				WriteElements(serializationContext, element, writer);
 			}
 	
 			writer.WriteEndElement();
 		}
+	
+		/// <summary>
+		/// This methods serializes 1) properties serialized as nested XML elements and 2) child model elements into XML. 
+		/// </summary>
+		/// <param name="serializationContext">Serialization context.</param>
+		/// <param name="element">ConceptSubElementShape instance to be serialized.</param>
+		/// <param name="writer">XmlWriter to write serialized data to.</param>        
+		protected override void WriteElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
+		{
+			// Always call the base class so any extensions are serialized
+			base.WriteElements(serializationContext, element, writer);
+	
+		}
+		
 		#endregion
 	
 		#region Moniker Support
@@ -17147,20 +17441,36 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		#endregion
 	}
+	
+	/// <summary>
+	/// Serializer ConceptSubElementShapeSerializer for DomainClass ConceptSubElementShape.
+	/// </summary>
+	public partial class ConceptSubElementShapeSerializer : ConceptSubElementShapeSerializerBase
+	{
+		#region Constructor
+		/// <summary>
+		/// ConceptSubElementShapeSerializer Constructor
+		/// </summary>
+		public ConceptSubElementShapeSerializer ()
+			: base ()
+		{
+		}
+		#endregion
+	}
 }
 
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// Serializer RelationshipShapeSerializer for DomainClass RelationshipShape.
+	/// Serializer RelationshipShapeSerializerBase for DomainClass RelationshipShape.
 	/// </summary>
-	public partial class RelationshipShapeSerializer : DslDiagrams::NodeShapeSerializer
+	public abstract partial class RelationshipShapeSerializerBase : DslDiagrams::NodeShapeSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// RelationshipShapeSerializer Constructor
+		/// RelationshipShapeSerializerBase Constructor
 		/// </summary>
-		public RelationshipShapeSerializer ()
+		protected RelationshipShapeSerializerBase ()
 			: base ()
 		{
 		}
@@ -17258,7 +17568,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					// model elements.
 					while (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 					{
-						base.ReadElements(serializationContext, element, reader);
+						ReadElements(serializationContext, element, reader);
 						if (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 						{
 							// Encountered one unknown XML element, skip it and keep reading.
@@ -17273,6 +17583,29 @@ namespace Bb.ApplicationCooperationViewPoint
 			DslModeling::SerializationUtilities.Skip(reader);
 		}
 		
+	
+		/// <summary>
+		/// This methods deserializes nested XML elements inside the passed-in element.
+		/// </summary>
+		/// <remarks>
+		/// The caller will guarantee that the current element does have nested XML elements, and the call will position the 
+		/// reader at the open tag of the first child XML element.
+		/// This method will read as many child XML elements as it can. It returns under three circumstances:
+		/// 1) When an unknown child XML element is encountered. In this case, this method will position the reader at the open 
+		///    tag of the unknown element. This implies that if the first child XML element is unknown, this method should return 
+		///    immediately and do nothing.
+		/// 2) When all child XML elemnets are read. In this case, the reader will be positioned at the end tag of the parent element.
+		/// 3) EOF.
+		/// </remarks>
+		/// <param name="serializationContext">Serialization context.</param>
+		/// <param name="element">In-memory RelationshipShape instance that will get the deserialized data.</param>
+		/// <param name="reader">XmlReader to read serialized data from.</param>
+		protected override void ReadElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
+		{
+			// Always call the base class so any extensions are deserialized
+			base.ReadElements(serializationContext, element, reader);
+	
+		}
 	
 		#region TryCreateInstance
 		/// <summary>
@@ -17318,7 +17651,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class instance.
-						RelationshipShapeSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as RelationshipShapeSerializer;
+						RelationshipShapeSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as RelationshipShapeSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -17464,7 +17797,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						RelationshipShapeSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as RelationshipShapeSerializer;
+						RelationshipShapeSerializerBase derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as RelationshipShapeSerializerBase;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -17653,11 +17986,25 @@ namespace Bb.ApplicationCooperationViewPoint
 			if (!serializationContext.Result.Failed)
 			{
 				// Write 1) properties serialized as nested XML elements and 2) child model elements into XML.
-				base.WriteElements(serializationContext, element, writer);
+				WriteElements(serializationContext, element, writer);
 			}
 	
 			writer.WriteEndElement();
 		}
+	
+		/// <summary>
+		/// This methods serializes 1) properties serialized as nested XML elements and 2) child model elements into XML. 
+		/// </summary>
+		/// <param name="serializationContext">Serialization context.</param>
+		/// <param name="element">RelationshipShape instance to be serialized.</param>
+		/// <param name="writer">XmlWriter to write serialized data to.</param>        
+		protected override void WriteElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
+		{
+			// Always call the base class so any extensions are serialized
+			base.WriteElements(serializationContext, element, writer);
+	
+		}
+		
 		#endregion
 	
 		#region Moniker Support
@@ -17707,6 +18054,22 @@ namespace Bb.ApplicationCooperationViewPoint
 			#endregion	
 			
 			return string.Empty;
+		}
+		#endregion
+	}
+	
+	/// <summary>
+	/// Serializer RelationshipShapeSerializer for DomainClass RelationshipShape.
+	/// </summary>
+	public partial class RelationshipShapeSerializer : RelationshipShapeSerializerBase
+	{
+		#region Constructor
+		/// <summary>
+		/// RelationshipShapeSerializer Constructor
+		/// </summary>
+		public RelationshipShapeSerializer ()
+			: base ()
+		{
 		}
 		#endregion
 	}
@@ -18401,10 +18764,10 @@ namespace Bb.ApplicationCooperationViewPoint
 					ApplicationCooperationViewPointSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(ConceptSubElement.DomainClassId, typeof(ConceptSubElementSerializer)));
 					ApplicationCooperationViewPointSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(Relationship.DomainClassId, typeof(RelationshipSerializer)));
 					ApplicationCooperationViewPointSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(ModelHasElements.DomainClassId, typeof(ModelHasElementsSerializer)));
-					ApplicationCooperationViewPointSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(ModelElementHasParent.DomainClassId, typeof(ModelElementHasParentSerializer)));
-					ApplicationCooperationViewPointSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(ModelHasConcept.DomainClassId, typeof(ModelHasConceptSerializer)));
-					ApplicationCooperationViewPointSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(ConceptHasConceptElement.DomainClassId, typeof(ConceptHasConceptElementSerializer)));
-					ApplicationCooperationViewPointSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(ConceptElementHasConceptSubElement.DomainClassId, typeof(ConceptElementHasConceptSubElementSerializer)));
+					ApplicationCooperationViewPointSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(ModelElementHasChildren.DomainClassId, typeof(ModelElementHasChildrenSerializer)));
+					ApplicationCooperationViewPointSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(ModelHasConcepts.DomainClassId, typeof(ModelHasConceptsSerializer)));
+					ApplicationCooperationViewPointSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(ConceptHasChildren.DomainClassId, typeof(ConceptHasChildrenSerializer)));
+					ApplicationCooperationViewPointSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(ConceptElementHasChildren.DomainClassId, typeof(ConceptElementHasChildrenSerializer)));
 					ApplicationCooperationViewPointSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(ModelHasRelationships.DomainClassId, typeof(ModelHasRelationshipsSerializer)));
 					ApplicationCooperationViewPointSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(SubElementReferencesRelationship.DomainClassId, typeof(SubElementReferencesRelationshipSerializer)));
 					ApplicationCooperationViewPointSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(ConceptReferencesRelationship.DomainClassId, typeof(ConceptReferencesRelationshipSerializer)));

@@ -250,8 +250,21 @@ namespace Bb.Galileo.Files
 
         }
 
+        public static implicit operator  ResolveQuery(string txt)
+        {
+            return new ResolveQuery(txt);
+        }
 
     }
 
+    public static class ResolveQueryExtension
+    {
+
+        public static ResolveQuery AsQuery(this string txt)
+        {
+            return txt;
+        }
+
+    }
 
 }

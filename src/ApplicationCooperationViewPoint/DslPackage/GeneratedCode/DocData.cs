@@ -418,6 +418,67 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 		}
 
+		/// <summary>
+		/// Called after the document is opened.
+		/// </summary>
+		/// <param name="e">Event Args.</param>
+		protected override void OnDocumentLoaded(global::System.EventArgs e)
+		{
+			base.OnDocumentLoaded(e);
+			this.OnDocumentLoaded();
+		}
+
+		/// <summary>
+		/// Called after the document is reloaded.
+		/// </summary>
+		protected override void OnDocumentReloaded(global::System.EventArgs e)
+		{
+			base.OnDocumentReloaded(e);
+			this.OnDocumentLoaded();
+		}
+		
+		/// <summary>
+		/// Called on both document load and reload.
+		/// </summary>
+		protected virtual void OnDocumentLoaded()
+		{
+			// Validate the document
+			this.ValidationController.Validate(this.GetAllElementsForValidation(), DslValidation::ValidationCategories.Open);
+
+		}
+
+
+		/// <summary>
+		/// Validate the model before the file is saved.
+		/// </summary>
+		protected override bool CanSave(bool allowUserInterface)
+		{
+			// If a silent check then use a temporary ValidationController that is not connected to the error list to avoid any unwanted UI updates
+			DslShell::VsValidationController vc = allowUserInterface ? this.ValidationController : this.CreateValidationController();
+			if (vc == null)
+			{
+				return true;
+			}
+
+			// We check Load category first, because any violation in this category will cause the saved file to be unloadable justifying a special 
+			// error message. If the Load category passes, we then check the normal Save category, and give the normal warning message if necessary.
+			bool unloadableError = !vc.Validate(this.GetAllElementsForValidation(), DslValidation::ValidationCategories.Load) && vc.ErrorMessages.Count != 0;
+			
+			// Prompt user for confirmation if there are validation errors and this is not a silent save
+			if (allowUserInterface)
+			{
+				vc.Validate(this.GetAllElementsForValidation(), DslValidation::ValidationCategories.Save);
+
+				if (vc.ErrorMessages.Count != 0)
+				{
+					string errorMsg = (unloadableError ? "UnloadableSaveValidationFailed" : "SaveValidationFailed");
+					global::System.Windows.Forms.DialogResult result = DslShell::PackageUtility.ShowMessageBox(this.ServiceProvider, global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel.SingletonResourceManager.GetString(errorMsg), VSShellInterop::OLEMSGBUTTON.OLEMSGBUTTON_YESNO, VSShellInterop::OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_SECOND, VSShellInterop::OLEMSGICON.OLEMSGICON_WARNING);
+					return (result == global::System.Windows.Forms.DialogResult.Yes);
+				}
+			}
+			
+			return !unloadableError;
+		}
 
 			
 		/// <summary>

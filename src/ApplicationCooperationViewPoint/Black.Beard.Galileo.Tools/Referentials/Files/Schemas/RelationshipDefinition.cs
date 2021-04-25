@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Bb.Galileo.Files.Datas;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -28,10 +29,7 @@ namespace Bb.Galileo.Files.Schemas
         [JsonRequired]
         public LinkDefinition Target { get; set; }
 
-        public EntityDefinition GetOriginDefinition()
-        {
-            return this.File.Parent.Models.GetEntityDefinition(this.Origin.Name);
-        }
+        
 
         public override void Evaluate()
         {
@@ -43,12 +41,34 @@ namespace Bb.Galileo.Files.Schemas
 
         }
 
+        public EntityDefinition GetOriginDefinition()
+        {
+            return this.File.Parent.Models.GetEntityDefinition(this.Origin.Name);
+        }
 
         public EntityDefinition GetTargetDefinition()
         {
             return this.File.Parent.Models.GetEntityDefinition(this.Target.Name);
         }
 
+        public IEnumerable<ReferentialRelationship> GetRelationships()
+        {
+            var model = this.File.Parent.Models;
+            var items = model.GetReferentials(typeof(ReferentialRelationship), this.Name);
+            foreach (ReferentialRelationship item in items)
+                yield return item;
+        }
+
+        public IEnumerable<ReferentialEntity> GetTargetEntities()
+        {
+
+            var model = this.File.Parent.Models;
+
+            var items = model.GetEntityDefinition(this.Target.Name).GetEntities();
+            foreach (ReferentialEntity item in items)
+                yield return item;
+
+        }
 
     }
 

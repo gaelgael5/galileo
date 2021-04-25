@@ -49,7 +49,7 @@ namespace Bb.ApplicationCooperationViewPoint
         }
 
 
-        protected static ArrayList CustomOutlineDashPattern
+        public static ArrayList CustomOutlineDashPattern
         {
             get
             {

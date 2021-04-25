@@ -13,15 +13,19 @@
   <Extern href="virtkeys.h"/>
   <Extern href="DSLToolsCmdID.h"/>
   <Include href="GeneratedCode\GeneratedVsct.vsct"/>
+  
   <Commands package="guidPkg">
+    
     <Groups>
       <Group guid="guidImportMenuCmdSet" id="grpidMyMenuGroup" priority="0x0100">
         <!-- These symbols are defined in GeneratedVSCT.vsct -->
         <Parent guid="guidCmdSet" id="menuidContext" />
       </Group>
     </Groups>
+    
     <!-- Define a button - a menu item - inside the Group -->
     <Buttons>
+      
       <Button guid="guidImportMenuCmdSet" id="cmdidMyContextMenuCommand"
         priority="0x0100" type="Button">
         <Parent guid="guidImportMenuCmdSet" id="grpidMyMenuGroup"/>
@@ -33,14 +37,190 @@
           <ButtonText>Add referential items</ButtonText>
         </Strings>
       </Button>
+
+      <Button guid="guidSelectWithChildrenCmdSet" id="cmdidMyContextMenuCommand"
+        priority="0x0100" type="Button">
+        <Parent guid="guidImportMenuCmdSet" id="grpidMyMenuGroup"/>
+        <!-- If you do not want to place the command in your own Group, 
+         use Parent guid="guidCmdSet" id="grpidContextMain".
+         These symbols are defined in GeneratedVSCT.vsct -->
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Select with children</ButtonText>
+        </Strings>
+      </Button>
+
+      <Button guid="guidCenterInParentCmdSet" id="cmdidMyContextMenuCommand"
+          priority="0x0100" type="Button">
+        <Parent guid="guidImportMenuCmdSet" id="grpidMyMenuGroup"/>
+        <!-- If you do not want to place the command in your own Group, 
+         use Parent guid="guidCmdSet" id="grpidContextMain".
+         These symbols are defined in GeneratedVSCT.vsct -->
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Center children in the parent</ButtonText>
+        </Strings>
+      </Button>
+
+      <Button guid="guidCenterCmdSet" id="cmdidMyContextMenuCommand"
+          priority="0x0100" type="Button">
+        <Parent guid="guidImportMenuCmdSet" id="grpidMyMenuGroup"/>
+        <!-- If you do not want to place the command in your own Group, 
+         use Parent guid="guidCmdSet" id="grpidContextMain".
+         These symbols are defined in GeneratedVSCT.vsct -->
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Align verticaly center items</ButtonText>
+        </Strings>
+      </Button>
+
+      <Button guid="guidLeftCmdSet" id="cmdidMyContextMenuCommand"
+          priority="0x0100" type="Button">
+        <Parent guid="guidImportMenuCmdSet" id="grpidMyMenuGroup"/>
+        <!-- If you do not want to place the command in your own Group, 
+         use Parent guid="guidCmdSet" id="grpidContextMain".
+         These symbols are defined in GeneratedVSCT.vsct -->
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Align left items</ButtonText>
+        </Strings>
+      </Button>
+
+      <Button guid="guidRightCmdSet" id="cmdidMyContextMenuCommand"
+         priority="0x0100" type="Button">
+        <Parent guid="guidImportMenuCmdSet" id="grpidMyMenuGroup"/>
+        <!-- If you do not want to place the command in your own Group, 
+         use Parent guid="guidCmdSet" id="grpidContextMain".
+         These symbols are defined in GeneratedVSCT.vsct -->
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Align right items</ButtonText>
+        </Strings>
+      </Button>
+
+      <Button guid="guidTopCmdSet" id="cmdidMyContextMenuCommand"
+         priority="0x0100" type="Button">
+        <Parent guid="guidImportMenuCmdSet" id="grpidMyMenuGroup"/>
+        <!-- If you do not want to place the command in your own Group, 
+         use Parent guid="guidCmdSet" id="grpidContextMain".
+         These symbols are defined in GeneratedVSCT.vsct -->
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Align Top items</ButtonText>
+        </Strings>
+      </Button>
+
+      <Button guid="guidMiddleCmdSet" id="cmdidMyContextMenuCommand"
+         priority="0x0100" type="Button">
+        <Parent guid="guidImportMenuCmdSet" id="grpidMyMenuGroup"/>
+        <!-- If you do not want to place the command in your own Group, 
+         use Parent guid="guidCmdSet" id="grpidContextMain".
+         These symbols are defined in GeneratedVSCT.vsct -->
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Align middle items</ButtonText>
+        </Strings>
+      </Button>
+
+      <Button guid="guidBottomCmdSet" id="cmdidMyContextMenuCommand"
+         priority="0x0100" type="Button">
+        <Parent guid="guidImportMenuCmdSet" id="grpidMyMenuGroup"/>
+        <!-- If you do not want to place the command in your own Group, 
+         use Parent guid="guidCmdSet" id="grpidContextMain".
+         These symbols are defined in GeneratedVSCT.vsct -->
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Align bottom items</ButtonText>
+        </Strings>
+      </Button>
+
+      <Button guid="guidDistributeHorizontalCmdSet" id="cmdidMyContextMenuCommand"
+        priority="0x0100" type="Button">
+        <Parent guid="guidImportMenuCmdSet" id="grpidMyMenuGroup"/>
+        <!-- If you do not want to place the command in your own Group, 
+         use Parent guid="guidCmdSet" id="grpidContextMain".
+         These symbols are defined in GeneratedVSCT.vsct -->
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Distribute horizontal items</ButtonText>
+        </Strings>
+      </Button>
+
+      <Button guid="guidDistributeVerticalCmdSet" id="cmdidMyContextMenuCommand"
+        priority="0x0100" type="Button">
+        <Parent guid="guidImportMenuCmdSet" id="grpidMyMenuGroup"/>
+        <!-- If you do not want to place the command in your own Group, 
+         use Parent guid="guidCmdSet" id="grpidContextMain".
+         These symbols are defined in GeneratedVSCT.vsct -->
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Distribute vertical items</ButtonText>
+        </Strings>
+      </Button>
+      
+      
     </Buttons>
+    
   </Commands>
+  
   <Symbols>
+    
     <!-- Substitute a unique GUID for the placeholder: -->
-    <GuidSymbol name="guidImportMenuCmdSet"
-      value="{43b31cf1-9353-4e05-8325-5fc06b1df1c3}" >
+    <GuidSymbol name="guidImportMenuCmdSet" value="{43b31cf1-9353-4e05-8325-5fc06b1df1c3}" >
       <IDSymbol name="grpidMyMenuGroup" value="0x01001"/>
       <IDSymbol name="cmdidMyContextMenuCommand" value="0x00001"/>
     </GuidSymbol>
+
+    <GuidSymbol name="guidSelectWithChildrenCmdSet" value="{43b31cf1-9353-4e05-8325-5fc06b1df1c4}" >
+      <IDSymbol name="grpidMyMenuGroup" value="0x01001"/>
+      <IDSymbol name="cmdidMyContextMenuCommand" value="0x00001"/>
+    </GuidSymbol>
+
+    <GuidSymbol name="guidCenterInParentCmdSet" value="{43b31cf1-9353-4e05-8325-5fc06b1df1c5}" >
+      <IDSymbol name="grpidMyMenuGroup" value="0x01001"/>
+      <IDSymbol name="cmdidMyContextMenuCommand" value="0x00001"/>
+    </GuidSymbol>
+
+    <GuidSymbol name="guidCenterCmdSet" value="{43b31cf1-9353-4e05-8325-5fc06b1df1c6}" >
+      <IDSymbol name="grpidMyMenuGroup" value="0x01001"/>
+      <IDSymbol name="cmdidMyContextMenuCommand" value="0x00001"/>
+    </GuidSymbol>
+
+    <GuidSymbol name="guidLeftCmdSet" value="{43b31cf1-9353-4e05-8325-5fc06b1df1c7}" >
+      <IDSymbol name="grpidMyMenuGroup" value="0x01001"/>
+      <IDSymbol name="cmdidMyContextMenuCommand" value="0x00001"/>
+    </GuidSymbol>
+
+    <GuidSymbol name="guidRightCmdSet" value="{43b31cf1-9353-4e05-8325-5fc06b1df1c8}" >
+      <IDSymbol name="grpidMyMenuGroup" value="0x01001"/>
+      <IDSymbol name="cmdidMyContextMenuCommand" value="0x00001"/>
+    </GuidSymbol>
+
+    <GuidSymbol name="guidTopCmdSet" value="{43b31cf1-9353-4e05-8325-5fc06b1df1c9}" >
+      <IDSymbol name="grpidMyMenuGroup" value="0x01001"/>
+      <IDSymbol name="cmdidMyContextMenuCommand" value="0x00001"/>
+    </GuidSymbol>
+
+    <GuidSymbol name="guidMiddleCmdSet" value="{43b31cf1-9353-4e05-8325-5fc06b1df1c0}" >
+      <IDSymbol name="grpidMyMenuGroup" value="0x01001"/>
+      <IDSymbol name="cmdidMyContextMenuCommand" value="0x00001"/>
+    </GuidSymbol>
+
+    <GuidSymbol name="guidBottomCmdSet" value="{43b31cf1-9353-4e05-8325-5fc06b1df1c1}" >
+      <IDSymbol name="grpidMyMenuGroup" value="0x01001"/>
+      <IDSymbol name="cmdidMyContextMenuCommand" value="0x00001"/>
+    </GuidSymbol>
+
+
+    <GuidSymbol name="guidDistributeHorizontalCmdSet" value="{43b31cf1-9353-4e05-8325-5fc06b1df1c2}" >
+      <IDSymbol name="grpidMyMenuGroup" value="0x01001"/>
+      <IDSymbol name="cmdidMyContextMenuCommand" value="0x00001"/>
+    </GuidSymbol>
+
+    <GuidSymbol name="guidDistributeVerticalCmdSet" value="{43b31cf1-9353-4e05-8325-5fc06b1df1d3}" >
+      <IDSymbol name="grpidMyMenuGroup" value="0x01001"/>
+      <IDSymbol name="cmdidMyContextMenuCommand" value="0x00001"/>
+    </GuidSymbol>
+    
   </Symbols>
 </CommandTable>

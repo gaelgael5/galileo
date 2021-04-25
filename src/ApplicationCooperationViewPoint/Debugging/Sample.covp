@@ -1,2 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<model xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="0.1.0.0" Id="eb55e355-359b-437c-ab8c-9a85dfdcbc21" viewpointType="Applicative viewpoint" xmlns="http://schemas.microsoft.com/dsltools/ApplicationCooperationViewPoint" />
+<model xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="0.1.0.0" Id="109f5064-1adb-4b5a-b5e6-c3338aff397f" viewpointType="Applicative viewpoint" xmlns="http://schemas.microsoft.com/dsltools/ApplicationCooperationViewPoint">
+  <elements>
+    <modelElement Id="6ecf401a-1877-4730-b6cd-78af44d457b9" referenceSource="e:Application;i:778408974" type="Application" name="Colis 21">
+      <children>
+        <modelElementHasChildren Id="00b6ee4c-30c8-4331-87fb-20513629172a">
+          <subElement Id="11a94aaa-f350-4b61-aeba-c00438de5c4e" referenceSource="e:FunctionalModule;i:627486758" type="FunctionalModule" name="Avisage Colis 21" />
+        </modelElementHasChildren>
+        <modelElementHasChildren Id="d3acb46f-c226-4902-882c-ea973595df12">
+          <subElement Id="4f5cbea0-c293-4674-8ef2-ea54b1fe01f5" referenceSource="e:FunctionalModule;i:1121256339" type="FunctionalModule" name="Cœur colis" />
+        </modelElementHasChildren>
+        <modelElementHasChildren Id="9e6a98ae-65c2-4fe3-9cf8-dfb6e2004ddb">
+          <subElement Id="3c05458d-b642-477a-8a3d-5f79c44e69a9" referenceSource="e:FunctionalModule;i:3731195813" type="FunctionalModule" name="Enlèvement" />
+        </modelElementHasChildren>
+        <modelElementHasChildren Id="9236f5c1-2d5a-4f89-8806-78c079e8e427">
+          <subElement Id="f8bf0a97-590d-4cdb-bb21-447ace0689e0" referenceSource="e:FunctionalModule;i:420441044" type="FunctionalModule" name="Gestion des référentiel de données" />
+        </modelElementHasChildren>
+        <modelElementHasChildren Id="0a2572ec-a8bb-40c0-82cd-a09fe98cb9b5">
+          <subElement Id="3004d5ea-aa4a-48a6-b7b3-7b5fcff20b5e" referenceSource="e:FunctionalModule;i:3353618185" type="FunctionalModule" name="Gestion des rejets" />
+        </modelElementHasChildren>
+        <modelElementHasChildren Id="ed5cb51d-7810-493d-9869-856b54817b06">
+          <subElement Id="83fa0774-9f4c-4aeb-8199-22dec0f60de4" referenceSource="e:FunctionalModule;i:4013503812" type="FunctionalModule" name="Info et actions colis" />
+        </modelElementHasChildren>
+        <modelElementHasChildren Id="11777c4c-ba05-46a7-bb0b-a548c80b75fa">
+          <subElement Id="1631dbd8-9a0b-45a8-913d-1d443d6cff88" referenceSource="e:FunctionalModule;i:3595619411" type="FunctionalModule" name="Module NonDeterminedParcels" />
+        </modelElementHasChildren>
+        <modelElementHasChildren Id="0a51fde8-2904-4df7-bef6-17ba25c80c28">
+          <subElement Id="ccdb8449-8863-41db-ab37-647936b42f84" referenceSource="e:FunctionalModule;i:516499009" type="FunctionalModule" name="Module surcharge" />
+        </modelElementHasChildren>
+        <modelElementHasChildren Id="6bb2ec59-1fd4-4441-9434-1ca1fe24d1dc">
+          <subElement Id="0d8c1eed-f29a-4b37-bd70-ba7d372e3688" referenceSource="e:FunctionalModule;i:2735368376" type="FunctionalModule" name="OutboundFlows" />
+        </modelElementHasChildren>
+        <modelElementHasChildren Id="591048c2-7185-4cdf-a346-9b0dcb4b0b38">
+          <subElement Id="bf66b9df-c7b5-411f-a7b8-9218d4fb6a65" referenceSource="e:FunctionalModule;i:3285862387" type="FunctionalModule" name="ParcelMonitoring" />
+        </modelElementHasChildren>
+        <modelElementHasChildren Id="6ec9fe9c-2c84-42d2-9fbd-3ca57243aad1">
+          <subElement Id="3337b03e-b099-401f-8a93-bdfcf484302e" referenceSource="e:FunctionalModule;i:1289897933" type="FunctionalModule" name="Routing / Rerouting" />
+        </modelElementHasChildren>
+        <modelElementHasChildren Id="5dfbb77d-9b63-4947-852f-b7286cf43938">
+          <subElement Id="10ed009e-25d3-4a9f-a00e-d2b8ae77d55a" referenceSource="e:FunctionalModule;i:1453667832" type="FunctionalModule" name="SearchEngine" />
+        </modelElementHasChildren>
+        <modelElementHasChildren Id="527d832b-bc6f-486b-8ed2-58f9c54b7643">
+          <subElement Id="1a972ea2-47dc-42b7-aeb4-4f77a18c1a8f" referenceSource="e:FunctionalModule;i:2826723868" type="FunctionalModule" name="Tracking" />
+        </modelElementHasChildren>
+      </children>
+    </modelElement>
+    <modelElement Id="caf0b5aa-db60-4b36-b926-634e6ff25656" referenceSource="e:Application;i:2169659782" type="Application" name="anomalie 21">
+      <children>
+        <modelElementHasChildren Id="3f58bc76-ee8d-4b9f-9f65-94b962153e48">
+          <subElement Id="fa53694f-5c46-4ae2-b664-fe92a3e8bc2a" referenceSource="e:FunctionalModule;i:491119211" type="FunctionalModule" name="Coeur Anomalie" />
+        </modelElementHasChildren>
+        <modelElementHasChildren Id="26be5959-2d26-489d-9f9f-5546ba9380fe">
+          <subElement Id="fcb287cf-d67b-476a-8960-e1fd9ddb0dfc" referenceSource="e:FunctionalModule;i:4025965637" type="FunctionalModule" name="Module interaction appel au point" />
+        </modelElementHasChildren>
+      </children>
+    </modelElement>
+    <modelElement Id="8948e8d8-a7d5-4235-a3e6-2da8b3dd40d4" referenceSource="e:Application;i:3725567261" type="Application" name="Avisage">
+      <children>
+        <modelElementHasChildren Id="e36d412a-a153-4686-861d-66a2baa5e63b">
+          <subElement Id="dc0a9e32-358c-435e-83d5-e255c85b1fbb" referenceSource="e:FunctionalModule;i:1080729293" type="FunctionalModule" name="Gestion des templates" />
+        </modelElementHasChildren>
+        <modelElementHasChildren Id="efc60af6-67b1-4023-b860-5746a9c1e967">
+          <subElement Id="5d785144-e8cb-4663-994e-e354d93ae4e0" referenceSource="e:FunctionalModule;i:3768024022" type="FunctionalModule" name="Site web d' administration" />
+        </modelElementHasChildren>
+      </children>
+    </modelElement>
+    <modelElement Id="384bdb2b-65eb-4c76-bb0c-39b969dbc428" referenceSource="e:Application;i:2112166936" type="Application" name="Avisage Ng legacy">
+      <children>
+        <modelElementHasChildren Id="fb0d19cf-7c82-4878-aeb7-2c17ed3a7a1d">
+          <subElement Id="6e80c023-52ea-4e3e-8ede-4942925ec8d4" />
+        </modelElementHasChildren>
+      </children>
+    </modelElement>
+  </elements>
+</model>

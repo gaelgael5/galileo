@@ -14,15 +14,14 @@ using DslDiagrams = global::Microsoft.VisualStudio.Modeling.Diagrams;
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainClass CooperationShape
-	/// Shape used to represent ExampleElements on a Diagram.
+	/// Double-derived base class for DomainClass CooperationShape
 	/// </summary>
 	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.CooperationShape.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.CooperationShape.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainObjectId("8eada818-bdb1-4ddc-9c2e-d04318497508")]
-	public partial class CooperationShape : DslDiagrams::NodeShape
+	public abstract partial class CooperationShapeBase : DslDiagrams::NodeShape
 	{
 		#region DiagramElement boilerplate
 		private static DslDiagrams::StyleSet classStyleSet;
@@ -138,15 +137,15 @@ namespace Bb.ApplicationCooperationViewPoint
 			
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
-			outlinePen.Color = global::System.Drawing.Color.FromArgb(255, 113, 111, 110);
+			outlinePen.Color = global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Red);
 			outlinePen.Width = 0.01F;
 			classStyleSet.OverridePen(DslDiagrams::DiagramPens.ShapeOutline, outlinePen);
 			// Custom font styles
 			DslDiagrams::FontSettings fontSettings;
 			fontSettings = new DslDiagrams::FontSettings();
-			fontSettings.Style =  global::System.Drawing.FontStyle.Regular ;
-			fontSettings.Size = 12/72.0F;
-			classStyleSet.AddFont(new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextRegular12"), DslDiagrams::DiagramFonts.ShapeText, fontSettings);
+			fontSettings.Style =  global::System.Drawing.FontStyle.Bold ;
+			fontSettings.Size = 14/72.0F;
+			classStyleSet.AddFont(new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextBold14"), DslDiagrams::DiagramFonts.ShapeText, fontSettings);
 			fontSettings = new DslDiagrams::FontSettings();
 			fontSettings.Style =  global::System.Drawing.FontStyle.Italic ;
 			fontSettings.Size = 7/72.0F;
@@ -193,6 +192,16 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 		}
 		
+		/// <summary>
+		/// Specifies the geometry used by this shape
+		/// </summary>
+		public override DslDiagrams::ShapeGeometry ShapeGeometry
+		{
+			get
+			{
+				return DslDiagrams::ShapeGeometries.RoundedRectangle;
+			}
+		}
 		#endregion
 		#region Decorators
 		/// <summary>
@@ -208,7 +217,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			field1.AnchoringBehavior.MinimumHeightInLines = 1;
 			field1.AnchoringBehavior.MinimumWidthInCharacters = 1;
 			field1.DefaultAccessibleState = global::System.Windows.Forms.AccessibleStates.Invisible;
-			field1.DefaultFontId = new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextRegular12");			
+			field1.DefaultFontId = new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextBold14");			
 			shapeFields.Add(field1);
 			
 			DslDiagrams::TextField field2 = new DslDiagrams::TextField("TypeDecorator");
@@ -233,7 +242,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			base.InitializeDecorators(shapeFields, decorators);
 			
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "NameDecorator");
-			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopCenter, DslDiagrams::PointD.Empty);
+			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopCenter, new DslDiagrams::PointD(0, 0.1));
 			decorators.Add(decorator1);
 				
 			DslDiagrams::ShapeField field2 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "TypeDecorator");
@@ -268,6 +277,26 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// CooperationShape domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x8eada818, 0xbdb1, 0x4ddc, 0x9c, 0x2e, 0xd0, 0x43, 0x18, 0x49, 0x75, 0x08);
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		protected CooperationShapeBase(DslModeling::Partition partition, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+	}
+	/// <summary>
+	/// DomainClass CooperationShape
+	/// Shape used to represent ExampleElements on a Diagram.
+	/// </summary>
+	[global::System.CLSCompliant(true)]
+			
+	public partial class CooperationShape : CooperationShapeBase
+	{
+		#region Constructors
 		// Constructors were not generated for this class because it had HasCustomConstructor
 		// set to true. Please provide the constructors below in a partial class.
 		///// <summary>
@@ -295,15 +324,14 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainClass CooperationSubShape
-	/// Description de Bb.ApplicationCooperationViewPoint.CooperationSubShape
+	/// Double-derived base class for DomainClass CooperationSubShape
 	/// </summary>
 	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.CooperationSubShape.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.CooperationSubShape.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainObjectId("b8457ae5-9194-431c-853e-4c35bd690549")]
-	public partial class CooperationSubShape : DslDiagrams::NodeShape
+	public abstract partial class CooperationSubShapeBase : DslDiagrams::NodeShape
 	{
 		#region DiagramElement boilerplate
 		private static DslDiagrams::StyleSet classStyleSet;
@@ -417,6 +445,10 @@ namespace Bb.ApplicationCooperationViewPoint
 		{
 			base.InitializeResources(classStyleSet);
 			
+			// Outline pen settings for this shape.
+			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
+			outlinePen.Width = 0.02F;
+			classStyleSet.OverridePen(DslDiagrams::DiagramPens.ShapeOutline, outlinePen);
 			// Fill brush settings for this shape.
 			DslDiagrams::BrushSettings backgroundBrush = new DslDiagrams::BrushSettings();
 			backgroundBrush.Color = global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.WhiteSmoke);
@@ -425,9 +457,9 @@ namespace Bb.ApplicationCooperationViewPoint
 			// Custom font styles
 			DslDiagrams::FontSettings fontSettings;
 			fontSettings = new DslDiagrams::FontSettings();
-			fontSettings.Style =  global::System.Drawing.FontStyle.Regular ;
-			fontSettings.Size = 12/72.0F;
-			classStyleSet.AddFont(new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextRegular12"), DslDiagrams::DiagramFonts.ShapeText, fontSettings);
+			fontSettings.Style =  global::System.Drawing.FontStyle.Bold ;
+			fontSettings.Size = 14/72.0F;
+			classStyleSet.AddFont(new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextBold14"), DslDiagrams::DiagramFonts.ShapeText, fontSettings);
 			fontSettings = new DslDiagrams::FontSettings();
 			fontSettings.Style =  global::System.Drawing.FontStyle.Italic ;
 			fontSettings.Size = 7/72.0F;
@@ -493,14 +525,14 @@ namespace Bb.ApplicationCooperationViewPoint
 		protected override void InitializeShapeFields(global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields)
 		{
 			base.InitializeShapeFields(shapeFields);
-			DslDiagrams::TextField field1 = new DslDiagrams::TextField("TextName");
-			field1.DefaultText = global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel.SingletonResourceManager.GetString("CooperationSubShapeTextNameDefaultText");
+			DslDiagrams::TextField field1 = new DslDiagrams::TextField("NameDecorator");
+			field1.DefaultText = global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel.SingletonResourceManager.GetString("CooperationSubShapeNameDecoratorDefaultText");
 			field1.DefaultFocusable = true;
 			field1.DefaultAutoSize = true;
 			field1.AnchoringBehavior.MinimumHeightInLines = 1;
 			field1.AnchoringBehavior.MinimumWidthInCharacters = 1;
 			field1.DefaultAccessibleState = global::System.Windows.Forms.AccessibleStates.Invisible;
-			field1.DefaultFontId = new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextRegular12");			
+			field1.DefaultFontId = new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextBold14");			
 			shapeFields.Add(field1);
 			
 			DslDiagrams::TextField field2 = new DslDiagrams::TextField("TypeDecorator");
@@ -524,8 +556,8 @@ namespace Bb.ApplicationCooperationViewPoint
 		{
 			base.InitializeDecorators(shapeFields, decorators);
 			
-			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "TextName");
-			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopCenter, DslDiagrams::PointD.Empty);
+			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "NameDecorator");
+			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopCenter, new DslDiagrams::PointD(0, 0.1));
 			decorators.Add(decorator1);
 				
 			DslDiagrams::ShapeField field2 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "TypeDecorator");
@@ -560,6 +592,26 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// CooperationSubShape domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xb8457ae5, 0x9194, 0x431c, 0x85, 0x3e, 0x4c, 0x35, 0xbd, 0x69, 0x05, 0x49);
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		protected CooperationSubShapeBase(DslModeling::Partition partition, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+	}
+	/// <summary>
+	/// DomainClass CooperationSubShape
+	/// Description de Bb.ApplicationCooperationViewPoint.CooperationSubShape
+	/// </summary>
+	[global::System.CLSCompliant(true)]
+			
+	public partial class CooperationSubShape : CooperationSubShapeBase
+	{
+		#region Constructors
 		// Constructors were not generated for this class because it had HasCustomConstructor
 		// set to true. Please provide the constructors below in a partial class.
 		///// <summary>
@@ -587,15 +639,14 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainClass ConceptShape
-	/// Shape used to represent ExampleElements on a Diagram.
+	/// Double-derived base class for DomainClass ConceptShape
 	/// </summary>
 	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptShape.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptShape.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainObjectId("c0e7a566-72f7-42db-a7a1-75e48652eb37")]
-	public partial class ConceptShape : DslDiagrams::NodeShape
+	public abstract partial class ConceptShapeBase : DslDiagrams::NodeShape
 	{
 		#region DiagramElement boilerplate
 		private static DslDiagrams::StyleSet classStyleSet;
@@ -732,9 +783,13 @@ namespace Bb.ApplicationCooperationViewPoint
 			// Custom font styles
 			DslDiagrams::FontSettings fontSettings;
 			fontSettings = new DslDiagrams::FontSettings();
-			fontSettings.Style =  global::System.Drawing.FontStyle.Regular ;
-			fontSettings.Size = 12/72.0F;
-			classStyleSet.AddFont(new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextRegular12"), DslDiagrams::DiagramFonts.ShapeText, fontSettings);
+			fontSettings.Style =  global::System.Drawing.FontStyle.Bold ;
+			fontSettings.Size = 14/72.0F;
+			classStyleSet.AddFont(new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextBold14"), DslDiagrams::DiagramFonts.ShapeText, fontSettings);
+			fontSettings = new DslDiagrams::FontSettings();
+			fontSettings.Style =  global::System.Drawing.FontStyle.Italic ;
+			fontSettings.Size = 7/72.0F;
+			classStyleSet.AddFont(new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextItalic7"), DslDiagrams::DiagramFonts.ShapeText, fontSettings);
 		}
 		
 		/// <summary>
@@ -792,8 +847,18 @@ namespace Bb.ApplicationCooperationViewPoint
 			field1.AnchoringBehavior.MinimumHeightInLines = 1;
 			field1.AnchoringBehavior.MinimumWidthInCharacters = 1;
 			field1.DefaultAccessibleState = global::System.Windows.Forms.AccessibleStates.Invisible;
-			field1.DefaultFontId = new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextRegular12");			
+			field1.DefaultFontId = new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextBold14");			
 			shapeFields.Add(field1);
+			
+			DslDiagrams::TextField field2 = new DslDiagrams::TextField("TypeDecorator");
+			field2.DefaultText = global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel.SingletonResourceManager.GetString("ConceptShapeTypeDecoratorDefaultText");
+			field2.DefaultFocusable = true;
+			field2.DefaultAutoSize = true;
+			field2.AnchoringBehavior.MinimumHeightInLines = 1;
+			field2.AnchoringBehavior.MinimumWidthInCharacters = 1;
+			field2.DefaultAccessibleState = global::System.Windows.Forms.AccessibleStates.Invisible;
+			field2.DefaultFontId = new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextItalic7");			
+			shapeFields.Add(field2);
 			
 		}
 		
@@ -807,8 +872,12 @@ namespace Bb.ApplicationCooperationViewPoint
 			base.InitializeDecorators(shapeFields, decorators);
 			
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "NameDecorator");
-			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopCenter, new DslDiagrams::PointD(0, 2));
+			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopCenter, new DslDiagrams::PointD(0, 0.1));
 			decorators.Add(decorator1);
+				
+			DslDiagrams::ShapeField field2 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "TypeDecorator");
+			DslDiagrams::Decorator decorator2 = new DslDiagrams::ShapeDecorator(field2, DslDiagrams::ShapeDecoratorPosition.InnerTopRight, DslDiagrams::PointD.Empty);
+			decorators.Add(decorator2);
 				
 		}
 		
@@ -838,6 +907,26 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// ConceptShape domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xc0e7a566, 0x72f7, 0x42db, 0xa7, 0xa1, 0x75, 0xe4, 0x86, 0x52, 0xeb, 0x37);
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		protected ConceptShapeBase(DslModeling::Partition partition, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+	}
+	/// <summary>
+	/// DomainClass ConceptShape
+	/// Shape used to represent ExampleElements on a Diagram.
+	/// </summary>
+	[global::System.CLSCompliant(true)]
+			
+	public partial class ConceptShape : ConceptShapeBase
+	{
+		#region Constructors
 		// Constructors were not generated for this class because it had HasCustomConstructor
 		// set to true. Please provide the constructors below in a partial class.
 		///// <summary>
@@ -865,15 +954,14 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainClass ConceptElementShape
-	/// Shape used to represent ExampleElements on a Diagram.
+	/// Double-derived base class for DomainClass ConceptElementShape
 	/// </summary>
 	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptElementShape.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptElementShape.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainObjectId("e56815f2-5b13-40d2-bfc2-2343d55ccf47")]
-	public partial class ConceptElementShape : DslDiagrams::NodeShape
+	public abstract partial class ConceptElementShapeBase : DslDiagrams::NodeShape
 	{
 		#region DiagramElement boilerplate
 		private static DslDiagrams::StyleSet classStyleSet;
@@ -995,9 +1083,9 @@ namespace Bb.ApplicationCooperationViewPoint
 			// Custom font styles
 			DslDiagrams::FontSettings fontSettings;
 			fontSettings = new DslDiagrams::FontSettings();
-			fontSettings.Style =  global::System.Drawing.FontStyle.Regular ;
-			fontSettings.Size = 12/72.0F;
-			classStyleSet.AddFont(new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextRegular12"), DslDiagrams::DiagramFonts.ShapeText, fontSettings);
+			fontSettings.Style =  global::System.Drawing.FontStyle.Bold ;
+			fontSettings.Size = 14/72.0F;
+			classStyleSet.AddFont(new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextBold14"), DslDiagrams::DiagramFonts.ShapeText, fontSettings);
 			fontSettings = new DslDiagrams::FontSettings();
 			fontSettings.Style =  global::System.Drawing.FontStyle.Italic ;
 			fontSettings.Size = 7/72.0F;
@@ -1044,6 +1132,16 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 		}
 		
+		/// <summary>
+		/// Specifies the geometry used by this shape
+		/// </summary>
+		public override DslDiagrams::ShapeGeometry ShapeGeometry
+		{
+			get
+			{
+				return DslDiagrams::ShapeGeometries.RoundedRectangle;
+			}
+		}
 		#endregion
 		#region Decorators
 		/// <summary>
@@ -1059,7 +1157,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			field1.AnchoringBehavior.MinimumHeightInLines = 1;
 			field1.AnchoringBehavior.MinimumWidthInCharacters = 1;
 			field1.DefaultAccessibleState = global::System.Windows.Forms.AccessibleStates.Invisible;
-			field1.DefaultFontId = new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextRegular12");			
+			field1.DefaultFontId = new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextBold14");			
 			shapeFields.Add(field1);
 			
 			DslDiagrams::TextField field2 = new DslDiagrams::TextField("TypeDecorator");
@@ -1084,7 +1182,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			base.InitializeDecorators(shapeFields, decorators);
 			
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "NameDecorator");
-			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopCenter, DslDiagrams::PointD.Empty);
+			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopCenter, new DslDiagrams::PointD(0, 0.1));
 			decorators.Add(decorator1);
 				
 			DslDiagrams::ShapeField field2 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "TypeDecorator");
@@ -1119,6 +1217,26 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// ConceptElementShape domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xe56815f2, 0x5b13, 0x40d2, 0xbf, 0xc2, 0x23, 0x43, 0xd5, 0x5c, 0xcf, 0x47);
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		protected ConceptElementShapeBase(DslModeling::Partition partition, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+	}
+	/// <summary>
+	/// DomainClass ConceptElementShape
+	/// Shape used to represent ExampleElements on a Diagram.
+	/// </summary>
+	[global::System.CLSCompliant(true)]
+			
+	public partial class ConceptElementShape : ConceptElementShapeBase
+	{
+		#region Constructors
 		// Constructors were not generated for this class because it had HasCustomConstructor
 		// set to true. Please provide the constructors below in a partial class.
 		///// <summary>
@@ -1146,15 +1264,14 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainClass ConceptSubElementShape
-	/// Shape used to represent ExampleElements on a Diagram.
+	/// Double-derived base class for DomainClass ConceptSubElementShape
 	/// </summary>
 	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptSubElementShape.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptSubElementShape.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainObjectId("df2714b9-0858-4e7c-ad77-000b48fdb1e1")]
-	public partial class ConceptSubElementShape : DslDiagrams::NodeShape
+	public abstract partial class ConceptSubElementShapeBase : DslDiagrams::NodeShape
 	{
 		#region DiagramElement boilerplate
 		private static DslDiagrams::StyleSet classStyleSet;
@@ -1276,9 +1393,9 @@ namespace Bb.ApplicationCooperationViewPoint
 			// Custom font styles
 			DslDiagrams::FontSettings fontSettings;
 			fontSettings = new DslDiagrams::FontSettings();
-			fontSettings.Style =  global::System.Drawing.FontStyle.Regular ;
-			fontSettings.Size = 12/72.0F;
-			classStyleSet.AddFont(new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextRegular12"), DslDiagrams::DiagramFonts.ShapeText, fontSettings);
+			fontSettings.Style =  global::System.Drawing.FontStyle.Bold ;
+			fontSettings.Size = 14/72.0F;
+			classStyleSet.AddFont(new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextBold14"), DslDiagrams::DiagramFonts.ShapeText, fontSettings);
 			fontSettings = new DslDiagrams::FontSettings();
 			fontSettings.Style =  global::System.Drawing.FontStyle.Italic ;
 			fontSettings.Size = 7/72.0F;
@@ -1340,7 +1457,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			field1.AnchoringBehavior.MinimumHeightInLines = 1;
 			field1.AnchoringBehavior.MinimumWidthInCharacters = 1;
 			field1.DefaultAccessibleState = global::System.Windows.Forms.AccessibleStates.Invisible;
-			field1.DefaultFontId = new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextRegular12");			
+			field1.DefaultFontId = new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextBold14");			
 			shapeFields.Add(field1);
 			
 			DslDiagrams::TextField field2 = new DslDiagrams::TextField("TypeDecorator");
@@ -1365,7 +1482,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			base.InitializeDecorators(shapeFields, decorators);
 			
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "NameDecorator");
-			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopCenter, DslDiagrams::PointD.Empty);
+			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopCenter, new DslDiagrams::PointD(0, 0.1));
 			decorators.Add(decorator1);
 				
 			DslDiagrams::ShapeField field2 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "TypeDecorator");
@@ -1400,6 +1517,26 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// ConceptSubElementShape domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xdf2714b9, 0x0858, 0x4e7c, 0xad, 0x77, 0x00, 0x0b, 0x48, 0xfd, 0xb1, 0xe1);
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		protected ConceptSubElementShapeBase(DslModeling::Partition partition, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+	}
+	/// <summary>
+	/// DomainClass ConceptSubElementShape
+	/// Shape used to represent ExampleElements on a Diagram.
+	/// </summary>
+	[global::System.CLSCompliant(true)]
+			
+	public partial class ConceptSubElementShape : ConceptSubElementShapeBase
+	{
+		#region Constructors
 		// Constructors were not generated for this class because it had HasCustomConstructor
 		// set to true. Please provide the constructors below in a partial class.
 		///// <summary>
@@ -1427,15 +1564,14 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainClass RelationshipShape
-	/// Shape used to represent ExampleElements on a Diagram.
+	/// Double-derived base class for DomainClass RelationshipShape
 	/// </summary>
 	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.RelationshipShape.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.RelationshipShape.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainObjectId("4ba97606-cdb3-4522-be6a-f80ca1dc9b14")]
-	public partial class RelationshipShape : DslDiagrams::NodeShape
+	public abstract partial class RelationshipShapeBase : DslDiagrams::NodeShape
 	{
 		#region DiagramElement boilerplate
 		private static DslDiagrams::StyleSet classStyleSet;
@@ -1557,9 +1693,9 @@ namespace Bb.ApplicationCooperationViewPoint
 			// Custom font styles
 			DslDiagrams::FontSettings fontSettings;
 			fontSettings = new DslDiagrams::FontSettings();
-			fontSettings.Style =  global::System.Drawing.FontStyle.Regular ;
-			fontSettings.Size = 12/72.0F;
-			classStyleSet.AddFont(new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextRegular12"), DslDiagrams::DiagramFonts.ShapeText, fontSettings);
+			fontSettings.Style =  global::System.Drawing.FontStyle.Bold ;
+			fontSettings.Size = 14/72.0F;
+			classStyleSet.AddFont(new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextBold14"), DslDiagrams::DiagramFonts.ShapeText, fontSettings);
 		}
 		
 		/// <summary>
@@ -1617,7 +1753,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			field1.AnchoringBehavior.MinimumHeightInLines = 1;
 			field1.AnchoringBehavior.MinimumWidthInCharacters = 1;
 			field1.DefaultAccessibleState = global::System.Windows.Forms.AccessibleStates.Invisible;
-			field1.DefaultFontId = new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextRegular12");			
+			field1.DefaultFontId = new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextBold14");			
 			shapeFields.Add(field1);
 			
 		}
@@ -1632,7 +1768,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			base.InitializeDecorators(shapeFields, decorators);
 			
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "NameDecorator");
-			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopCenter, DslDiagrams::PointD.Empty);
+			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopCenter, new DslDiagrams::PointD(0, 0.1));
 			decorators.Add(decorator1);
 				
 		}
@@ -1663,6 +1799,26 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// RelationshipShape domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x4ba97606, 0xcdb3, 0x4522, 0xbe, 0x6a, 0xf8, 0x0c, 0xa1, 0xdc, 0x9b, 0x14);
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		protected RelationshipShapeBase(DslModeling::Partition partition, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+	}
+	/// <summary>
+	/// DomainClass RelationshipShape
+	/// Shape used to represent ExampleElements on a Diagram.
+	/// </summary>
+	[global::System.CLSCompliant(true)]
+			
+	public partial class RelationshipShape : RelationshipShapeBase
+	{
+		#region Constructors
 		// Constructors were not generated for this class because it had HasCustomConstructor
 		// set to true. Please provide the constructors below in a partial class.
 		///// <summary>

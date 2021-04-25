@@ -75,10 +75,10 @@ namespace Bb.ApplicationCooperationViewPoint
 				typeof(ConceptSubElement),
 				typeof(Relationship),
 				typeof(ModelHasElements),
-				typeof(ModelElementHasParent),
-				typeof(ModelHasConcept),
-				typeof(ConceptHasConceptElement),
-				typeof(ConceptElementHasConceptSubElement),
+				typeof(ModelElementHasChildren),
+				typeof(ModelHasConcepts),
+				typeof(ConceptHasChildren),
+				typeof(ConceptElementHasChildren),
 				typeof(ModelHasRelationships),
 				typeof(SubElementReferencesRelationship),
 				typeof(ConceptReferencesRelationship),
@@ -109,11 +109,13 @@ namespace Bb.ApplicationCooperationViewPoint
 				new DomainMemberInfo(typeof(ModelElement), "ReferenceSource", ModelElement.ReferenceSourceDomainPropertyId, typeof(ModelElement.ReferenceSourcePropertyHandler)),
 				new DomainMemberInfo(typeof(ModelElement), "Type", ModelElement.TypeDomainPropertyId, typeof(ModelElement.TypePropertyHandler)),
 				new DomainMemberInfo(typeof(ModelElement), "Name", ModelElement.NameDomainPropertyId, typeof(ModelElement.NamePropertyHandler)),
+				new DomainMemberInfo(typeof(ModelElement), "ShowMenu", ModelElement.ShowMenuDomainPropertyId, typeof(ModelElement.ShowMenuPropertyHandler)),
 				new DomainMemberInfo(typeof(SubElement), "ReferenceSource", SubElement.ReferenceSourceDomainPropertyId, typeof(SubElement.ReferenceSourcePropertyHandler)),
 				new DomainMemberInfo(typeof(SubElement), "Type", SubElement.TypeDomainPropertyId, typeof(SubElement.TypePropertyHandler)),
 				new DomainMemberInfo(typeof(SubElement), "Name", SubElement.NameDomainPropertyId, typeof(SubElement.NamePropertyHandler)),
 				new DomainMemberInfo(typeof(Concept), "ReferenceSource", Concept.ReferenceSourceDomainPropertyId, typeof(Concept.ReferenceSourcePropertyHandler)),
 				new DomainMemberInfo(typeof(Concept), "Name", Concept.NameDomainPropertyId, typeof(Concept.NamePropertyHandler)),
+				new DomainMemberInfo(typeof(Concept), "Type", Concept.TypeDomainPropertyId, typeof(Concept.TypePropertyHandler)),
 				new DomainMemberInfo(typeof(ConceptElement), "ReferenceSource", ConceptElement.ReferenceSourceDomainPropertyId, typeof(ConceptElement.ReferenceSourcePropertyHandler)),
 				new DomainMemberInfo(typeof(ConceptElement), "Type", ConceptElement.TypeDomainPropertyId, typeof(ConceptElement.TypePropertyHandler)),
 				new DomainMemberInfo(typeof(ConceptElement), "Name", ConceptElement.NameDomainPropertyId, typeof(ConceptElement.NamePropertyHandler)),
@@ -134,14 +136,14 @@ namespace Bb.ApplicationCooperationViewPoint
 			{
 				new DomainRolePlayerInfo(typeof(ModelHasElements), "Model", ModelHasElements.ModelDomainRoleId),
 				new DomainRolePlayerInfo(typeof(ModelHasElements), "Element", ModelHasElements.ElementDomainRoleId),
-				new DomainRolePlayerInfo(typeof(ModelElementHasParent), "ModelElement", ModelElementHasParent.ModelElementDomainRoleId),
-				new DomainRolePlayerInfo(typeof(ModelElementHasParent), "SubElement", ModelElementHasParent.SubElementDomainRoleId),
-				new DomainRolePlayerInfo(typeof(ModelHasConcept), "Model", ModelHasConcept.ModelDomainRoleId),
-				new DomainRolePlayerInfo(typeof(ModelHasConcept), "Concept", ModelHasConcept.ConceptDomainRoleId),
-				new DomainRolePlayerInfo(typeof(ConceptHasConceptElement), "Concept", ConceptHasConceptElement.ConceptDomainRoleId),
-				new DomainRolePlayerInfo(typeof(ConceptHasConceptElement), "ConceptElement", ConceptHasConceptElement.ConceptElementDomainRoleId),
-				new DomainRolePlayerInfo(typeof(ConceptElementHasConceptSubElement), "ConceptElement", ConceptElementHasConceptSubElement.ConceptElementDomainRoleId),
-				new DomainRolePlayerInfo(typeof(ConceptElementHasConceptSubElement), "ConceptSubElement", ConceptElementHasConceptSubElement.ConceptSubElementDomainRoleId),
+				new DomainRolePlayerInfo(typeof(ModelElementHasChildren), "ModelElement", ModelElementHasChildren.ModelElementDomainRoleId),
+				new DomainRolePlayerInfo(typeof(ModelElementHasChildren), "SubElement", ModelElementHasChildren.SubElementDomainRoleId),
+				new DomainRolePlayerInfo(typeof(ModelHasConcepts), "Model", ModelHasConcepts.ModelDomainRoleId),
+				new DomainRolePlayerInfo(typeof(ModelHasConcepts), "Concept", ModelHasConcepts.ConceptDomainRoleId),
+				new DomainRolePlayerInfo(typeof(ConceptHasChildren), "Concept", ConceptHasChildren.ConceptDomainRoleId),
+				new DomainRolePlayerInfo(typeof(ConceptHasChildren), "ConceptElement", ConceptHasChildren.ConceptElementDomainRoleId),
+				new DomainRolePlayerInfo(typeof(ConceptElementHasChildren), "ConceptElement", ConceptElementHasChildren.ConceptElementDomainRoleId),
+				new DomainRolePlayerInfo(typeof(ConceptElementHasChildren), "ConceptSubElement", ConceptElementHasChildren.ConceptSubElementDomainRoleId),
 				new DomainRolePlayerInfo(typeof(ModelHasRelationships), "Model", ModelHasRelationships.ModelDomainRoleId),
 				new DomainRolePlayerInfo(typeof(ModelHasRelationships), "Relationship", ModelHasRelationships.RelationshipDomainRoleId),
 				new DomainRolePlayerInfo(typeof(SubElementReferencesRelationship), "SubElement", SubElementReferencesRelationship.SubElementDomainRoleId),
@@ -265,10 +267,10 @@ namespace Bb.ApplicationCooperationViewPoint
 			{
 				createElementLinkMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(10);
 				createElementLinkMap.Add(typeof(ModelHasElements), 0);
-				createElementLinkMap.Add(typeof(ModelElementHasParent), 1);
-				createElementLinkMap.Add(typeof(ModelHasConcept), 2);
-				createElementLinkMap.Add(typeof(ConceptHasConceptElement), 3);
-				createElementLinkMap.Add(typeof(ConceptElementHasConceptSubElement), 4);
+				createElementLinkMap.Add(typeof(ModelElementHasChildren), 1);
+				createElementLinkMap.Add(typeof(ModelHasConcepts), 2);
+				createElementLinkMap.Add(typeof(ConceptHasChildren), 3);
+				createElementLinkMap.Add(typeof(ConceptElementHasChildren), 4);
 				createElementLinkMap.Add(typeof(ModelHasRelationships), 5);
 				createElementLinkMap.Add(typeof(SubElementReferencesRelationship), 6);
 				createElementLinkMap.Add(typeof(ConceptReferencesRelationship), 7);
@@ -289,10 +291,10 @@ namespace Bb.ApplicationCooperationViewPoint
 			switch (index)
 			{
 				case 0: return new ModelHasElements(partition, roleAssignments, propertyAssignments);
-				case 1: return new ModelElementHasParent(partition, roleAssignments, propertyAssignments);
-				case 2: return new ModelHasConcept(partition, roleAssignments, propertyAssignments);
-				case 3: return new ConceptHasConceptElement(partition, roleAssignments, propertyAssignments);
-				case 4: return new ConceptElementHasConceptSubElement(partition, roleAssignments, propertyAssignments);
+				case 1: return new ModelElementHasChildren(partition, roleAssignments, propertyAssignments);
+				case 2: return new ModelHasConcepts(partition, roleAssignments, propertyAssignments);
+				case 3: return new ConceptHasChildren(partition, roleAssignments, propertyAssignments);
+				case 4: return new ConceptElementHasChildren(partition, roleAssignments, propertyAssignments);
 				case 5: return new ModelHasRelationships(partition, roleAssignments, propertyAssignments);
 				case 6: return new SubElementReferencesRelationship(partition, roleAssignments, propertyAssignments);
 				case 7: return new ConceptReferencesRelationship(partition, roleAssignments, propertyAssignments);
@@ -465,10 +467,10 @@ namespace Bb.ApplicationCooperationViewPoint
 		{
 			#region Initialize DomainData Table
 			DomainRoles.Add(global::Bb.ApplicationCooperationViewPoint.ModelHasElements.ElementDomainRoleId, true);
-			DomainRoles.Add(global::Bb.ApplicationCooperationViewPoint.ModelElementHasParent.SubElementDomainRoleId, true);
-			DomainRoles.Add(global::Bb.ApplicationCooperationViewPoint.ModelHasConcept.ConceptDomainRoleId, true);
-			DomainRoles.Add(global::Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.ConceptElementDomainRoleId, true);
-			DomainRoles.Add(global::Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.ConceptSubElementDomainRoleId, true);
+			DomainRoles.Add(global::Bb.ApplicationCooperationViewPoint.ModelElementHasChildren.SubElementDomainRoleId, true);
+			DomainRoles.Add(global::Bb.ApplicationCooperationViewPoint.ModelHasConcepts.ConceptDomainRoleId, true);
+			DomainRoles.Add(global::Bb.ApplicationCooperationViewPoint.ConceptHasChildren.ConceptElementDomainRoleId, true);
+			DomainRoles.Add(global::Bb.ApplicationCooperationViewPoint.ConceptElementHasChildren.ConceptSubElementDomainRoleId, true);
 			DomainRoles.Add(global::Bb.ApplicationCooperationViewPoint.ModelHasRelationships.RelationshipDomainRoleId, true);
 			#endregion
 		}

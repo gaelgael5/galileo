@@ -1,4 +1,76 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<cooperationViewPointDiagram dslVersion="0.1.0.0" Id="03aa7553-d079-425d-98fb-25f135609f51" absoluteBounds="0, 0, 11, 8.5" name="Sample">
-  <modelMoniker Id="eb55e355-359b-437c-ab8c-9a85dfdcbc21" />
+<cooperationViewPointDiagram dslVersion="0.1.0.0" Id="18bef062-cc48-4714-9c49-02e439e5c6f7" absoluteBounds="0, 0, 11, 8.5" name="Sample">
+  <modelMoniker Id="109f5064-1adb-4b5a-b5e6-c3338aff397f" />
+  <nestedChildShapes>
+    <cooperationShape Id="0fc57984-d7e6-4c60-8ee6-13cf544d483c" absoluteBounds="5.5, 0.5, 6.75, 6.375">
+      <modelElementMoniker referenceSource="/109f5064-1adb-4b5a-b5e6-c3338aff397f/e:Application;i:778408974" />
+      <relativeChildShapes />
+    </cooperationShape>
+    <cooperationSubShape Id="647d2a56-e84c-4799-adc3-9d4a661fec95" absoluteBounds="9.875, 5.625, 2.125, 1">
+      <subElementMoniker Id="11a94aaa-f350-4b61-aeba-c00438de5c4e" />
+    </cooperationSubShape>
+    <cooperationSubShape Id="c6be3e78-712d-4456-bce0-dd45a7397ec5" absoluteBounds="5.75, 3.375, 1.875, 1">
+      <subElementMoniker Id="4f5cbea0-c293-4674-8ef2-ea54b1fe01f5" />
+    </cooperationSubShape>
+    <cooperationSubShape Id="1afa2b8d-0435-4024-9a7f-d87ef1308488" absoluteBounds="5.75, 1.125, 1.875, 1">
+      <subElementMoniker Id="3c05458d-b642-477a-8a3d-5f79c44e69a9" />
+    </cooperationSubShape>
+    <cooperationSubShape Id="85f41946-5a4c-4baf-9b87-0d1dbef086a1" absoluteBounds="5.75, 4.5, 4, 1">
+      <subElementMoniker Id="f8bf0a97-590d-4cdb-bb21-447ace0689e0" />
+    </cooperationSubShape>
+    <cooperationSubShape Id="6fd797a2-7bb3-4281-b84c-f7639ebd9be1" absoluteBounds="5.75, 2.25, 1.875, 1">
+      <subElementMoniker Id="3004d5ea-aa4a-48a6-b7b3-7b5fcff20b5e" />
+    </cooperationSubShape>
+    <cooperationSubShape Id="20f57822-d785-42af-bc14-babab65b04f3" absoluteBounds="9.875, 1.125, 2.125, 1">
+      <subElementMoniker Id="83fa0774-9f4c-4aeb-8199-22dec0f60de4" />
+    </cooperationSubShape>
+    <cooperationSubShape Id="9d5f2db7-bc63-4e52-9d55-7b2d47eb947e" absoluteBounds="5.75, 5.625, 4, 1">
+      <subElementMoniker Id="1631dbd8-9a0b-45a8-913d-1d443d6cff88" />
+    </cooperationSubShape>
+    <cooperationSubShape Id="83a5ad02-b57a-4e3f-8ab7-755400f56e58" absoluteBounds="7.75, 1.125, 2, 1">
+      <subElementMoniker Id="ccdb8449-8863-41db-ab37-647936b42f84" />
+    </cooperationSubShape>
+    <cooperationSubShape Id="95e7b156-7147-40ca-8222-4591dcf39de5" absoluteBounds="9.875, 2.25, 2.125, 1">
+      <subElementMoniker Id="0d8c1eed-f29a-4b37-bd70-ba7d372e3688" />
+    </cooperationSubShape>
+    <cooperationSubShape Id="6843c544-375b-4dc3-8dc1-48cb121ff1ac" absoluteBounds="7.75, 2.25, 2, 1">
+      <subElementMoniker Id="bf66b9df-c7b5-411f-a7b8-9218d4fb6a65" />
+    </cooperationSubShape>
+    <cooperationSubShape Id="fc376fe5-97b4-4134-a030-0890bc61278d" absoluteBounds="9.875, 3.375, 2.125, 1">
+      <subElementMoniker Id="3337b03e-b099-401f-8a93-bdfcf484302e" />
+    </cooperationSubShape>
+    <cooperationSubShape Id="236b3795-caf7-4bf4-b1fa-3b52a1bf97b7" absoluteBounds="7.75, 3.375, 2, 1">
+      <subElementMoniker Id="10ed009e-25d3-4a9f-a00e-d2b8ae77d55a" />
+    </cooperationSubShape>
+    <cooperationSubShape Id="30721007-45cb-47e1-946c-8995aff10fe7" absoluteBounds="9.875, 4.5, 2.125, 1">
+      <subElementMoniker Id="1a972ea2-47dc-42b7-aeb4-4f77a18c1a8f" />
+    </cooperationSubShape>
+    <cooperationShape Id="2c854eef-df83-4a3c-89d9-4cb212268b9f" absoluteBounds="1.25, 0.5, 4.125, 3">
+      <modelElementMoniker referenceSource="/109f5064-1adb-4b5a-b5e6-c3338aff397f/e:Application;i:2169659782" />
+      <relativeChildShapes />
+    </cooperationShape>
+    <cooperationSubShape Id="8843ac20-1d5d-41b6-8e09-fe9abf4bfb11" absoluteBounds="1.5, 2.25, 3.625, 1">
+      <subElementMoniker Id="fa53694f-5c46-4ae2-b664-fe92a3e8bc2a" />
+    </cooperationSubShape>
+    <cooperationSubShape Id="3e9eb289-dcc6-4f63-843d-b123a88bfdd0" absoluteBounds="1.5, 1.125, 3.625, 1">
+      <subElementMoniker Id="fcb287cf-d67b-476a-8960-e1fd9ddb0dfc" />
+    </cooperationSubShape>
+    <cooperationShape Id="1269dc43-0ea5-470d-84b6-0158b154130e" absoluteBounds="1.25, 3.625, 4.125, 3.125">
+      <modelElementMoniker referenceSource="/109f5064-1adb-4b5a-b5e6-c3338aff397f/e:Application;i:3725567261" />
+      <relativeChildShapes />
+    </cooperationShape>
+    <cooperationSubShape Id="6e783332-cfe4-4d76-ba0e-b73cf9d40f98" absoluteBounds="1.5, 5.5, 3.625, 1">
+      <subElementMoniker Id="dc0a9e32-358c-435e-83d5-e255c85b1fbb" />
+    </cooperationSubShape>
+    <cooperationSubShape Id="5345bf64-6d34-4eba-a9c0-7c0f9b37dfa9" absoluteBounds="1.5, 4.25, 3.625, 1">
+      <subElementMoniker Id="5d785144-e8cb-4663-994e-e354d93ae4e0" />
+    </cooperationSubShape>
+    <cooperationShape Id="fe2f11c9-928b-4b69-be55-e0d8a85b16ef" absoluteBounds="1.25, 6.875, 4.125, 1.875">
+      <modelElementMoniker referenceSource="/109f5064-1adb-4b5a-b5e6-c3338aff397f/e:Application;i:2112166936" />
+      <relativeChildShapes />
+    </cooperationShape>
+    <cooperationSubShape Id="d165df38-d253-4aef-811b-bc807360b184" absoluteBounds="1.5, 7.5, 3.625, 1">
+      <subElementMoniker Id="6e80c023-52ea-4e3e-8ede-4942925ec8d4" />
+    </cooperationSubShape>
+  </nestedChildShapes>
 </cooperationViewPointDiagram>

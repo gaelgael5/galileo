@@ -14,6 +14,7 @@ namespace Bb.ApplicationCooperationViewPoint
 {
 
 
+
     public abstract class ListPropertyGridEditorBase : UITypeEditor
     {
 
@@ -29,6 +30,8 @@ namespace Bb.ApplicationCooperationViewPoint
 
                 Store = ResolveStore(context.Instance);
                 this.Referential = ReferentialResolver.Instance.GetReferential(Store);
+                if (this.Referential == null)
+                    throw new Exception("referential can't be loded");
 
                 ListBox control = new ListBox();
 
@@ -39,12 +42,15 @@ namespace Bb.ApplicationCooperationViewPoint
                 control.DataSource = io;
                 control.DisplayMember = this.DisplayMember;
                 control.ValueMember = this.ValueMember;
+                control.SelectionMode = SelectionMode.One;
 
                 if (!String.IsNullOrEmpty((string)value))
                     foreach (object item in io)
                         if (Evaluate(item, v))
                         {
+                            control.Select();
                             control.SelectedItem = item;
+                            control.SelectedValue = v;
                             break;
                         }
 
@@ -59,9 +65,10 @@ namespace Bb.ApplicationCooperationViewPoint
 
                 try
                 {
+
                     value = GetValue(control.SelectedItem);
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
 
 
@@ -80,14 +87,24 @@ namespace Bb.ApplicationCooperationViewPoint
         {
 
             if (instance is PresentationElement e)
+            {
+                this.ModelElement = e.ModelElement;
+                this.Diagram = this.ModelElement.GetDiagram();
                 return e.Store;
 
+            }
+
             if (instance is CooperationViewPointDiagram d)
+            {
+                this.ModelElement = d.ModelElement;
+                this.Diagram = this.ModelElement.GetDiagram();
                 return d.Store;
+            }
 
             throw new NotImplementedException();
 
         }
+
 
         protected abstract bool Evaluate(object value1, string value2);
 
@@ -119,7 +136,8 @@ namespace Bb.ApplicationCooperationViewPoint
         public string DisplayMember { get; protected set; }
 
         public string ValueMember { get; protected set; }
-
+        public DslModeling.ModelElement ModelElement { get; private set; }
+        public Model Diagram { get; private set; }
 
         protected Action Close;
         protected abstract List<object> List();

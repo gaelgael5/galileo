@@ -94,9 +94,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomCode\Properties\Diag.cs" />
-    <Compile Include="CustomCode\UITypeEditors\ListeCooperationViewpointEditor.cs" />
+    <Compile Include="CustomCode\Helpers\ElementExtension.cs" />
+    <Compile Include="CustomCode\Helpers\SelectExtension.cs" />
+    <Compile Include="CustomCode\Helpers\ShapeExtension.cs" />
+    <Compile Include="CustomCode\ModelElements\Diag.cs" />
+    <Compile Include="CustomCode\ModelElements\ModelElement.cs" />
+    <Compile Include="CustomCode\ModelElements\ModelElementBase.cs" />
+    <Compile Include="CustomCode\Resources\ResourceImages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceImages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomCode\Shapes\SelectWithChildren.cs" />
+    <Compile Include="CustomCode\Shapes\ShowMenu.cs" />
+    <Compile Include="CustomCode\UITypeEditors\ListCooperationViewpointEditor.cs" />
     <Compile Include="CustomCode\UITypeEditors\ListPropertyGridEditorBase.cs" />
+    <Compile Include="CustomCode\UITypeEditors\TreeviewCooperationViewpointEditor.cs" />
+    <Compile Include="CustomCode\UITypeEditors\TreeviewPropertyGridEditorBase.cs" />
     <Compile Include="ReferentialResolver.cs" />
     <None Include="..\Key.snk">
       <Link>Key.snk</Link>
@@ -105,23 +119,22 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SerializationHelper.cs</LastGenOutput>
     </None>
-    <Compile Include="CustomCode\Concept.cs" />
-    <Compile Include="CustomCode\ConceptElement.cs" />
-    <Compile Include="CustomCode\Dsl2Dte\Store2DTE.cs" />
-    <Compile Include="CustomCode\Dsl2Dte\StoreHosting.cs" />
+    <Compile Include="CustomCode\ModelElements\Concept.cs" />
+    <Compile Include="CustomCode\ModelElements\ConceptElement.cs" />
+    <Compile Include="CustomCode\Helpers\Store2DTE.cs" />
+    <Compile Include="CustomCode\Helpers\StoreHosting.cs" />
     <Compile Include="CustomCode\GuidsList.cs" />
-    <Compile Include="CustomCode\Properties\Model.cs" />
+    <Compile Include="CustomCode\ModelElements\Model.cs" />
     <Compile Include="CustomCode\Shapes\ConceptElementShape.cs" />
     <Compile Include="CustomCode\Shapes\ConceptShape.cs" />
-    <Compile Include="CustomCode\ConceptSubElement.cs" />
+    <Compile Include="CustomCode\ModelElements\ConceptSubElement.cs" />
     <Compile Include="CustomCode\Shapes\ConceptSubElementShape.cs" />
     <Compile Include="CustomCode\Shapes\CooperationShape.cs" />
     <Compile Include="CustomCode\Shapes\CooperationSubShape.cs" />
     <Compile Include="CustomCode\Shapes\CooperationViewPointDiagram.cs" />
-    <Compile Include="CustomCode\Model.cs" />
-    <Compile Include="CustomCode\Relationship.cs" />
+    <Compile Include="CustomCode\ModelElements\Relationship.cs" />
     <Compile Include="CustomCode\Shapes\RelationshipShape.cs" />
-    <Compile Include="CustomCode\SubElement.cs" />
+    <Compile Include="CustomCode\ModelElements\SubElement.cs" />
     <Compile Include="CustomCode\Validations\Model.cs" />
     <Compile Include="GeneratedCode\ConnectionBuilders.cs">
       <AutoGen>True</AutoGen>
@@ -202,6 +215,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\select.png" />
+    <None Include="Resources\plus.png" />
+    <None Include="Resources\hierachy.png" />
     <None Include="DslDefinition.dsl.diagram">
       <DependentUpon>DslDefinition.dsl</DependentUpon>
     </None>
@@ -279,6 +295,10 @@
     <Service Include="{508349B6-6B84-4df5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CustomCode\Resources\ResourceImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="GeneratedCode\DomainModelResx.resx">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -292,6 +312,8 @@
     <CodeAnalysisDictionary Include="..\CodeAnalysisDictionary.xml">
       <Link>CodeAnalysisDictionary.xml</Link>
     </CodeAnalysisDictionary>
+    <None Include="Resources\ArrowRight.png" />
+    <None Include="Resources\arrowbottom.png" />
     <Content Include="Resources\ExampleConnectorToolBitmap.bmp" />
     <Content Include="Resources\ExampleShapeToolBitmap.bmp" />
     <EmbeddedResource Include="Resources\ConnectorSourceSearch.cur" />
@@ -315,4 +337,5 @@
       <Name>VisualStudio.ParsingSolution</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
 </Project>

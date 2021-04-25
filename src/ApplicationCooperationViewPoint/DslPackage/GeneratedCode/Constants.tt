@@ -9,11 +9,34 @@ namespace <#= CodeGenerationUtilities.GetPackageNamespace(this.Dsl) #>
 	{
 		// Menu identifier
 		public const string <#= dslName #>CommandSetId = "023bc480-9624-495a-9628-e1d388b86dc6";
-		public const string <#= dslName #>CreateFromId = "43b31cf1-9353-4e05-8325-5fc06b1df1c3";
+		public const string <#= dslName #>CreateFromId1 = "43b31cf1-9353-4e05-8325-5fc06b1df1c3";
+		public const string <#= dslName #>CreateFromId2 = "43b31cf1-9353-4e05-8325-5fc06b1df1c4";
+		public const string <#= dslName #>CreateFromId3 = "43b31cf1-9353-4e05-8325-5fc06b1df1c5";
+		public const string <#= dslName #>AlignToCenter = "43b31cf1-9353-4e05-8325-5fc06b1df1c6";
+		public const string <#= dslName #>AlignToLeft   = "43b31cf1-9353-4e05-8325-5fc06b1df1c7";
+		public const string <#= dslName #>AlignToRight  = "43b31cf1-9353-4e05-8325-5fc06b1df1c8";
+		public const string <#= dslName #>AlignToTop    = "43b31cf1-9353-4e05-8325-5fc06b1df1c9";
+		public const string <#= dslName #>AlignToMiddle = "43b31cf1-9353-4e05-8325-5fc06b1df1c0";
+		public const string <#= dslName #>AlignToBottom = "43b31cf1-9353-4e05-8325-5fc06b1df1c1";
 
-		public static readonly global::System.ComponentModel.Design.CommandID CreateRootMap
-			= new global::System.ComponentModel.Design.CommandID(new global::System.Guid(<#= dslName #>CreateFromId), cmdidMyContextMenuCommand);
+		public const string <#= dslName #>DistributeHorizontal = "43b31cf1-9353-4e05-8325-5fc06b1df1c2";
+		public const string <#= dslName #>DistributeVertical   = "43b31cf1-9353-4e05-8325-5fc06b1df1d3";
+
+
+		public static readonly global::System.ComponentModel.Design.CommandID CreateRootMap1 = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(<#= dslName #>CreateFromId1), cmdidMyContextMenuCommand);
+		public static readonly global::System.ComponentModel.Design.CommandID CreateRootMap2 = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(<#= dslName #>CreateFromId2), cmdidMyContextMenuCommand);
+		public static readonly global::System.ComponentModel.Design.CommandID CreateRootMap3 = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(<#= dslName #>CreateFromId3), cmdidMyContextMenuCommand);
+		public static readonly global::System.ComponentModel.Design.CommandID AlignToCenter  = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(<#= dslName #>AlignToCenter), cmdidMyContextMenuCommand);
+		public static readonly global::System.ComponentModel.Design.CommandID AlignToLeft    = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(<#= dslName #>AlignToLeft),   cmdidMyContextMenuCommand);
+		public static readonly global::System.ComponentModel.Design.CommandID AlignToRight   = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(<#= dslName #>AlignToRight),  cmdidMyContextMenuCommand);
+		public static readonly global::System.ComponentModel.Design.CommandID AlignToTop     = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(<#= dslName #>AlignToTop),    cmdidMyContextMenuCommand);
+		public static readonly global::System.ComponentModel.Design.CommandID AlignToMiddle  = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(<#= dslName #>AlignToMiddle), cmdidMyContextMenuCommand);
+		public static readonly global::System.ComponentModel.Design.CommandID AlignToBottom  = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(<#= dslName #>AlignToBottom), cmdidMyContextMenuCommand);
 		
+		public static readonly global::System.ComponentModel.Design.CommandID DistributeHorizontal  = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(<#= dslName #>DistributeHorizontal), cmdidMyContextMenuCommand);
+		public static readonly global::System.ComponentModel.Design.CommandID DistributeVertical    = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(<#= dslName #>DistributeVertical), cmdidMyContextMenuCommand);
+
+
 		private const int grpidMyMenuGroup = 0x01001;
         private const int cmdidMyContextMenuCommand = 1;
 

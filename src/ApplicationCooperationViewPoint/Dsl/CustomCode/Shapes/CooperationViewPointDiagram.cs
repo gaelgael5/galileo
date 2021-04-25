@@ -2,7 +2,8 @@
 using DslModeling = global::Microsoft.VisualStudio.Modeling;
 using DslDesign = global::Microsoft.VisualStudio.Modeling.Design;
 using DslDiagrams = global::Microsoft.VisualStudio.Modeling.Diagrams;
-
+using System.Collections.Generic;
+using Microsoft.VisualStudio.Modeling.Diagrams;
 
 namespace Bb.ApplicationCooperationViewPoint
 {
@@ -47,6 +48,19 @@ namespace Bb.ApplicationCooperationViewPoint
                 // It is applied to the base class here so that all inheriting compartment shapes automatically have this fix applied.
                 return false;
             }
+        }
+
+        protected override void InitializeShapeFields(IList<ShapeField> shapeFields)
+        {
+
+            base.InitializeShapeFields(shapeFields);
+
+            //global::Bb.ApplicationCooperationViewPoint.CooperationShape.DecoratorsInitialized += CooperationShape.OnDecoratorsInitialized;
+            //global::Bb.ApplicationCooperationViewPoint.CooperationSubShape.DecoratorsInitialized += CooperationSubShape.OnDecoratorsInitialized;
+            //global::Bb.ApplicationCooperationViewPoint.ConceptSubElementShape.DecoratorsInitialized += ConceptSubElement.OnDecoratorsInitialized;
+            //global::Bb.ApplicationCooperationViewPoint.ConceptShape.DecoratorsInitialized += ConceptShape.OnDecoratorsInitialized;
+            //global::Bb.ApplicationCooperationViewPoint.RelationshipShape.DecoratorsInitialized += RelationshipShape.OnDecoratorsInitialized;
+
         }
 
     }

@@ -48,11 +48,34 @@ namespace Bb.ApplicationCooperationViewPoint
 	{
 		// Menu identifier
 		public const string ApplicationCooperationViewPointCommandSetId = "023bc480-9624-495a-9628-e1d388b86dc6";
-		public const string ApplicationCooperationViewPointCreateFromId = "43b31cf1-9353-4e05-8325-5fc06b1df1c3";
+		public const string ApplicationCooperationViewPointCreateFromId1 = "43b31cf1-9353-4e05-8325-5fc06b1df1c3";
+		public const string ApplicationCooperationViewPointCreateFromId2 = "43b31cf1-9353-4e05-8325-5fc06b1df1c4";
+		public const string ApplicationCooperationViewPointCreateFromId3 = "43b31cf1-9353-4e05-8325-5fc06b1df1c5";
+		public const string ApplicationCooperationViewPointAlignToCenter = "43b31cf1-9353-4e05-8325-5fc06b1df1c6";
+		public const string ApplicationCooperationViewPointAlignToLeft   = "43b31cf1-9353-4e05-8325-5fc06b1df1c7";
+		public const string ApplicationCooperationViewPointAlignToRight  = "43b31cf1-9353-4e05-8325-5fc06b1df1c8";
+		public const string ApplicationCooperationViewPointAlignToTop    = "43b31cf1-9353-4e05-8325-5fc06b1df1c9";
+		public const string ApplicationCooperationViewPointAlignToMiddle = "43b31cf1-9353-4e05-8325-5fc06b1df1c0";
+		public const string ApplicationCooperationViewPointAlignToBottom = "43b31cf1-9353-4e05-8325-5fc06b1df1c1";
 
-		public static readonly global::System.ComponentModel.Design.CommandID CreateRootMap
-			= new global::System.ComponentModel.Design.CommandID(new global::System.Guid(ApplicationCooperationViewPointCreateFromId), cmdidMyContextMenuCommand);
+		public const string ApplicationCooperationViewPointDistributeHorizontal = "43b31cf1-9353-4e05-8325-5fc06b1df1c2";
+		public const string ApplicationCooperationViewPointDistributeVertical   = "43b31cf1-9353-4e05-8325-5fc06b1df1d3";
+
+
+		public static readonly global::System.ComponentModel.Design.CommandID CreateRootMap1 = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(ApplicationCooperationViewPointCreateFromId1), cmdidMyContextMenuCommand);
+		public static readonly global::System.ComponentModel.Design.CommandID CreateRootMap2 = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(ApplicationCooperationViewPointCreateFromId2), cmdidMyContextMenuCommand);
+		public static readonly global::System.ComponentModel.Design.CommandID CreateRootMap3 = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(ApplicationCooperationViewPointCreateFromId3), cmdidMyContextMenuCommand);
+		public static readonly global::System.ComponentModel.Design.CommandID AlignToCenter  = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(ApplicationCooperationViewPointAlignToCenter), cmdidMyContextMenuCommand);
+		public static readonly global::System.ComponentModel.Design.CommandID AlignToLeft    = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(ApplicationCooperationViewPointAlignToLeft),   cmdidMyContextMenuCommand);
+		public static readonly global::System.ComponentModel.Design.CommandID AlignToRight   = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(ApplicationCooperationViewPointAlignToRight),  cmdidMyContextMenuCommand);
+		public static readonly global::System.ComponentModel.Design.CommandID AlignToTop     = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(ApplicationCooperationViewPointAlignToTop),    cmdidMyContextMenuCommand);
+		public static readonly global::System.ComponentModel.Design.CommandID AlignToMiddle  = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(ApplicationCooperationViewPointAlignToMiddle), cmdidMyContextMenuCommand);
+		public static readonly global::System.ComponentModel.Design.CommandID AlignToBottom  = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(ApplicationCooperationViewPointAlignToBottom), cmdidMyContextMenuCommand);
 		
+		public static readonly global::System.ComponentModel.Design.CommandID DistributeHorizontal  = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(ApplicationCooperationViewPointDistributeHorizontal), cmdidMyContextMenuCommand);
+		public static readonly global::System.ComponentModel.Design.CommandID DistributeVertical    = new global::System.ComponentModel.Design.CommandID(new global::System.Guid(ApplicationCooperationViewPointDistributeVertical), cmdidMyContextMenuCommand);
+
+
 		private const int grpidMyMenuGroup = 0x01001;
         private const int cmdidMyContextMenuCommand = 1;
 

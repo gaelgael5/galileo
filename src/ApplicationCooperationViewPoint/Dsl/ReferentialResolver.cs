@@ -42,8 +42,15 @@ namespace Bb.ApplicationCooperationViewPoint
         public ModelRepository GetReferential(EnvDTE.Project projectDte)
         {
             var project = new VisualStudio.ParsingSolution.Project(projectDte);
-            var directoryPath = new FileInfo(project.FullName);
-            return GetReferential(directoryPath);
+            var fullpath = project.FullName;
+            if (!string.IsNullOrEmpty(fullpath))
+            {
+                var directoryPath = new FileInfo(fullpath);
+                return GetReferential(directoryPath);
+            }
+
+            return null;
+
         }
 
         public ModelRepository GetReferential(FileInfo directoryPath)

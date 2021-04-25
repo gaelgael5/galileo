@@ -14,6 +14,7 @@ namespace Bb.Galileo.Files.Viewpoints
 
         public List<CooperationRelationship> Children { get; set; }
 
+
         public ViewpointModelItem GetViewpointItem(FileModel file)
         {
 

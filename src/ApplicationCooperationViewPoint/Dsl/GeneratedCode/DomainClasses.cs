@@ -134,7 +134,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Storage for Target
 		/// </summary>
-		private global::System.String targetPropertyStorage = string.Empty;
+		private global::System.String targetPropertyStorage = "Current";
 		
 		/// <summary>
 		/// Gets or sets the value of Target domain property.
@@ -142,6 +142,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Model/Target.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Model/Target.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.DefaultValue("Current")]
 		[DslModeling::DomainObjectId("b963122b-9189-4127-ba26-23296661bba4")]
 		public global::System.String Target
 		{
@@ -227,7 +228,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// Gets or sets the value of ViewpointType domain property.
 		/// Description de Bb.ApplicationCooperationViewPoint.Model.Viewpoint Type
 		/// </summary>
-		[System.ComponentModel.Editor(typeof(ListeCooperationViewpointEditor), typeof(System.Drawing.Design.UITypeEditor))]
+		[System.ComponentModel.Editor(typeof(ListCooperationViewpointEditor), typeof(System.Drawing.Design.UITypeEditor))]
 		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Model/ViewpointType.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Model/ViewpointType.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslModeling::DomainObjectId("a44053d4-9afc-469a-a7b3-83d4e00fa16f")]
@@ -313,18 +314,18 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 		}
 		#endregion
-		#region Concept opposite domain role accessor
+		#region Concepts opposite domain role accessor
 		
 		/// <summary>
-		/// Gets a list of Concept.
-		/// Description de Bb.ApplicationCooperationViewPoint.ModelHasConcept.Model
+		/// Gets a list of Concepts.
+		/// Description de Bb.ApplicationCooperationViewPoint.ModelHasConcepts.Model
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<Concept> Concept
+		public virtual DslModeling::LinkedElementCollection<Concept> Concepts
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<Concept>, Concept>(global::Bb.ApplicationCooperationViewPoint.ModelHasConcept.ModelDomainRoleId);
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Concept>, Concept>(global::Bb.ApplicationCooperationViewPoint.ModelHasConcepts.ModelDomainRoleId);
 			}
 		}
 		#endregion
@@ -414,8 +415,8 @@ namespace Bb.ApplicationCooperationViewPoint
 			global::Bb.ApplicationCooperationViewPoint.Concept sourceConcept2 = sourceElement as global::Bb.ApplicationCooperationViewPoint.Concept;
 			if (sourceConcept2 != null)
 			{
-				// Create link for path ModelHasConcept.Concept
-				this.Concept.Add(sourceConcept2);
+				// Create link for path ModelHasConcepts.Concepts
+				this.Concepts.Add(sourceConcept2);
 
 				return;
 			}
@@ -468,12 +469,12 @@ namespace Bb.ApplicationCooperationViewPoint
 			global::Bb.ApplicationCooperationViewPoint.Concept sourceConcept2 = sourceElement as global::Bb.ApplicationCooperationViewPoint.Concept;
 			if (sourceConcept2 != null)
 			{
-				// Delete link for path ModelHasConcept.Concept
+				// Delete link for path ModelHasConcepts.Concepts
 				
-				foreach (DslModeling::ElementLink link in global::Bb.ApplicationCooperationViewPoint.ModelHasConcept.GetLinks((global::Bb.ApplicationCooperationViewPoint.Model)this, sourceConcept2))
+				foreach (DslModeling::ElementLink link in global::Bb.ApplicationCooperationViewPoint.ModelHasConcepts.GetLinks((global::Bb.ApplicationCooperationViewPoint.Model)this, sourceConcept2))
 				{
 					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
-					link.Delete(global::Bb.ApplicationCooperationViewPoint.ModelHasConcept.ModelDomainRoleId, global::Bb.ApplicationCooperationViewPoint.ModelHasConcept.ConceptDomainRoleId);
+					link.Delete(global::Bb.ApplicationCooperationViewPoint.ModelHasConcepts.ModelDomainRoleId, global::Bb.ApplicationCooperationViewPoint.ModelHasConcepts.ConceptDomainRoleId);
 				}
 
 				return;
@@ -533,16 +534,15 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainClass ModelElement
-	/// Elements embedded in the model. Appear as boxes on the diagram.
+	/// Double-derived base class for DomainClass ModelElement
 	/// </summary>
 	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ModelElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ModelElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
-	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {referenceSourcePropertyStorage})")]
+	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {ReferenceSource})")]
 	[DslModeling::DomainObjectId("403a7c63-3a36-4881-b0d5-0eaf0dcad50e")]
-	public partial class ModelElement : DslModeling::ModelElement
+	public abstract partial class ModelElementBase : DslModeling::ModelElement
 	{
 		#region Constructors, domain class Id
 	
@@ -551,21 +551,11 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x403a7c63, 0x3a36, 0x4881, 0xb0, 0xd5, 0x0e, 0xaf, 0x0d, 0xca, 0xd5, 0x0e);
 		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="store">Store where new element is to be created.</param>
-		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public ModelElement(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
-			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
-		{
-		}
-		
-		/// <summary>
-		/// Constructor
+		/// Constructor.
 		/// </summary>
 		/// <param name="partition">Partition where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public ModelElement(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		protected ModelElementBase(DslModeling::Partition partition, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, propertyAssignments)
 		{
 		}
@@ -578,25 +568,22 @@ namespace Bb.ApplicationCooperationViewPoint
 		public static readonly global::System.Guid ReferenceSourceDomainPropertyId = new global::System.Guid(0x97022f17, 0xf153, 0x4a51, 0x90, 0x2e, 0xc1, 0x88, 0x6c, 0x9a, 0x53, 0x3a);
 		
 		/// <summary>
-		/// Storage for ReferenceSource
-		/// </summary>
-		private global::System.String referenceSourcePropertyStorage = string.Empty;
-		
-		/// <summary>
 		/// Gets or sets the value of ReferenceSource domain property.
 		/// Description for Bb.ApplicationCooperationViewPoint.ExampleElement.Name
 		/// </summary>
+		[System.ComponentModel.Editor(typeof(TreeviewCooperationViewpointEditor), typeof(System.Drawing.Design.UITypeEditor))]
 		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ModelElement/ReferenceSource.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ModelElement/ReferenceSource.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[global::System.ComponentModel.DefaultValue("")]
 		[DslModeling::ElementName]
+		[DslModeling::DomainProperty(Kind = DslModeling::DomainPropertyKind.CustomStorage)]
 		[DslModeling::DomainObjectId("97022f17-f153-4a51-902e-c1886c9a533a")]
 		public global::System.String ReferenceSource
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return referenceSourcePropertyStorage;
+				return ReferenceSourcePropertyHandler.Instance.GetValue(this);
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
@@ -607,7 +594,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Value handler for the ModelElement.ReferenceSource domain property.
 		/// </summary>
-		internal sealed partial class ReferenceSourcePropertyHandler : DslModeling::DomainPropertyValueHandler<ModelElement, global::System.String>
+		internal sealed partial class ReferenceSourcePropertyHandler : DslModeling::DomainPropertyValueHandler<ModelElementBase, global::System.String>
 		{
 			private ReferenceSourcePropertyHandler() { }
 		
@@ -633,10 +620,13 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(ModelElement element)
+			public override sealed global::System.String GetValue(ModelElementBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-				return element.referenceSourcePropertyStorage;
+				// There is no storage for ReferenceSource because its Kind is
+				// set to CustomStorage. Please provide the GetReferenceSourceValue()
+				// method on the domain class.
+				return element.GetReferenceSourceValue();
 			}
 		
 			/// <summary>
@@ -644,7 +634,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(ModelElement element, global::System.String newValue)
+			public override sealed void SetValue(ModelElementBase element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -652,8 +642,11 @@ namespace Bb.ApplicationCooperationViewPoint
 				if (newValue != oldValue)
 				{
 					ValueChanging(element, oldValue, newValue);
-					element.referenceSourcePropertyStorage = newValue;
-					ValueChanged(element, oldValue, newValue);
+					// There is no storage for ReferenceSource because its Kind is
+					// set to CustomStorage. Please provide the SetReferenceSourceValue()
+					// method on the domain class.
+					element.SetReferenceSourceValue(newValue);
+					ValueChanged(element, oldValue, GetValue(element));
 				}
 			}
 		}
@@ -695,7 +688,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Value handler for the ModelElement.Type domain property.
 		/// </summary>
-		internal sealed partial class TypePropertyHandler : DslModeling::DomainPropertyValueHandler<ModelElement, global::System.String>
+		internal sealed partial class TypePropertyHandler : DslModeling::DomainPropertyValueHandler<ModelElementBase, global::System.String>
 		{
 			private TypePropertyHandler() { }
 		
@@ -721,7 +714,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(ModelElement element)
+			public override sealed global::System.String GetValue(ModelElementBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.typePropertyStorage;
@@ -732,7 +725,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(ModelElement element, global::System.String newValue)
+			public override sealed void SetValue(ModelElementBase element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -761,11 +754,10 @@ namespace Bb.ApplicationCooperationViewPoint
 		
 		/// <summary>
 		/// Gets or sets the value of Name domain property.
-		/// Description de Bb.ApplicationCooperationViewPoint.ModelElement.Name
+		/// Name of the element
 		/// </summary>
 		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ModelElement/Name.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ModelElement/Name.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainObjectId("8e7d1b12-3853-4cd0-943b-7c2f36e6cab7")]
 		public global::System.String Name
 		{
@@ -783,7 +775,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// Value handler for the ModelElement.Name domain property.
 		/// </summary>
-		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<ModelElement, global::System.String>
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<ModelElementBase, global::System.String>
 		{
 			private NamePropertyHandler() { }
 		
@@ -809,7 +801,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(ModelElement element)
+			public override sealed global::System.String GetValue(ModelElementBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.namePropertyStorage;
@@ -820,7 +812,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(ModelElement element, global::System.String newValue)
+			public override sealed void SetValue(ModelElementBase element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -832,6 +824,72 @@ namespace Bb.ApplicationCooperationViewPoint
 					ValueChanged(element, oldValue, newValue);
 				}
 			}
+		}
+		
+		#endregion
+		#region ShowMenu domain property code
+		
+		/// <summary>
+		/// ShowMenu domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ShowMenuDomainPropertyId = new global::System.Guid(0x116737ff, 0x8853, 0x4ef4, 0xab, 0xd3, 0x77, 0x2e, 0x37, 0xb7, 0x22, 0x56);
+		
+		/// <summary>
+		/// Gets or sets the value of ShowMenu domain property.
+		/// Description de Bb.ApplicationCooperationViewPoint.ModelElement.Show Menu
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ModelElement/ShowMenu.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ModelElement/ShowMenu.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.Browsable(false)]
+		[global::System.ComponentModel.ReadOnly(true)]
+		[DslModeling::DomainProperty(Kind = DslModeling::DomainPropertyKind.Calculated)]
+		[DslModeling::DomainObjectId("116737ff-8853-4ef4-abd3-772e37b72256")]
+		public global::System.Boolean ShowMenu
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return ShowMenuPropertyHandler.Instance.GetValue(this);
+			}
+		}
+		/// <summary>
+		/// Value handler for the ModelElement.ShowMenu domain property.
+		/// </summary>
+		internal sealed partial class ShowMenuPropertyHandler : DslModeling::CalculatedPropertyValueHandler<ModelElementBase, global::System.Boolean>
+		{
+			private ShowMenuPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the ModelElement.ShowMenu domain property value handler.
+			/// </summary>
+			public static readonly ShowMenuPropertyHandler Instance = new ShowMenuPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the ModelElement.ShowMenu domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ShowMenuDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.Boolean GetValue(ModelElementBase element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				// There is no storage for ShowMenu because its Kind is
+				// set to Calculated. Please provide the GetShowMenuValue()
+				// method on the domain class.
+				return element.GetShowMenuValue();
+			}
+		
 		}
 		
 		#endregion
@@ -853,19 +911,19 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 		}
 		#endregion
-		#region Parent opposite domain role accessor
+		#region Children opposite domain role accessor
 		
 		/// <summary>
-		/// Gets a list of Parent.
+		/// Gets a list of Children.
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.ModelElementHasParent.ModelElement
+		/// Bb.ApplicationCooperationViewPoint.ModelElementHasChildren.ModelElement
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<SubElement> Parent
+		public virtual DslModeling::LinkedElementCollection<SubElement> Children
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<SubElement>, SubElement>(global::Bb.ApplicationCooperationViewPoint.ModelElementHasParent.ModelElementDomainRoleId);
+				return GetRoleCollection<DslModeling::LinkedElementCollection<SubElement>, SubElement>(global::Bb.ApplicationCooperationViewPoint.ModelElementHasChildren.ModelElementDomainRoleId);
 			}
 		}
 		#endregion
@@ -921,8 +979,8 @@ namespace Bb.ApplicationCooperationViewPoint
 			global::Bb.ApplicationCooperationViewPoint.SubElement sourceSubElement1 = sourceElement as global::Bb.ApplicationCooperationViewPoint.SubElement;
 			if (sourceSubElement1 != null)
 			{
-				// Create link for path ModelElementHasParent.Parent
-				this.Parent.Add(sourceSubElement1);
+				// Create link for path ModelElementHasChildren.Children
+				this.Children.Add(sourceSubElement1);
 
 				return;
 			}
@@ -952,18 +1010,48 @@ namespace Bb.ApplicationCooperationViewPoint
 			global::Bb.ApplicationCooperationViewPoint.SubElement sourceSubElement1 = sourceElement as global::Bb.ApplicationCooperationViewPoint.SubElement;
 			if (sourceSubElement1 != null)
 			{
-				// Delete link for path ModelElementHasParent.Parent
+				// Delete link for path ModelElementHasChildren.Children
 				
-				foreach (DslModeling::ElementLink link in global::Bb.ApplicationCooperationViewPoint.ModelElementHasParent.GetLinks((global::Bb.ApplicationCooperationViewPoint.ModelElement)this, sourceSubElement1))
+				foreach (DslModeling::ElementLink link in global::Bb.ApplicationCooperationViewPoint.ModelElementHasChildren.GetLinks((global::Bb.ApplicationCooperationViewPoint.ModelElement)this, sourceSubElement1))
 				{
 					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
-					link.Delete(global::Bb.ApplicationCooperationViewPoint.ModelElementHasParent.ModelElementDomainRoleId, global::Bb.ApplicationCooperationViewPoint.ModelElementHasParent.SubElementDomainRoleId);
+					link.Delete(global::Bb.ApplicationCooperationViewPoint.ModelElementHasChildren.ModelElementDomainRoleId, global::Bb.ApplicationCooperationViewPoint.ModelElementHasChildren.SubElementDomainRoleId);
 				}
 
 				return;
 			}
 			// Fall through to base class if this class hasn't handled the unmerge.
 			base.MergeDisconnect(sourceElement);
+		}
+		#endregion
+	}
+	/// <summary>
+	/// DomainClass ModelElement
+	/// Elements embedded in the model. Appear as boxes on the diagram.
+	/// </summary>
+	[global::System.CLSCompliant(true)]
+			
+	public partial class ModelElement : ModelElementBase
+	{
+		#region Constructors
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public ModelElement(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public ModelElement(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
 		}
 		#endregion
 	}
@@ -1013,6 +1101,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// Gets or sets the value of ReferenceSource domain property.
 		/// Description de Bb.ApplicationCooperationViewPoint.SubElement.Reference Source
 		/// </summary>
+		[System.ComponentModel.Editor(typeof(TreeviewCooperationViewpointEditor), typeof(System.Drawing.Design.UITypeEditor))]
 		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.SubElement/ReferenceSource.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.SubElement/ReferenceSource.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslModeling::ElementName]
@@ -1191,7 +1280,6 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.SubElement/Name.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.SubElement/Name.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainObjectId("0a2706da-320c-4408-90ff-bcc277fd49a8")]
 		public global::System.String Name
 		{
@@ -1261,23 +1349,23 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		
 		#endregion
-		#region Children opposite domain role accessor
+		#region Parent opposite domain role accessor
 		/// <summary>
-		/// Gets or sets Children.
+		/// Gets or sets Parent.
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.ModelElementHasParent.SubElement
+		/// Bb.ApplicationCooperationViewPoint.ModelElementHasChildren.SubElement
 		/// </summary>
-		public virtual ModelElement Children
+		public virtual ModelElement Parent
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ModelElementHasParent.SubElementDomainRoleId) as ModelElement;
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ModelElementHasChildren.SubElementDomainRoleId) as ModelElement;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ModelElementHasParent.SubElementDomainRoleId, value);
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ModelElementHasChildren.SubElementDomainRoleId, value);
 			}
 		}
 		#endregion
@@ -1376,6 +1464,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// Gets or sets the value of ReferenceSource domain property.
 		/// Description de Bb.ApplicationCooperationViewPoint.Concept.Reference Source
 		/// </summary>
+		[System.ComponentModel.Editor(typeof(TreeviewCooperationViewpointEditor), typeof(System.Drawing.Design.UITypeEditor))]
 		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Concept/ReferenceSource.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Concept/ReferenceSource.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslModeling::ElementName]
@@ -1467,7 +1556,6 @@ namespace Bb.ApplicationCooperationViewPoint
 		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Concept/Name.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Concept/Name.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[global::System.ComponentModel.DefaultValue("Parcel Domain")]
-		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainObjectId("9c79719a-1349-4b5c-a936-a80094c0e392")]
 		public global::System.String Name
 		{
@@ -1537,38 +1625,125 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		
 		#endregion
+		#region Type domain property code
+		
+		/// <summary>
+		/// Type domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid TypeDomainPropertyId = new global::System.Guid(0xffc34da1, 0x2c9e, 0x406d, 0xad, 0x38, 0xd9, 0x26, 0x25, 0x28, 0x98, 0x1f);
+		
+		/// <summary>
+		/// Storage for Type
+		/// </summary>
+		private global::System.String typePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Type domain property.
+		/// Description de Bb.ApplicationCooperationViewPoint.Concept.Type
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Concept/Type.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Concept/Type.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.ReadOnly(true)]
+		[DslModeling::DomainObjectId("ffc34da1-2c9e-406d-ad38-d9262528981f")]
+		public global::System.String Type
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return typePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				TypePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Concept.Type domain property.
+		/// </summary>
+		internal sealed partial class TypePropertyHandler : DslModeling::DomainPropertyValueHandler<ConceptBase, global::System.String>
+		{
+			private TypePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Concept.Type domain property value handler.
+			/// </summary>
+			public static readonly TypePropertyHandler Instance = new TypePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Concept.Type domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return TypeDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(ConceptBase element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.typePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(ConceptBase element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.typePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
 		#region Model opposite domain role accessor
 		/// <summary>
 		/// Gets or sets Model.
-		/// Description de Bb.ApplicationCooperationViewPoint.ModelHasConcept.Concept
+		/// Description de Bb.ApplicationCooperationViewPoint.ModelHasConcepts.Concept
 		/// </summary>
 		public virtual Model Model
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ModelHasConcept.ConceptDomainRoleId) as Model;
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ModelHasConcepts.ConceptDomainRoleId) as Model;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ModelHasConcept.ConceptDomainRoleId, value);
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ModelHasConcepts.ConceptDomainRoleId, value);
 			}
 		}
 		#endregion
-		#region ConceptElement opposite domain role accessor
+		#region Children opposite domain role accessor
 		
 		/// <summary>
-		/// Gets a list of ConceptElement.
-		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.Concept
+		/// Gets a list of Children.
+		/// Description de Bb.ApplicationCooperationViewPoint.ConceptHasChildren.Concept
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<ConceptElement> ConceptElement
+		public virtual DslModeling::LinkedElementCollection<ConceptElement> Children
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<ConceptElement>, ConceptElement>(global::Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.ConceptDomainRoleId);
+				return GetRoleCollection<DslModeling::LinkedElementCollection<ConceptElement>, ConceptElement>(global::Bb.ApplicationCooperationViewPoint.ConceptHasChildren.ConceptDomainRoleId);
 			}
 		}
 		#endregion
@@ -1640,8 +1815,8 @@ namespace Bb.ApplicationCooperationViewPoint
 			global::Bb.ApplicationCooperationViewPoint.ConceptElement sourceConceptElement1 = sourceElement as global::Bb.ApplicationCooperationViewPoint.ConceptElement;
 			if (sourceConceptElement1 != null)
 			{
-				// Create link for path ConceptHasConceptElement.ConceptElement
-				this.ConceptElement.Add(sourceConceptElement1);
+				// Create link for path ConceptHasChildren.Children
+				this.Children.Add(sourceConceptElement1);
 
 				return;
 			}
@@ -1671,12 +1846,12 @@ namespace Bb.ApplicationCooperationViewPoint
 			global::Bb.ApplicationCooperationViewPoint.ConceptElement sourceConceptElement1 = sourceElement as global::Bb.ApplicationCooperationViewPoint.ConceptElement;
 			if (sourceConceptElement1 != null)
 			{
-				// Delete link for path ConceptHasConceptElement.ConceptElement
+				// Delete link for path ConceptHasChildren.Children
 				
-				foreach (DslModeling::ElementLink link in global::Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.GetLinks((global::Bb.ApplicationCooperationViewPoint.Concept)this, sourceConceptElement1))
+				foreach (DslModeling::ElementLink link in global::Bb.ApplicationCooperationViewPoint.ConceptHasChildren.GetLinks((global::Bb.ApplicationCooperationViewPoint.Concept)this, sourceConceptElement1))
 				{
 					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
-					link.Delete(global::Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.ConceptDomainRoleId, global::Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.ConceptElementDomainRoleId);
+					link.Delete(global::Bb.ApplicationCooperationViewPoint.ConceptHasChildren.ConceptDomainRoleId, global::Bb.ApplicationCooperationViewPoint.ConceptHasChildren.ConceptElementDomainRoleId);
 				}
 
 				return;
@@ -1765,6 +1940,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// Description de Bb.ApplicationCooperationViewPoint.ConceptElement.Reference
 		/// Source
 		/// </summary>
+		[System.ComponentModel.Editor(typeof(TreeviewCooperationViewpointEditor), typeof(System.Drawing.Design.UITypeEditor))]
 		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptElement/ReferenceSource.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptElement/ReferenceSource.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslModeling::ElementName]
@@ -1945,7 +2121,6 @@ namespace Bb.ApplicationCooperationViewPoint
 		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptElement/Name.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptElement/Name.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[global::System.ComponentModel.DefaultValue("Colis 21")]
-		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainObjectId("95b8ccf0-5e6a-43a9-9c9a-be38ef263e48")]
 		public global::System.String Name
 		{
@@ -2015,39 +2190,39 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		
 		#endregion
-		#region Concept opposite domain role accessor
+		#region Parent opposite domain role accessor
 		/// <summary>
-		/// Gets or sets Concept.
+		/// Gets or sets Parent.
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.ConceptElement
+		/// Bb.ApplicationCooperationViewPoint.ConceptHasChildren.ConceptElement
 		/// </summary>
-		public virtual Concept Concept
+		public virtual Concept Parent
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.ConceptElementDomainRoleId) as Concept;
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ConceptHasChildren.ConceptElementDomainRoleId) as Concept;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.ConceptElementDomainRoleId, value);
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ConceptHasChildren.ConceptElementDomainRoleId, value);
 			}
 		}
 		#endregion
-		#region ConceptSubElement opposite domain role accessor
+		#region Children opposite domain role accessor
 		
 		/// <summary>
-		/// Gets a list of ConceptSubElement.
+		/// Gets a list of Children.
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.ConceptElement
+		/// Bb.ApplicationCooperationViewPoint.ConceptElementHasChildren.ConceptElement
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<ConceptSubElement> ConceptSubElement
+		public virtual DslModeling::LinkedElementCollection<ConceptSubElement> Children
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<ConceptSubElement>, ConceptSubElement>(global::Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.ConceptElementDomainRoleId);
+				return GetRoleCollection<DslModeling::LinkedElementCollection<ConceptSubElement>, ConceptSubElement>(global::Bb.ApplicationCooperationViewPoint.ConceptElementHasChildren.ConceptElementDomainRoleId);
 			}
 		}
 		#endregion
@@ -2119,8 +2294,8 @@ namespace Bb.ApplicationCooperationViewPoint
 			global::Bb.ApplicationCooperationViewPoint.ConceptSubElement sourceConceptSubElement1 = sourceElement as global::Bb.ApplicationCooperationViewPoint.ConceptSubElement;
 			if (sourceConceptSubElement1 != null)
 			{
-				// Create link for path ConceptElementHasConceptSubElement.ConceptSubElement
-				this.ConceptSubElement.Add(sourceConceptSubElement1);
+				// Create link for path ConceptElementHasChildren.Children
+				this.Children.Add(sourceConceptSubElement1);
 
 				return;
 			}
@@ -2150,12 +2325,12 @@ namespace Bb.ApplicationCooperationViewPoint
 			global::Bb.ApplicationCooperationViewPoint.ConceptSubElement sourceConceptSubElement1 = sourceElement as global::Bb.ApplicationCooperationViewPoint.ConceptSubElement;
 			if (sourceConceptSubElement1 != null)
 			{
-				// Delete link for path ConceptElementHasConceptSubElement.ConceptSubElement
+				// Delete link for path ConceptElementHasChildren.Children
 				
-				foreach (DslModeling::ElementLink link in global::Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.GetLinks((global::Bb.ApplicationCooperationViewPoint.ConceptElement)this, sourceConceptSubElement1))
+				foreach (DslModeling::ElementLink link in global::Bb.ApplicationCooperationViewPoint.ConceptElementHasChildren.GetLinks((global::Bb.ApplicationCooperationViewPoint.ConceptElement)this, sourceConceptSubElement1))
 				{
 					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
-					link.Delete(global::Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.ConceptElementDomainRoleId, global::Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.ConceptSubElementDomainRoleId);
+					link.Delete(global::Bb.ApplicationCooperationViewPoint.ConceptElementHasChildren.ConceptElementDomainRoleId, global::Bb.ApplicationCooperationViewPoint.ConceptElementHasChildren.ConceptSubElementDomainRoleId);
 				}
 
 				return;
@@ -2244,6 +2419,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement.Reference
 		/// Source
 		/// </summary>
+		[System.ComponentModel.Editor(typeof(TreeviewCooperationViewpointEditor), typeof(System.Drawing.Design.UITypeEditor))]
 		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptSubElement/ReferenceSource.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptSubElement/ReferenceSource.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslModeling::ElementName]
@@ -2424,7 +2600,6 @@ namespace Bb.ApplicationCooperationViewPoint
 		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptSubElement/Name.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptSubElement/Name.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[global::System.ComponentModel.DefaultValue("Monitoring")]
-		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainObjectId("9f2c7807-ebf9-4579-b146-94f6643b87e7")]
 		public global::System.String Name
 		{
@@ -2494,23 +2669,23 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		
 		#endregion
-		#region ConceptElement opposite domain role accessor
+		#region Parent opposite domain role accessor
 		/// <summary>
-		/// Gets or sets ConceptElement.
+		/// Gets or sets Parent.
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.ConceptSubElement
+		/// Bb.ApplicationCooperationViewPoint.ConceptElementHasChildren.ConceptSubElement
 		/// </summary>
-		public virtual ConceptElement ConceptElement
+		public virtual ConceptElement Parent
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.ConceptSubElementDomainRoleId) as ConceptElement;
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ConceptElementHasChildren.ConceptSubElementDomainRoleId) as ConceptElement;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.ConceptSubElementDomainRoleId, value);
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ConceptElementHasChildren.ConceptSubElementDomainRoleId, value);
 			}
 		}
 		#endregion
@@ -2609,6 +2784,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// Gets or sets the value of ReferenceSource domain property.
 		/// Description de Bb.ApplicationCooperationViewPoint.Relationship.Reference Source
 		/// </summary>
+		[System.ComponentModel.Editor(typeof(TreeviewCooperationViewpointEditor), typeof(System.Drawing.Design.UITypeEditor))]
 		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Relationship/ReferenceSource.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Relationship/ReferenceSource.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslModeling::ElementName]
@@ -2699,7 +2875,6 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Relationship/Name.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Relationship/Name.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainObjectId("1648ea49-8782-4660-9727-6dfbd03c3b81")]
 		public global::System.String Name
 		{

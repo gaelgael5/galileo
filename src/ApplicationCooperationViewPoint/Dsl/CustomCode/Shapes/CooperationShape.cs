@@ -1,7 +1,11 @@
 ﻿using System.Collections;
+using Microsoft.VisualStudio.Modeling.Diagrams;
+using System.Collections.Generic;
+
 using DslModeling = global::Microsoft.VisualStudio.Modeling;
 using DslDesign = global::Microsoft.VisualStudio.Modeling.Design;
-
+using DslDiagrams = global::Microsoft.VisualStudio.Modeling.Diagrams;
+using Microsoft.VisualStudio.Modeling;
 
 namespace Bb.ApplicationCooperationViewPoint
 {
@@ -50,15 +54,71 @@ namespace Bb.ApplicationCooperationViewPoint
             }
         }
 
-        protected static ArrayList CustomOutlineDashPattern
+        public override ResizeDirection AllowsChildrenToShrinkParent => base.AllowsChildrenToShrinkParent;
+
+        public override void DrawResizeFeedback(DiagramPaintEventArgs e, RectangleD bounds)
         {
-            get
-            {
-                if (customOutlineDashPattern == null)
-                    customOutlineDashPattern = new ArrayList(new float[] { 4.0F, 2.0F, 1.0F, 3.0F });
-                return customOutlineDashPattern;
-            }
+            base.DrawResizeFeedback(e, bounds);
         }
+
+        protected override void InitializeShapeFields(IList<ShapeField> shapeFields)
+        {
+            base.InitializeShapeFields(shapeFields);
+            global::Bb.ApplicationCooperationViewPoint.CooperationShape.DecoratorsInitialized += OnDecoratorsInitialized;
+        }
+
+        //public override void OnClick(DiagramPointEventArgs e)
+        //{
+
+        //    base.OnClick(e);
+
+        //    //if (this.ModelElement is ModelElement me)
+        //    //{
+        //    //    using (Transaction t = this.Store.TransactionManager.BeginTransaction("automated model"))
+        //    //    {
+        //    //        ModelElementBase.ShowMenuPropertyHandler.Instance.NotifyValueChange(me);
+        //    //        //t.Commit();
+        //    //    }
+        //    //}
+
+        //}
+
+        protected override void InitializeDecorators(IList<ShapeField> shapeFields, IList<Decorator> decorators)
+        {
+
+            base.InitializeDecorators(shapeFields, decorators);
+
+            ShapeField field;
+
+            double y = 0.25;
+            ShowMenu menu = new ShowMenu("ShowMenu");
+            //ShowMenu menu = (ShowMenu)DslDiagrams::ShapeElement.FindShapeField(shapeFields, "ShowMenu");
+            Decorator decoratorMenu = new ShapeDecorator(menu, ShapeDecoratorPosition.OuterTopRight, new PointD(0, y));
+            decorators.Add(decoratorMenu);
+
+            //y += 0.23;
+            ////field = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "SelectWithChildren");
+            //field = new SelectParentChildren("SelectWithChildren");
+            ////shapeFields.Add(field);
+            //Decorator decorator = new ShapeDecorator(field, ShapeDecoratorPosition.OuterTopRight, new PointD(0, y));
+            //decorators.Add(decorator);
+            //menu.AddSubMenu(decorator);
+
+        }
+
+
+        public static void OnDecoratorsInitialized(object sender, global::System.EventArgs e)
+        {
+            DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
+            DslDiagrams::AssociatedPropertyInfo propertyInfo;
+            propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Bb.ApplicationCooperationViewPoint.ModelElement.ShowMenuDomainPropertyId);
+            DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "ShowMenu").AssociateVisibilityWith(shape.Store, propertyInfo);
+        }
+
+
+        public override bool ShouldAutoPlaceChildShapes => true;
+
+       
 
         private static ArrayList customOutlineDashPattern;
 

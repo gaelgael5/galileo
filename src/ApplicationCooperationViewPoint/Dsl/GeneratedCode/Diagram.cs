@@ -197,7 +197,7 @@ namespace Bb.ApplicationCooperationViewPoint
 				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TypeDecorator").AssociateValueWith(shape.Store, propertyInfo);
 				
 				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Bb.ApplicationCooperationViewPoint.SubElement.NameDomainPropertyId);
-				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TextName").AssociateValueWith(shape.Store, propertyInfo);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		
@@ -237,6 +237,9 @@ namespace Bb.ApplicationCooperationViewPoint
 				
 				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Bb.ApplicationCooperationViewPoint.Concept.NameDomainPropertyId);
 				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Bb.ApplicationCooperationViewPoint.Concept.TypeDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TypeDecorator").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		
@@ -391,7 +394,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			public static global::Bb.ApplicationCooperationViewPoint.Model GetParentForSubElement( global::Bb.ApplicationCooperationViewPoint.SubElement root )
 			{
 				// Segments 0 and 1
-				global::Bb.ApplicationCooperationViewPoint.ModelElement root2 = root.Children;
+				global::Bb.ApplicationCooperationViewPoint.ModelElement root2 = root.Parent;
 				if ( root2 == null ) return null;
 				// Segments 2 and 3
 				global::Bb.ApplicationCooperationViewPoint.Model result = root2.Model;
@@ -401,7 +404,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			public static global::Bb.ApplicationCooperationViewPoint.Model GetParentForConceptElement( global::Bb.ApplicationCooperationViewPoint.ConceptElement root )
 			{
 				// Segments 0 and 1
-				global::Bb.ApplicationCooperationViewPoint.Concept root2 = root.Concept;
+				global::Bb.ApplicationCooperationViewPoint.Concept root2 = root.Parent;
 				if ( root2 == null ) return null;
 				// Segments 2 and 3
 				global::Bb.ApplicationCooperationViewPoint.Model result = root2.Model;
@@ -411,10 +414,10 @@ namespace Bb.ApplicationCooperationViewPoint
 			public static global::Bb.ApplicationCooperationViewPoint.Model GetParentForConceptSubElement( global::Bb.ApplicationCooperationViewPoint.ConceptSubElement root )
 			{
 				// Segments 0 and 1
-				global::Bb.ApplicationCooperationViewPoint.ConceptElement root2 = root.ConceptElement;
+				global::Bb.ApplicationCooperationViewPoint.ConceptElement root2 = root.Parent;
 				if ( root2 == null ) return null;
 				// Segments 2 and 3
-				global::Bb.ApplicationCooperationViewPoint.Concept root4 = root2.Concept;
+				global::Bb.ApplicationCooperationViewPoint.Concept root4 = root2.Parent;
 				if ( root4 == null ) return null;
 				// Segments 4 and 5
 				global::Bb.ApplicationCooperationViewPoint.Model result = root4.Model;

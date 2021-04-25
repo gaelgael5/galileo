@@ -8,7 +8,7 @@
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="b963122b-9189-4127-ba26-23296661bba4" Description="Description de Bb.ApplicationCooperationViewPoint.Model.Target" Name="Target" DisplayName="Target">
+        <DomainProperty Id="b963122b-9189-4127-ba26-23296661bba4" Description="Description de Bb.ApplicationCooperationViewPoint.Model.Target" Name="Target" DisplayName="Target" DefaultValue="Current">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -17,7 +17,7 @@
           <Attributes>
             <ClrAttribute Name="System.ComponentModel.Editor">
               <Parameters>
-                <AttributeParameter Value="typeof(ListeCooperationViewpointEditor)" />
+                <AttributeParameter Value="typeof(ListCooperationViewpointEditor)" />
                 <AttributeParameter Value="typeof(System.Drawing.Design.UITypeEditor)" />
               </Parameters>
             </ClrAttribute>
@@ -42,7 +42,7 @@
             <DomainClassMoniker Name="Concept" />
           </Index>
           <LinkCreationPaths>
-            <DomainPath>ModelHasConcept.Concept</DomainPath>
+            <DomainPath>ModelHasConcepts.Concepts</DomainPath>
           </LinkCreationPaths>
         </ElementMergeDirective>
         <ElementMergeDirective>
@@ -55,9 +55,17 @@
         </ElementMergeDirective>
       </ElementMergeDirectives>
     </DomainClass>
-    <DomainClass Id="403a7c63-3a36-4881-b0d5-0eaf0dcad50e" Description="Elements embedded in the model. Appear as boxes on the diagram." Name="ModelElement" DisplayName="Model Element" Namespace="Bb.ApplicationCooperationViewPoint">
+    <DomainClass Id="403a7c63-3a36-4881-b0d5-0eaf0dcad50e" Description="Elements embedded in the model. Appear as boxes on the diagram." Name="ModelElement" DisplayName="Model Element" Namespace="Bb.ApplicationCooperationViewPoint" GeneratesDoubleDerived="true">
       <Properties>
-        <DomainProperty Id="97022f17-f153-4a51-902e-c1886c9a533a" Description="Description for Bb.ApplicationCooperationViewPoint.ExampleElement.Name" Name="ReferenceSource" DisplayName="Reference Source" DefaultValue="" IsElementName="true">
+        <DomainProperty Id="97022f17-f153-4a51-902e-c1886c9a533a" Description="Description for Bb.ApplicationCooperationViewPoint.ExampleElement.Name" Name="ReferenceSource" DisplayName="Reference Source" DefaultValue="" Kind="CustomStorage" IsElementName="true">
+          <Attributes>
+            <ClrAttribute Name="System.ComponentModel.Editor">
+              <Parameters>
+                <AttributeParameter Value="typeof(TreeviewCooperationViewpointEditor)" />
+                <AttributeParameter Value="typeof(System.Drawing.Design.UITypeEditor)" />
+              </Parameters>
+            </ClrAttribute>
+          </Attributes>
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -67,9 +75,14 @@
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="8e7d1b12-3853-4cd0-943b-7c2f36e6cab7" Description="Description de Bb.ApplicationCooperationViewPoint.ModelElement.Name" Name="Name" DisplayName="Name" IsUIReadOnly="true">
+        <DomainProperty Id="8e7d1b12-3853-4cd0-943b-7c2f36e6cab7" Description="Name of the element" Name="Name" DisplayName="Name">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="116737ff-8853-4ef4-abd3-772e37b72256" Description="Description de Bb.ApplicationCooperationViewPoint.ModelElement.Show Menu" Name="ShowMenu" DisplayName="Show Menu" Kind="Calculated" IsBrowsable="false">
+          <Type>
+            <ExternalTypeMoniker Name="/System/Boolean" />
           </Type>
         </DomainProperty>
       </Properties>
@@ -79,7 +92,7 @@
             <DomainClassMoniker Name="SubElement" />
           </Index>
           <LinkCreationPaths>
-            <DomainPath>ModelElementHasParent.Parent</DomainPath>
+            <DomainPath>ModelElementHasChildren.Children</DomainPath>
           </LinkCreationPaths>
         </ElementMergeDirective>
       </ElementMergeDirectives>
@@ -87,6 +100,14 @@
     <DomainClass Id="e39ae37f-7927-4be7-a99c-94d0deb846f7" Description="Description de Bb.ApplicationCooperationViewPoint.SubElement" Name="SubElement" DisplayName="Sub Element" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true">
       <Properties>
         <DomainProperty Id="b3968e18-782b-4443-9994-f232739217b9" Description="Description de Bb.ApplicationCooperationViewPoint.SubElement.Reference Source" Name="ReferenceSource" DisplayName="Reference Source" IsElementName="true">
+          <Attributes>
+            <ClrAttribute Name="System.ComponentModel.Editor">
+              <Parameters>
+                <AttributeParameter Value="typeof(TreeviewCooperationViewpointEditor)" />
+                <AttributeParameter Value="typeof(System.Drawing.Design.UITypeEditor)" />
+              </Parameters>
+            </ClrAttribute>
+          </Attributes>
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -96,7 +117,7 @@
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="0a2706da-320c-4408-90ff-bcc277fd49a8" Description="Description de Bb.ApplicationCooperationViewPoint.SubElement.Name" Name="Name" DisplayName="Name" IsUIReadOnly="true">
+        <DomainProperty Id="0a2706da-320c-4408-90ff-bcc277fd49a8" Description="Description de Bb.ApplicationCooperationViewPoint.SubElement.Name" Name="Name" DisplayName="Name">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -106,11 +127,24 @@
     <DomainClass Id="eaad73c4-a652-4596-b575-39e82c2f525a" Description="Description de Bb.ApplicationCooperationViewPoint.Concept" Name="Concept" DisplayName="Concept" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true">
       <Properties>
         <DomainProperty Id="8f8c5d55-111e-49f2-9518-cce39195b847" Description="Description de Bb.ApplicationCooperationViewPoint.Concept.Reference Source" Name="ReferenceSource" DisplayName="Reference Source" IsElementName="true">
+          <Attributes>
+            <ClrAttribute Name="System.ComponentModel.Editor">
+              <Parameters>
+                <AttributeParameter Value="typeof(TreeviewCooperationViewpointEditor)" />
+                <AttributeParameter Value="typeof(System.Drawing.Design.UITypeEditor)" />
+              </Parameters>
+            </ClrAttribute>
+          </Attributes>
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="9c79719a-1349-4b5c-a936-a80094c0e392" Description="Description de Bb.ApplicationCooperationViewPoint.Concept.Name" Name="Name" DisplayName="Name" DefaultValue="Parcel Domain" IsUIReadOnly="true">
+        <DomainProperty Id="9c79719a-1349-4b5c-a936-a80094c0e392" Description="Description de Bb.ApplicationCooperationViewPoint.Concept.Name" Name="Name" DisplayName="Name" DefaultValue="Parcel Domain">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="ffc34da1-2c9e-406d-ad38-d9262528981f" Description="Description de Bb.ApplicationCooperationViewPoint.Concept.Type" Name="Type" DisplayName="Type" IsUIReadOnly="true">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -122,7 +156,7 @@
             <DomainClassMoniker Name="ConceptElement" />
           </Index>
           <LinkCreationPaths>
-            <DomainPath>ConceptHasConceptElement.ConceptElement</DomainPath>
+            <DomainPath>ConceptHasChildren.Children</DomainPath>
           </LinkCreationPaths>
         </ElementMergeDirective>
       </ElementMergeDirectives>
@@ -130,6 +164,14 @@
     <DomainClass Id="3aba6490-0175-4397-b4b4-8ba4dd8df1d1" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElement" Name="ConceptElement" DisplayName="Concept Element" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true">
       <Properties>
         <DomainProperty Id="16627524-3c73-434a-bbee-5ef23344e62a" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElement.Reference Source" Name="ReferenceSource" DisplayName="Reference Source" IsElementName="true">
+          <Attributes>
+            <ClrAttribute Name="System.ComponentModel.Editor">
+              <Parameters>
+                <AttributeParameter Value="typeof(TreeviewCooperationViewpointEditor)" />
+                <AttributeParameter Value="typeof(System.Drawing.Design.UITypeEditor)" />
+              </Parameters>
+            </ClrAttribute>
+          </Attributes>
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -139,7 +181,7 @@
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="95b8ccf0-5e6a-43a9-9c9a-be38ef263e48" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElement.Name" Name="Name" DisplayName="Name" DefaultValue="Colis 21" IsUIReadOnly="true">
+        <DomainProperty Id="95b8ccf0-5e6a-43a9-9c9a-be38ef263e48" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElement.Name" Name="Name" DisplayName="Name" DefaultValue="Colis 21">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -151,7 +193,7 @@
             <DomainClassMoniker Name="ConceptSubElement" />
           </Index>
           <LinkCreationPaths>
-            <DomainPath>ConceptElementHasConceptSubElement.ConceptSubElement</DomainPath>
+            <DomainPath>ConceptElementHasChildren.Children</DomainPath>
           </LinkCreationPaths>
         </ElementMergeDirective>
       </ElementMergeDirectives>
@@ -159,6 +201,14 @@
     <DomainClass Id="a3a13452-14ee-4fe8-adcb-fd5c2f06ff68" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement" Name="ConceptSubElement" DisplayName="Concept Sub Element" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true">
       <Properties>
         <DomainProperty Id="e4021cd7-d1f3-43a4-801b-946fbe965c4c" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement.Reference Source" Name="ReferenceSource" DisplayName="Reference Source" IsElementName="true">
+          <Attributes>
+            <ClrAttribute Name="System.ComponentModel.Editor">
+              <Parameters>
+                <AttributeParameter Value="typeof(TreeviewCooperationViewpointEditor)" />
+                <AttributeParameter Value="typeof(System.Drawing.Design.UITypeEditor)" />
+              </Parameters>
+            </ClrAttribute>
+          </Attributes>
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -168,7 +218,7 @@
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="9f2c7807-ebf9-4579-b146-94f6643b87e7" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement.Name" Name="Name" DisplayName="Name" DefaultValue="Monitoring" IsUIReadOnly="true">
+        <DomainProperty Id="9f2c7807-ebf9-4579-b146-94f6643b87e7" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement.Name" Name="Name" DisplayName="Name" DefaultValue="Monitoring">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -178,11 +228,19 @@
     <DomainClass Id="95bd428c-7b5b-49c7-b8f9-5f753e1817a6" Description="Description de Bb.ApplicationCooperationViewPoint.Relationship" Name="Relationship" DisplayName="Relationship" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true">
       <Properties>
         <DomainProperty Id="c12f448e-0d28-4f1f-9195-90d47aad9e31" Description="Description de Bb.ApplicationCooperationViewPoint.Relationship.Reference Source" Name="ReferenceSource" DisplayName="Reference Source" IsElementName="true">
+          <Attributes>
+            <ClrAttribute Name="System.ComponentModel.Editor">
+              <Parameters>
+                <AttributeParameter Value="typeof(TreeviewCooperationViewpointEditor)" />
+                <AttributeParameter Value="typeof(System.Drawing.Design.UITypeEditor)" />
+              </Parameters>
+            </ClrAttribute>
+          </Attributes>
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="1648ea49-8782-4660-9727-6dfbd03c3b81" Description="Description de Bb.ApplicationCooperationViewPoint.Relationship.Name" Name="Name" DisplayName="Name" IsUIReadOnly="true">
+        <DomainProperty Id="1648ea49-8782-4660-9727-6dfbd03c3b81" Description="Description de Bb.ApplicationCooperationViewPoint.Relationship.Name" Name="Name" DisplayName="Name">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -207,64 +265,64 @@
         </DomainRole>
       </Target>
     </DomainRelationship>
-    <DomainRelationship Id="57c665d5-ef2c-41b6-96bd-08780d51c8e4" Description="Description de Bb.ApplicationCooperationViewPoint.ModelElementHasParent" Name="ModelElementHasParent" DisplayName="Model Element Has Parent" Namespace="Bb.ApplicationCooperationViewPoint" IsEmbedding="true">
+    <DomainRelationship Id="57c665d5-ef2c-41b6-96bd-08780d51c8e4" Description="Description de Bb.ApplicationCooperationViewPoint.ModelElementHasChildren" Name="ModelElementHasChildren" DisplayName="Model Element Has Children" Namespace="Bb.ApplicationCooperationViewPoint" IsEmbedding="true">
       <Source>
-        <DomainRole Id="4e27a168-343f-4cf4-8011-78bee6fb63a9" Description="Description de Bb.ApplicationCooperationViewPoint.ModelElementHasParent.ModelElement" Name="ModelElement" DisplayName="Model Element" PropertyName="Parent" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Parent">
+        <DomainRole Id="4e27a168-343f-4cf4-8011-78bee6fb63a9" Description="Description de Bb.ApplicationCooperationViewPoint.ModelElementHasChildren.ModelElement" Name="ModelElement" DisplayName="Model Element" PropertyName="Children" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Children">
           <RolePlayer>
             <DomainClassMoniker Name="ModelElement" />
           </RolePlayer>
         </DomainRole>
       </Source>
       <Target>
-        <DomainRole Id="705ae0aa-38b5-4591-9949-6862d0c2355d" Description="Description de Bb.ApplicationCooperationViewPoint.ModelElementHasParent.SubElement" Name="SubElement" DisplayName="Sub Element" PropertyName="Children" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Children">
+        <DomainRole Id="705ae0aa-38b5-4591-9949-6862d0c2355d" Description="Description de Bb.ApplicationCooperationViewPoint.ModelElementHasChildren.SubElement" Name="SubElement" DisplayName="Sub Element" PropertyName="Parent" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Parent">
           <RolePlayer>
             <DomainClassMoniker Name="SubElement" />
           </RolePlayer>
         </DomainRole>
       </Target>
     </DomainRelationship>
-    <DomainRelationship Id="5b6958dd-4b35-4cc6-9384-6300f5852984" Description="Description de Bb.ApplicationCooperationViewPoint.ModelHasConcept" Name="ModelHasConcept" DisplayName="Model Has Concept" Namespace="Bb.ApplicationCooperationViewPoint" IsEmbedding="true">
+    <DomainRelationship Id="5b6958dd-4b35-4cc6-9384-6300f5852984" Description="Description de Bb.ApplicationCooperationViewPoint.ModelHasConcepts" Name="ModelHasConcepts" DisplayName="Model Has Concepts" Namespace="Bb.ApplicationCooperationViewPoint" IsEmbedding="true">
       <Source>
-        <DomainRole Id="582de730-ec77-4e7c-a2c3-d22c651d2dd4" Description="Description de Bb.ApplicationCooperationViewPoint.ModelHasConcept.Model" Name="Model" DisplayName="Model" PropertyName="Concept" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Concept">
+        <DomainRole Id="582de730-ec77-4e7c-a2c3-d22c651d2dd4" Description="Description de Bb.ApplicationCooperationViewPoint.ModelHasConcepts.Model" Name="Model" DisplayName="Model" PropertyName="Concepts" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Concepts">
           <RolePlayer>
             <DomainClassMoniker Name="Model" />
           </RolePlayer>
         </DomainRole>
       </Source>
       <Target>
-        <DomainRole Id="55648a0d-20b7-4a1c-9987-b35bf37d1a38" Description="Description de Bb.ApplicationCooperationViewPoint.ModelHasConcept.Concept" Name="Concept" DisplayName="Concept" PropertyName="Model" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Model">
+        <DomainRole Id="55648a0d-20b7-4a1c-9987-b35bf37d1a38" Description="Description de Bb.ApplicationCooperationViewPoint.ModelHasConcepts.Concept" Name="Concept" DisplayName="Concept" PropertyName="Model" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Model">
           <RolePlayer>
             <DomainClassMoniker Name="Concept" />
           </RolePlayer>
         </DomainRole>
       </Target>
     </DomainRelationship>
-    <DomainRelationship Id="bedbf741-5157-42e7-b9fb-548e33779023" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement" Name="ConceptHasConceptElement" DisplayName="Concept Has Concept Element" Namespace="Bb.ApplicationCooperationViewPoint" IsEmbedding="true">
+    <DomainRelationship Id="bedbf741-5157-42e7-b9fb-548e33779023" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptHasChildren" Name="ConceptHasChildren" DisplayName="Concept Has Children" Namespace="Bb.ApplicationCooperationViewPoint" IsEmbedding="true">
       <Source>
-        <DomainRole Id="995481df-64be-4c5e-a63e-e6bea50ee718" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.Concept" Name="Concept" DisplayName="Concept" PropertyName="ConceptElement" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Concept Element">
+        <DomainRole Id="995481df-64be-4c5e-a63e-e6bea50ee718" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptHasChildren.Concept" Name="Concept" DisplayName="Concept" PropertyName="Children" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Children">
           <RolePlayer>
             <DomainClassMoniker Name="Concept" />
           </RolePlayer>
         </DomainRole>
       </Source>
       <Target>
-        <DomainRole Id="c11d0eca-8d13-4da9-aaaf-1454d1dcd201" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptHasConceptElement.ConceptElement" Name="ConceptElement" DisplayName="Concept Element" PropertyName="Concept" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Concept">
+        <DomainRole Id="c11d0eca-8d13-4da9-aaaf-1454d1dcd201" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptHasChildren.ConceptElement" Name="ConceptElement" DisplayName="Concept Element" PropertyName="Parent" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Parent">
           <RolePlayer>
             <DomainClassMoniker Name="ConceptElement" />
           </RolePlayer>
         </DomainRole>
       </Target>
     </DomainRelationship>
-    <DomainRelationship Id="5eeb81ec-92bf-487f-834b-0045d600e9f4" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement" Name="ConceptElementHasConceptSubElement" DisplayName="Concept Element Has Concept Sub Element" Namespace="Bb.ApplicationCooperationViewPoint" IsEmbedding="true">
+    <DomainRelationship Id="5eeb81ec-92bf-487f-834b-0045d600e9f4" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElementHasChildren" Name="ConceptElementHasChildren" DisplayName="Concept Element Has Children" Namespace="Bb.ApplicationCooperationViewPoint" IsEmbedding="true">
       <Source>
-        <DomainRole Id="e504b189-80a3-4840-9153-884c243758b9" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.ConceptElement" Name="ConceptElement" DisplayName="Concept Element" PropertyName="ConceptSubElement" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Concept Sub Element">
+        <DomainRole Id="e504b189-80a3-4840-9153-884c243758b9" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElementHasChildren.ConceptElement" Name="ConceptElement" DisplayName="Concept Element" PropertyName="Children" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Children">
           <RolePlayer>
             <DomainClassMoniker Name="ConceptElement" />
           </RolePlayer>
         </DomainRole>
       </Source>
       <Target>
-        <DomainRole Id="1fac3fe2-b2c6-4094-8763-c8b96e9190f0" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElementHasConceptSubElement.ConceptSubElement" Name="ConceptSubElement" DisplayName="Concept Sub Element" PropertyName="ConceptElement" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Concept Element">
+        <DomainRole Id="1fac3fe2-b2c6-4094-8763-c8b96e9190f0" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElementHasChildren.ConceptSubElement" Name="ConceptSubElement" DisplayName="Concept Sub Element" PropertyName="Parent" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Parent">
           <RolePlayer>
             <DomainClassMoniker Name="ConceptSubElement" />
           </RolePlayer>
@@ -370,51 +428,54 @@
     <ExternalType Name="Char" Namespace="System" />
   </Types>
   <Shapes>
-    <GeometryShape Id="8eada818-bdb1-4ddc-9c2e-d04318497508" Description="Shape used to represent ExampleElements on a Diagram." Name="CooperationShape" DisplayName="Cooperation Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" FixedTooltipText="Cooperation Shape" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineThickness="0.01" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="Rectangle">
+    <GeometryShape Id="8eada818-bdb1-4ddc-9c2e-d04318497508" Description="Shape used to represent ExampleElements on a Diagram." Name="CooperationShape" DisplayName="Cooperation Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true" FixedTooltipText="Cooperation Shape" OutlineColor="Red" InitialWidth="2" InitialHeight="0.75" OutlineThickness="0.01" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="RoundedRectangle">
       <Notes>The shape has a text decorator used to display the Name property of the mapped ExampleElement.</Notes>
-      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0">
-        <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontSize="12" />
+      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0.1">
+        <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontStyle="Bold" FontSize="14" />
       </ShapeHasDecorators>
       <ShapeHasDecorators Position="InnerTopRight" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="TypeDecorator" DisplayName="Type Decorator" DefaultText="TypeDecorator" FontStyle="Italic" FontSize="7" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="b8457ae5-9194-431c-853e-4c35bd690549" Description="Description de Bb.ApplicationCooperationViewPoint.CooperationSubShape" Name="CooperationSubShape" DisplayName="Cooperation Sub Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" FixedTooltipText="Cooperation Sub Shape" FillColor="WhiteSmoke" InitialHeight="1" HasDefaultConnectionPoints="true" Geometry="Rectangle">
-      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0">
-        <TextDecorator Name="TextName" DisplayName="Text Name" DefaultText="TextName" FontSize="12" />
+    <GeometryShape Id="b8457ae5-9194-431c-853e-4c35bd690549" Description="Description de Bb.ApplicationCooperationViewPoint.CooperationSubShape" Name="CooperationSubShape" DisplayName="Cooperation Sub Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true" FixedTooltipText="Cooperation Sub Shape" FillColor="WhiteSmoke" InitialHeight="1" OutlineThickness="0.02" HasDefaultConnectionPoints="true" Geometry="Rectangle">
+      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0.1">
+        <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontStyle="Bold" FontSize="14" />
       </ShapeHasDecorators>
       <ShapeHasDecorators Position="InnerTopRight" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="TypeDecorator" DisplayName="Type Decorator" DefaultText="TypeDecorator" FontStyle="Italic" FontSize="7" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="c0e7a566-72f7-42db-a7a1-75e48652eb37" Description="Shape used to represent ExampleElements on a Diagram." Name="ConceptShape" DisplayName="Concept Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" FixedTooltipText="Concept Shape" OutlineColor="Blue" InitialWidth="2" InitialHeight="0.75" OutlineDashStyle="Dash" OutlineThickness="0.01" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="Rectangle">
+    <GeometryShape Id="c0e7a566-72f7-42db-a7a1-75e48652eb37" Description="Shape used to represent ExampleElements on a Diagram." Name="ConceptShape" DisplayName="Concept Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true" FixedTooltipText="Concept Shape" OutlineColor="Blue" InitialWidth="2" InitialHeight="0.75" OutlineDashStyle="Dash" OutlineThickness="0.01" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="Rectangle">
       <Notes>The shape has a text decorator used to display the Name property of the mapped ExampleElement.</Notes>
-      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="2">
-        <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontSize="12" />
-      </ShapeHasDecorators>
-    </GeometryShape>
-    <GeometryShape Id="e56815f2-5b13-40d2-bfc2-2343d55ccf47" Description="Shape used to represent ExampleElements on a Diagram." Name="ConceptElementShape" DisplayName="Concept Element Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" FixedTooltipText="Concept Element Shape" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineThickness="0.01" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="Rectangle">
-      <Notes>The shape has a text decorator used to display the Name property of the mapped ExampleElement.</Notes>
-      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0">
-        <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontSize="12" />
+      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0.1">
+        <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontStyle="Bold" FontSize="14" />
       </ShapeHasDecorators>
       <ShapeHasDecorators Position="InnerTopRight" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="TypeDecorator" DisplayName="Type Decorator" DefaultText="TypeDecorator" FontStyle="Italic" FontSize="7" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="df2714b9-0858-4e7c-ad77-000b48fdb1e1" Description="Shape used to represent ExampleElements on a Diagram." Name="ConceptSubElementShape" DisplayName="Concept Sub Element Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" FixedTooltipText="Concept Sub Element Shape" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineThickness="0.01" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="Rectangle">
+    <GeometryShape Id="e56815f2-5b13-40d2-bfc2-2343d55ccf47" Description="Shape used to represent ExampleElements on a Diagram." Name="ConceptElementShape" DisplayName="Concept Element Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true" FixedTooltipText="Concept Element Shape" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineThickness="0.01" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="RoundedRectangle">
       <Notes>The shape has a text decorator used to display the Name property of the mapped ExampleElement.</Notes>
-      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0">
-        <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontSize="12" />
+      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0.1">
+        <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontStyle="Bold" FontSize="14" />
       </ShapeHasDecorators>
       <ShapeHasDecorators Position="InnerTopRight" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="TypeDecorator" DisplayName="Type Decorator" DefaultText="TypeDecorator" FontStyle="Italic" FontSize="7" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="4ba97606-cdb3-4522-be6a-f80ca1dc9b14" Description="Shape used to represent ExampleElements on a Diagram." Name="RelationshipShape" DisplayName="Relationship Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" FixedTooltipText="Relationship Shape" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineThickness="0.01" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="Rectangle">
+    <GeometryShape Id="df2714b9-0858-4e7c-ad77-000b48fdb1e1" Description="Shape used to represent ExampleElements on a Diagram." Name="ConceptSubElementShape" DisplayName="Concept Sub Element Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true" FixedTooltipText="Concept Sub Element Shape" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineThickness="0.01" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="Rectangle">
       <Notes>The shape has a text decorator used to display the Name property of the mapped ExampleElement.</Notes>
-      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0">
-        <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontSize="12" />
+      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0.1">
+        <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontStyle="Bold" FontSize="14" />
+      </ShapeHasDecorators>
+      <ShapeHasDecorators Position="InnerTopRight" HorizontalOffset="0" VerticalOffset="0">
+        <TextDecorator Name="TypeDecorator" DisplayName="Type Decorator" DefaultText="TypeDecorator" FontStyle="Italic" FontSize="7" />
+      </ShapeHasDecorators>
+    </GeometryShape>
+    <GeometryShape Id="4ba97606-cdb3-4522-be6a-f80ca1dc9b14" Description="Shape used to represent ExampleElements on a Diagram." Name="RelationshipShape" DisplayName="Relationship Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true" FixedTooltipText="Relationship Shape" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineThickness="0.01" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="Rectangle">
+      <Notes>The shape has a text decorator used to display the Name property of the mapped ExampleElement.</Notes>
+      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0.1">
+        <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontStyle="Bold" FontSize="14" />
       </ShapeHasDecorators>
     </GeometryShape>
   </Shapes>
@@ -435,8 +496,8 @@
           <XmlPropertyData XmlName="viewpointType">
             <DomainPropertyMoniker Name="Model/ViewpointType" />
           </XmlPropertyData>
-          <XmlRelationshipData UseFullForm="true" RoleElementName="concept">
-            <DomainRelationshipMoniker Name="ModelHasConcept" />
+          <XmlRelationshipData UseFullForm="true" RoleElementName="concepts">
+            <DomainRelationshipMoniker Name="ModelHasConcepts" />
           </XmlRelationshipData>
           <XmlRelationshipData UseFullForm="true" RoleElementName="relationships">
             <DomainRelationshipMoniker Name="ModelHasRelationships" />
@@ -452,11 +513,14 @@
           <XmlPropertyData XmlName="type">
             <DomainPropertyMoniker Name="ModelElement/Type" />
           </XmlPropertyData>
-          <XmlRelationshipData UseFullForm="true" RoleElementName="parent">
-            <DomainRelationshipMoniker Name="ModelElementHasParent" />
+          <XmlRelationshipData UseFullForm="true" RoleElementName="children">
+            <DomainRelationshipMoniker Name="ModelElementHasChildren" />
           </XmlRelationshipData>
           <XmlPropertyData XmlName="name">
             <DomainPropertyMoniker Name="ModelElement/Name" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="showMenu" Representation="Ignore">
+            <DomainPropertyMoniker Name="ModelElement/ShowMenu" />
           </XmlPropertyData>
         </ElementData>
       </XmlClassData>
@@ -489,8 +553,8 @@
           </XmlRelationshipData>
         </ElementData>
       </XmlClassData>
-      <XmlClassData TypeName="ModelElementHasParent" MonikerAttributeName="" SerializeId="true" MonikerElementName="modelElementHasParentMoniker" ElementName="modelElementHasParent" MonikerTypeName="ModelElementHasParentMoniker">
-        <DomainRelationshipMoniker Name="ModelElementHasParent" />
+      <XmlClassData TypeName="ModelElementHasChildren" MonikerAttributeName="" SerializeId="true" MonikerElementName="modelElementHasChildrenMoniker" ElementName="modelElementHasChildren" MonikerTypeName="ModelElementHasChildrenMoniker">
+        <DomainRelationshipMoniker Name="ModelElementHasChildren" />
       </XmlClassData>
       <XmlClassData TypeName="Concept" MonikerAttributeName="" SerializeId="true" MonikerElementName="conceptMoniker" ElementName="concept" MonikerTypeName="ConceptMoniker">
         <DomainClassMoniker Name="Concept" />
@@ -498,8 +562,8 @@
           <XmlPropertyData XmlName="referenceSource">
             <DomainPropertyMoniker Name="Concept/ReferenceSource" />
           </XmlPropertyData>
-          <XmlRelationshipData UseFullForm="true" RoleElementName="conceptElement">
-            <DomainRelationshipMoniker Name="ConceptHasConceptElement" />
+          <XmlRelationshipData UseFullForm="true" RoleElementName="children">
+            <DomainRelationshipMoniker Name="ConceptHasChildren" />
           </XmlRelationshipData>
           <XmlPropertyData XmlName="name">
             <DomainPropertyMoniker Name="Concept/Name" />
@@ -507,13 +571,16 @@
           <XmlRelationshipData UseFullForm="true" RoleElementName="relationship">
             <DomainRelationshipMoniker Name="ConceptReferencesRelationship" />
           </XmlRelationshipData>
+          <XmlPropertyData XmlName="type">
+            <DomainPropertyMoniker Name="Concept/Type" />
+          </XmlPropertyData>
         </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="ConceptShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="conceptShapeMoniker" ElementName="conceptShape" MonikerTypeName="ConceptShapeMoniker">
         <GeometryShapeMoniker Name="ConceptShape" />
       </XmlClassData>
-      <XmlClassData TypeName="ModelHasConcept" MonikerAttributeName="" SerializeId="true" MonikerElementName="modelHasConceptMoniker" ElementName="modelHasConcept" MonikerTypeName="ModelHasConceptMoniker">
-        <DomainRelationshipMoniker Name="ModelHasConcept" />
+      <XmlClassData TypeName="ModelHasConcepts" MonikerAttributeName="" SerializeId="true" MonikerElementName="modelHasConceptsMoniker" ElementName="modelHasConcepts" MonikerTypeName="ModelHasConceptsMoniker">
+        <DomainRelationshipMoniker Name="ModelHasConcepts" />
       </XmlClassData>
       <XmlClassData TypeName="ConceptElement" MonikerAttributeName="" SerializeId="true" MonikerElementName="conceptElementMoniker" ElementName="conceptElement" MonikerTypeName="ConceptElementMoniker">
         <DomainClassMoniker Name="ConceptElement" />
@@ -524,8 +591,8 @@
           <XmlPropertyData XmlName="type">
             <DomainPropertyMoniker Name="ConceptElement/Type" />
           </XmlPropertyData>
-          <XmlRelationshipData UseFullForm="true" RoleElementName="conceptSubElement">
-            <DomainRelationshipMoniker Name="ConceptElementHasConceptSubElement" />
+          <XmlRelationshipData UseFullForm="true" RoleElementName="children">
+            <DomainRelationshipMoniker Name="ConceptElementHasChildren" />
           </XmlRelationshipData>
           <XmlPropertyData XmlName="name">
             <DomainPropertyMoniker Name="ConceptElement/Name" />
@@ -538,8 +605,8 @@
       <XmlClassData TypeName="ConceptElementShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="conceptElementShapeMoniker" ElementName="conceptElementShape" MonikerTypeName="ConceptElementShapeMoniker">
         <GeometryShapeMoniker Name="ConceptElementShape" />
       </XmlClassData>
-      <XmlClassData TypeName="ConceptHasConceptElement" MonikerAttributeName="" SerializeId="true" MonikerElementName="conceptHasConceptElementMoniker" ElementName="conceptHasConceptElement" MonikerTypeName="ConceptHasConceptElementMoniker">
-        <DomainRelationshipMoniker Name="ConceptHasConceptElement" />
+      <XmlClassData TypeName="ConceptHasChildren" MonikerAttributeName="" SerializeId="true" MonikerElementName="conceptHasChildrenMoniker" ElementName="conceptHasChildren" MonikerTypeName="ConceptHasChildrenMoniker">
+        <DomainRelationshipMoniker Name="ConceptHasChildren" />
       </XmlClassData>
       <XmlClassData TypeName="ConceptSubElement" MonikerAttributeName="" SerializeId="true" MonikerElementName="conceptSubElementMoniker" ElementName="conceptSubElement" MonikerTypeName="ConceptSubElementMoniker">
         <DomainClassMoniker Name="ConceptSubElement" />
@@ -558,8 +625,8 @@
           </XmlRelationshipData>
         </ElementData>
       </XmlClassData>
-      <XmlClassData TypeName="ConceptElementHasConceptSubElement" MonikerAttributeName="" SerializeId="true" MonikerElementName="conceptElementHasConceptSubElementMoniker" ElementName="conceptElementHasConceptSubElement" MonikerTypeName="ConceptElementHasConceptSubElementMoniker">
-        <DomainRelationshipMoniker Name="ConceptElementHasConceptSubElement" />
+      <XmlClassData TypeName="ConceptElementHasChildren" MonikerAttributeName="" SerializeId="true" MonikerElementName="conceptElementHasChildrenMoniker" ElementName="conceptElementHasChildren" MonikerTypeName="ConceptElementHasChildrenMoniker">
+        <DomainRelationshipMoniker Name="ConceptElementHasChildren" />
       </XmlClassData>
       <XmlClassData TypeName="ConceptSubElementShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="conceptSubElementShapeMoniker" ElementName="conceptSubElementShape" MonikerTypeName="ConceptSubElementShapeMoniker">
         <GeometryShapeMoniker Name="ConceptSubElementShape" />
@@ -595,7 +662,65 @@
       </XmlClassData>
     </ClassData>
   </XmlSerializationBehavior>
-  <ExplorerBehavior Name="ApplicationCooperationViewPointExplorer" />
+  <ExplorerBehavior Name="ApplicationCooperationViewPointExplorer">
+    <CustomNodeSettings>
+      <ExplorerNodeSettings ShowsDomainClass="true">
+        <Class>
+          <DomainClassMoniker Name="Concept" />
+        </Class>
+        <PropertyDisplayed>
+          <PropertyPath>
+            <DomainPropertyMoniker Name="Concept/Name" />
+            <DomainPath />
+          </PropertyPath>
+        </PropertyDisplayed>
+      </ExplorerNodeSettings>
+      <ExplorerNodeSettings ShowsDomainClass="true">
+        <Class>
+          <DomainClassMoniker Name="ConceptElement" />
+        </Class>
+        <PropertyDisplayed>
+          <PropertyPath>
+            <DomainPropertyMoniker Name="ConceptElement/Name" />
+            <DomainPath />
+          </PropertyPath>
+        </PropertyDisplayed>
+      </ExplorerNodeSettings>
+      <ExplorerNodeSettings ShowsDomainClass="true">
+        <Class>
+          <DomainClassMoniker Name="ConceptSubElement" />
+        </Class>
+        <PropertyDisplayed>
+          <PropertyPath>
+            <DomainPropertyMoniker Name="ConceptSubElement/Name" />
+            <DomainPath />
+          </PropertyPath>
+        </PropertyDisplayed>
+      </ExplorerNodeSettings>
+      <ExplorerNodeSettings ShowsDomainClass="true">
+        <Class>
+          <DomainClassMoniker Name="ModelElement" />
+        </Class>
+        <PropertyDisplayed>
+          <PropertyPath>
+            <DomainPropertyMoniker Name="ModelElement/Name" />
+            <DomainPath />
+          </PropertyPath>
+        </PropertyDisplayed>
+      </ExplorerNodeSettings>
+      <ExplorerNodeSettings ShowsDomainClass="true">
+        <Class>
+          <DomainClassMoniker Name="SubElement" />
+        </Class>
+        <PropertyDisplayed>
+          <PropertyPath>
+            <DomainPropertyMoniker Name="SubElement/Name" />
+            <DomainPath />
+          </PropertyPath>
+        </PropertyDisplayed>
+      </ExplorerNodeSettings>
+    </CustomNodeSettings>
+  </ExplorerBehavior>
   <ConnectionBuilders>
     <ConnectionBuilder Name="SubElementReferencesRelationshipBuilder">
       <LinkConnectDirective>
@@ -705,10 +830,10 @@
       <ShapeMap>
         <DomainClassMoniker Name="SubElement" />
         <ParentElementPath>
-          <DomainPath>ModelElementHasParent.Children/!ModelElement/ModelHasElements.Model/!Model</DomainPath>
+          <DomainPath>ModelElementHasChildren.Parent/!ModelElement/ModelHasElements.Model/!Model</DomainPath>
         </ParentElementPath>
         <DecoratorMap>
-          <TextDecoratorMoniker Name="CooperationSubShape/TextName" />
+          <TextDecoratorMoniker Name="CooperationSubShape/NameDecorator" />
           <PropertyDisplayed>
             <PropertyPath>
               <DomainPropertyMoniker Name="SubElement/Name" />
@@ -728,7 +853,7 @@
       <ShapeMap>
         <DomainClassMoniker Name="ConceptElement" />
         <ParentElementPath>
-          <DomainPath>ConceptHasConceptElement.Concept/!Concept/ModelHasConcept.Model/!Model</DomainPath>
+          <DomainPath>ConceptHasChildren.Parent/!Concept/ModelHasConcepts.Model/!Model</DomainPath>
         </ParentElementPath>
         <DecoratorMap>
           <TextDecoratorMoniker Name="CooperationShape/NameDecorator" />
@@ -751,7 +876,7 @@
       <ShapeMap>
         <DomainClassMoniker Name="ConceptSubElement" />
         <ParentElementPath>
-          <DomainPath>ConceptElementHasConceptSubElement.ConceptElement/!ConceptElement/ConceptHasConceptElement.Concept/!Concept/ModelHasConcept.Model/!Model</DomainPath>
+          <DomainPath>ConceptElementHasChildren.Parent/!ConceptElement/ConceptHasChildren.Parent/!Concept/ModelHasConcepts.Model/!Model</DomainPath>
         </ParentElementPath>
         <DecoratorMap>
           <TextDecoratorMoniker Name="ConceptSubElementShape/NameDecorator" />
@@ -774,13 +899,21 @@
       <ShapeMap>
         <DomainClassMoniker Name="Concept" />
         <ParentElementPath>
-          <DomainPath>ModelHasConcept.Model/!Model</DomainPath>
+          <DomainPath>ModelHasConcepts.Model/!Model</DomainPath>
         </ParentElementPath>
         <DecoratorMap>
           <TextDecoratorMoniker Name="ConceptShape/NameDecorator" />
           <PropertyDisplayed>
             <PropertyPath>
               <DomainPropertyMoniker Name="Concept/Name" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="ConceptShape/TypeDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Concept/Type" />
             </PropertyPath>
           </PropertyDisplayed>
         </DecoratorMap>
@@ -819,7 +952,7 @@
       <XmlSerializationBehaviorMoniker Name="ApplicationCooperationViewPointSerializationBehavior" />
     </XmlSerializationDefinition>
     <ToolboxTab TabText="Cooperation Viewpoint" />
-    <Validation UsesMenu="false" UsesOpen="false" UsesSave="false" UsesCustom="true" UsesLoad="false" />
+    <Validation UsesMenu="false" UsesOpen="true" UsesSave="true" UsesLoad="false" />
     <DiagramMoniker Name="CooperationViewPointDiagram" />
   </Designer>
   <Explorer ExplorerGuid="581e6349-7922-43c9-bb72-0222757290ef" Title="ApplicationCooperationViewPoint Explorer">

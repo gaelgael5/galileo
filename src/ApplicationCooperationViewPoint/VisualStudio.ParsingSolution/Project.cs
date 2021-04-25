@@ -6,7 +6,7 @@ namespace VisualStudio.ParsingSolution
 {
     public class Project : SolutionItem
     {
-       
+
 
         public Project(EnvDTE.Project project) : base(project)
         {
@@ -84,11 +84,11 @@ namespace VisualStudio.ParsingSolution
 
         public string Title
         {
-            get 
-            { 
+            get
+            {
                 var prop = FindProperty("Title");
 
-                if (prop != null) 
+                if (prop != null)
                     return (string)prop.Value;
 
                 return string.Empty;
@@ -99,11 +99,11 @@ namespace VisualStudio.ParsingSolution
 
         public string RootNamespace
         {
-            get 
-            { 
+            get
+            {
                 var prop = FindProperty("RootNamespace");
 
-                if (prop != null) 
+                if (prop != null)
                     return (string)prop.Value;
 
                 return string.Empty;
@@ -113,11 +113,11 @@ namespace VisualStudio.ParsingSolution
 
         public string AssemblyName
         {
-            get 
+            get
             {
                 var prop = FindProperty("AssemblyName");
 
-                if (prop != null) 
+                if (prop != null)
                     return (string)prop.Value;
 
                 return string.Empty;
@@ -129,10 +129,10 @@ namespace VisualStudio.ParsingSolution
 
         public string DefaultNamespace
         {
-            get 
-            { 
+            get
+            {
                 var prop = FindProperty("DefaultNamespace");
-                
+
                 if (prop != null)
                     return (string)prop.Value;
 
@@ -143,7 +143,7 @@ namespace VisualStudio.ParsingSolution
 
         public EnvDTE.Project Source
         {
-            get 
+            get
             {
                 return project;
             }
@@ -153,7 +153,16 @@ namespace VisualStudio.ParsingSolution
         {
             get
             {
-                return project.FullName;
+                try
+                {
+                    if (project != null)
+                        return project.FullName;
+                    return string.Empty;
+                }
+                catch (System.Exception)
+                {
+                    return string.Empty;
+                }
             }
         }
 

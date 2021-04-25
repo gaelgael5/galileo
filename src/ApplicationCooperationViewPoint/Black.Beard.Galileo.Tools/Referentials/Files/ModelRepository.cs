@@ -411,8 +411,11 @@ namespace Bb.Galileo.Files
         public ReferentialEntity GetEntity(string typeEntity, string target, string identifier)
         {
             if (_entities.TryGetValue(typeof(ReferentialEntity), out TypesIndex dic))
-                if (dic.GetByTypename(typeEntity).Get(target).TryGetValue(identifier, out ReferentialBase item))
+            {
+                var _target = dic.GetByTypename(typeEntity).Get(target);
+                if (_target.TryGetValue(identifier, out ReferentialBase item))
                     return (ReferentialEntity)item;
+            }
             return null;
         }
 

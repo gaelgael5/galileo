@@ -1,5 +1,6 @@
 ﻿using Bb.Galileo.Files.Schemas;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace Bb.Galileo.Files.Viewpoints
 {
@@ -55,6 +56,12 @@ namespace Bb.Galileo.Files.Viewpoints
 
         }
 
+        public RelationshipDefinition GetRelationshipDefinition(ModelRepository models)
+        {
+            var queryDef = new ResolveQuery() { Kind = Galileo.ElementEnum.RelationshipDefinition, TypeName = this.Name };
+            var itemDef = (RelationshipDefinition)queryDef.GetReferentials(models).FirstOrDefault();
+            return itemDef;
+        }
 
     }
 
