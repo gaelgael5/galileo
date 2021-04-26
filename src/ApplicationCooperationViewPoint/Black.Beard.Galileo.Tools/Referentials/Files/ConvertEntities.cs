@@ -231,6 +231,10 @@ namespace Bb.Galileo.Models
                                 this._diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, Text = e1.Message, Exception = e1 });
                             }
                         }
+                        else
+                        {
+
+                        }
                     }
                 }
                 else if (item.Name == "TargetLink")
@@ -240,6 +244,7 @@ namespace Bb.Galileo.Models
                     {
                         var p = schema.Target.Properties.FirstOrDefault(c => c.Name == item2.Name);
                         if (p != null)
+                        {
                             try
                             {
                                 var value = ConvertValue(p.Type, item2.Value);
@@ -249,6 +254,11 @@ namespace Bb.Galileo.Models
                             {
                                 this._diagnostic.Append(new DiagnositcMessage() { Severity = SeverityEnum.Error, Text = e2.Message, Exception = e2 });
                             }
+                        }
+                        else
+                        {
+
+                        }
                     }
                 }
                 else

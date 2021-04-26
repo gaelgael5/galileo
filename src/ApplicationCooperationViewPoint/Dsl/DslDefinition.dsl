@@ -99,7 +99,7 @@
     </DomainClass>
     <DomainClass Id="e39ae37f-7927-4be7-a99c-94d0deb846f7" Description="Description de Bb.ApplicationCooperationViewPoint.SubElement" Name="SubElement" DisplayName="Sub Element" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true">
       <Properties>
-        <DomainProperty Id="b3968e18-782b-4443-9994-f232739217b9" Description="Description de Bb.ApplicationCooperationViewPoint.SubElement.Reference Source" Name="ReferenceSource" DisplayName="Reference Source" IsElementName="true">
+        <DomainProperty Id="b3968e18-782b-4443-9994-f232739217b9" Description="Description de Bb.ApplicationCooperationViewPoint.SubElement.Reference Source" Name="ReferenceSource" DisplayName="Reference Source" Kind="CustomStorage" IsElementName="true">
           <Attributes>
             <ClrAttribute Name="System.ComponentModel.Editor">
               <Parameters>
@@ -126,7 +126,7 @@
     </DomainClass>
     <DomainClass Id="eaad73c4-a652-4596-b575-39e82c2f525a" Description="Description de Bb.ApplicationCooperationViewPoint.Concept" Name="Concept" DisplayName="Concept" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true">
       <Properties>
-        <DomainProperty Id="8f8c5d55-111e-49f2-9518-cce39195b847" Description="Description de Bb.ApplicationCooperationViewPoint.Concept.Reference Source" Name="ReferenceSource" DisplayName="Reference Source" IsElementName="true">
+        <DomainProperty Id="8f8c5d55-111e-49f2-9518-cce39195b847" Description="Description de Bb.ApplicationCooperationViewPoint.Concept.Reference Source" Name="ReferenceSource" DisplayName="Reference Source" Kind="CustomStorage" IsElementName="true">
           <Attributes>
             <ClrAttribute Name="System.ComponentModel.Editor">
               <Parameters>
@@ -163,7 +163,7 @@
     </DomainClass>
     <DomainClass Id="3aba6490-0175-4397-b4b4-8ba4dd8df1d1" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElement" Name="ConceptElement" DisplayName="Concept Element" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true">
       <Properties>
-        <DomainProperty Id="16627524-3c73-434a-bbee-5ef23344e62a" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElement.Reference Source" Name="ReferenceSource" DisplayName="Reference Source" IsElementName="true">
+        <DomainProperty Id="16627524-3c73-434a-bbee-5ef23344e62a" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElement.Reference Source" Name="ReferenceSource" DisplayName="Reference Source" Kind="CustomStorage" IsElementName="true">
           <Attributes>
             <ClrAttribute Name="System.ComponentModel.Editor">
               <Parameters>
@@ -200,7 +200,7 @@
     </DomainClass>
     <DomainClass Id="a3a13452-14ee-4fe8-adcb-fd5c2f06ff68" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement" Name="ConceptSubElement" DisplayName="Concept Sub Element" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true">
       <Properties>
-        <DomainProperty Id="e4021cd7-d1f3-43a4-801b-946fbe965c4c" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement.Reference Source" Name="ReferenceSource" DisplayName="Reference Source" IsElementName="true">
+        <DomainProperty Id="e4021cd7-d1f3-43a4-801b-946fbe965c4c" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement.Reference Source" Name="ReferenceSource" DisplayName="Reference Source" Kind="CustomStorage" IsElementName="true">
           <Attributes>
             <ClrAttribute Name="System.ComponentModel.Editor">
               <Parameters>
@@ -227,7 +227,7 @@
     </DomainClass>
     <DomainClass Id="95bd428c-7b5b-49c7-b8f9-5f753e1817a6" Description="Description de Bb.ApplicationCooperationViewPoint.Relationship" Name="Relationship" DisplayName="Relationship" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true">
       <Properties>
-        <DomainProperty Id="c12f448e-0d28-4f1f-9195-90d47aad9e31" Description="Description de Bb.ApplicationCooperationViewPoint.Relationship.Reference Source" Name="ReferenceSource" DisplayName="Reference Source" IsElementName="true">
+        <DomainProperty Id="c12f448e-0d28-4f1f-9195-90d47aad9e31" Description="Description de Bb.ApplicationCooperationViewPoint.Relationship.Reference Source" Name="ReferenceSource" DisplayName="Reference Source" Kind="CustomStorage" IsElementName="true">
           <Attributes>
             <ClrAttribute Name="System.ComponentModel.Editor">
               <Parameters>
@@ -241,6 +241,11 @@
           </Type>
         </DomainProperty>
         <DomainProperty Id="1648ea49-8782-4660-9727-6dfbd03c3b81" Description="Description de Bb.ApplicationCooperationViewPoint.Relationship.Name" Name="Name" DisplayName="Name">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="b7c9cb49-d73d-4820-93e5-471e8bf820c0" Description="Description de Bb.ApplicationCooperationViewPoint.Relationship.Type" Name="Type" DisplayName="Type" IsUIReadOnly="true">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -639,6 +644,9 @@
           </XmlPropertyData>
           <XmlPropertyData XmlName="name">
             <DomainPropertyMoniker Name="Relationship/Name" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="type">
+            <DomainPropertyMoniker Name="Relationship/Type" />
           </XmlPropertyData>
         </ElementData>
       </XmlClassData>

@@ -2629,9 +2629,8 @@ namespace Bb.ApplicationCooperationViewPoint
 				global::System.String propValue = instanceOfSubElement.ReferenceSource;
 				if (!serializationContext.Result.Failed)
 				{
-					if (!string.IsNullOrEmpty(propValue))
+					if (propValue != null)
 						ApplicationCooperationViewPointSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "referenceSource", propValue);
-	
 				}
 			}
 			// Type
@@ -3550,9 +3549,8 @@ namespace Bb.ApplicationCooperationViewPoint
 				global::System.String propValue = instanceOfConcept.ReferenceSource;
 				if (!serializationContext.Result.Failed)
 				{
-					if (!string.IsNullOrEmpty(propValue))
+					if (propValue != null)
 						ApplicationCooperationViewPointSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "referenceSource", propValue);
-	
 				}
 			}
 			// Name
@@ -4489,9 +4487,8 @@ namespace Bb.ApplicationCooperationViewPoint
 				global::System.String propValue = instanceOfConceptElement.ReferenceSource;
 				if (!serializationContext.Result.Failed)
 				{
-					if (!string.IsNullOrEmpty(propValue))
+					if (propValue != null)
 						ApplicationCooperationViewPointSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "referenceSource", propValue);
-	
 				}
 			}
 			// Type
@@ -5367,9 +5364,8 @@ namespace Bb.ApplicationCooperationViewPoint
 				global::System.String propValue = instanceOfConceptSubElement.ReferenceSource;
 				if (!serializationContext.Result.Failed)
 				{
-					if (!string.IsNullOrEmpty(propValue))
+					if (propValue != null)
 						ApplicationCooperationViewPointSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "referenceSource", propValue);
-	
 				}
 			}
 			// Type
@@ -5691,6 +5687,23 @@ namespace Bb.ApplicationCooperationViewPoint
 					else
 					{	// Invalid property value, ignored.
 						ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "name", typeof(global::System.String), attribName);
+					}
+				}
+			}
+			// Type
+			if (!serializationContext.Result.Failed)
+			{
+				string attribType = ApplicationCooperationViewPointSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "type");
+				if (attribType != null)
+				{
+					global::System.String valueOfType;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribType, out valueOfType))
+					{
+						instanceOfRelationship.Type = valueOfType;
+					}
+					else
+					{	// Invalid property value, ignored.
+						ApplicationCooperationViewPointSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "type", typeof(global::System.String), attribType);
 					}
 				}
 			}
@@ -6125,9 +6138,8 @@ namespace Bb.ApplicationCooperationViewPoint
 				global::System.String propValue = instanceOfRelationship.ReferenceSource;
 				if (!serializationContext.Result.Failed)
 				{
-					if (!string.IsNullOrEmpty(propValue))
+					if (propValue != null)
 						ApplicationCooperationViewPointSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "referenceSource", propValue);
-	
 				}
 			}
 			// Name
@@ -6138,6 +6150,17 @@ namespace Bb.ApplicationCooperationViewPoint
 				{
 					if (!string.IsNullOrEmpty(propValue))
 						ApplicationCooperationViewPointSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "name", propValue);
+	
+				}
+			}
+			// Type
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.String propValue = instanceOfRelationship.Type;
+				if (!serializationContext.Result.Failed)
+				{
+					if (!string.IsNullOrEmpty(propValue))
+						ApplicationCooperationViewPointSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "type", propValue);
 	
 				}
 			}

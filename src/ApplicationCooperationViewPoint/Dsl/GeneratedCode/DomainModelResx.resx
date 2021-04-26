@@ -349,6 +349,14 @@
     <value>Name</value>
     <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;Relationship&apos;</comment>
   </data>
+  <data name="Bb.ApplicationCooperationViewPoint.Relationship/Type.Description" xml:space="preserve">
+    <value>Description de Bb.ApplicationCooperationViewPoint.Relationship.Type</value>
+    <comment>Description for DomainProperty &apos;Type&apos; on DomainClass &apos;Relationship&apos;</comment>
+  </data>
+  <data name="Bb.ApplicationCooperationViewPoint.Relationship/Type.DisplayName" xml:space="preserve">
+    <value>Type</value>
+    <comment>DisplayName for DomainProperty &apos;Type&apos; on DomainClass &apos;Relationship&apos;</comment>
+  </data>
   <data name="Bb.ApplicationCooperationViewPoint.ModelHasElements.Description" xml:space="preserve">
     <value>Embedding relationship between the Model and Elements</value>
     <comment>Description for DomainClass &apos;ModelHasElements&apos;</comment>

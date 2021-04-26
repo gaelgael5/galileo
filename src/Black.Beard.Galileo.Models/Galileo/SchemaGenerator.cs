@@ -294,7 +294,11 @@ namespace Bb.Galileo
                 case PropertyDefinitionEnum.Text:
                 case PropertyDefinitionEnum.Regex:
                 default:
-                    value.Type = JsonObjectType.String;
+                    if (prop.Required)
+                        value.Type = JsonObjectType.String;
+                    else
+                        value.Type = JsonObjectType.String & JsonObjectType.None;
+
                     value.Pattern = prop.TextConstraints.Pattern;
                     break;
             }
@@ -329,10 +333,14 @@ namespace Bb.Galileo
         {
 
             if (prop.Type == PropertyDefinitionEnum.Integer)
+            {
                 item.Type = JsonObjectType.Integer;
+            }
 
             else if (prop.Type == PropertyDefinitionEnum.Double)
+            {
                 item.Type = JsonObjectType.Number;
+            }
 
             if (prop.NumberConstraints != null)
             {

@@ -97,9 +97,13 @@
     <Compile Include="CustomCode\Helpers\ElementExtension.cs" />
     <Compile Include="CustomCode\Helpers\SelectExtension.cs" />
     <Compile Include="CustomCode\Helpers\ShapeExtension.cs" />
+    <Compile Include="CustomCode\ModelElements\ConceptBase.cs" />
+    <Compile Include="CustomCode\ModelElements\ConceptElementBase.cs" />
+    <Compile Include="CustomCode\ModelElements\ConceptSubElementBase.cs" />
     <Compile Include="CustomCode\ModelElements\Diag.cs" />
     <Compile Include="CustomCode\ModelElements\ModelElement.cs" />
     <Compile Include="CustomCode\ModelElements\ModelElementBase.cs" />
+    <Compile Include="CustomCode\ModelElements\SubElementBase.cs" />
     <Compile Include="CustomCode\Resources\ResourceImages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

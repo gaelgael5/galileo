@@ -638,7 +638,12 @@ namespace Bb.Galileo.Files
             try
             {
                 payload = item.Load();
-                transaction = _loader.Add(payload, item);
+                if (payload != null)
+                    transaction = _loader.Add(payload, item);
+                else
+                {
+
+                }
             }
             catch (System.IO.IOException e1)
             {

@@ -124,6 +124,7 @@ namespace Bb.ApplicationCooperationViewPoint
 				new DomainMemberInfo(typeof(ConceptSubElement), "Name", ConceptSubElement.NameDomainPropertyId, typeof(ConceptSubElement.NamePropertyHandler)),
 				new DomainMemberInfo(typeof(Relationship), "ReferenceSource", Relationship.ReferenceSourceDomainPropertyId, typeof(Relationship.ReferenceSourcePropertyHandler)),
 				new DomainMemberInfo(typeof(Relationship), "Name", Relationship.NameDomainPropertyId, typeof(Relationship.NamePropertyHandler)),
+				new DomainMemberInfo(typeof(Relationship), "Type", Relationship.TypeDomainPropertyId, typeof(Relationship.TypePropertyHandler)),
 			};
 		}
 		/// <summary>

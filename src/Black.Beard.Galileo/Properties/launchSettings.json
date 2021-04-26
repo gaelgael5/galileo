@@ -2,7 +2,7 @@
   "profiles": {
     "Black.Beard.Galileo": {
       "commandName": "Project",
-      "commandLineArgs": "generate schemas \"C:\\Users\\g.beard\\Desktop\\CartoTest\" \"C:\\Users\\g.beard\\Desktop\\CartoTest\\Schemas\" --h"
+      "commandLineArgs": "generate schemas \"C:\\_perso\\Pickup\\Cartographie\\Src\\Pickup\\Cartography\" \"C:\\_perso\\Pickup\\Cartographie\\Src\\Pickup\\Cartography\\Schemas\" --h"
     }
   }
 }

@@ -187,11 +187,7 @@ namespace Bb.Galileo.Viewpoints.Cooperations
                     r2.Kind = ElementEnum.Entity;
 
                     var relationships = r1.GetReferentials(view.Definition.File.Parent.Models).OfType<ReferentialRelationship>();
-
-                    if (item.Relationship.Origin.Name == filter)
-                        relationships = relationships.Where(c => c.Origin.Name == f.Name);
-                    else
-                        relationships = relationships.Where(c => c.Target.Name == f.Name);
+                    relationships = relationships.Where(c => c.Origin.Name == f.Name);
 
                     var relations = new HashSet<string>(relationships.Select(c => c.Name));
 

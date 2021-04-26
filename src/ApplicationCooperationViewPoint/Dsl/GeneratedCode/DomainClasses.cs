@@ -1065,7 +1065,7 @@ namespace Bb.ApplicationCooperationViewPoint
 	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.SubElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
-	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {referenceSourcePropertyStorage})")]
+	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {ReferenceSource})")]
 	[DslModeling::DomainObjectId("e39ae37f-7927-4be7-a99c-94d0deb846f7")]
 	public abstract partial class SubElementBase : DslModeling::ModelElement
 	{
@@ -1093,11 +1093,6 @@ namespace Bb.ApplicationCooperationViewPoint
 		public static readonly global::System.Guid ReferenceSourceDomainPropertyId = new global::System.Guid(0xb3968e18, 0x782b, 0x4443, 0x99, 0x94, 0xf2, 0x32, 0x73, 0x92, 0x17, 0xb9);
 		
 		/// <summary>
-		/// Storage for ReferenceSource
-		/// </summary>
-		private global::System.String referenceSourcePropertyStorage = string.Empty;
-		
-		/// <summary>
 		/// Gets or sets the value of ReferenceSource domain property.
 		/// Description de Bb.ApplicationCooperationViewPoint.SubElement.Reference Source
 		/// </summary>
@@ -1105,13 +1100,14 @@ namespace Bb.ApplicationCooperationViewPoint
 		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.SubElement/ReferenceSource.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.SubElement/ReferenceSource.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslModeling::ElementName]
+		[DslModeling::DomainProperty(Kind = DslModeling::DomainPropertyKind.CustomStorage)]
 		[DslModeling::DomainObjectId("b3968e18-782b-4443-9994-f232739217b9")]
 		public global::System.String ReferenceSource
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return referenceSourcePropertyStorage;
+				return ReferenceSourcePropertyHandler.Instance.GetValue(this);
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
@@ -1151,7 +1147,10 @@ namespace Bb.ApplicationCooperationViewPoint
 			public override sealed global::System.String GetValue(SubElementBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-				return element.referenceSourcePropertyStorage;
+				// There is no storage for ReferenceSource because its Kind is
+				// set to CustomStorage. Please provide the GetReferenceSourceValue()
+				// method on the domain class.
+				return element.GetReferenceSourceValue();
 			}
 		
 			/// <summary>
@@ -1167,8 +1166,11 @@ namespace Bb.ApplicationCooperationViewPoint
 				if (newValue != oldValue)
 				{
 					ValueChanging(element, oldValue, newValue);
-					element.referenceSourcePropertyStorage = newValue;
-					ValueChanged(element, oldValue, newValue);
+					// There is no storage for ReferenceSource because its Kind is
+					// set to CustomStorage. Please provide the SetReferenceSourceValue()
+					// method on the domain class.
+					element.SetReferenceSourceValue(newValue);
+					ValueChanged(element, oldValue, GetValue(element));
 				}
 			}
 		}
@@ -1428,7 +1430,7 @@ namespace Bb.ApplicationCooperationViewPoint
 	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Concept.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
-	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {referenceSourcePropertyStorage})")]
+	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {ReferenceSource})")]
 	[DslModeling::DomainObjectId("eaad73c4-a652-4596-b575-39e82c2f525a")]
 	public abstract partial class ConceptBase : DslModeling::ModelElement
 	{
@@ -1456,11 +1458,6 @@ namespace Bb.ApplicationCooperationViewPoint
 		public static readonly global::System.Guid ReferenceSourceDomainPropertyId = new global::System.Guid(0x8f8c5d55, 0x111e, 0x49f2, 0x95, 0x18, 0xcc, 0xe3, 0x91, 0x95, 0xb8, 0x47);
 		
 		/// <summary>
-		/// Storage for ReferenceSource
-		/// </summary>
-		private global::System.String referenceSourcePropertyStorage = string.Empty;
-		
-		/// <summary>
 		/// Gets or sets the value of ReferenceSource domain property.
 		/// Description de Bb.ApplicationCooperationViewPoint.Concept.Reference Source
 		/// </summary>
@@ -1468,13 +1465,14 @@ namespace Bb.ApplicationCooperationViewPoint
 		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Concept/ReferenceSource.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Concept/ReferenceSource.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslModeling::ElementName]
+		[DslModeling::DomainProperty(Kind = DslModeling::DomainPropertyKind.CustomStorage)]
 		[DslModeling::DomainObjectId("8f8c5d55-111e-49f2-9518-cce39195b847")]
 		public global::System.String ReferenceSource
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return referenceSourcePropertyStorage;
+				return ReferenceSourcePropertyHandler.Instance.GetValue(this);
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
@@ -1514,7 +1512,10 @@ namespace Bb.ApplicationCooperationViewPoint
 			public override sealed global::System.String GetValue(ConceptBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-				return element.referenceSourcePropertyStorage;
+				// There is no storage for ReferenceSource because its Kind is
+				// set to CustomStorage. Please provide the GetReferenceSourceValue()
+				// method on the domain class.
+				return element.GetReferenceSourceValue();
 			}
 		
 			/// <summary>
@@ -1530,8 +1531,11 @@ namespace Bb.ApplicationCooperationViewPoint
 				if (newValue != oldValue)
 				{
 					ValueChanging(element, oldValue, newValue);
-					element.referenceSourcePropertyStorage = newValue;
-					ValueChanged(element, oldValue, newValue);
+					// There is no storage for ReferenceSource because its Kind is
+					// set to CustomStorage. Please provide the SetReferenceSourceValue()
+					// method on the domain class.
+					element.SetReferenceSourceValue(newValue);
+					ValueChanged(element, oldValue, GetValue(element));
 				}
 			}
 		}
@@ -1903,7 +1907,7 @@ namespace Bb.ApplicationCooperationViewPoint
 	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
-	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {referenceSourcePropertyStorage})")]
+	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {ReferenceSource})")]
 	[DslModeling::DomainObjectId("3aba6490-0175-4397-b4b4-8ba4dd8df1d1")]
 	public abstract partial class ConceptElementBase : DslModeling::ModelElement
 	{
@@ -1931,11 +1935,6 @@ namespace Bb.ApplicationCooperationViewPoint
 		public static readonly global::System.Guid ReferenceSourceDomainPropertyId = new global::System.Guid(0x16627524, 0x3c73, 0x434a, 0xbb, 0xee, 0x5e, 0xf2, 0x33, 0x44, 0xe6, 0x2a);
 		
 		/// <summary>
-		/// Storage for ReferenceSource
-		/// </summary>
-		private global::System.String referenceSourcePropertyStorage = string.Empty;
-		
-		/// <summary>
 		/// Gets or sets the value of ReferenceSource domain property.
 		/// Description de Bb.ApplicationCooperationViewPoint.ConceptElement.Reference
 		/// Source
@@ -1944,13 +1943,14 @@ namespace Bb.ApplicationCooperationViewPoint
 		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptElement/ReferenceSource.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptElement/ReferenceSource.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslModeling::ElementName]
+		[DslModeling::DomainProperty(Kind = DslModeling::DomainPropertyKind.CustomStorage)]
 		[DslModeling::DomainObjectId("16627524-3c73-434a-bbee-5ef23344e62a")]
 		public global::System.String ReferenceSource
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return referenceSourcePropertyStorage;
+				return ReferenceSourcePropertyHandler.Instance.GetValue(this);
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
@@ -1990,7 +1990,10 @@ namespace Bb.ApplicationCooperationViewPoint
 			public override sealed global::System.String GetValue(ConceptElementBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-				return element.referenceSourcePropertyStorage;
+				// There is no storage for ReferenceSource because its Kind is
+				// set to CustomStorage. Please provide the GetReferenceSourceValue()
+				// method on the domain class.
+				return element.GetReferenceSourceValue();
 			}
 		
 			/// <summary>
@@ -2006,8 +2009,11 @@ namespace Bb.ApplicationCooperationViewPoint
 				if (newValue != oldValue)
 				{
 					ValueChanging(element, oldValue, newValue);
-					element.referenceSourcePropertyStorage = newValue;
-					ValueChanged(element, oldValue, newValue);
+					// There is no storage for ReferenceSource because its Kind is
+					// set to CustomStorage. Please provide the SetReferenceSourceValue()
+					// method on the domain class.
+					element.SetReferenceSourceValue(newValue);
+					ValueChanged(element, oldValue, GetValue(element));
 				}
 			}
 		}
@@ -2382,7 +2388,7 @@ namespace Bb.ApplicationCooperationViewPoint
 	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptSubElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
-	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {referenceSourcePropertyStorage})")]
+	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {ReferenceSource})")]
 	[DslModeling::DomainObjectId("a3a13452-14ee-4fe8-adcb-fd5c2f06ff68")]
 	public abstract partial class ConceptSubElementBase : DslModeling::ModelElement
 	{
@@ -2410,11 +2416,6 @@ namespace Bb.ApplicationCooperationViewPoint
 		public static readonly global::System.Guid ReferenceSourceDomainPropertyId = new global::System.Guid(0xe4021cd7, 0xd1f3, 0x43a4, 0x80, 0x1b, 0x94, 0x6f, 0xbe, 0x96, 0x5c, 0x4c);
 		
 		/// <summary>
-		/// Storage for ReferenceSource
-		/// </summary>
-		private global::System.String referenceSourcePropertyStorage = string.Empty;
-		
-		/// <summary>
 		/// Gets or sets the value of ReferenceSource domain property.
 		/// Description de Bb.ApplicationCooperationViewPoint.ConceptSubElement.Reference
 		/// Source
@@ -2423,13 +2424,14 @@ namespace Bb.ApplicationCooperationViewPoint
 		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptSubElement/ReferenceSource.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptSubElement/ReferenceSource.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslModeling::ElementName]
+		[DslModeling::DomainProperty(Kind = DslModeling::DomainPropertyKind.CustomStorage)]
 		[DslModeling::DomainObjectId("e4021cd7-d1f3-43a4-801b-946fbe965c4c")]
 		public global::System.String ReferenceSource
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return referenceSourcePropertyStorage;
+				return ReferenceSourcePropertyHandler.Instance.GetValue(this);
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
@@ -2469,7 +2471,10 @@ namespace Bb.ApplicationCooperationViewPoint
 			public override sealed global::System.String GetValue(ConceptSubElementBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-				return element.referenceSourcePropertyStorage;
+				// There is no storage for ReferenceSource because its Kind is
+				// set to CustomStorage. Please provide the GetReferenceSourceValue()
+				// method on the domain class.
+				return element.GetReferenceSourceValue();
 			}
 		
 			/// <summary>
@@ -2485,8 +2490,11 @@ namespace Bb.ApplicationCooperationViewPoint
 				if (newValue != oldValue)
 				{
 					ValueChanging(element, oldValue, newValue);
-					element.referenceSourcePropertyStorage = newValue;
-					ValueChanged(element, oldValue, newValue);
+					// There is no storage for ReferenceSource because its Kind is
+					// set to CustomStorage. Please provide the SetReferenceSourceValue()
+					// method on the domain class.
+					element.SetReferenceSourceValue(newValue);
+					ValueChanged(element, oldValue, GetValue(element));
 				}
 			}
 		}
@@ -2748,7 +2756,7 @@ namespace Bb.ApplicationCooperationViewPoint
 	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Relationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
-	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {referenceSourcePropertyStorage})")]
+	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (ReferenceSource = {ReferenceSource})")]
 	[DslModeling::DomainObjectId("95bd428c-7b5b-49c7-b8f9-5f753e1817a6")]
 	public abstract partial class RelationshipBase : DslModeling::ModelElement
 	{
@@ -2776,11 +2784,6 @@ namespace Bb.ApplicationCooperationViewPoint
 		public static readonly global::System.Guid ReferenceSourceDomainPropertyId = new global::System.Guid(0xc12f448e, 0x0d28, 0x4f1f, 0x91, 0x95, 0x90, 0xd4, 0x7a, 0xad, 0x9e, 0x31);
 		
 		/// <summary>
-		/// Storage for ReferenceSource
-		/// </summary>
-		private global::System.String referenceSourcePropertyStorage = string.Empty;
-		
-		/// <summary>
 		/// Gets or sets the value of ReferenceSource domain property.
 		/// Description de Bb.ApplicationCooperationViewPoint.Relationship.Reference Source
 		/// </summary>
@@ -2788,13 +2791,14 @@ namespace Bb.ApplicationCooperationViewPoint
 		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Relationship/ReferenceSource.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Relationship/ReferenceSource.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[DslModeling::ElementName]
+		[DslModeling::DomainProperty(Kind = DslModeling::DomainPropertyKind.CustomStorage)]
 		[DslModeling::DomainObjectId("c12f448e-0d28-4f1f-9195-90d47aad9e31")]
 		public global::System.String ReferenceSource
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return referenceSourcePropertyStorage;
+				return ReferenceSourcePropertyHandler.Instance.GetValue(this);
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
@@ -2834,7 +2838,10 @@ namespace Bb.ApplicationCooperationViewPoint
 			public override sealed global::System.String GetValue(RelationshipBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-				return element.referenceSourcePropertyStorage;
+				// There is no storage for ReferenceSource because its Kind is
+				// set to CustomStorage. Please provide the GetReferenceSourceValue()
+				// method on the domain class.
+				return element.GetReferenceSourceValue();
 			}
 		
 			/// <summary>
@@ -2850,8 +2857,11 @@ namespace Bb.ApplicationCooperationViewPoint
 				if (newValue != oldValue)
 				{
 					ValueChanging(element, oldValue, newValue);
-					element.referenceSourcePropertyStorage = newValue;
-					ValueChanged(element, oldValue, newValue);
+					// There is no storage for ReferenceSource because its Kind is
+					// set to CustomStorage. Please provide the SetReferenceSourceValue()
+					// method on the domain class.
+					element.SetReferenceSourceValue(newValue);
+					ValueChanged(element, oldValue, GetValue(element));
 				}
 			}
 		}
@@ -2938,6 +2948,94 @@ namespace Bb.ApplicationCooperationViewPoint
 				{
 					ValueChanging(element, oldValue, newValue);
 					element.namePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Type domain property code
+		
+		/// <summary>
+		/// Type domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid TypeDomainPropertyId = new global::System.Guid(0xb7c9cb49, 0xd73d, 0x4820, 0x93, 0xe5, 0x47, 0x1e, 0x8b, 0xf8, 0x20, 0xc0);
+		
+		/// <summary>
+		/// Storage for Type
+		/// </summary>
+		private global::System.String typePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Type domain property.
+		/// Description de Bb.ApplicationCooperationViewPoint.Relationship.Type
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Relationship/Type.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Relationship/Type.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.ReadOnly(true)]
+		[DslModeling::DomainObjectId("b7c9cb49-d73d-4820-93e5-471e8bf820c0")]
+		public global::System.String Type
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return typePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				TypePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Relationship.Type domain property.
+		/// </summary>
+		internal sealed partial class TypePropertyHandler : DslModeling::DomainPropertyValueHandler<RelationshipBase, global::System.String>
+		{
+			private TypePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Relationship.Type domain property value handler.
+			/// </summary>
+			public static readonly TypePropertyHandler Instance = new TypePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Relationship.Type domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return TypeDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(RelationshipBase element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.typePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(RelationshipBase element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.typePropertyStorage = newValue;
 					ValueChanged(element, oldValue, newValue);
 				}
 			}

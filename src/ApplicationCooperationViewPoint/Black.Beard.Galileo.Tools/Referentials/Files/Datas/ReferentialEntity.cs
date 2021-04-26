@@ -36,7 +36,7 @@ namespace Bb.Galileo.Files.Datas
         {
 
             var t = relationshipDefinition.GetRelationships().Where(c => c.Origin.Name == this.Name)
-                .Select(c => c.Target.Name)
+                .Select(c => c.Name)
                 .ToList();
 
             var datas = relationshipDefinition.GetTargetEntities().ToList();
@@ -44,8 +44,7 @@ namespace Bb.Galileo.Files.Datas
             var model = this.File.Parent.Models;
             foreach (var item in datas)
                 if (t.Any(c => c == item.Name))
-                yield return item;
-
+                    yield return item;
         }
 
 
