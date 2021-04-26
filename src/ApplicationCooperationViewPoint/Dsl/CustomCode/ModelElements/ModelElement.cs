@@ -20,17 +20,26 @@ namespace Bb.ApplicationCooperationViewPoint
 
         internal EntityDefinition GetDefinition(ModelRepository rep)
         {
-            var item = new ResolveQuery(this.ReferenceSource);
-            item.Kind = Galileo.ElementEnum.EntityDefinition;
-            var items = item.GetReferentials(rep);
-            return items.OfType<EntityDefinition>().FirstOrDefault();
+            if (!string.IsNullOrEmpty(this.ReferenceSource))
+            {
+                var item = new ResolveQuery(this.ReferenceSource);
+                item.Kind = Galileo.ElementEnum.EntityDefinition;
+                var items = item.GetReferentials(rep);
+                return items.OfType<EntityDefinition>().FirstOrDefault();
+            }
+            return null;
         }
 
         internal ReferentialEntity GetEntity(ModelRepository rep)
         {
-            var item = new ResolveQuery(this.ReferenceSource);
-            var items = item.GetReferentials(rep);
-            return items.OfType<ReferentialEntity>().FirstOrDefault();
+            if (!string.IsNullOrEmpty(this.ReferenceSource))
+            {
+                var item = new ResolveQuery(this.ReferenceSource);
+                var items = item.GetReferentials(rep);
+                return items.OfType<ReferentialEntity>().FirstOrDefault();
+            }
+
+            return null;
         }
 
     }

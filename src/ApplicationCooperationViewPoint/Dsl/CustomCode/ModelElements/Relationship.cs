@@ -44,54 +44,27 @@ namespace Bb.ApplicationCooperationViewPoint
 
         internal EntityDefinition GetDefinition(ModelRepository rep)
         {
-            var item = new ResolveQuery(this.ReferenceSource);
-            item.Kind = Galileo.ElementEnum.EntityDefinition;
-            var items = item.GetReferentials(rep);
-            return items.OfType<EntityDefinition>().FirstOrDefault();
+            if (!string.IsNullOrEmpty(this.ReferenceSource))
+            {
+                var item = new ResolveQuery(this.ReferenceSource);
+                item.Kind = Galileo.ElementEnum.EntityDefinition;
+                var items = item.GetReferentials(rep);
+                return items.OfType<EntityDefinition>().FirstOrDefault();
+            }
+            return null;
         }
 
         internal ReferentialEntity GetEntity(ModelRepository rep)
         {
-            var item = new ResolveQuery(this.ReferenceSource);
-            var items = item.GetReferentials(rep);
-            return items.OfType<ReferentialEntity>().FirstOrDefault();
-        }
-
-    }
-
-    public partial class RelationshipBase
-    {
-
-
-        private string GetReferenceSourceValue()
-        {
-            return _referenceSource;
-        }
-
-        private void SetReferenceSourceValue(string newValue)
-        {
-            _referenceSource = newValue;
-
-            if (!string.IsNullOrEmpty(newValue))
+            if (!string.IsNullOrEmpty(this.ReferenceSource))
             {
-                var referential = ReferentialResolver.Instance.GetReferential(Store);
-                if (referential != null)
-                {
-                    var query = new ResolveQuery(newValue);
-                    var item = query.GetReferentials(referential)
-                                     .OfType<ReferentialEntity>()
-                                     .FirstOrDefault();
-                    if (item != null)
-                    {
-                        this.Name = item.Name;
-                        // this.Type = item.TypeEntity;
-                    }
-                }
+                var item = new ResolveQuery(this.ReferenceSource);
+                var items = item.GetReferentials(rep);
+                return items.OfType<ReferentialEntity>().FirstOrDefault();
             }
 
+            return null;
         }
-
-        private string _referenceSource;
 
     }
 

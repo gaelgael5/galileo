@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.Modeling.Diagrams;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Design;
+using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
 
@@ -39,20 +40,29 @@ namespace Bb.ApplicationCooperationViewPoint
                 if (io == null)
                     return value;
 
-                control.DataSource = io;
-                control.DisplayMember = this.DisplayMember;
-                control.ValueMember = this.ValueMember;
-                control.SelectionMode = SelectionMode.One;
+                int index = 0;
+                foreach (var item in io)
+                {
+                    control.Items.Add(item.Name);
+                    if (item.Key == v)
+                        index = control.Items.Count - 1;
+                }
 
-                if (!String.IsNullOrEmpty((string)value))
-                    foreach (object item in io)
-                        if (Evaluate(item, v))
-                        {
-                            control.Select();
-                            control.SelectedItem = item;
-                            control.SelectedValue = v;
-                            break;
-                        }
+                //control.DisplayMember = this.DisplayMember;
+                //control.ValueMember = this.ValueMember;
+
+                control.SelectionMode = SelectionMode.One;
+                control.SelectedIndex = index;
+
+                //if (!String.IsNullOrEmpty((string)value))
+                //    foreach (object item in io)
+                //        if (Evaluate(item, v))
+                //        {
+                //            control.Select();
+                //            control.SelectedItem = item;
+                //            control.SelectedValue = v;
+                //            break;
+                //        }
 
                 Close = () => edSvc.CloseDropDown();
                 control.Click += control_Click;
@@ -65,8 +75,7 @@ namespace Bb.ApplicationCooperationViewPoint
 
                 try
                 {
-
-                    value = GetValue(control.SelectedItem);
+                    value = io[control.SelectedIndex].Key;
                 }
                 catch (Exception e)
                 {
@@ -79,9 +88,6 @@ namespace Bb.ApplicationCooperationViewPoint
 
             return value;
         }
-
-        protected abstract string GetValue(object selectedItem);
-
 
         private Store ResolveStore(object instance)
         {
@@ -104,10 +110,6 @@ namespace Bb.ApplicationCooperationViewPoint
             throw new NotImplementedException();
 
         }
-
-
-        protected abstract bool Evaluate(object value1, string value2);
-
 
         void control_Click(object sender, EventArgs e)
         {
@@ -133,14 +135,26 @@ namespace Bb.ApplicationCooperationViewPoint
 
         protected ModelRepository Referential { get; private set; }
 
-        public string DisplayMember { get; protected set; }
 
-        public string ValueMember { get; protected set; }
         public DslModeling.ModelElement ModelElement { get; private set; }
+
         public Model Diagram { get; private set; }
 
         protected Action Close;
-        protected abstract List<object> List();
+
+        protected abstract List<ProjectionItem> List();
+
+        protected class ProjectionItem
+        {
+
+            public string Key { get; set; }
+
+            public string Name { get; set; }
+
+            public object Tag { get; set; }
+
+        }
+
 
     }
 

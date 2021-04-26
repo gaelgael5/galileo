@@ -12,8 +12,9 @@ namespace Bb.ApplicationCooperationViewPoint
 	/// DomainClass SubElement
 	/// Description de Bb.ApplicationCooperationViewPoint.SubElement
 	/// </summary>
-    public partial class SubElement : SubElementBase
+    public partial class SubElement
     {
+
         #region Constructors
         // Constructors were not generated for this class because it had HasCustomConstructor
         // set to true. Please provide the constructors below in a partial class.
@@ -48,17 +49,26 @@ namespace Bb.ApplicationCooperationViewPoint
 
         internal EntityDefinition GetDefinition(ModelRepository rep)
         {
-            var item = new ResolveQuery(this.ReferenceSource);
-            item.Kind = Galileo.ElementEnum.EntityDefinition;
-            var items = item.GetReferentials(rep);
-            return items.OfType<EntityDefinition>().FirstOrDefault();
+            if (!string.IsNullOrEmpty(this.ReferenceSource))
+            {
+                var item = new ResolveQuery(this.ReferenceSource);
+                item.Kind = Galileo.ElementEnum.EntityDefinition;
+                var items = item.GetReferentials(rep);
+                return items.OfType<EntityDefinition>().FirstOrDefault();
+            }
+            return null;
         }
 
         internal ReferentialEntity GetEntity(ModelRepository rep)
         {
-            var item = new ResolveQuery(this.ReferenceSource);
-            var items = item.GetReferentials(rep);
-            return items.OfType<ReferentialEntity>().FirstOrDefault();
+            if (!string.IsNullOrEmpty(this.ReferenceSource))
+            {
+                var item = new ResolveQuery(this.ReferenceSource);
+                var items = item.GetReferentials(rep);
+                return items.OfType<ReferentialEntity>().FirstOrDefault();
+            }
+
+            return null;
         }
 
     }

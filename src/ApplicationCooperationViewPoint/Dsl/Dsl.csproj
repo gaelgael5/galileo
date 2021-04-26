@@ -103,6 +103,7 @@
     <Compile Include="CustomCode\ModelElements\Diag.cs" />
     <Compile Include="CustomCode\ModelElements\ModelElement.cs" />
     <Compile Include="CustomCode\ModelElements\ModelElementBase.cs" />
+    <Compile Include="CustomCode\ModelElements\RelationshipBase.cs" />
     <Compile Include="CustomCode\ModelElements\SubElementBase.cs" />
     <Compile Include="CustomCode\Resources\ResourceImages.Designer.cs">
       <AutoGen>True</AutoGen>

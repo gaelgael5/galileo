@@ -11,41 +11,22 @@ namespace Bb.ApplicationCooperationViewPoint
 
         public ListCooperationViewpointEditor()
         {
-            this.ValueMember = "Name";
-            this.DisplayMember = "Name";
+           
         }
 
-        protected override List<object> List()
+        protected override List<ProjectionItem> List()
         {
 
-            List<object> l = new List<object>();
+            List<ProjectionItem> l = new List<ProjectionItem>();
 
             var items = this.Referential.GetCooperationViewpoints();
             foreach (var item in items)
-                l.Add(item);
+                l.Add(new ProjectionItem() { Key = item.Name, Name = item.Name, Tag = item });
 
             return l;
 
         }
-
-        protected override bool Evaluate(object value1, string value2)
-        {
-
-            if (value1 is CooperationViewpoint v)
-                return v.Name == value2;
-
-            return false;
-
-        }
-
-        protected override string GetValue(object selectedItem)
-        {
-            if (selectedItem is CooperationViewpoint s)
-                return s.Name;
-
-            return string.Empty;
-        }
-
+      
     }
 
 

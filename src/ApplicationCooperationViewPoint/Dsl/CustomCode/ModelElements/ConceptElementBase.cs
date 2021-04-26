@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace Bb.ApplicationCooperationViewPoint
 {
+
     public partial class ConceptElementBase
     {
 

@@ -1,25 +1,12 @@
 ﻿using Bb.Galileo.Files;
 using Bb.Galileo.Files.Datas;
-using System;
 using System.Linq;
 
 namespace Bb.ApplicationCooperationViewPoint
 {
-    public abstract partial class ModelElementBase
+    public partial class RelationshipBase
     {
 
-        private bool GetShowMenuValue()
-        {
-            //var shape = this.ToShape();
-            //Diagram diagram = shape.Diagram;
-            //DiagramView diagramView = diagram.ActiveDiagramView;
-            //if (diagramView != null)
-            //{
-            //    var result = shape.Selected(diagramView.DiagramClientView);
-            //    return result;
-            //}
-            return false;
-        }
 
         private string GetReferenceSourceValue()
         {
@@ -42,7 +29,7 @@ namespace Bb.ApplicationCooperationViewPoint
                     if (item != null)
                     {
                         this.Name = item.Name;
-                        this.Type = item.TypeEntity;
+                        // this.Type = item.TypeEntity;
                     }
                 }
             }
@@ -50,6 +37,9 @@ namespace Bb.ApplicationCooperationViewPoint
         }
 
         private string _referenceSource;
-    
+
     }
+
+
+
 }

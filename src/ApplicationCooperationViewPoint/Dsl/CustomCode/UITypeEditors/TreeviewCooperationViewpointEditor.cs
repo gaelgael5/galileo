@@ -14,11 +14,10 @@ namespace Bb.ApplicationCooperationViewPoint
 
         public TreeviewCooperationViewpointEditor()
         {
-            this.ValueMember = "Key";
-            this.DisplayMember = "Name";
+
         }
 
-        protected override List<object> List()
+        protected override List<ProjectionItem> List()
         {
 
             var configViewpoint = Referential.GetCooperationViewpoint(this.Diagram.ViewpointType);
@@ -91,42 +90,12 @@ namespace Bb.ApplicationCooperationViewPoint
 
                 }
 
-                return result.OrderBy(c => c.Name).Cast<object>().ToList();
+                return result.OrderBy(c => c.Name).Cast<ProjectionItem>().ToList();
 
             }
 
             throw new System.NotImplementedException();
         }
-
-
-
-        protected override bool Evaluate(object value1, string value2)
-        {
-            if (value1 is ProjectionItem v)
-                return object.Equals(v.Key, value2);
-            return false;
-        }
-
-        protected override string GetValue(object selectedItem)
-        {
-
-            if (selectedItem is ProjectionItem v)
-                return v.Key;
-
-            return string.Empty;
-        }
-
-        private class ProjectionItem
-        {
-
-            public string Key { get; set; }
-
-            public string Name { get; set; }
-
-            public object Tag { get; set; }
-
-        }
-
 
         private IEnumerable<ProjectionItem> GetReferentials(IEnumerable<IBase> items)
         {
