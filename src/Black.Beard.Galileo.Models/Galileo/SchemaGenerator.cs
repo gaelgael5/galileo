@@ -219,6 +219,9 @@ namespace Bb.Galileo
                     break;
             }
 
+            if (!prop.Required && prop.Enums.Count() == 0)
+                value.Type = value.Type & JsonObjectType.None;
+
             return value;
 
         }
@@ -294,18 +297,18 @@ namespace Bb.Galileo
                 case PropertyDefinitionEnum.Text:
                 case PropertyDefinitionEnum.Regex:
                 default:
-                    if (prop.Required)
-                        value.Type = JsonObjectType.String;
-                    else
-                        value.Type = JsonObjectType.String & JsonObjectType.None;
-
+                    value.Type = JsonObjectType.String;
                     value.Pattern = prop.TextConstraints.Pattern;
                     break;
             }
 
             if (prop.Enums != null && prop.Enums.Length > 0)
+            {
+
                 foreach (var item in prop.Enums)
                     value.Enumeration.Add(item);
+                            
+            }
 
             //if (prop.Restrictions.Count > 0)
             //{
@@ -333,14 +336,10 @@ namespace Bb.Galileo
         {
 
             if (prop.Type == PropertyDefinitionEnum.Integer)
-            {
                 item.Type = JsonObjectType.Integer;
-            }
 
             else if (prop.Type == PropertyDefinitionEnum.Double)
-            {
                 item.Type = JsonObjectType.Number;
-            }
 
             if (prop.NumberConstraints != null)
             {

@@ -126,6 +126,21 @@
               </xsd:sequence>
             </xsd:complexType>
           </xsd:element>
+          <!-- Relationship: ModelElementReferencesRightRelationships -->
+          <xsd:element name="rightRelationships" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instances of ModelElementReferencesRightRelationships</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="modelElementReferencesRightRelationships" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of ModelElementReferencesRightRelationships needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
         </xsd:sequence>
         <!-- Id -->
         <xsd:attribute name="Id" type="xsd:string">
@@ -174,16 +189,16 @@
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
-          <!-- Relationship: SubElementReferencesRelationship -->
-          <xsd:element name="relationship" minOccurs="0" maxOccurs="1">
+          <!-- Relationship: SubElementReferencesRightRelationships -->
+          <xsd:element name="rightRelationships" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-              <xsd:documentation>Instances of SubElementReferencesRelationship</xsd:documentation>
+              <xsd:documentation>Instances of SubElementReferencesRightRelationships</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element ref="subElementReferencesRelationship" minOccurs="0" maxOccurs="unbounded">
+                <xsd:element ref="subElementReferencesRightRelationships" minOccurs="0" maxOccurs="unbounded">
                   <xsd:annotation>
-                    <xsd:documentation>[Instance of SubElementReferencesRelationship needs to be serialized in full-form]</xsd:documentation>
+                    <xsd:documentation>[Instance of SubElementReferencesRightRelationships needs to be serialized in full-form]</xsd:documentation>
                   </xsd:annotation>
                 </xsd:element>
               </xsd:sequence>
@@ -244,16 +259,16 @@
               </xsd:sequence>
             </xsd:complexType>
           </xsd:element>
-          <!-- Relationship: ConceptReferencesRelationship -->
-          <xsd:element name="relationship" minOccurs="0" maxOccurs="1">
+          <!-- Relationship: ConceptReferencesRightRelationships -->
+          <xsd:element name="rightRelationships" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-              <xsd:documentation>Instances of ConceptReferencesRelationship</xsd:documentation>
+              <xsd:documentation>Instances of ConceptReferencesRightRelationships</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element ref="conceptReferencesRelationship" minOccurs="0" maxOccurs="unbounded">
+                <xsd:element ref="conceptReferencesRightRelationships" minOccurs="0" maxOccurs="unbounded">
                   <xsd:annotation>
-                    <xsd:documentation>[Instance of ConceptReferencesRelationship needs to be serialized in full-form]</xsd:documentation>
+                    <xsd:documentation>[Instance of ConceptReferencesRightRelationships needs to be serialized in full-form]</xsd:documentation>
                   </xsd:annotation>
                 </xsd:element>
               </xsd:sequence>
@@ -314,16 +329,16 @@
               </xsd:sequence>
             </xsd:complexType>
           </xsd:element>
-          <!-- Relationship: ConceptElementReferencesRelationship -->
-          <xsd:element name="relationship" minOccurs="0" maxOccurs="1">
+          <!-- Relationship: ConceptElementReferencesRightRelationships -->
+          <xsd:element name="rightRelationships" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-              <xsd:documentation>Instances of ConceptElementReferencesRelationship</xsd:documentation>
+              <xsd:documentation>Instances of ConceptElementReferencesRightRelationships</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element ref="conceptElementReferencesRelationship" minOccurs="0" maxOccurs="unbounded">
+                <xsd:element ref="conceptElementReferencesRightRelationships" minOccurs="0" maxOccurs="unbounded">
                   <xsd:annotation>
-                    <xsd:documentation>[Instance of ConceptElementReferencesRelationship needs to be serialized in full-form]</xsd:documentation>
+                    <xsd:documentation>[Instance of ConceptElementReferencesRightRelationships needs to be serialized in full-form]</xsd:documentation>
                   </xsd:annotation>
                 </xsd:element>
               </xsd:sequence>
@@ -369,16 +384,16 @@
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
-          <!-- Relationship: ConceptSubElementReferencesRelationship -->
-          <xsd:element name="relationship" minOccurs="0" maxOccurs="1">
+          <!-- Relationship: ConceptSubElementReferencesRightRelationships -->
+          <xsd:element name="rightRelationships" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-              <xsd:documentation>Instances of ConceptSubElementReferencesRelationship</xsd:documentation>
+              <xsd:documentation>Instances of ConceptSubElementReferencesRightRelationships</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element ref="conceptSubElementReferencesRelationship" minOccurs="0" maxOccurs="unbounded">
+                <xsd:element ref="conceptSubElementReferencesRightRelationships" minOccurs="0" maxOccurs="unbounded">
                   <xsd:annotation>
-                    <xsd:documentation>[Instance of ConceptSubElementReferencesRelationship needs to be serialized in full-form]</xsd:documentation>
+                    <xsd:documentation>[Instance of ConceptSubElementReferencesRightRelationships needs to be serialized in full-form]</xsd:documentation>
                   </xsd:annotation>
                 </xsd:element>
               </xsd:sequence>
@@ -423,6 +438,83 @@
   <xsd:complexType name="Relationship">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Relationship: RelationshipReferencesRightModelElement -->
+          <xsd:element name="rightModelElement" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instance of RelationshipReferencesRightModelElement</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="relationshipReferencesRightModelElement" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of RelationshipReferencesRightModelElement needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <!-- Relationship: RelationshipReferencesRightSubElement -->
+          <xsd:element name="rightSubElement" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instance of RelationshipReferencesRightSubElement</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="relationshipReferencesRightSubElement" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of RelationshipReferencesRightSubElement needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <!-- Relationship: RelationshipReferencesRightConcept -->
+          <xsd:element name="rightConcept" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instance of RelationshipReferencesRightConcept</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="relationshipReferencesRightConcept" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of RelationshipReferencesRightConcept needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <!-- Relationship: RelationshipReferencesRightConceptElement -->
+          <xsd:element name="rightConceptElement" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instance of RelationshipReferencesRightConceptElement</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="relationshipReferencesRightConceptElement" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of RelationshipReferencesRightConceptElement needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <!-- Relationship: RelationshipReferencesRightConceptSubElement -->
+          <xsd:element name="rightConceptSubElement" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instance of RelationshipReferencesRightConceptSubElement</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="relationshipReferencesRightConceptSubElement" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of RelationshipReferencesRightConceptSubElement needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
         <!-- Id -->
         <xsd:attribute name="Id" type="xsd:string">
           <xsd:annotation>
@@ -433,8 +525,8 @@
         <xsd:attribute name="referenceSource" type="xsd:string" />
         <!-- Property: Name -->
         <xsd:attribute name="name" type="xsd:string" />
-        <!-- Property: Type -->
-        <xsd:attribute name="type" type="xsd:string" />
+        <!-- Property: Label -->
+        <xsd:attribute name="label" type="xsd:string" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -699,9 +791,9 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- SubElementReferencesRelationship -->
-  <xsd:element name="subElementReferencesRelationship" type="SubElementReferencesRelationship" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="SubElementReferencesRelationship">
+  <!-- SubElementReferencesRightRelationships -->
+  <xsd:element name="subElementReferencesRightRelationships" type="SubElementReferencesRightRelationships" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="SubElementReferencesRightRelationships">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
@@ -722,11 +814,11 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- SubElementReferencesRelationship Moniker -->
-  <xsd:element name="subElementReferencesRelationshipMoniker" type="SubElementReferencesRelationshipMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="SubElementReferencesRelationshipMoniker">
+  <!-- SubElementReferencesRightRelationships Moniker -->
+  <xsd:element name="subElementReferencesRightRelationshipsMoniker" type="SubElementReferencesRightRelationshipsMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="SubElementReferencesRightRelationshipsMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for SubElementReferencesRelationship instance.</xsd:documentation>
+      <xsd:documentation>Moniker for SubElementReferencesRightRelationships instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
@@ -739,9 +831,9 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- ConceptReferencesRelationship -->
-  <xsd:element name="conceptReferencesRelationship" type="ConceptReferencesRelationship" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="ConceptReferencesRelationship">
+  <!-- ConceptReferencesRightRelationships -->
+  <xsd:element name="conceptReferencesRightRelationships" type="ConceptReferencesRightRelationships" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ConceptReferencesRightRelationships">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
@@ -762,11 +854,11 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- ConceptReferencesRelationship Moniker -->
-  <xsd:element name="conceptReferencesRelationshipMoniker" type="ConceptReferencesRelationshipMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="ConceptReferencesRelationshipMoniker">
+  <!-- ConceptReferencesRightRelationships Moniker -->
+  <xsd:element name="conceptReferencesRightRelationshipsMoniker" type="ConceptReferencesRightRelationshipsMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ConceptReferencesRightRelationshipsMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for ConceptReferencesRelationship instance.</xsd:documentation>
+      <xsd:documentation>Moniker for ConceptReferencesRightRelationships instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
@@ -779,9 +871,9 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- ConceptElementReferencesRelationship -->
-  <xsd:element name="conceptElementReferencesRelationship" type="ConceptElementReferencesRelationship" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="ConceptElementReferencesRelationship">
+  <!-- ConceptElementReferencesRightRelationships -->
+  <xsd:element name="conceptElementReferencesRightRelationships" type="ConceptElementReferencesRightRelationships" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ConceptElementReferencesRightRelationships">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
@@ -802,11 +894,11 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- ConceptElementReferencesRelationship Moniker -->
-  <xsd:element name="conceptElementReferencesRelationshipMoniker" type="ConceptElementReferencesRelationshipMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="ConceptElementReferencesRelationshipMoniker">
+  <!-- ConceptElementReferencesRightRelationships Moniker -->
+  <xsd:element name="conceptElementReferencesRightRelationshipsMoniker" type="ConceptElementReferencesRightRelationshipsMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ConceptElementReferencesRightRelationshipsMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for ConceptElementReferencesRelationship instance.</xsd:documentation>
+      <xsd:documentation>Moniker for ConceptElementReferencesRightRelationships instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
@@ -819,9 +911,9 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- ConceptSubElementReferencesRelationship -->
-  <xsd:element name="conceptSubElementReferencesRelationship" type="ConceptSubElementReferencesRelationship" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="ConceptSubElementReferencesRelationship">
+  <!-- ConceptSubElementReferencesRightRelationships -->
+  <xsd:element name="conceptSubElementReferencesRightRelationships" type="ConceptSubElementReferencesRightRelationships" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ConceptSubElementReferencesRightRelationships">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
@@ -842,11 +934,251 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- ConceptSubElementReferencesRelationship Moniker -->
-  <xsd:element name="conceptSubElementReferencesRelationshipMoniker" type="ConceptSubElementReferencesRelationshipMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="ConceptSubElementReferencesRelationshipMoniker">
+  <!-- ConceptSubElementReferencesRightRelationships Moniker -->
+  <xsd:element name="conceptSubElementReferencesRightRelationshipsMoniker" type="ConceptSubElementReferencesRightRelationshipsMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ConceptSubElementReferencesRightRelationshipsMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for ConceptSubElementReferencesRelationship instance.</xsd:documentation>
+      <xsd:documentation>Moniker for ConceptSubElementReferencesRightRelationships instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ModelElementReferencesRightRelationships -->
+  <xsd:element name="modelElementReferencesRightRelationships" type="ModelElementReferencesRightRelationships" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ModelElementReferencesRightRelationships">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end Relationship -->
+          <xsd:element ref="relationshipMoniker" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ModelElementReferencesRightRelationships Moniker -->
+  <xsd:element name="modelElementReferencesRightRelationshipsMoniker" type="ModelElementReferencesRightRelationshipsMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ModelElementReferencesRightRelationshipsMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for ModelElementReferencesRightRelationships instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- RelationshipReferencesRightModelElement -->
+  <xsd:element name="relationshipReferencesRightModelElement" type="RelationshipReferencesRightModelElement" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="RelationshipReferencesRightModelElement">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end ModelElement -->
+          <xsd:element ref="modelElementMoniker" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- RelationshipReferencesRightModelElement Moniker -->
+  <xsd:element name="relationshipReferencesRightModelElementMoniker" type="RelationshipReferencesRightModelElementMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="RelationshipReferencesRightModelElementMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for RelationshipReferencesRightModelElement instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- RelationshipReferencesRightSubElement -->
+  <xsd:element name="relationshipReferencesRightSubElement" type="RelationshipReferencesRightSubElement" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="RelationshipReferencesRightSubElement">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end SubElement -->
+          <xsd:element ref="subElementMoniker" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- RelationshipReferencesRightSubElement Moniker -->
+  <xsd:element name="relationshipReferencesRightSubElementMoniker" type="RelationshipReferencesRightSubElementMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="RelationshipReferencesRightSubElementMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for RelationshipReferencesRightSubElement instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- RelationshipReferencesRightConcept -->
+  <xsd:element name="relationshipReferencesRightConcept" type="RelationshipReferencesRightConcept" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="RelationshipReferencesRightConcept">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end Concept -->
+          <xsd:element ref="conceptMoniker" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- RelationshipReferencesRightConcept Moniker -->
+  <xsd:element name="relationshipReferencesRightConceptMoniker" type="RelationshipReferencesRightConceptMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="RelationshipReferencesRightConceptMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for RelationshipReferencesRightConcept instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- RelationshipReferencesRightConceptElement -->
+  <xsd:element name="relationshipReferencesRightConceptElement" type="RelationshipReferencesRightConceptElement" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="RelationshipReferencesRightConceptElement">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end ConceptElement -->
+          <xsd:element ref="conceptElementMoniker" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- RelationshipReferencesRightConceptElement Moniker -->
+  <xsd:element name="relationshipReferencesRightConceptElementMoniker" type="RelationshipReferencesRightConceptElementMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="RelationshipReferencesRightConceptElementMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for RelationshipReferencesRightConceptElement instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- RelationshipReferencesRightConceptSubElement -->
+  <xsd:element name="relationshipReferencesRightConceptSubElement" type="RelationshipReferencesRightConceptSubElement" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="RelationshipReferencesRightConceptSubElement">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end ConceptSubElement -->
+          <xsd:element ref="conceptSubElementMoniker" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- RelationshipReferencesRightConceptSubElement Moniker -->
+  <xsd:element name="relationshipReferencesRightConceptSubElementMoniker" type="RelationshipReferencesRightConceptSubElementMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="RelationshipReferencesRightConceptSubElementMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for RelationshipReferencesRightConceptSubElement instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">

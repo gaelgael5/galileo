@@ -248,7 +248,7 @@ namespace Bb.Galileo.Models
                             try
                             {
                                 var value = ConvertValue(p.Type, item2.Value);
-                                target.Target[item.Name] = value;
+                                target.Target[p.Name] = value;
                             }
                             catch (Exception e2)
                             {

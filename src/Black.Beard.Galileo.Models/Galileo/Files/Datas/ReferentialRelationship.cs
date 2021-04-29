@@ -1,4 +1,6 @@
-﻿namespace Bb.Galileo.Files.Datas
+﻿using System.Linq;
+
+namespace Bb.Galileo.Files.Datas
 {
     public class ReferentialRelationship : ReferentialBase
     {
@@ -27,7 +29,18 @@
         public ReferentialRelationshipLink Origin { get; set; }
 
         public ReferentialRelationshipLink Target { get; set; }
-    
+
+        public ReferentialEntity GetTargetEntity(string entityType)
+        {
+            var o = Target.GetReference();
+            o.TypeName = entityType;
+
+            return o.GetReferentials(this.File.Parent.Models)
+               .OfType<ReferentialEntity>()
+               .FirstOrDefault();
+
+        }
+
     }
 
 

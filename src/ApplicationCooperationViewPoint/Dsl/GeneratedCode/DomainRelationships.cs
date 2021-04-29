@@ -1450,34 +1450,34 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainRelationship SubElementReferencesRelationship
+	/// DomainRelationship SubElementReferencesRightRelationships
 	/// Description de
-	/// Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship
+	/// Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships
 	/// </summary>
-	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainRelationship()]
 	[DslModeling::DomainObjectId("820c2cb8-59a2-498f-be37-580b2899fb31")]
-	public partial class SubElementReferencesRelationship : DslModeling::ElementLink
+	public partial class SubElementReferencesRightRelationships : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
 		
 		/// <summary>
-		/// SubElementReferencesRelationship domain class Id.
+		/// SubElementReferencesRightRelationships domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x820c2cb8, 0x59a2, 0x498f, 0xbe, 0x37, 0x58, 0x0b, 0x28, 0x99, 0xfb, 0x31);
 	
 				
 		/// <summary>
 		/// Constructor
-		/// Creates a SubElementReferencesRelationship link in the same Partition as the given SubElement
+		/// Creates a SubElementReferencesRightRelationships link in the same Partition as the given SubElement
 		/// </summary>
 		/// <param name="source">SubElement to use as the source of the relationship.</param>
 		/// <param name="target">Relationship to use as the target of the relationship.</param>
-		public SubElementReferencesRelationship(SubElement source, Relationship target)
-			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(SubElementReferencesRelationship.SubElementDomainRoleId, source), new DslModeling::RoleAssignment(SubElementReferencesRelationship.RelationshipDomainRoleId, target)}, null)
+		public SubElementReferencesRightRelationships(SubElement source, Relationship target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(SubElementReferencesRightRelationships.SubElementDomainRoleId, source), new DslModeling::RoleAssignment(SubElementReferencesRightRelationships.RelationshipDomainRoleId, target)}, null)
 		{
 		}
 		
@@ -1486,7 +1486,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		/// <param name="store">Store where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
-		public SubElementReferencesRelationship(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+		public SubElementReferencesRightRelationships(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
@@ -1497,7 +1497,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="store">Store where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
 		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
-		public SubElementReferencesRelationship(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+		public SubElementReferencesRightRelationships(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
@@ -1507,7 +1507,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		/// <param name="partition">Partition where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
-		public SubElementReferencesRelationship(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+		public SubElementReferencesRightRelationships(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
 			: base(partition, roleAssignments, null)
 		{
 		}
@@ -1518,7 +1518,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="partition">Partition where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
 		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
-		public SubElementReferencesRelationship(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+		public SubElementReferencesRightRelationships(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, roleAssignments, propertyAssignments)
 		{
 		}
@@ -1533,11 +1533,11 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// DomainRole SubElement
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.SubElement
+		/// Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships.SubElement
 		/// </summary>
-		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship/SubElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship/SubElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "Relationship", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship/SubElement.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships/SubElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships/SubElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "RightRelationships", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships/SubElement.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
 		[DslModeling::DomainObjectId("1bc0ce3d-a6f8-424e-9924-267b3646ef84")]
 		public virtual SubElement SubElement
 		{
@@ -1554,15 +1554,25 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 				
 		#endregion
-		#region Static methods to access SubElement of a Relationship
+		#region Static methods to access LeftSubElement of a Relationship
 		/// <summary>
-		/// Gets a list of SubElement.
+		/// Gets LeftSubElement.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static DslModeling::LinkedElementCollection<SubElement> GetSubElement(Relationship element)
+		public static SubElement GetLeftSubElement(Relationship element)
 		{
-			return GetRoleCollection<DslModeling::LinkedElementCollection<SubElement>, SubElement>(element, RelationshipDomainRoleId);
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, RelationshipDomainRoleId) as SubElement;
+		}
+		
+		/// <summary>
+		/// Sets LeftSubElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetLeftSubElement(Relationship element, SubElement newSubElement)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, RelationshipDomainRoleId, newSubElement);
 		}
 		#endregion
 		#region Relationship domain role code
@@ -1575,11 +1585,11 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// DomainRole Relationship
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.Relationship
+		/// Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships.Relationship
 		/// </summary>
-		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship/Relationship.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship/Relationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "SubElement", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship/Relationship.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships/Relationship.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships/Relationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "LeftSubElement", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships/Relationship.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroOne)]
 		[DslModeling::DomainObjectId("a0bfb131-2213-4886-bdc3-ec22cfae3118")]
 		public virtual Relationship Relationship
 		{
@@ -1596,51 +1606,60 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 				
 		#endregion
-		#region Static methods to access Relationship of a SubElement
+		#region Static methods to access RightRelationships of a SubElement
 		/// <summary>
-		/// Gets a list of Relationship.
+		/// Gets a list of RightRelationships.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static DslModeling::LinkedElementCollection<Relationship> GetRelationship(SubElement element)
+		public static DslModeling::LinkedElementCollection<Relationship> GetRightRelationships(SubElement element)
 		{
 			return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(element, SubElementDomainRoleId);
 		}
 		#endregion
 		#region SubElement link accessor
 		/// <summary>
-		/// Get the list of SubElementReferencesRelationship links to a SubElement.
+		/// Get the list of SubElementReferencesRightRelationships links to a SubElement.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship> GetLinksToRelationship ( global::Bb.ApplicationCooperationViewPoint.SubElement subElementInstance )
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships> GetLinksToRightRelationships ( global::Bb.ApplicationCooperationViewPoint.SubElement subElementInstance )
 		{
-			return DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship>(subElementInstance, global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.SubElementDomainRoleId);
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships>(subElementInstance, global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships.SubElementDomainRoleId);
 		}
 		#endregion
 		#region Relationship link accessor
 		/// <summary>
-		/// Get the list of SubElementReferencesRelationship links to a Relationship.
+		/// Get the SubElementReferencesRightRelationships link to a Relationship.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship> GetLinksToSubElement ( global::Bb.ApplicationCooperationViewPoint.Relationship relationshipInstance )
+		public static global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships GetLinkToLeftSubElement (global::Bb.ApplicationCooperationViewPoint.Relationship relationshipInstance)
 		{
-			return DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship>(relationshipInstance, global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.RelationshipDomainRoleId);
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships>(relationshipInstance, global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships.RelationshipDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of Relationship not obeyed.");
+			if ( links.Count == 0 )
+			{
+				return null;
+			}
+			else
+			{
+				return links[0];
+			}
 		}
 		#endregion
-		#region SubElementReferencesRelationship instance accessors
+		#region SubElementReferencesRightRelationships instance accessors
 		
 		/// <summary>
-		/// Get any SubElementReferencesRelationship links between a given SubElement and a Relationship.
+		/// Get any SubElementReferencesRightRelationships links between a given SubElement and a Relationship.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship> GetLinks( global::Bb.ApplicationCooperationViewPoint.SubElement source, global::Bb.ApplicationCooperationViewPoint.Relationship target )
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships> GetLinks( global::Bb.ApplicationCooperationViewPoint.SubElement source, global::Bb.ApplicationCooperationViewPoint.Relationship target )
 		{
-			global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship> outLinks = new global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship>();
-			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship>(source, global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.SubElementDomainRoleId);
-			foreach ( global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship link in links )
+			global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships> outLinks = new global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships>();
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships>(source, global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships.SubElementDomainRoleId);
+			foreach ( global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships link in links )
 			{
 				if ( target.Equals(link.Relationship) )
 				{
@@ -1650,14 +1669,14 @@ namespace Bb.ApplicationCooperationViewPoint
 			return outLinks.AsReadOnly();
 		}
 		/// <summary>
-		/// Get the one SubElementReferencesRelationship link between a given SubElementand a Relationship.
+		/// Get the one SubElementReferencesRightRelationships link between a given SubElementand a Relationship.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship GetLink( global::Bb.ApplicationCooperationViewPoint.SubElement source, global::Bb.ApplicationCooperationViewPoint.Relationship target )
+		public static global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships GetLink( global::Bb.ApplicationCooperationViewPoint.SubElement source, global::Bb.ApplicationCooperationViewPoint.Relationship target )
 		{
-			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship>(source, global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.SubElementDomainRoleId);
-			foreach ( global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship link in links )
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships>(source, global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships.SubElementDomainRoleId);
+			foreach ( global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships link in links )
 			{
 				if ( target.Equals(link.Relationship) )
 				{
@@ -1673,33 +1692,34 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainRelationship ConceptReferencesRelationship
-	/// Description de Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship
+	/// DomainRelationship ConceptReferencesRightRelationships
+	/// Description de
+	/// Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships
 	/// </summary>
-	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainRelationship()]
 	[DslModeling::DomainObjectId("929c1a72-faf3-4091-aea2-942e25cc3693")]
-	public partial class ConceptReferencesRelationship : DslModeling::ElementLink
+	public partial class ConceptReferencesRightRelationships : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
 		
 		/// <summary>
-		/// ConceptReferencesRelationship domain class Id.
+		/// ConceptReferencesRightRelationships domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x929c1a72, 0xfaf3, 0x4091, 0xae, 0xa2, 0x94, 0x2e, 0x25, 0xcc, 0x36, 0x93);
 	
 				
 		/// <summary>
 		/// Constructor
-		/// Creates a ConceptReferencesRelationship link in the same Partition as the given Concept
+		/// Creates a ConceptReferencesRightRelationships link in the same Partition as the given Concept
 		/// </summary>
 		/// <param name="source">Concept to use as the source of the relationship.</param>
 		/// <param name="target">Relationship to use as the target of the relationship.</param>
-		public ConceptReferencesRelationship(Concept source, Relationship target)
-			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(ConceptReferencesRelationship.ConceptDomainRoleId, source), new DslModeling::RoleAssignment(ConceptReferencesRelationship.RelationshipDomainRoleId, target)}, null)
+		public ConceptReferencesRightRelationships(Concept source, Relationship target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(ConceptReferencesRightRelationships.ConceptDomainRoleId, source), new DslModeling::RoleAssignment(ConceptReferencesRightRelationships.RelationshipDomainRoleId, target)}, null)
 		{
 		}
 		
@@ -1708,7 +1728,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		/// <param name="store">Store where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
-		public ConceptReferencesRelationship(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+		public ConceptReferencesRightRelationships(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
@@ -1719,7 +1739,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="store">Store where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
 		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
-		public ConceptReferencesRelationship(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+		public ConceptReferencesRightRelationships(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
@@ -1729,7 +1749,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		/// <param name="partition">Partition where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
-		public ConceptReferencesRelationship(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+		public ConceptReferencesRightRelationships(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
 			: base(partition, roleAssignments, null)
 		{
 		}
@@ -1740,7 +1760,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="partition">Partition where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
 		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
-		public ConceptReferencesRelationship(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+		public ConceptReferencesRightRelationships(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, roleAssignments, propertyAssignments)
 		{
 		}
@@ -1755,11 +1775,11 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// DomainRole Concept
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.Concept
+		/// Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships.Concept
 		/// </summary>
-		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship/Concept.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship/Concept.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "Relationship", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship/Concept.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships/Concept.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships/Concept.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "RightRelationships", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships/Concept.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
 		[DslModeling::DomainObjectId("33d7c8d6-bb81-4cfe-8250-0860b7b128af")]
 		public virtual Concept Concept
 		{
@@ -1776,15 +1796,25 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 				
 		#endregion
-		#region Static methods to access Concept of a Relationship
+		#region Static methods to access LeftConcept of a Relationship
 		/// <summary>
-		/// Gets a list of Concept.
+		/// Gets LeftConcept.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static DslModeling::LinkedElementCollection<Concept> GetConcept(Relationship element)
+		public static Concept GetLeftConcept(Relationship element)
 		{
-			return GetRoleCollection<DslModeling::LinkedElementCollection<Concept>, Concept>(element, RelationshipDomainRoleId);
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, RelationshipDomainRoleId) as Concept;
+		}
+		
+		/// <summary>
+		/// Sets LeftConcept.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetLeftConcept(Relationship element, Concept newConcept)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, RelationshipDomainRoleId, newConcept);
 		}
 		#endregion
 		#region Relationship domain role code
@@ -1797,11 +1827,11 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// DomainRole Relationship
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.Relationship
+		/// Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships.Relationship
 		/// </summary>
-		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship/Relationship.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship/Relationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "Concept", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship/Relationship.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships/Relationship.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships/Relationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "LeftConcept", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships/Relationship.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroOne)]
 		[DslModeling::DomainObjectId("45fc7239-cc02-40f9-b912-382eca5ab0b7")]
 		public virtual Relationship Relationship
 		{
@@ -1818,51 +1848,60 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 				
 		#endregion
-		#region Static methods to access Relationship of a Concept
+		#region Static methods to access RightRelationships of a Concept
 		/// <summary>
-		/// Gets a list of Relationship.
+		/// Gets a list of RightRelationships.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static DslModeling::LinkedElementCollection<Relationship> GetRelationship(Concept element)
+		public static DslModeling::LinkedElementCollection<Relationship> GetRightRelationships(Concept element)
 		{
 			return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(element, ConceptDomainRoleId);
 		}
 		#endregion
 		#region Concept link accessor
 		/// <summary>
-		/// Get the list of ConceptReferencesRelationship links to a Concept.
+		/// Get the list of ConceptReferencesRightRelationships links to a Concept.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship> GetLinksToRelationship ( global::Bb.ApplicationCooperationViewPoint.Concept conceptInstance )
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships> GetLinksToRightRelationships ( global::Bb.ApplicationCooperationViewPoint.Concept conceptInstance )
 		{
-			return DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship>(conceptInstance, global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.ConceptDomainRoleId);
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships>(conceptInstance, global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships.ConceptDomainRoleId);
 		}
 		#endregion
 		#region Relationship link accessor
 		/// <summary>
-		/// Get the list of ConceptReferencesRelationship links to a Relationship.
+		/// Get the ConceptReferencesRightRelationships link to a Relationship.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship> GetLinksToConcept ( global::Bb.ApplicationCooperationViewPoint.Relationship relationshipInstance )
+		public static global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships GetLinkToLeftConcept (global::Bb.ApplicationCooperationViewPoint.Relationship relationshipInstance)
 		{
-			return DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship>(relationshipInstance, global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.RelationshipDomainRoleId);
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships>(relationshipInstance, global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships.RelationshipDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of Relationship not obeyed.");
+			if ( links.Count == 0 )
+			{
+				return null;
+			}
+			else
+			{
+				return links[0];
+			}
 		}
 		#endregion
-		#region ConceptReferencesRelationship instance accessors
+		#region ConceptReferencesRightRelationships instance accessors
 		
 		/// <summary>
-		/// Get any ConceptReferencesRelationship links between a given Concept and a Relationship.
+		/// Get any ConceptReferencesRightRelationships links between a given Concept and a Relationship.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship> GetLinks( global::Bb.ApplicationCooperationViewPoint.Concept source, global::Bb.ApplicationCooperationViewPoint.Relationship target )
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships> GetLinks( global::Bb.ApplicationCooperationViewPoint.Concept source, global::Bb.ApplicationCooperationViewPoint.Relationship target )
 		{
-			global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship> outLinks = new global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship>();
-			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship>(source, global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.ConceptDomainRoleId);
-			foreach ( global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship link in links )
+			global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships> outLinks = new global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships>();
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships>(source, global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships.ConceptDomainRoleId);
+			foreach ( global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships link in links )
 			{
 				if ( target.Equals(link.Relationship) )
 				{
@@ -1872,14 +1911,14 @@ namespace Bb.ApplicationCooperationViewPoint
 			return outLinks.AsReadOnly();
 		}
 		/// <summary>
-		/// Get the one ConceptReferencesRelationship link between a given Conceptand a Relationship.
+		/// Get the one ConceptReferencesRightRelationships link between a given Conceptand a Relationship.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship GetLink( global::Bb.ApplicationCooperationViewPoint.Concept source, global::Bb.ApplicationCooperationViewPoint.Relationship target )
+		public static global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships GetLink( global::Bb.ApplicationCooperationViewPoint.Concept source, global::Bb.ApplicationCooperationViewPoint.Relationship target )
 		{
-			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship>(source, global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.ConceptDomainRoleId);
-			foreach ( global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship link in links )
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships>(source, global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships.ConceptDomainRoleId);
+			foreach ( global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships link in links )
 			{
 				if ( target.Equals(link.Relationship) )
 				{
@@ -1895,34 +1934,34 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainRelationship ConceptElementReferencesRelationship
+	/// DomainRelationship ConceptElementReferencesRightRelationships
 	/// Description de
-	/// Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship
+	/// Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships
 	/// </summary>
-	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainRelationship()]
 	[DslModeling::DomainObjectId("c8a244dc-37ba-45b6-9bd6-da13e0f09c0f")]
-	public partial class ConceptElementReferencesRelationship : DslModeling::ElementLink
+	public partial class ConceptElementReferencesRightRelationships : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
 		
 		/// <summary>
-		/// ConceptElementReferencesRelationship domain class Id.
+		/// ConceptElementReferencesRightRelationships domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xc8a244dc, 0x37ba, 0x45b6, 0x9b, 0xd6, 0xda, 0x13, 0xe0, 0xf0, 0x9c, 0x0f);
 	
 				
 		/// <summary>
 		/// Constructor
-		/// Creates a ConceptElementReferencesRelationship link in the same Partition as the given ConceptElement
+		/// Creates a ConceptElementReferencesRightRelationships link in the same Partition as the given ConceptElement
 		/// </summary>
 		/// <param name="source">ConceptElement to use as the source of the relationship.</param>
 		/// <param name="target">Relationship to use as the target of the relationship.</param>
-		public ConceptElementReferencesRelationship(ConceptElement source, Relationship target)
-			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(ConceptElementReferencesRelationship.ConceptElementDomainRoleId, source), new DslModeling::RoleAssignment(ConceptElementReferencesRelationship.RelationshipDomainRoleId, target)}, null)
+		public ConceptElementReferencesRightRelationships(ConceptElement source, Relationship target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(ConceptElementReferencesRightRelationships.ConceptElementDomainRoleId, source), new DslModeling::RoleAssignment(ConceptElementReferencesRightRelationships.RelationshipDomainRoleId, target)}, null)
 		{
 		}
 		
@@ -1931,7 +1970,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		/// <param name="store">Store where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
-		public ConceptElementReferencesRelationship(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+		public ConceptElementReferencesRightRelationships(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
@@ -1942,7 +1981,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="store">Store where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
 		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
-		public ConceptElementReferencesRelationship(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+		public ConceptElementReferencesRightRelationships(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
@@ -1952,7 +1991,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		/// <param name="partition">Partition where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
-		public ConceptElementReferencesRelationship(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+		public ConceptElementReferencesRightRelationships(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
 			: base(partition, roleAssignments, null)
 		{
 		}
@@ -1963,7 +2002,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="partition">Partition where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
 		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
-		public ConceptElementReferencesRelationship(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+		public ConceptElementReferencesRightRelationships(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, roleAssignments, propertyAssignments)
 		{
 		}
@@ -1978,11 +2017,11 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// DomainRole ConceptElement
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.ConceptElement
+		/// Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships.ConceptElement
 		/// </summary>
-		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship/ConceptElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship/ConceptElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "Relationship", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship/ConceptElement.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships/ConceptElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships/ConceptElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "RightRelationships", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships/ConceptElement.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
 		[DslModeling::DomainObjectId("cc4d7dac-913b-44fe-84e1-1de45fd2d5de")]
 		public virtual ConceptElement ConceptElement
 		{
@@ -1999,15 +2038,25 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 				
 		#endregion
-		#region Static methods to access ConceptElement of a Relationship
+		#region Static methods to access LeftConceptElement of a Relationship
 		/// <summary>
-		/// Gets a list of ConceptElement.
+		/// Gets LeftConceptElement.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static DslModeling::LinkedElementCollection<ConceptElement> GetConceptElement(Relationship element)
+		public static ConceptElement GetLeftConceptElement(Relationship element)
 		{
-			return GetRoleCollection<DslModeling::LinkedElementCollection<ConceptElement>, ConceptElement>(element, RelationshipDomainRoleId);
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, RelationshipDomainRoleId) as ConceptElement;
+		}
+		
+		/// <summary>
+		/// Sets LeftConceptElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetLeftConceptElement(Relationship element, ConceptElement newConceptElement)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, RelationshipDomainRoleId, newConceptElement);
 		}
 		#endregion
 		#region Relationship domain role code
@@ -2020,11 +2069,11 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// DomainRole Relationship
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.Relationship
+		/// Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships.Relationship
 		/// </summary>
-		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship/Relationship.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship/Relationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "ConceptElement", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship/Relationship.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships/Relationship.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships/Relationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "LeftConceptElement", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships/Relationship.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroOne)]
 		[DslModeling::DomainObjectId("5ff17734-e48c-4251-a9d9-8428a5c081a9")]
 		public virtual Relationship Relationship
 		{
@@ -2041,51 +2090,60 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 				
 		#endregion
-		#region Static methods to access Relationship of a ConceptElement
+		#region Static methods to access RightRelationships of a ConceptElement
 		/// <summary>
-		/// Gets a list of Relationship.
+		/// Gets a list of RightRelationships.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static DslModeling::LinkedElementCollection<Relationship> GetRelationship(ConceptElement element)
+		public static DslModeling::LinkedElementCollection<Relationship> GetRightRelationships(ConceptElement element)
 		{
 			return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(element, ConceptElementDomainRoleId);
 		}
 		#endregion
 		#region ConceptElement link accessor
 		/// <summary>
-		/// Get the list of ConceptElementReferencesRelationship links to a ConceptElement.
+		/// Get the list of ConceptElementReferencesRightRelationships links to a ConceptElement.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship> GetLinksToRelationship ( global::Bb.ApplicationCooperationViewPoint.ConceptElement conceptElementInstance )
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships> GetLinksToRightRelationships ( global::Bb.ApplicationCooperationViewPoint.ConceptElement conceptElementInstance )
 		{
-			return DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship>(conceptElementInstance, global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.ConceptElementDomainRoleId);
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships>(conceptElementInstance, global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships.ConceptElementDomainRoleId);
 		}
 		#endregion
 		#region Relationship link accessor
 		/// <summary>
-		/// Get the list of ConceptElementReferencesRelationship links to a Relationship.
+		/// Get the ConceptElementReferencesRightRelationships link to a Relationship.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship> GetLinksToConceptElement ( global::Bb.ApplicationCooperationViewPoint.Relationship relationshipInstance )
+		public static global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships GetLinkToLeftConceptElement (global::Bb.ApplicationCooperationViewPoint.Relationship relationshipInstance)
 		{
-			return DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship>(relationshipInstance, global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.RelationshipDomainRoleId);
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships>(relationshipInstance, global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships.RelationshipDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of Relationship not obeyed.");
+			if ( links.Count == 0 )
+			{
+				return null;
+			}
+			else
+			{
+				return links[0];
+			}
 		}
 		#endregion
-		#region ConceptElementReferencesRelationship instance accessors
+		#region ConceptElementReferencesRightRelationships instance accessors
 		
 		/// <summary>
-		/// Get any ConceptElementReferencesRelationship links between a given ConceptElement and a Relationship.
+		/// Get any ConceptElementReferencesRightRelationships links between a given ConceptElement and a Relationship.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship> GetLinks( global::Bb.ApplicationCooperationViewPoint.ConceptElement source, global::Bb.ApplicationCooperationViewPoint.Relationship target )
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships> GetLinks( global::Bb.ApplicationCooperationViewPoint.ConceptElement source, global::Bb.ApplicationCooperationViewPoint.Relationship target )
 		{
-			global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship> outLinks = new global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship>();
-			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship>(source, global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.ConceptElementDomainRoleId);
-			foreach ( global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship link in links )
+			global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships> outLinks = new global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships>();
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships>(source, global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships.ConceptElementDomainRoleId);
+			foreach ( global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships link in links )
 			{
 				if ( target.Equals(link.Relationship) )
 				{
@@ -2095,14 +2153,14 @@ namespace Bb.ApplicationCooperationViewPoint
 			return outLinks.AsReadOnly();
 		}
 		/// <summary>
-		/// Get the one ConceptElementReferencesRelationship link between a given ConceptElementand a Relationship.
+		/// Get the one ConceptElementReferencesRightRelationships link between a given ConceptElementand a Relationship.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship GetLink( global::Bb.ApplicationCooperationViewPoint.ConceptElement source, global::Bb.ApplicationCooperationViewPoint.Relationship target )
+		public static global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships GetLink( global::Bb.ApplicationCooperationViewPoint.ConceptElement source, global::Bb.ApplicationCooperationViewPoint.Relationship target )
 		{
-			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship>(source, global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.ConceptElementDomainRoleId);
-			foreach ( global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship link in links )
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships>(source, global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships.ConceptElementDomainRoleId);
+			foreach ( global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships link in links )
 			{
 				if ( target.Equals(link.Relationship) )
 				{
@@ -2118,34 +2176,34 @@ namespace Bb.ApplicationCooperationViewPoint
 namespace Bb.ApplicationCooperationViewPoint
 {
 	/// <summary>
-	/// DomainRelationship ConceptSubElementReferencesRelationship
+	/// DomainRelationship ConceptSubElementReferencesRightRelationships
 	/// Description de
-	/// Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship
+	/// Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships
 	/// </summary>
-	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainRelationship()]
 	[DslModeling::DomainObjectId("5878e7a2-52ad-499b-88b3-3c17c14e3f4c")]
-	public partial class ConceptSubElementReferencesRelationship : DslModeling::ElementLink
+	public partial class ConceptSubElementReferencesRightRelationships : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
 		
 		/// <summary>
-		/// ConceptSubElementReferencesRelationship domain class Id.
+		/// ConceptSubElementReferencesRightRelationships domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x5878e7a2, 0x52ad, 0x499b, 0x88, 0xb3, 0x3c, 0x17, 0xc1, 0x4e, 0x3f, 0x4c);
 	
 				
 		/// <summary>
 		/// Constructor
-		/// Creates a ConceptSubElementReferencesRelationship link in the same Partition as the given ConceptSubElement
+		/// Creates a ConceptSubElementReferencesRightRelationships link in the same Partition as the given ConceptSubElement
 		/// </summary>
 		/// <param name="source">ConceptSubElement to use as the source of the relationship.</param>
 		/// <param name="target">Relationship to use as the target of the relationship.</param>
-		public ConceptSubElementReferencesRelationship(ConceptSubElement source, Relationship target)
-			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(ConceptSubElementReferencesRelationship.ConceptSubElementDomainRoleId, source), new DslModeling::RoleAssignment(ConceptSubElementReferencesRelationship.RelationshipDomainRoleId, target)}, null)
+		public ConceptSubElementReferencesRightRelationships(ConceptSubElement source, Relationship target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(ConceptSubElementReferencesRightRelationships.ConceptSubElementDomainRoleId, source), new DslModeling::RoleAssignment(ConceptSubElementReferencesRightRelationships.RelationshipDomainRoleId, target)}, null)
 		{
 		}
 		
@@ -2154,7 +2212,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		/// <param name="store">Store where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
-		public ConceptSubElementReferencesRelationship(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+		public ConceptSubElementReferencesRightRelationships(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
@@ -2165,7 +2223,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="store">Store where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
 		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
-		public ConceptSubElementReferencesRelationship(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+		public ConceptSubElementReferencesRightRelationships(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
@@ -2175,7 +2233,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// </summary>
 		/// <param name="partition">Partition where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
-		public ConceptSubElementReferencesRelationship(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+		public ConceptSubElementReferencesRightRelationships(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
 			: base(partition, roleAssignments, null)
 		{
 		}
@@ -2186,7 +2244,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <param name="partition">Partition where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
 		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
-		public ConceptSubElementReferencesRelationship(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+		public ConceptSubElementReferencesRightRelationships(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, roleAssignments, propertyAssignments)
 		{
 		}
@@ -2201,11 +2259,11 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// DomainRole ConceptSubElement
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.ConceptSubElement
+		/// Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships.ConceptSubElement
 		/// </summary>
-		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship/ConceptSubElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship/ConceptSubElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "Relationship", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship/ConceptSubElement.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships/ConceptSubElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships/ConceptSubElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "RightRelationships", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships/ConceptSubElement.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
 		[DslModeling::DomainObjectId("b1fc2ccf-dbf3-418b-ae07-30bd25073503")]
 		public virtual ConceptSubElement ConceptSubElement
 		{
@@ -2222,15 +2280,25 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 				
 		#endregion
-		#region Static methods to access ConceptSubElement of a Relationship
+		#region Static methods to access LeftConceptSubElement of a Relationship
 		/// <summary>
-		/// Gets a list of ConceptSubElement.
+		/// Gets LeftConceptSubElement.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static DslModeling::LinkedElementCollection<ConceptSubElement> GetConceptSubElement(Relationship element)
+		public static ConceptSubElement GetLeftConceptSubElement(Relationship element)
 		{
-			return GetRoleCollection<DslModeling::LinkedElementCollection<ConceptSubElement>, ConceptSubElement>(element, RelationshipDomainRoleId);
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, RelationshipDomainRoleId) as ConceptSubElement;
+		}
+		
+		/// <summary>
+		/// Sets LeftConceptSubElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetLeftConceptSubElement(Relationship element, ConceptSubElement newConceptSubElement)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, RelationshipDomainRoleId, newConceptSubElement);
 		}
 		#endregion
 		#region Relationship domain role code
@@ -2243,11 +2311,11 @@ namespace Bb.ApplicationCooperationViewPoint
 		/// <summary>
 		/// DomainRole Relationship
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.Relationship
+		/// Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships.Relationship
 		/// </summary>
-		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship/Relationship.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship/Relationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "ConceptSubElement", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship/Relationship.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships/Relationship.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships/Relationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "LeftConceptSubElement", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships/Relationship.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroOne)]
 		[DslModeling::DomainObjectId("9517762b-beed-48a5-ae52-a1646c940c78")]
 		public virtual Relationship Relationship
 		{
@@ -2264,51 +2332,60 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 				
 		#endregion
-		#region Static methods to access Relationship of a ConceptSubElement
+		#region Static methods to access RightRelationships of a ConceptSubElement
 		/// <summary>
-		/// Gets a list of Relationship.
+		/// Gets a list of RightRelationships.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static DslModeling::LinkedElementCollection<Relationship> GetRelationship(ConceptSubElement element)
+		public static DslModeling::LinkedElementCollection<Relationship> GetRightRelationships(ConceptSubElement element)
 		{
 			return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(element, ConceptSubElementDomainRoleId);
 		}
 		#endregion
 		#region ConceptSubElement link accessor
 		/// <summary>
-		/// Get the list of ConceptSubElementReferencesRelationship links to a ConceptSubElement.
+		/// Get the list of ConceptSubElementReferencesRightRelationships links to a ConceptSubElement.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship> GetLinksToRelationship ( global::Bb.ApplicationCooperationViewPoint.ConceptSubElement conceptSubElementInstance )
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships> GetLinksToRightRelationships ( global::Bb.ApplicationCooperationViewPoint.ConceptSubElement conceptSubElementInstance )
 		{
-			return DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship>(conceptSubElementInstance, global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.ConceptSubElementDomainRoleId);
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships>(conceptSubElementInstance, global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships.ConceptSubElementDomainRoleId);
 		}
 		#endregion
 		#region Relationship link accessor
 		/// <summary>
-		/// Get the list of ConceptSubElementReferencesRelationship links to a Relationship.
+		/// Get the ConceptSubElementReferencesRightRelationships link to a Relationship.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship> GetLinksToConceptSubElement ( global::Bb.ApplicationCooperationViewPoint.Relationship relationshipInstance )
+		public static global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships GetLinkToLeftConceptSubElement (global::Bb.ApplicationCooperationViewPoint.Relationship relationshipInstance)
 		{
-			return DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship>(relationshipInstance, global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.RelationshipDomainRoleId);
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships>(relationshipInstance, global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships.RelationshipDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of Relationship not obeyed.");
+			if ( links.Count == 0 )
+			{
+				return null;
+			}
+			else
+			{
+				return links[0];
+			}
 		}
 		#endregion
-		#region ConceptSubElementReferencesRelationship instance accessors
+		#region ConceptSubElementReferencesRightRelationships instance accessors
 		
 		/// <summary>
-		/// Get any ConceptSubElementReferencesRelationship links between a given ConceptSubElement and a Relationship.
+		/// Get any ConceptSubElementReferencesRightRelationships links between a given ConceptSubElement and a Relationship.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship> GetLinks( global::Bb.ApplicationCooperationViewPoint.ConceptSubElement source, global::Bb.ApplicationCooperationViewPoint.Relationship target )
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships> GetLinks( global::Bb.ApplicationCooperationViewPoint.ConceptSubElement source, global::Bb.ApplicationCooperationViewPoint.Relationship target )
 		{
-			global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship> outLinks = new global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship>();
-			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship>(source, global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.ConceptSubElementDomainRoleId);
-			foreach ( global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship link in links )
+			global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships> outLinks = new global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships>();
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships>(source, global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships.ConceptSubElementDomainRoleId);
+			foreach ( global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships link in links )
 			{
 				if ( target.Equals(link.Relationship) )
 				{
@@ -2318,16 +2395,1468 @@ namespace Bb.ApplicationCooperationViewPoint
 			return outLinks.AsReadOnly();
 		}
 		/// <summary>
-		/// Get the one ConceptSubElementReferencesRelationship link between a given ConceptSubElementand a Relationship.
+		/// Get the one ConceptSubElementReferencesRightRelationships link between a given ConceptSubElementand a Relationship.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship GetLink( global::Bb.ApplicationCooperationViewPoint.ConceptSubElement source, global::Bb.ApplicationCooperationViewPoint.Relationship target )
+		public static global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships GetLink( global::Bb.ApplicationCooperationViewPoint.ConceptSubElement source, global::Bb.ApplicationCooperationViewPoint.Relationship target )
 		{
-			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship>(source, global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.ConceptSubElementDomainRoleId);
-			foreach ( global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship link in links )
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships>(source, global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships.ConceptSubElementDomainRoleId);
+			foreach ( global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships link in links )
 			{
 				if ( target.Equals(link.Relationship) )
+				{
+					return link;
+				}
+			}
+			return null;
+		}
+		
+		#endregion
+	}
+}
+namespace Bb.ApplicationCooperationViewPoint
+{
+	/// <summary>
+	/// DomainRelationship ModelElementReferencesRightRelationships
+	/// Description de
+	/// Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships
+	/// </summary>
+	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainRelationship()]
+	[DslModeling::DomainObjectId("f3f7d5ab-f08d-4def-992e-7c1baeba29bc")]
+	public partial class ModelElementReferencesRightRelationships : DslModeling::ElementLink
+	{
+		#region Constructors, domain class Id
+		
+		/// <summary>
+		/// ModelElementReferencesRightRelationships domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xf3f7d5ab, 0xf08d, 0x4def, 0x99, 0x2e, 0x7c, 0x1b, 0xae, 0xba, 0x29, 0xbc);
+	
+				
+		/// <summary>
+		/// Constructor
+		/// Creates a ModelElementReferencesRightRelationships link in the same Partition as the given ModelElement
+		/// </summary>
+		/// <param name="source">ModelElement to use as the source of the relationship.</param>
+		/// <param name="target">Relationship to use as the target of the relationship.</param>
+		public ModelElementReferencesRightRelationships(ModelElement source, Relationship target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(ModelElementReferencesRightRelationships.ModelElementDomainRoleId, source), new DslModeling::RoleAssignment(ModelElementReferencesRightRelationships.RelationshipDomainRoleId, target)}, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public ModelElementReferencesRightRelationships(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public ModelElementReferencesRightRelationships(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public ModelElementReferencesRightRelationships(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(partition, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public ModelElementReferencesRightRelationships(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, roleAssignments, propertyAssignments)
+		{
+		}
+		#endregion
+		#region ModelElement domain role code
+		
+		/// <summary>
+		/// ModelElement domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid ModelElementDomainRoleId = new global::System.Guid(0x9adf2214, 0xef6c, 0x46af, 0x85, 0xf7, 0xb2, 0x82, 0x6b, 0x11, 0xce, 0x5e);
+		
+		/// <summary>
+		/// DomainRole ModelElement
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships.ModelElement
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships/ModelElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships/ModelElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "RightRelationships", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships/ModelElement.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslModeling::DomainObjectId("9adf2214-ef6c-46af-85f7-b2826b11ce5e")]
+		public virtual ModelElement ModelElement
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (ModelElement)DslModeling::DomainRoleInfo.GetRolePlayer(this, ModelElementDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, ModelElementDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access LeftModelElement of a Relationship
+		/// <summary>
+		/// Gets LeftModelElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static ModelElement GetLeftModelElement(Relationship element)
+		{
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, RelationshipDomainRoleId) as ModelElement;
+		}
+		
+		/// <summary>
+		/// Sets LeftModelElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetLeftModelElement(Relationship element, ModelElement newModelElement)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, RelationshipDomainRoleId, newModelElement);
+		}
+		#endregion
+		#region Relationship domain role code
+		
+		/// <summary>
+		/// Relationship domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid RelationshipDomainRoleId = new global::System.Guid(0x38426125, 0x8550, 0x44b4, 0xb9, 0xa9, 0x20, 0xb0, 0x0a, 0x92, 0x40, 0x62);
+		
+		/// <summary>
+		/// DomainRole Relationship
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships.Relationship
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships/Relationship.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships/Relationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "LeftModelElement", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships/Relationship.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroOne)]
+		[DslModeling::DomainObjectId("38426125-8550-44b4-b9a9-20b00a924062")]
+		public virtual Relationship Relationship
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (Relationship)DslModeling::DomainRoleInfo.GetRolePlayer(this, RelationshipDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, RelationshipDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access RightRelationships of a ModelElement
+		/// <summary>
+		/// Gets a list of RightRelationships.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static DslModeling::LinkedElementCollection<Relationship> GetRightRelationships(ModelElement element)
+		{
+			return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(element, ModelElementDomainRoleId);
+		}
+		#endregion
+		#region ModelElement link accessor
+		/// <summary>
+		/// Get the list of ModelElementReferencesRightRelationships links to a ModelElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships> GetLinksToRightRelationships ( global::Bb.ApplicationCooperationViewPoint.ModelElement modelElementInstance )
+		{
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships>(modelElementInstance, global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships.ModelElementDomainRoleId);
+		}
+		#endregion
+		#region Relationship link accessor
+		/// <summary>
+		/// Get the ModelElementReferencesRightRelationships link to a Relationship.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships GetLinkToLeftModelElement (global::Bb.ApplicationCooperationViewPoint.Relationship relationshipInstance)
+		{
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships>(relationshipInstance, global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships.RelationshipDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of Relationship not obeyed.");
+			if ( links.Count == 0 )
+			{
+				return null;
+			}
+			else
+			{
+				return links[0];
+			}
+		}
+		#endregion
+		#region ModelElementReferencesRightRelationships instance accessors
+		
+		/// <summary>
+		/// Get any ModelElementReferencesRightRelationships links between a given ModelElement and a Relationship.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships> GetLinks( global::Bb.ApplicationCooperationViewPoint.ModelElement source, global::Bb.ApplicationCooperationViewPoint.Relationship target )
+		{
+			global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships> outLinks = new global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships>();
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships>(source, global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships.ModelElementDomainRoleId);
+			foreach ( global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships link in links )
+			{
+				if ( target.Equals(link.Relationship) )
+				{
+					outLinks.Add(link);
+				}
+			}
+			return outLinks.AsReadOnly();
+		}
+		/// <summary>
+		/// Get the one ModelElementReferencesRightRelationships link between a given ModelElementand a Relationship.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships GetLink( global::Bb.ApplicationCooperationViewPoint.ModelElement source, global::Bb.ApplicationCooperationViewPoint.Relationship target )
+		{
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships>(source, global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships.ModelElementDomainRoleId);
+			foreach ( global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships link in links )
+			{
+				if ( target.Equals(link.Relationship) )
+				{
+					return link;
+				}
+			}
+			return null;
+		}
+		
+		#endregion
+	}
+}
+namespace Bb.ApplicationCooperationViewPoint
+{
+	/// <summary>
+	/// DomainRelationship RelationshipReferencesRightModelElement
+	/// Description de
+	/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement
+	/// </summary>
+	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainRelationship()]
+	[DslModeling::DomainObjectId("da0dda76-c31d-4fd7-8d0b-616818a37448")]
+	public partial class RelationshipReferencesRightModelElement : DslModeling::ElementLink
+	{
+		#region Constructors, domain class Id
+		
+		/// <summary>
+		/// RelationshipReferencesRightModelElement domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xda0dda76, 0xc31d, 0x4fd7, 0x8d, 0x0b, 0x61, 0x68, 0x18, 0xa3, 0x74, 0x48);
+	
+				
+		/// <summary>
+		/// Constructor
+		/// Creates a RelationshipReferencesRightModelElement link in the same Partition as the given Relationship
+		/// </summary>
+		/// <param name="source">Relationship to use as the source of the relationship.</param>
+		/// <param name="target">ModelElement to use as the target of the relationship.</param>
+		public RelationshipReferencesRightModelElement(Relationship source, ModelElement target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(RelationshipReferencesRightModelElement.RelationshipDomainRoleId, source), new DslModeling::RoleAssignment(RelationshipReferencesRightModelElement.ModelElementDomainRoleId, target)}, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public RelationshipReferencesRightModelElement(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public RelationshipReferencesRightModelElement(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public RelationshipReferencesRightModelElement(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(partition, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public RelationshipReferencesRightModelElement(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, roleAssignments, propertyAssignments)
+		{
+		}
+		#endregion
+		#region Relationship domain role code
+		
+		/// <summary>
+		/// Relationship domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid RelationshipDomainRoleId = new global::System.Guid(0x26f661c5, 0xfe19, 0x493f, 0x93, 0xe4, 0x55, 0x6f, 0x6f, 0xe7, 0x9f, 0x3a);
+		
+		/// <summary>
+		/// DomainRole Relationship
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement.Relationship
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement/Relationship.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement/Relationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "RightModelElement", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement/Relationship.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroOne)]
+		[DslModeling::DomainObjectId("26f661c5-fe19-493f-93e4-556f6fe79f3a")]
+		public virtual Relationship Relationship
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (Relationship)DslModeling::DomainRoleInfo.GetRolePlayer(this, RelationshipDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, RelationshipDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access LeftRelationships of a ModelElement
+		/// <summary>
+		/// Gets a list of LeftRelationships.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static DslModeling::LinkedElementCollection<Relationship> GetLeftRelationships(ModelElement element)
+		{
+			return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(element, ModelElementDomainRoleId);
+		}
+		#endregion
+		#region ModelElement domain role code
+		
+		/// <summary>
+		/// ModelElement domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid ModelElementDomainRoleId = new global::System.Guid(0x49b66a88, 0x1c2e, 0x47e2, 0xba, 0x53, 0xc2, 0x98, 0xb1, 0x78, 0x73, 0x98);
+		
+		/// <summary>
+		/// DomainRole ModelElement
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement.ModelElement
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement/ModelElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement/ModelElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "LeftRelationships", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement/ModelElement.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslModeling::DomainObjectId("49b66a88-1c2e-47e2-ba53-c298b1787398")]
+		public virtual ModelElement ModelElement
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (ModelElement)DslModeling::DomainRoleInfo.GetRolePlayer(this, ModelElementDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, ModelElementDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access RightModelElement of a Relationship
+		/// <summary>
+		/// Gets RightModelElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static ModelElement GetRightModelElement(Relationship element)
+		{
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, RelationshipDomainRoleId) as ModelElement;
+		}
+		
+		/// <summary>
+		/// Sets RightModelElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetRightModelElement(Relationship element, ModelElement newModelElement)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, RelationshipDomainRoleId, newModelElement);
+		}
+		#endregion
+		#region Relationship link accessor
+		/// <summary>
+		/// Get the RelationshipReferencesRightModelElement link to a Relationship.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement GetLinkToRightModelElement (global::Bb.ApplicationCooperationViewPoint.Relationship relationshipInstance)
+		{
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement>(relationshipInstance, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement.RelationshipDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of Relationship not obeyed.");
+			if ( links.Count == 0 )
+			{
+				return null;
+			}
+			else
+			{
+				return links[0];
+			}
+		}
+		#endregion
+		#region ModelElement link accessor
+		/// <summary>
+		/// Get the list of RelationshipReferencesRightModelElement links to a ModelElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement> GetLinksToLeftRelationships ( global::Bb.ApplicationCooperationViewPoint.ModelElement modelElementInstance )
+		{
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement>(modelElementInstance, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement.ModelElementDomainRoleId);
+		}
+		#endregion
+		#region RelationshipReferencesRightModelElement instance accessors
+		
+		/// <summary>
+		/// Get any RelationshipReferencesRightModelElement links between a given Relationship and a ModelElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement> GetLinks( global::Bb.ApplicationCooperationViewPoint.Relationship source, global::Bb.ApplicationCooperationViewPoint.ModelElement target )
+		{
+			global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement> outLinks = new global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement>();
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement>(source, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement.RelationshipDomainRoleId);
+			foreach ( global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement link in links )
+			{
+				if ( target.Equals(link.ModelElement) )
+				{
+					outLinks.Add(link);
+				}
+			}
+			return outLinks.AsReadOnly();
+		}
+		/// <summary>
+		/// Get the one RelationshipReferencesRightModelElement link between a given Relationshipand a ModelElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement GetLink( global::Bb.ApplicationCooperationViewPoint.Relationship source, global::Bb.ApplicationCooperationViewPoint.ModelElement target )
+		{
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement>(source, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement.RelationshipDomainRoleId);
+			foreach ( global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement link in links )
+			{
+				if ( target.Equals(link.ModelElement) )
+				{
+					return link;
+				}
+			}
+			return null;
+		}
+		
+		#endregion
+	}
+}
+namespace Bb.ApplicationCooperationViewPoint
+{
+	/// <summary>
+	/// DomainRelationship RelationshipReferencesRightSubElement
+	/// Description de
+	/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement
+	/// </summary>
+	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainRelationship()]
+	[DslModeling::DomainObjectId("2a61d268-9d72-489c-94a2-78fc3be0cf63")]
+	public partial class RelationshipReferencesRightSubElement : DslModeling::ElementLink
+	{
+		#region Constructors, domain class Id
+		
+		/// <summary>
+		/// RelationshipReferencesRightSubElement domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x2a61d268, 0x9d72, 0x489c, 0x94, 0xa2, 0x78, 0xfc, 0x3b, 0xe0, 0xcf, 0x63);
+	
+				
+		/// <summary>
+		/// Constructor
+		/// Creates a RelationshipReferencesRightSubElement link in the same Partition as the given Relationship
+		/// </summary>
+		/// <param name="source">Relationship to use as the source of the relationship.</param>
+		/// <param name="target">SubElement to use as the target of the relationship.</param>
+		public RelationshipReferencesRightSubElement(Relationship source, SubElement target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(RelationshipReferencesRightSubElement.RelationshipDomainRoleId, source), new DslModeling::RoleAssignment(RelationshipReferencesRightSubElement.SubElementDomainRoleId, target)}, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public RelationshipReferencesRightSubElement(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public RelationshipReferencesRightSubElement(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public RelationshipReferencesRightSubElement(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(partition, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public RelationshipReferencesRightSubElement(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, roleAssignments, propertyAssignments)
+		{
+		}
+		#endregion
+		#region Relationship domain role code
+		
+		/// <summary>
+		/// Relationship domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid RelationshipDomainRoleId = new global::System.Guid(0x03b8f442, 0x51b5, 0x493d, 0x9f, 0x5c, 0xd1, 0xa9, 0x62, 0x15, 0x90, 0xef);
+		
+		/// <summary>
+		/// DomainRole Relationship
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement.Relationship
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement/Relationship.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement/Relationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "RightSubElement", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement/Relationship.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroOne)]
+		[DslModeling::DomainObjectId("03b8f442-51b5-493d-9f5c-d1a9621590ef")]
+		public virtual Relationship Relationship
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (Relationship)DslModeling::DomainRoleInfo.GetRolePlayer(this, RelationshipDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, RelationshipDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access LeftRelationships of a SubElement
+		/// <summary>
+		/// Gets a list of LeftRelationships.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static DslModeling::LinkedElementCollection<Relationship> GetLeftRelationships(SubElement element)
+		{
+			return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(element, SubElementDomainRoleId);
+		}
+		#endregion
+		#region SubElement domain role code
+		
+		/// <summary>
+		/// SubElement domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid SubElementDomainRoleId = new global::System.Guid(0xec450d36, 0x9d80, 0x4f8f, 0xb4, 0x74, 0xa0, 0x6c, 0xca, 0x14, 0xa8, 0xf9);
+		
+		/// <summary>
+		/// DomainRole SubElement
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement.SubElement
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement/SubElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement/SubElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "LeftRelationships", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement/SubElement.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslModeling::DomainObjectId("ec450d36-9d80-4f8f-b474-a06cca14a8f9")]
+		public virtual SubElement SubElement
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (SubElement)DslModeling::DomainRoleInfo.GetRolePlayer(this, SubElementDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, SubElementDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access RightSubElement of a Relationship
+		/// <summary>
+		/// Gets RightSubElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static SubElement GetRightSubElement(Relationship element)
+		{
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, RelationshipDomainRoleId) as SubElement;
+		}
+		
+		/// <summary>
+		/// Sets RightSubElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetRightSubElement(Relationship element, SubElement newSubElement)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, RelationshipDomainRoleId, newSubElement);
+		}
+		#endregion
+		#region Relationship link accessor
+		/// <summary>
+		/// Get the RelationshipReferencesRightSubElement link to a Relationship.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement GetLinkToRightSubElement (global::Bb.ApplicationCooperationViewPoint.Relationship relationshipInstance)
+		{
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement>(relationshipInstance, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement.RelationshipDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of Relationship not obeyed.");
+			if ( links.Count == 0 )
+			{
+				return null;
+			}
+			else
+			{
+				return links[0];
+			}
+		}
+		#endregion
+		#region SubElement link accessor
+		/// <summary>
+		/// Get the list of RelationshipReferencesRightSubElement links to a SubElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement> GetLinksToLeftRelationships ( global::Bb.ApplicationCooperationViewPoint.SubElement subElementInstance )
+		{
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement>(subElementInstance, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement.SubElementDomainRoleId);
+		}
+		#endregion
+		#region RelationshipReferencesRightSubElement instance accessors
+		
+		/// <summary>
+		/// Get any RelationshipReferencesRightSubElement links between a given Relationship and a SubElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement> GetLinks( global::Bb.ApplicationCooperationViewPoint.Relationship source, global::Bb.ApplicationCooperationViewPoint.SubElement target )
+		{
+			global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement> outLinks = new global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement>();
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement>(source, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement.RelationshipDomainRoleId);
+			foreach ( global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement link in links )
+			{
+				if ( target.Equals(link.SubElement) )
+				{
+					outLinks.Add(link);
+				}
+			}
+			return outLinks.AsReadOnly();
+		}
+		/// <summary>
+		/// Get the one RelationshipReferencesRightSubElement link between a given Relationshipand a SubElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement GetLink( global::Bb.ApplicationCooperationViewPoint.Relationship source, global::Bb.ApplicationCooperationViewPoint.SubElement target )
+		{
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement>(source, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement.RelationshipDomainRoleId);
+			foreach ( global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement link in links )
+			{
+				if ( target.Equals(link.SubElement) )
+				{
+					return link;
+				}
+			}
+			return null;
+		}
+		
+		#endregion
+	}
+}
+namespace Bb.ApplicationCooperationViewPoint
+{
+	/// <summary>
+	/// DomainRelationship RelationshipReferencesRightConcept
+	/// Description de
+	/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept
+	/// </summary>
+	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainRelationship()]
+	[DslModeling::DomainObjectId("d977763b-a2bc-4d4a-9b3a-ba88094235d1")]
+	public partial class RelationshipReferencesRightConcept : DslModeling::ElementLink
+	{
+		#region Constructors, domain class Id
+		
+		/// <summary>
+		/// RelationshipReferencesRightConcept domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xd977763b, 0xa2bc, 0x4d4a, 0x9b, 0x3a, 0xba, 0x88, 0x09, 0x42, 0x35, 0xd1);
+	
+				
+		/// <summary>
+		/// Constructor
+		/// Creates a RelationshipReferencesRightConcept link in the same Partition as the given Relationship
+		/// </summary>
+		/// <param name="source">Relationship to use as the source of the relationship.</param>
+		/// <param name="target">Concept to use as the target of the relationship.</param>
+		public RelationshipReferencesRightConcept(Relationship source, Concept target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(RelationshipReferencesRightConcept.RelationshipDomainRoleId, source), new DslModeling::RoleAssignment(RelationshipReferencesRightConcept.ConceptDomainRoleId, target)}, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public RelationshipReferencesRightConcept(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public RelationshipReferencesRightConcept(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public RelationshipReferencesRightConcept(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(partition, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public RelationshipReferencesRightConcept(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, roleAssignments, propertyAssignments)
+		{
+		}
+		#endregion
+		#region Relationship domain role code
+		
+		/// <summary>
+		/// Relationship domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid RelationshipDomainRoleId = new global::System.Guid(0x51d60845, 0xb6fd, 0x41c2, 0xa2, 0x23, 0xf4, 0xeb, 0xff, 0x89, 0x85, 0x05);
+		
+		/// <summary>
+		/// DomainRole Relationship
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept.Relationship
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept/Relationship.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept/Relationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "RightConcept", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept/Relationship.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroOne)]
+		[DslModeling::DomainObjectId("51d60845-b6fd-41c2-a223-f4ebff898505")]
+		public virtual Relationship Relationship
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (Relationship)DslModeling::DomainRoleInfo.GetRolePlayer(this, RelationshipDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, RelationshipDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access LeftRelationships of a Concept
+		/// <summary>
+		/// Gets a list of LeftRelationships.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static DslModeling::LinkedElementCollection<Relationship> GetLeftRelationships(Concept element)
+		{
+			return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(element, ConceptDomainRoleId);
+		}
+		#endregion
+		#region Concept domain role code
+		
+		/// <summary>
+		/// Concept domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid ConceptDomainRoleId = new global::System.Guid(0x386bc48c, 0x234b, 0x4b63, 0xac, 0xbf, 0x61, 0x25, 0x3e, 0xef, 0xfb, 0x72);
+		
+		/// <summary>
+		/// DomainRole Concept
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept.Concept
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept/Concept.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept/Concept.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "LeftRelationships", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept/Concept.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslModeling::DomainObjectId("386bc48c-234b-4b63-acbf-61253eeffb72")]
+		public virtual Concept Concept
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (Concept)DslModeling::DomainRoleInfo.GetRolePlayer(this, ConceptDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, ConceptDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access RightConcept of a Relationship
+		/// <summary>
+		/// Gets RightConcept.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static Concept GetRightConcept(Relationship element)
+		{
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, RelationshipDomainRoleId) as Concept;
+		}
+		
+		/// <summary>
+		/// Sets RightConcept.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetRightConcept(Relationship element, Concept newConcept)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, RelationshipDomainRoleId, newConcept);
+		}
+		#endregion
+		#region Relationship link accessor
+		/// <summary>
+		/// Get the RelationshipReferencesRightConcept link to a Relationship.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept GetLinkToRightConcept (global::Bb.ApplicationCooperationViewPoint.Relationship relationshipInstance)
+		{
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept>(relationshipInstance, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept.RelationshipDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of Relationship not obeyed.");
+			if ( links.Count == 0 )
+			{
+				return null;
+			}
+			else
+			{
+				return links[0];
+			}
+		}
+		#endregion
+		#region Concept link accessor
+		/// <summary>
+		/// Get the list of RelationshipReferencesRightConcept links to a Concept.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept> GetLinksToLeftRelationships ( global::Bb.ApplicationCooperationViewPoint.Concept conceptInstance )
+		{
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept>(conceptInstance, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept.ConceptDomainRoleId);
+		}
+		#endregion
+		#region RelationshipReferencesRightConcept instance accessors
+		
+		/// <summary>
+		/// Get any RelationshipReferencesRightConcept links between a given Relationship and a Concept.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept> GetLinks( global::Bb.ApplicationCooperationViewPoint.Relationship source, global::Bb.ApplicationCooperationViewPoint.Concept target )
+		{
+			global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept> outLinks = new global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept>();
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept>(source, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept.RelationshipDomainRoleId);
+			foreach ( global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept link in links )
+			{
+				if ( target.Equals(link.Concept) )
+				{
+					outLinks.Add(link);
+				}
+			}
+			return outLinks.AsReadOnly();
+		}
+		/// <summary>
+		/// Get the one RelationshipReferencesRightConcept link between a given Relationshipand a Concept.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept GetLink( global::Bb.ApplicationCooperationViewPoint.Relationship source, global::Bb.ApplicationCooperationViewPoint.Concept target )
+		{
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept>(source, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept.RelationshipDomainRoleId);
+			foreach ( global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept link in links )
+			{
+				if ( target.Equals(link.Concept) )
+				{
+					return link;
+				}
+			}
+			return null;
+		}
+		
+		#endregion
+	}
+}
+namespace Bb.ApplicationCooperationViewPoint
+{
+	/// <summary>
+	/// DomainRelationship RelationshipReferencesRightConceptElement
+	/// Description de
+	/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement
+	/// </summary>
+	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainRelationship()]
+	[DslModeling::DomainObjectId("e3ee641d-ee97-42cd-8fab-123e671e38b4")]
+	public partial class RelationshipReferencesRightConceptElement : DslModeling::ElementLink
+	{
+		#region Constructors, domain class Id
+		
+		/// <summary>
+		/// RelationshipReferencesRightConceptElement domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xe3ee641d, 0xee97, 0x42cd, 0x8f, 0xab, 0x12, 0x3e, 0x67, 0x1e, 0x38, 0xb4);
+	
+				
+		/// <summary>
+		/// Constructor
+		/// Creates a RelationshipReferencesRightConceptElement link in the same Partition as the given Relationship
+		/// </summary>
+		/// <param name="source">Relationship to use as the source of the relationship.</param>
+		/// <param name="target">ConceptElement to use as the target of the relationship.</param>
+		public RelationshipReferencesRightConceptElement(Relationship source, ConceptElement target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(RelationshipReferencesRightConceptElement.RelationshipDomainRoleId, source), new DslModeling::RoleAssignment(RelationshipReferencesRightConceptElement.ConceptElementDomainRoleId, target)}, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public RelationshipReferencesRightConceptElement(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public RelationshipReferencesRightConceptElement(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public RelationshipReferencesRightConceptElement(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(partition, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public RelationshipReferencesRightConceptElement(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, roleAssignments, propertyAssignments)
+		{
+		}
+		#endregion
+		#region Relationship domain role code
+		
+		/// <summary>
+		/// Relationship domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid RelationshipDomainRoleId = new global::System.Guid(0x2d41e98e, 0xee0e, 0x452d, 0xbd, 0x7a, 0x2f, 0x44, 0xe4, 0x5d, 0xfe, 0x4d);
+		
+		/// <summary>
+		/// DomainRole Relationship
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement.Relationship
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement/Relationship.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement/Relationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "RightConceptElement", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement/Relationship.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroOne)]
+		[DslModeling::DomainObjectId("2d41e98e-ee0e-452d-bd7a-2f44e45dfe4d")]
+		public virtual Relationship Relationship
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (Relationship)DslModeling::DomainRoleInfo.GetRolePlayer(this, RelationshipDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, RelationshipDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access LeftRelationships of a ConceptElement
+		/// <summary>
+		/// Gets a list of LeftRelationships.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static DslModeling::LinkedElementCollection<Relationship> GetLeftRelationships(ConceptElement element)
+		{
+			return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(element, ConceptElementDomainRoleId);
+		}
+		#endregion
+		#region ConceptElement domain role code
+		
+		/// <summary>
+		/// ConceptElement domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid ConceptElementDomainRoleId = new global::System.Guid(0x1169c9ea, 0xc8e9, 0x4c52, 0xb2, 0x90, 0x39, 0x10, 0x51, 0xd5, 0x57, 0xb7);
+		
+		/// <summary>
+		/// DomainRole ConceptElement
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement.ConceptElement
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement/ConceptElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement/ConceptElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "LeftRelationships", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement/ConceptElement.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslModeling::DomainObjectId("1169c9ea-c8e9-4c52-b290-391051d557b7")]
+		public virtual ConceptElement ConceptElement
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (ConceptElement)DslModeling::DomainRoleInfo.GetRolePlayer(this, ConceptElementDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, ConceptElementDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access RightConceptElement of a Relationship
+		/// <summary>
+		/// Gets RightConceptElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static ConceptElement GetRightConceptElement(Relationship element)
+		{
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, RelationshipDomainRoleId) as ConceptElement;
+		}
+		
+		/// <summary>
+		/// Sets RightConceptElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetRightConceptElement(Relationship element, ConceptElement newConceptElement)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, RelationshipDomainRoleId, newConceptElement);
+		}
+		#endregion
+		#region Relationship link accessor
+		/// <summary>
+		/// Get the RelationshipReferencesRightConceptElement link to a Relationship.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement GetLinkToRightConceptElement (global::Bb.ApplicationCooperationViewPoint.Relationship relationshipInstance)
+		{
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement>(relationshipInstance, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement.RelationshipDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of Relationship not obeyed.");
+			if ( links.Count == 0 )
+			{
+				return null;
+			}
+			else
+			{
+				return links[0];
+			}
+		}
+		#endregion
+		#region ConceptElement link accessor
+		/// <summary>
+		/// Get the list of RelationshipReferencesRightConceptElement links to a ConceptElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement> GetLinksToLeftRelationships ( global::Bb.ApplicationCooperationViewPoint.ConceptElement conceptElementInstance )
+		{
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement>(conceptElementInstance, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement.ConceptElementDomainRoleId);
+		}
+		#endregion
+		#region RelationshipReferencesRightConceptElement instance accessors
+		
+		/// <summary>
+		/// Get any RelationshipReferencesRightConceptElement links between a given Relationship and a ConceptElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement> GetLinks( global::Bb.ApplicationCooperationViewPoint.Relationship source, global::Bb.ApplicationCooperationViewPoint.ConceptElement target )
+		{
+			global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement> outLinks = new global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement>();
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement>(source, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement.RelationshipDomainRoleId);
+			foreach ( global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement link in links )
+			{
+				if ( target.Equals(link.ConceptElement) )
+				{
+					outLinks.Add(link);
+				}
+			}
+			return outLinks.AsReadOnly();
+		}
+		/// <summary>
+		/// Get the one RelationshipReferencesRightConceptElement link between a given Relationshipand a ConceptElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement GetLink( global::Bb.ApplicationCooperationViewPoint.Relationship source, global::Bb.ApplicationCooperationViewPoint.ConceptElement target )
+		{
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement>(source, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement.RelationshipDomainRoleId);
+			foreach ( global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement link in links )
+			{
+				if ( target.Equals(link.ConceptElement) )
+				{
+					return link;
+				}
+			}
+			return null;
+		}
+		
+		#endregion
+	}
+}
+namespace Bb.ApplicationCooperationViewPoint
+{
+	/// <summary>
+	/// DomainRelationship RelationshipReferencesRightConceptSubElement
+	/// Description de
+	/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement
+	/// </summary>
+	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainRelationship()]
+	[DslModeling::DomainObjectId("e4d3071a-c375-4661-a772-e6c0b0c717cf")]
+	public partial class RelationshipReferencesRightConceptSubElement : DslModeling::ElementLink
+	{
+		#region Constructors, domain class Id
+		
+		/// <summary>
+		/// RelationshipReferencesRightConceptSubElement domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xe4d3071a, 0xc375, 0x4661, 0xa7, 0x72, 0xe6, 0xc0, 0xb0, 0xc7, 0x17, 0xcf);
+	
+				
+		/// <summary>
+		/// Constructor
+		/// Creates a RelationshipReferencesRightConceptSubElement link in the same Partition as the given Relationship
+		/// </summary>
+		/// <param name="source">Relationship to use as the source of the relationship.</param>
+		/// <param name="target">ConceptSubElement to use as the target of the relationship.</param>
+		public RelationshipReferencesRightConceptSubElement(Relationship source, ConceptSubElement target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(RelationshipReferencesRightConceptSubElement.RelationshipDomainRoleId, source), new DslModeling::RoleAssignment(RelationshipReferencesRightConceptSubElement.ConceptSubElementDomainRoleId, target)}, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public RelationshipReferencesRightConceptSubElement(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public RelationshipReferencesRightConceptSubElement(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public RelationshipReferencesRightConceptSubElement(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(partition, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public RelationshipReferencesRightConceptSubElement(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, roleAssignments, propertyAssignments)
+		{
+		}
+		#endregion
+		#region Relationship domain role code
+		
+		/// <summary>
+		/// Relationship domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid RelationshipDomainRoleId = new global::System.Guid(0x1c1b4e46, 0xf10a, 0x47c8, 0xb8, 0x18, 0x18, 0xe0, 0x79, 0xd4, 0xb6, 0x15);
+		
+		/// <summary>
+		/// DomainRole Relationship
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement.Relationship
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement/Relationship.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement/Relationship.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "RightConceptSubElement", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement/Relationship.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroOne)]
+		[DslModeling::DomainObjectId("1c1b4e46-f10a-47c8-b818-18e079d4b615")]
+		public virtual Relationship Relationship
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (Relationship)DslModeling::DomainRoleInfo.GetRolePlayer(this, RelationshipDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, RelationshipDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access LeftRelationships of a ConceptSubElement
+		/// <summary>
+		/// Gets a list of LeftRelationships.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static DslModeling::LinkedElementCollection<Relationship> GetLeftRelationships(ConceptSubElement element)
+		{
+			return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(element, ConceptSubElementDomainRoleId);
+		}
+		#endregion
+		#region ConceptSubElement domain role code
+		
+		/// <summary>
+		/// ConceptSubElement domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid ConceptSubElementDomainRoleId = new global::System.Guid(0xb9db7f46, 0xb580, 0x432d, 0x84, 0x05, 0x89, 0xf3, 0xcc, 0x13, 0x22, 0xb8);
+		
+		/// <summary>
+		/// DomainRole ConceptSubElement
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement.ConceptSubElement
+		/// </summary>
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement/ConceptSubElement.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement/ConceptSubElement.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "LeftRelationships", PropertyDisplayNameKey="Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement/ConceptSubElement.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslModeling::DomainObjectId("b9db7f46-b580-432d-8405-89f3cc1322b8")]
+		public virtual ConceptSubElement ConceptSubElement
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (ConceptSubElement)DslModeling::DomainRoleInfo.GetRolePlayer(this, ConceptSubElementDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, ConceptSubElementDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access RightConceptSubElement of a Relationship
+		/// <summary>
+		/// Gets RightConceptSubElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static ConceptSubElement GetRightConceptSubElement(Relationship element)
+		{
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, RelationshipDomainRoleId) as ConceptSubElement;
+		}
+		
+		/// <summary>
+		/// Sets RightConceptSubElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetRightConceptSubElement(Relationship element, ConceptSubElement newConceptSubElement)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, RelationshipDomainRoleId, newConceptSubElement);
+		}
+		#endregion
+		#region Relationship link accessor
+		/// <summary>
+		/// Get the RelationshipReferencesRightConceptSubElement link to a Relationship.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement GetLinkToRightConceptSubElement (global::Bb.ApplicationCooperationViewPoint.Relationship relationshipInstance)
+		{
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement>(relationshipInstance, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement.RelationshipDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of Relationship not obeyed.");
+			if ( links.Count == 0 )
+			{
+				return null;
+			}
+			else
+			{
+				return links[0];
+			}
+		}
+		#endregion
+		#region ConceptSubElement link accessor
+		/// <summary>
+		/// Get the list of RelationshipReferencesRightConceptSubElement links to a ConceptSubElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement> GetLinksToLeftRelationships ( global::Bb.ApplicationCooperationViewPoint.ConceptSubElement conceptSubElementInstance )
+		{
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement>(conceptSubElementInstance, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement.ConceptSubElementDomainRoleId);
+		}
+		#endregion
+		#region RelationshipReferencesRightConceptSubElement instance accessors
+		
+		/// <summary>
+		/// Get any RelationshipReferencesRightConceptSubElement links between a given Relationship and a ConceptSubElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement> GetLinks( global::Bb.ApplicationCooperationViewPoint.Relationship source, global::Bb.ApplicationCooperationViewPoint.ConceptSubElement target )
+		{
+			global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement> outLinks = new global::System.Collections.Generic.List<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement>();
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement>(source, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement.RelationshipDomainRoleId);
+			foreach ( global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement link in links )
+			{
+				if ( target.Equals(link.ConceptSubElement) )
+				{
+					outLinks.Add(link);
+				}
+			}
+			return outLinks.AsReadOnly();
+		}
+		/// <summary>
+		/// Get the one RelationshipReferencesRightConceptSubElement link between a given Relationshipand a ConceptSubElement.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement GetLink( global::Bb.ApplicationCooperationViewPoint.Relationship source, global::Bb.ApplicationCooperationViewPoint.ConceptSubElement target )
+		{
+			global::System.Collections.Generic.IList<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement>(source, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement.RelationshipDomainRoleId);
+			foreach ( global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement link in links )
+			{
+				if ( target.Equals(link.ConceptSubElement) )
 				{
 					return link;
 				}

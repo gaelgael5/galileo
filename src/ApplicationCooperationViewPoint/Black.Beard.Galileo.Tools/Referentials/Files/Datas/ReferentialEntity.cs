@@ -36,7 +36,7 @@ namespace Bb.Galileo.Files.Datas
         {
 
             var t = relationshipDefinition.GetRelationships().Where(c => c.Origin.Name == this.Name)
-                .Select(c => c.Name)
+                .Select(c => c.Target.Name)
                 .ToList();
 
             var datas = relationshipDefinition.GetTargetEntities().ToList();
@@ -47,6 +47,15 @@ namespace Bb.Galileo.Files.Datas
                     yield return item;
         }
 
+        public IEnumerable<ReferentialRelationship> GetRelationships(RelationshipDefinition relationshipDefinition)
+        {
+
+            var relationships = relationshipDefinition.GetRelationships().Where(c => c.Origin.Name == this.Name)
+                .ToList();
+
+            return relationships;
+
+        }
 
 
     }

@@ -26,9 +26,20 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             (
                 new ColumnHeader[]
                 {
-                    new ColumnHeader() { Name = "Type", Text = "Name", Width = 200 },
+                    new ColumnHeader() { Name = "Type", Text = "Type", Width = 200 },
                     new ColumnHeader() { Name = "Name", Text = "Name", Width = 300 },
                     new ColumnHeader() { Name = "Label", Text = "Label", Width = 400  },
+                }
+            );
+
+            RelationshiplistView.Columns.AddRange
+            (
+                new ColumnHeader[]
+                {
+                    new ColumnHeader() { Name = "Relationship", Text = "Relationship", Width = 200 },
+                    new ColumnHeader() { Name = "Name", Text = "Name", Width = 200 },
+                    new ColumnHeader() { Name = "Target", Text = "Target", Width = 200  },
+                    new ColumnHeader() { Name = "Description", Text = "Description", Width = 400  },
                 }
             );
 
@@ -36,31 +47,50 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             CompositionListView.Alignment = ListViewAlignment.Left;
             CompositionListView.CheckBoxes = true;
 
+            RelationshiplistView.View = View.Details;
+            RelationshiplistView.Alignment = ListViewAlignment.Left;
+            RelationshiplistView.CheckBoxes = true;
+
         }
 
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Enabled = false;
+            Refreshing();
 
-
-            RefreshItems();
         }
+
+        private void Refreshing()
+        {
+            refreshInProgress = true;
+            try
+            {
+                RefreshItems();
+                RefreshItems2();
+            }
+            finally
+            {
+                refreshInProgress = false;
+            }
+        }
+
+        #region Show
 
         private void RefreshItems()
         {
 
-            if (_lastQueryItems == null)
+            if (_lastQueryCompositionItems == null)
                 return;
 
             CompositionListView.Items.Clear();
 
-            IEnumerable<ReferentialEntity> items = _lastQueryItems;
-            var txt = searchEntitiesTextBox.Text;
+            IEnumerable<ReferentialEntity> items = _lastQueryCompositionItems;
+            var txt = searchEntitiesTextBox.Text.ToLower();
             if (!string.IsNullOrEmpty(txt))
             {
-                var o = items.Where(c => !string.IsNullOrEmpty(c.Name) && c.Name.ToLower().Contains(txt.ToLower())
-                                     || (!string.IsNullOrEmpty(c.Label) && c.Label.ToLower().Contains(txt.ToLower())));
+                var o = items.Where(c => !string.IsNullOrEmpty(c.Name) && c.Name.ToLower().Contains(txt)
+                                     || (!string.IsNullOrEmpty(c.Label) && c.Label.ToLower().Contains(txt)));
                 if (!o.Any())
                     o = items.Where(c => c.Name.DamerauLevenshteinDistance(txt) <= 2 || c.Label.DamerauLevenshteinDistance(txt) <= 3);
 
@@ -96,17 +126,69 @@ namespace Bb.Galileo.Viewpoints.Cooperations
 
         }
 
+        private void RefreshItems2()
+        {
+
+            if (_lastQueryReferenceItems == null)
+                return;
+
+            RelationshiplistView.Items.Clear();
+
+            IEnumerable<RelationshipItem> items = _lastQueryReferenceItems;
+            var txt = searchEntitiesTextBox2.Text;
+            if (!string.IsNullOrEmpty(txt))
+            {
+                var o = items.Where(c => !string.IsNullOrEmpty(c.Entity.Name) && c.Entity.Name.ToLower().Contains(txt.ToLower())
+                                     || (!string.IsNullOrEmpty(c.Entity.Label) && c.Entity.Label.ToLower().Contains(txt.ToLower())));
+                if (!o.Any())
+                    o = items.Where(c => c.Entity.Name.DamerauLevenshteinDistance(txt) <= 2 || c.Entity.Label.DamerauLevenshteinDistance(txt) <= 3);
+
+                items = o;
+
+            }
+
+            if (items.Any())
+            {
+
+                foreach (var item in items)
+                {
+
+                    TreeNode[] selected = new TreeNode[0];
+                    if (this._lastFilterEntitySelected != null)
+                        selected = this._lastFilterEntitySelected.Nodes.Find(item.Entity.Name, false);
+
+
+                    var label = item.Relationship.Name;
+                    if (label != item.Relationship.Label)
+                        label += " : " + item.Relationship.Label;
+
+                    RelationshiplistView.Items
+                        .Add
+                        (new ListViewItem(new string[]
+                         {
+                            item.Relationship.TypeEntity,
+                            label,
+                            item.Entity.Name,
+                            item.Relationship.Description,
+                         })
+                        {
+                            Tag = item,
+                            Checked = selected != null && selected.Length > 0
+                        });
+                }
+
+            }
+
+        }
+
+        #endregion Show
+
         private void SelectReferential_Load(object sender, EventArgs e)
         {
 
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
         {
 
         }
@@ -138,14 +220,28 @@ namespace Bb.Galileo.Viewpoints.Cooperations
                         Kind = item.Viewpoint.Kind,
                     };
 
-                    foreach (ConceptItemEntity item3 in item2.Nodes)
+                    foreach (ConceptItem item3 in item2.Nodes)
                     {
-                        var e2 = new ViewpointProjectionEntity()
+                        if (item3 is ConceptItemEntity ce)
                         {
-                            Entity = item3.CurrentItem,
-                            Kind = item2.Viewpoint.Kind,
-                        };
-                        e1.Children.Add(e2);
+
+                            var e2 = new ViewpointProjectionEntity()
+                            {
+                                Entity = ce.CurrentItem,
+                                Kind = item2.Viewpoint.Kind,
+                            };
+                            e1.Children.Add(e2);
+                        }
+                        else if (item3 is ConceptItemRelationship cr)
+                        {
+                            var e2 = new ViewpointProjectionRelationship()
+                            {
+                                Relationship = cr.CurrentItem.Relationship,
+                                TargetEntity = cr.CurrentItem.Entity,
+                                Kind = item2.Viewpoint.Kind,
+                            };
+                            e1.Relationships.Add(e2);
+                        }
                     }
 
                     entities.Entities.Add(e1);
@@ -166,69 +262,108 @@ namespace Bb.Galileo.Viewpoints.Cooperations
             timer1.Enabled = true;
         }
 
+
+        #region selection
+
         private void ConceptsTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
             if (ConceptsTreeView.SelectedNode is ConceptItemEntity f)
             {
+
                 this._lastFilterEntitySelected = f;
+                var parent = f.Tag as ReferentialEntity;
                 var view = f.Viewpoint;
 
-                var filter = view.Definition.Name;
-
-                var list = new List<ReferentialEntity>(1000);
-                foreach (var item in view.Children)
-                {
-
-                    var r1 = item.Relationship.GetReference();
-                    r1.Kind = ElementEnum.Relationship;
-
-                    var r2 = item.Definition.GetReference();
-                    r2.Kind = ElementEnum.Entity;
-
-                    var relationships = r1.GetReferentials(view.Definition.File.Parent.Models).OfType<ReferentialRelationship>();
-                    relationships = relationships.Where(c => c.Origin.Name == f.Name);
-
-                    var relations = new HashSet<string>(relationships.Select(c => c.Name));
-
-                    list.AddRange
-                        (
-                            r2.GetReferentials(view.Definition.File.Parent.Models)
-                                .OfType<ReferentialEntity>()
-                                .Where(c => relations.Contains(c.Name))
-                        );
-
-                }
-
-                _lastQueryItems = list;
-                searchEntitiesTextBox.Text = this._lastFilterEntitySelected.LastSearchEntity;
-
-                RefreshItems();
+                ManageSubComposition(f, parent, view);
+                ManageSubRelationship(parent, view);
 
             }
             else if (ConceptsTreeView.SelectedNode is ConceptItem c)
-            {
+                ManageComposition(c);
 
-                this._lastFilterEntitySelected = c;
-                var view = c.Viewpoint;
-
-                var r = view.Definition.GetReference();
-                r.Kind = ElementEnum.Entity;
-
-                _lastQueryItems = r.GetReferentials(view.Definition.File.Parent.Models)
-                                   .OfType<ReferentialEntity>()
-                                   .ToList();
-
-                searchEntitiesTextBox.Text = this._lastFilterEntitySelected.LastSearchEntity;
-
-                RefreshItems();
-
-            }
+            Refreshing();
 
         }
 
+        private void ManageSubRelationship(ReferentialEntity parent, ViewpointModelItem view)
+        {
+            List<ReferentialEntity> targetFilters = new List<ReferentialEntity>();
+            foreach (ConceptItem concept in ConceptsTreeView.Nodes)
+                foreach (TreeNode entity in concept.Nodes)
+                {
+                    if (entity.Tag is ReferentialEntity e)
+                        targetFilters.Add(e);
+                }
+
+            var list2 = new List<RelationshipItem>(1000);
+            foreach (ReferenceItem reference in view.References)
+            {
+                var def = reference.RelationshipDefinition;
+                IEnumerable<ReferentialRelationship> children = parent.GetRelationships(def).ToList();
+                foreach (var item in children)
+                {
+                    var e1 = item.GetTargetEntity(def.Target.Name);
+                    if (e1 != null)
+                    {
+
+                        if (targetFilters.Any(c => c.Name == e1.Name))
+                            list2.Add(new RelationshipItem(item, e1));
+
+                    }
+
+                }
+
+            }
+            _lastQueryReferenceItems = list2;
+            searchEntitiesTextBox2.Text = this._lastFilterEntitySelected.LastSearchEntity2;
+
+        }
+
+        private void ManageComposition(ConceptItem c)
+        {
+            this._lastFilterEntitySelected = c;
+            var view = c.Viewpoint;
+
+            var r = view.Definition.GetReference();
+            r.Kind = ElementEnum.Entity;
+
+            _lastQueryCompositionItems = r.GetReferentials(view.Definition.File.Parent.Models)
+                               .OfType<ReferentialEntity>()
+                               .ToList();
+
+            searchEntitiesTextBox.Text = this._lastFilterEntitySelected.LastSearchEntity;
+
+
+        }
+
+        private void ManageSubComposition(ConceptItemEntity f, ReferentialEntity parent, ViewpointModelItem view)
+        {
+            var referential = view.Definition.File.Parent.Models;
+
+            var filter = view.Definition.Name;
+
+            var list = new List<ReferentialEntity>(1000);
+            foreach (var item in view.Children)
+            {
+                Files.Schemas.RelationshipDefinition itemDef = item.Relationship;
+                var children = parent.GetTargetEntities(itemDef).ToList();
+                list.AddRange(children);
+            }
+
+            _lastQueryCompositionItems = list;
+            searchEntitiesTextBox.Text = this._lastFilterEntitySelected.LastSearchEntity;
+            
+        }
+
+        #endregion selection
+
+
         private void CompositionListView_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
+
+            if (refreshInProgress)
+                return;
 
             if (e.Item.Tag is ReferentialEntity entity)
             {
@@ -257,6 +392,42 @@ namespace Bb.Galileo.Viewpoints.Cooperations
 
         }
 
+        private void RelationshiplistView_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+
+            if (refreshInProgress)
+                return;
+
+            if (e.Item.Tag is RelationshipItem entity)
+            {
+                if (this._lastFilterEntitySelected != null)
+                {
+                    var result = this._lastFilterEntitySelected.Nodes.Find(entity.Relationship.Name, false);
+                    if (e.Item.Checked)
+                    {
+                        if (result == null || result.Length == 0)
+                        {
+                            var p = new ConceptItemRelationship(this._lastFilterEntitySelected.Viewpoint, entity);
+                            this._lastFilterEntitySelected.Nodes.Add(p);
+                        }
+                    }
+                    else
+                    {
+                        if (result != null && result.Length > 0)
+                            this._lastFilterEntitySelected.Nodes.Remove(result[0]);
+                    }
+
+                    if (this._lastFilterEntitySelected.Nodes.Count > 0)
+                        this._lastFilterEntitySelected.Expand();
+
+                }
+            }
+
+        }
+
+
+
+
         private int Count(TreeNode selectedNode)
         {
             int result = selectedNode.Level;
@@ -273,19 +444,11 @@ namespace Bb.Galileo.Viewpoints.Cooperations
         }
 
         private readonly Files.ModelRepository _models;
-        private List<ReferentialEntity> _lastQueryItems;
+        private List<ReferentialEntity> _lastQueryCompositionItems;
+        private List<RelationshipItem> _lastQueryReferenceItems;
         private ConceptItem _lastFilterEntitySelected;
-    }
+        private bool refreshInProgress = false;
 
-
-
-    public class CooperationCheckedItem
-    {
-
-        public ReferentialEntity Item { get; set; }
-
-        public int Level { get; internal set; }
-        public int MaxLevel { get; internal set; }
     }
 
 }

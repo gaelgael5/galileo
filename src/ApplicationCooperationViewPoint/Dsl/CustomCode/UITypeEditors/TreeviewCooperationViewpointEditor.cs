@@ -55,8 +55,8 @@ namespace Bb.ApplicationCooperationViewPoint
                         {
                             foreach (CooperationRelationship sElement in element.Children)
                             {
-                                var itemDef = sElement.GetRelationshipDefinition(this.Referential);
-                                var parentQuery = se.Parent.ReferenceSource.AsQuery();
+                                RelationshipDefinition itemDef = sElement.GetRelationshipDefinition(this.Referential);
+                                ResolveQuery parentQuery = se.Parent.ReferenceSource.AsQuery();
                                 var p = parentQuery.GetReferentials(this.Referential).OfType<ReferentialEntity>().FirstOrDefault();
                                 var children = p.GetTargetEntities(itemDef).ToList();
                                 result.AddRange(GetReferentials(children));
@@ -72,7 +72,7 @@ namespace Bb.ApplicationCooperationViewPoint
                         {
                             foreach (CooperationRelationship sElement in element.Children)
                             {
-                                var itemDef = sElement.GetRelationshipDefinition(this.Referential);
+                                RelationshipDefinition itemDef = sElement.GetRelationshipDefinition(this.Referential);
                                 var parentQuery = ce.Parent.ReferenceSource.AsQuery();
                                 var p = parentQuery.GetReferentials(this.Referential).OfType<ReferentialEntity>().FirstOrDefault();
                                 var children = p.GetTargetEntities(itemDef).ToList();

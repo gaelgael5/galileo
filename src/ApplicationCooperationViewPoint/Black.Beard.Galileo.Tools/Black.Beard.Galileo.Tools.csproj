@@ -71,6 +71,7 @@
     <Compile Include="Viewpoints\Cooperations\ConceptItem.cs" />
     <Compile Include="Viewpoints\Cooperations\ConceptItemEntity.cs" />
     <Compile Include="Viewpoints\Cooperations\ConceptItemRelationship.cs" />
+    <Compile Include="Viewpoints\Cooperations\RelationshipItem.cs" />
     <Compile Include="Viewpoints\Cooperations\SelectReferential.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,7 +161,9 @@
   <ItemGroup>
     <Content Include="Resources\add.ico" />
     <Content Include="Resources\compass.ico" />
+    <Resource Include="Resources\link-24.png" />
     <Content Include="Resources\output-onlinepngtools.png" />
+    <Resource Include="Resources\square.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Newtonsoft.Json\Newtonsoft.Json.csproj">

@@ -219,6 +219,9 @@ namespace Bb.Galileo
                     break;
             }
 
+            if (!prop.Required && prop.Enums.Count() == 0)
+                value.Type = value.Type & JsonObjectType.None;
+
             return value;
 
         }
@@ -300,8 +303,12 @@ namespace Bb.Galileo
             }
 
             if (prop.Enums != null && prop.Enums.Length > 0)
+            {
+
                 foreach (var item in prop.Enums)
                     value.Enumeration.Add(item);
+                            
+            }
 
             //if (prop.Restrictions.Count > 0)
             //{

@@ -1672,7 +1672,7 @@ namespace Bb.ApplicationCooperationViewPoint
 		{
 			get
 			{
-				return new DslDiagrams::SizeD(2, 0.75);
+				return new DslDiagrams::SizeD(2, 0.3);
 			}
 		}
 		#endregion
@@ -1688,14 +1688,18 @@ namespace Bb.ApplicationCooperationViewPoint
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
 			outlinePen.Color = global::System.Drawing.Color.FromArgb(255, 113, 111, 110);
-			outlinePen.Width = 0.01F;
+			outlinePen.Width = 0.006F;
 			classStyleSet.OverridePen(DslDiagrams::DiagramPens.ShapeOutline, outlinePen);
-			// Custom font styles
-			DslDiagrams::FontSettings fontSettings;
-			fontSettings = new DslDiagrams::FontSettings();
-			fontSettings.Style =  global::System.Drawing.FontStyle.Bold ;
-			fontSettings.Size = 14/72.0F;
-			classStyleSet.AddFont(new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextBold14"), DslDiagrams::DiagramFonts.ShapeText, fontSettings);
+			// Fill brush settings for this shape.
+			DslDiagrams::BrushSettings backgroundBrush = new DslDiagrams::BrushSettings();
+			backgroundBrush.Color = global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Green);
+			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ShapeBackground, backgroundBrush);
+		
+			// Text brush settings for this shape.
+			DslDiagrams::BrushSettings textBrush = new DslDiagrams::BrushSettings();
+			textBrush.Color = global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.White);
+			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ShapeText, textBrush);
+		
 		}
 		
 		/// <summary>
@@ -1753,8 +1757,16 @@ namespace Bb.ApplicationCooperationViewPoint
 			field1.AnchoringBehavior.MinimumHeightInLines = 1;
 			field1.AnchoringBehavior.MinimumWidthInCharacters = 1;
 			field1.DefaultAccessibleState = global::System.Windows.Forms.AccessibleStates.Invisible;
-			field1.DefaultFontId = new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextBold14");			
 			shapeFields.Add(field1);
+			
+			DslDiagrams::TextField field2 = new DslDiagrams::TextField("LabelDecorator");
+			field2.DefaultText = global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel.SingletonResourceManager.GetString("RelationshipShapeLabelDecoratorDefaultText");
+			field2.DefaultFocusable = true;
+			field2.DefaultAutoSize = true;
+			field2.AnchoringBehavior.MinimumHeightInLines = 1;
+			field2.AnchoringBehavior.MinimumWidthInCharacters = 1;
+			field2.DefaultAccessibleState = global::System.Windows.Forms.AccessibleStates.Invisible;
+			shapeFields.Add(field2);
 			
 		}
 		
@@ -1768,8 +1780,12 @@ namespace Bb.ApplicationCooperationViewPoint
 			base.InitializeDecorators(shapeFields, decorators);
 			
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "NameDecorator");
-			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopCenter, new DslDiagrams::PointD(0, 0.1));
+			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerMiddleLeft, new DslDiagrams::PointD(0, 0.1));
 			decorators.Add(decorator1);
+				
+			DslDiagrams::ShapeField field2 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "LabelDecorator");
+			DslDiagrams::Decorator decorator2 = new DslDiagrams::ShapeDecorator(field2, DslDiagrams::ShapeDecoratorPosition.Center, DslDiagrams::PointD.Empty);
+			decorators.Add(decorator2);
 				
 		}
 		

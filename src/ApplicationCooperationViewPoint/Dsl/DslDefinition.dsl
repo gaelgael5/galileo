@@ -245,7 +245,7 @@
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="b7c9cb49-d73d-4820-93e5-471e8bf820c0" Description="Description de Bb.ApplicationCooperationViewPoint.Relationship.Type" Name="Type" DisplayName="Type" IsUIReadOnly="true">
+        <DomainProperty Id="b7c9cb49-d73d-4820-93e5-471e8bf820c0" Description="Description de Bb.ApplicationCooperationViewPoint.Relationship.Label" Name="Label" DisplayName="Label" IsUIReadOnly="true">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -350,66 +350,162 @@
         </DomainRole>
       </Target>
     </DomainRelationship>
-    <DomainRelationship Id="820c2cb8-59a2-498f-be37-580b2899fb31" Description="Description de Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship" Name="SubElementReferencesRelationship" DisplayName="Sub Element References Relationship" Namespace="Bb.ApplicationCooperationViewPoint">
+    <DomainRelationship Id="820c2cb8-59a2-498f-be37-580b2899fb31" Description="Description de Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships" Name="SubElementReferencesRightRelationships" DisplayName="Sub Element References Right Relationships" Namespace="Bb.ApplicationCooperationViewPoint">
       <Source>
-        <DomainRole Id="1bc0ce3d-a6f8-424e-9924-267b3646ef84" Description="Description de Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.SubElement" Name="SubElement" DisplayName="Sub Element" PropertyName="Relationship" PropertyDisplayName="Relationship">
+        <DomainRole Id="1bc0ce3d-a6f8-424e-9924-267b3646ef84" Description="Description de Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships.SubElement" Name="SubElement" DisplayName="Sub Element" PropertyName="RightRelationships" PropertyDisplayName="Right Relationships">
           <RolePlayer>
             <DomainClassMoniker Name="SubElement" />
           </RolePlayer>
         </DomainRole>
       </Source>
       <Target>
-        <DomainRole Id="a0bfb131-2213-4886-bdc3-ec22cfae3118" Description="Description de Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.Relationship" Name="Relationship" DisplayName="Relationship" PropertyName="SubElement" PropertyDisplayName="Sub Element">
+        <DomainRole Id="a0bfb131-2213-4886-bdc3-ec22cfae3118" Description="Description de Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships.Relationship" Name="Relationship" DisplayName="Relationship" PropertyName="LeftSubElement" Multiplicity="ZeroOne" PropertyDisplayName="Left Sub Element">
           <RolePlayer>
             <DomainClassMoniker Name="Relationship" />
           </RolePlayer>
         </DomainRole>
       </Target>
     </DomainRelationship>
-    <DomainRelationship Id="929c1a72-faf3-4091-aea2-942e25cc3693" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship" Name="ConceptReferencesRelationship" DisplayName="Concept References Relationship" Namespace="Bb.ApplicationCooperationViewPoint">
+    <DomainRelationship Id="929c1a72-faf3-4091-aea2-942e25cc3693" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships" Name="ConceptReferencesRightRelationships" DisplayName="Concept References Right Relationships" Namespace="Bb.ApplicationCooperationViewPoint">
       <Source>
-        <DomainRole Id="33d7c8d6-bb81-4cfe-8250-0860b7b128af" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.Concept" Name="Concept" DisplayName="Concept" PropertyName="Relationship" PropertyDisplayName="Relationship">
+        <DomainRole Id="33d7c8d6-bb81-4cfe-8250-0860b7b128af" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships.Concept" Name="Concept" DisplayName="Concept" PropertyName="RightRelationships" PropertyDisplayName="Right Relationships">
           <RolePlayer>
             <DomainClassMoniker Name="Concept" />
           </RolePlayer>
         </DomainRole>
       </Source>
       <Target>
-        <DomainRole Id="45fc7239-cc02-40f9-b912-382eca5ab0b7" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.Relationship" Name="Relationship" DisplayName="Relationship" PropertyName="Concept" PropertyDisplayName="Concept">
+        <DomainRole Id="45fc7239-cc02-40f9-b912-382eca5ab0b7" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships.Relationship" Name="Relationship" DisplayName="Relationship" PropertyName="LeftConcept" Multiplicity="ZeroOne" PropertyDisplayName="Left Concept">
           <RolePlayer>
             <DomainClassMoniker Name="Relationship" />
           </RolePlayer>
         </DomainRole>
       </Target>
     </DomainRelationship>
-    <DomainRelationship Id="c8a244dc-37ba-45b6-9bd6-da13e0f09c0f" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship" Name="ConceptElementReferencesRelationship" DisplayName="Concept Element References Relationship" Namespace="Bb.ApplicationCooperationViewPoint">
+    <DomainRelationship Id="c8a244dc-37ba-45b6-9bd6-da13e0f09c0f" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships" Name="ConceptElementReferencesRightRelationships" DisplayName="Concept Element References Right Relationships" Namespace="Bb.ApplicationCooperationViewPoint">
       <Source>
-        <DomainRole Id="cc4d7dac-913b-44fe-84e1-1de45fd2d5de" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.ConceptElement" Name="ConceptElement" DisplayName="Concept Element" PropertyName="Relationship" PropertyDisplayName="Relationship">
+        <DomainRole Id="cc4d7dac-913b-44fe-84e1-1de45fd2d5de" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships.ConceptElement" Name="ConceptElement" DisplayName="Concept Element" PropertyName="RightRelationships" PropertyDisplayName="Right Relationships">
           <RolePlayer>
             <DomainClassMoniker Name="ConceptElement" />
           </RolePlayer>
         </DomainRole>
       </Source>
       <Target>
-        <DomainRole Id="5ff17734-e48c-4251-a9d9-8428a5c081a9" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.Relationship" Name="Relationship" DisplayName="Relationship" PropertyName="ConceptElement" PropertyDisplayName="Concept Element">
+        <DomainRole Id="5ff17734-e48c-4251-a9d9-8428a5c081a9" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships.Relationship" Name="Relationship" DisplayName="Relationship" PropertyName="LeftConceptElement" Multiplicity="ZeroOne" PropertyDisplayName="Left Concept Element">
           <RolePlayer>
             <DomainClassMoniker Name="Relationship" />
           </RolePlayer>
         </DomainRole>
       </Target>
     </DomainRelationship>
-    <DomainRelationship Id="5878e7a2-52ad-499b-88b3-3c17c14e3f4c" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship" Name="ConceptSubElementReferencesRelationship" DisplayName="Concept Sub Element References Relationship" Namespace="Bb.ApplicationCooperationViewPoint">
+    <DomainRelationship Id="5878e7a2-52ad-499b-88b3-3c17c14e3f4c" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships" Name="ConceptSubElementReferencesRightRelationships" DisplayName="Concept Sub Element References Right Relationships" Namespace="Bb.ApplicationCooperationViewPoint">
       <Source>
-        <DomainRole Id="b1fc2ccf-dbf3-418b-ae07-30bd25073503" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.ConceptSubElement" Name="ConceptSubElement" DisplayName="Concept Sub Element" PropertyName="Relationship" PropertyDisplayName="Relationship">
+        <DomainRole Id="b1fc2ccf-dbf3-418b-ae07-30bd25073503" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships.ConceptSubElement" Name="ConceptSubElement" DisplayName="Concept Sub Element" PropertyName="RightRelationships" PropertyDisplayName="Right Relationships">
           <RolePlayer>
             <DomainClassMoniker Name="ConceptSubElement" />
           </RolePlayer>
         </DomainRole>
       </Source>
       <Target>
-        <DomainRole Id="9517762b-beed-48a5-ae52-a1646c940c78" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.Relationship" Name="Relationship" DisplayName="Relationship" PropertyName="ConceptSubElement" PropertyDisplayName="Concept Sub Element">
+        <DomainRole Id="9517762b-beed-48a5-ae52-a1646c940c78" Description="Description de Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships.Relationship" Name="Relationship" DisplayName="Relationship" PropertyName="LeftConceptSubElement" Multiplicity="ZeroOne" PropertyDisplayName="Left Concept Sub Element">
           <RolePlayer>
             <DomainClassMoniker Name="Relationship" />
+          </RolePlayer>
+        </DomainRole>
+      </Target>
+    </DomainRelationship>
+    <DomainRelationship Id="f3f7d5ab-f08d-4def-992e-7c1baeba29bc" Description="Description de Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships" Name="ModelElementReferencesRightRelationships" DisplayName="Model Element References Right Relationships" Namespace="Bb.ApplicationCooperationViewPoint">
+      <Source>
+        <DomainRole Id="9adf2214-ef6c-46af-85f7-b2826b11ce5e" Description="Description de Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships.ModelElement" Name="ModelElement" DisplayName="Model Element" PropertyName="RightRelationships" PropertyDisplayName="Right Relationships">
+          <RolePlayer>
+            <DomainClassMoniker Name="ModelElement" />
+          </RolePlayer>
+        </DomainRole>
+      </Source>
+      <Target>
+        <DomainRole Id="38426125-8550-44b4-b9a9-20b00a924062" Description="Description de Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships.Relationship" Name="Relationship" DisplayName="Relationship" PropertyName="LeftModelElement" Multiplicity="ZeroOne" PropertyDisplayName="Left Model Element">
+          <RolePlayer>
+            <DomainClassMoniker Name="Relationship" />
+          </RolePlayer>
+        </DomainRole>
+      </Target>
+    </DomainRelationship>
+    <DomainRelationship Id="da0dda76-c31d-4fd7-8d0b-616818a37448" Description="Description de Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement" Name="RelationshipReferencesRightModelElement" DisplayName="Relationship References Right Model Element" Namespace="Bb.ApplicationCooperationViewPoint">
+      <Source>
+        <DomainRole Id="26f661c5-fe19-493f-93e4-556f6fe79f3a" Description="Description de Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement.Relationship" Name="Relationship" DisplayName="Relationship" PropertyName="RightModelElement" Multiplicity="ZeroOne" PropertyDisplayName="Right Model Element">
+          <RolePlayer>
+            <DomainClassMoniker Name="Relationship" />
+          </RolePlayer>
+        </DomainRole>
+      </Source>
+      <Target>
+        <DomainRole Id="49b66a88-1c2e-47e2-ba53-c298b1787398" Description="Description de Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement.ModelElement" Name="ModelElement" DisplayName="Model Element" PropertyName="LeftRelationships" PropertyDisplayName="Left Relationships">
+          <RolePlayer>
+            <DomainClassMoniker Name="ModelElement" />
+          </RolePlayer>
+        </DomainRole>
+      </Target>
+    </DomainRelationship>
+    <DomainRelationship Id="2a61d268-9d72-489c-94a2-78fc3be0cf63" Description="Description de Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement" Name="RelationshipReferencesRightSubElement" DisplayName="Relationship References Right Sub Element" Namespace="Bb.ApplicationCooperationViewPoint">
+      <Source>
+        <DomainRole Id="03b8f442-51b5-493d-9f5c-d1a9621590ef" Description="Description de Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement.Relationship" Name="Relationship" DisplayName="Relationship" PropertyName="RightSubElement" Multiplicity="ZeroOne" PropertyDisplayName="Right Sub Element">
+          <RolePlayer>
+            <DomainClassMoniker Name="Relationship" />
+          </RolePlayer>
+        </DomainRole>
+      </Source>
+      <Target>
+        <DomainRole Id="ec450d36-9d80-4f8f-b474-a06cca14a8f9" Description="Description de Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement.SubElement" Name="SubElement" DisplayName="Sub Element" PropertyName="LeftRelationships" PropertyDisplayName="Left Relationships">
+          <RolePlayer>
+            <DomainClassMoniker Name="SubElement" />
+          </RolePlayer>
+        </DomainRole>
+      </Target>
+    </DomainRelationship>
+    <DomainRelationship Id="d977763b-a2bc-4d4a-9b3a-ba88094235d1" Description="Description de Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept" Name="RelationshipReferencesRightConcept" DisplayName="Relationship References Right Concept" Namespace="Bb.ApplicationCooperationViewPoint">
+      <Source>
+        <DomainRole Id="51d60845-b6fd-41c2-a223-f4ebff898505" Description="Description de Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept.Relationship" Name="Relationship" DisplayName="Relationship" PropertyName="RightConcept" Multiplicity="ZeroOne" PropertyDisplayName="Right Concept">
+          <RolePlayer>
+            <DomainClassMoniker Name="Relationship" />
+          </RolePlayer>
+        </DomainRole>
+      </Source>
+      <Target>
+        <DomainRole Id="386bc48c-234b-4b63-acbf-61253eeffb72" Description="Description de Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept.Concept" Name="Concept" DisplayName="Concept" PropertyName="LeftRelationships" PropertyDisplayName="Left Relationships">
+          <RolePlayer>
+            <DomainClassMoniker Name="Concept" />
+          </RolePlayer>
+        </DomainRole>
+      </Target>
+    </DomainRelationship>
+    <DomainRelationship Id="e3ee641d-ee97-42cd-8fab-123e671e38b4" Description="Description de Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement" Name="RelationshipReferencesRightConceptElement" DisplayName="Relationship References Right Concept Element" Namespace="Bb.ApplicationCooperationViewPoint">
+      <Source>
+        <DomainRole Id="2d41e98e-ee0e-452d-bd7a-2f44e45dfe4d" Description="Description de Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement.Relationship" Name="Relationship" DisplayName="Relationship" PropertyName="RightConceptElement" Multiplicity="ZeroOne" PropertyDisplayName="Right Concept Element">
+          <RolePlayer>
+            <DomainClassMoniker Name="Relationship" />
+          </RolePlayer>
+        </DomainRole>
+      </Source>
+      <Target>
+        <DomainRole Id="1169c9ea-c8e9-4c52-b290-391051d557b7" Description="Description de Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement.ConceptElement" Name="ConceptElement" DisplayName="Concept Element" PropertyName="LeftRelationships" PropertyDisplayName="Left Relationships">
+          <RolePlayer>
+            <DomainClassMoniker Name="ConceptElement" />
+          </RolePlayer>
+        </DomainRole>
+      </Target>
+    </DomainRelationship>
+    <DomainRelationship Id="e4d3071a-c375-4661-a772-e6c0b0c717cf" Description="Description de Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement" Name="RelationshipReferencesRightConceptSubElement" DisplayName="Relationship References Right Concept Sub Element" Namespace="Bb.ApplicationCooperationViewPoint">
+      <Source>
+        <DomainRole Id="1c1b4e46-f10a-47c8-b818-18e079d4b615" Description="Description de Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement.Relationship" Name="Relationship" DisplayName="Relationship" PropertyName="RightConceptSubElement" Multiplicity="ZeroOne" PropertyDisplayName="Right Concept Sub Element">
+          <RolePlayer>
+            <DomainClassMoniker Name="Relationship" />
+          </RolePlayer>
+        </DomainRole>
+      </Source>
+      <Target>
+        <DomainRole Id="b9db7f46-b580-432d-8405-89f3cc1322b8" Description="Description de Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement.ConceptSubElement" Name="ConceptSubElement" DisplayName="Concept Sub Element" PropertyName="LeftRelationships" PropertyDisplayName="Left Relationships">
+          <RolePlayer>
+            <DomainClassMoniker Name="ConceptSubElement" />
           </RolePlayer>
         </DomainRole>
       </Target>
@@ -477,13 +573,20 @@
         <TextDecorator Name="TypeDecorator" DisplayName="Type Decorator" DefaultText="TypeDecorator" FontStyle="Italic" FontSize="7" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="4ba97606-cdb3-4522-be6a-f80ca1dc9b14" Description="Shape used to represent ExampleElements on a Diagram." Name="RelationshipShape" DisplayName="Relationship Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true" FixedTooltipText="Relationship Shape" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineThickness="0.01" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="Rectangle">
+    <GeometryShape Id="4ba97606-cdb3-4522-be6a-f80ca1dc9b14" Description="Shape used to represent ExampleElements on a Diagram." Name="RelationshipShape" DisplayName="Relationship Shape" Namespace="Bb.ApplicationCooperationViewPoint" HasCustomConstructor="true" GeneratesDoubleDerived="true" FixedTooltipText="Relationship Shape" TextColor="White" FillColor="Green" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.3" OutlineThickness="0.006" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="Rectangle">
       <Notes>The shape has a text decorator used to display the Name property of the mapped ExampleElement.</Notes>
-      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0.1">
-        <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontStyle="Bold" FontSize="14" />
+      <ShapeHasDecorators Position="InnerMiddleLeft" HorizontalOffset="0" VerticalOffset="0.1">
+        <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" />
+      </ShapeHasDecorators>
+      <ShapeHasDecorators Position="Center" HorizontalOffset="0" VerticalOffset="0">
+        <TextDecorator Name="LabelDecorator" DisplayName="Label Decorator" DefaultText="LabelDecorator" />
       </ShapeHasDecorators>
     </GeometryShape>
   </Shapes>
+  <Connectors>
+    <Connector Id="c83e0401-57de-41d2-a758-62e2f5283ae4" Description="Description de Bb.ApplicationCooperationViewPoint.TargetConnector" Name="TargetConnector" DisplayName="Target Connector" Namespace="Bb.ApplicationCooperationViewPoint" FixedTooltipText="Target Connector" TargetEndStyle="FilledArrow" />
+    <Connector Id="67bf83a3-b3c0-4c85-8dec-264330f71dd6" Description="Description de Bb.ApplicationCooperationViewPoint.OriginConnector" Name="OriginConnector" DisplayName="Origin Connector" Namespace="Bb.ApplicationCooperationViewPoint" FixedTooltipText="OriginConnector" />
+  </Connectors>
   <XmlSerializationBehavior Name="ApplicationCooperationViewPointSerializationBehavior" Namespace="Bb.ApplicationCooperationViewPoint">
     <ClassData>
       <XmlClassData TypeName="Model" MonikerAttributeName="" SerializeId="true" MonikerElementName="modelMoniker" ElementName="model" MonikerTypeName="ModelMoniker">
@@ -527,6 +630,9 @@
           <XmlPropertyData XmlName="showMenu" Representation="Ignore">
             <DomainPropertyMoniker Name="ModelElement/ShowMenu" />
           </XmlPropertyData>
+          <XmlRelationshipData UseFullForm="true" RoleElementName="rightRelationships">
+            <DomainRelationshipMoniker Name="ModelElementReferencesRightRelationships" />
+          </XmlRelationshipData>
         </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="ModelHasElements" MonikerAttributeName="" SerializeId="true" MonikerElementName="modelHasElementsMoniker" ElementName="modelHasElements" MonikerTypeName="ModelHasElementsMoniker">
@@ -553,8 +659,8 @@
           <XmlPropertyData XmlName="name">
             <DomainPropertyMoniker Name="SubElement/Name" />
           </XmlPropertyData>
-          <XmlRelationshipData UseFullForm="true" RoleElementName="relationship">
-            <DomainRelationshipMoniker Name="SubElementReferencesRelationship" />
+          <XmlRelationshipData UseFullForm="true" RoleElementName="rightRelationships">
+            <DomainRelationshipMoniker Name="SubElementReferencesRightRelationships" />
           </XmlRelationshipData>
         </ElementData>
       </XmlClassData>
@@ -573,8 +679,8 @@
           <XmlPropertyData XmlName="name">
             <DomainPropertyMoniker Name="Concept/Name" />
           </XmlPropertyData>
-          <XmlRelationshipData UseFullForm="true" RoleElementName="relationship">
-            <DomainRelationshipMoniker Name="ConceptReferencesRelationship" />
+          <XmlRelationshipData UseFullForm="true" RoleElementName="rightRelationships">
+            <DomainRelationshipMoniker Name="ConceptReferencesRightRelationships" />
           </XmlRelationshipData>
           <XmlPropertyData XmlName="type">
             <DomainPropertyMoniker Name="Concept/Type" />
@@ -602,8 +708,8 @@
           <XmlPropertyData XmlName="name">
             <DomainPropertyMoniker Name="ConceptElement/Name" />
           </XmlPropertyData>
-          <XmlRelationshipData UseFullForm="true" RoleElementName="relationship">
-            <DomainRelationshipMoniker Name="ConceptElementReferencesRelationship" />
+          <XmlRelationshipData UseFullForm="true" RoleElementName="rightRelationships">
+            <DomainRelationshipMoniker Name="ConceptElementReferencesRightRelationships" />
           </XmlRelationshipData>
         </ElementData>
       </XmlClassData>
@@ -625,8 +731,8 @@
           <XmlPropertyData XmlName="name">
             <DomainPropertyMoniker Name="ConceptSubElement/Name" />
           </XmlPropertyData>
-          <XmlRelationshipData UseFullForm="true" RoleElementName="relationship">
-            <DomainRelationshipMoniker Name="ConceptSubElementReferencesRelationship" />
+          <XmlRelationshipData UseFullForm="true" RoleElementName="rightRelationships">
+            <DomainRelationshipMoniker Name="ConceptSubElementReferencesRightRelationships" />
           </XmlRelationshipData>
         </ElementData>
       </XmlClassData>
@@ -645,9 +751,24 @@
           <XmlPropertyData XmlName="name">
             <DomainPropertyMoniker Name="Relationship/Name" />
           </XmlPropertyData>
-          <XmlPropertyData XmlName="type">
-            <DomainPropertyMoniker Name="Relationship/Type" />
+          <XmlPropertyData XmlName="label">
+            <DomainPropertyMoniker Name="Relationship/Label" />
           </XmlPropertyData>
+          <XmlRelationshipData UseFullForm="true" RoleElementName="rightModelElement">
+            <DomainRelationshipMoniker Name="RelationshipReferencesRightModelElement" />
+          </XmlRelationshipData>
+          <XmlRelationshipData UseFullForm="true" RoleElementName="rightSubElement">
+            <DomainRelationshipMoniker Name="RelationshipReferencesRightSubElement" />
+          </XmlRelationshipData>
+          <XmlRelationshipData UseFullForm="true" RoleElementName="rightConcept">
+            <DomainRelationshipMoniker Name="RelationshipReferencesRightConcept" />
+          </XmlRelationshipData>
+          <XmlRelationshipData UseFullForm="true" RoleElementName="rightConceptElement">
+            <DomainRelationshipMoniker Name="RelationshipReferencesRightConceptElement" />
+          </XmlRelationshipData>
+          <XmlRelationshipData UseFullForm="true" RoleElementName="rightConceptSubElement">
+            <DomainRelationshipMoniker Name="RelationshipReferencesRightConceptSubElement" />
+          </XmlRelationshipData>
         </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="ModelHasRelationships" MonikerAttributeName="" SerializeId="true" MonikerElementName="modelHasRelationshipsMoniker" ElementName="modelHasRelationships" MonikerTypeName="ModelHasRelationshipsMoniker">
@@ -656,17 +777,41 @@
       <XmlClassData TypeName="RelationshipShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="relationshipShapeMoniker" ElementName="relationshipShape" MonikerTypeName="RelationshipShapeMoniker">
         <GeometryShapeMoniker Name="RelationshipShape" />
       </XmlClassData>
-      <XmlClassData TypeName="SubElementReferencesRelationship" MonikerAttributeName="" SerializeId="true" MonikerElementName="subElementReferencesRelationshipMoniker" ElementName="subElementReferencesRelationship" MonikerTypeName="SubElementReferencesRelationshipMoniker">
-        <DomainRelationshipMoniker Name="SubElementReferencesRelationship" />
+      <XmlClassData TypeName="SubElementReferencesRightRelationships" MonikerAttributeName="" SerializeId="true" MonikerElementName="subElementReferencesRightRelationshipsMoniker" ElementName="subElementReferencesRightRelationships" MonikerTypeName="SubElementReferencesRightRelationshipsMoniker">
+        <DomainRelationshipMoniker Name="SubElementReferencesRightRelationships" />
       </XmlClassData>
-      <XmlClassData TypeName="ConceptReferencesRelationship" MonikerAttributeName="" SerializeId="true" MonikerElementName="conceptReferencesRelationshipMoniker" ElementName="conceptReferencesRelationship" MonikerTypeName="ConceptReferencesRelationshipMoniker">
-        <DomainRelationshipMoniker Name="ConceptReferencesRelationship" />
+      <XmlClassData TypeName="ConceptReferencesRightRelationships" MonikerAttributeName="" SerializeId="true" MonikerElementName="conceptReferencesRightRelationshipsMoniker" ElementName="conceptReferencesRightRelationships" MonikerTypeName="ConceptReferencesRightRelationshipsMoniker">
+        <DomainRelationshipMoniker Name="ConceptReferencesRightRelationships" />
       </XmlClassData>
-      <XmlClassData TypeName="ConceptElementReferencesRelationship" MonikerAttributeName="" SerializeId="true" MonikerElementName="conceptElementReferencesRelationshipMoniker" ElementName="conceptElementReferencesRelationship" MonikerTypeName="ConceptElementReferencesRelationshipMoniker">
-        <DomainRelationshipMoniker Name="ConceptElementReferencesRelationship" />
+      <XmlClassData TypeName="ConceptElementReferencesRightRelationships" MonikerAttributeName="" SerializeId="true" MonikerElementName="conceptElementReferencesRightRelationshipsMoniker" ElementName="conceptElementReferencesRightRelationships" MonikerTypeName="ConceptElementReferencesRightRelationshipsMoniker">
+        <DomainRelationshipMoniker Name="ConceptElementReferencesRightRelationships" />
       </XmlClassData>
-      <XmlClassData TypeName="ConceptSubElementReferencesRelationship" MonikerAttributeName="" SerializeId="true" MonikerElementName="conceptSubElementReferencesRelationshipMoniker" ElementName="conceptSubElementReferencesRelationship" MonikerTypeName="ConceptSubElementReferencesRelationshipMoniker">
-        <DomainRelationshipMoniker Name="ConceptSubElementReferencesRelationship" />
+      <XmlClassData TypeName="ConceptSubElementReferencesRightRelationships" MonikerAttributeName="" SerializeId="true" MonikerElementName="conceptSubElementReferencesRightRelationshipsMoniker" ElementName="conceptSubElementReferencesRightRelationships" MonikerTypeName="ConceptSubElementReferencesRightRelationshipsMoniker">
+        <DomainRelationshipMoniker Name="ConceptSubElementReferencesRightRelationships" />
+      </XmlClassData>
+      <XmlClassData TypeName="ModelElementReferencesRightRelationships" MonikerAttributeName="" SerializeId="true" MonikerElementName="modelElementReferencesRightRelationshipsMoniker" ElementName="modelElementReferencesRightRelationships" MonikerTypeName="ModelElementReferencesRightRelationshipsMoniker">
+        <DomainRelationshipMoniker Name="ModelElementReferencesRightRelationships" />
+      </XmlClassData>
+      <XmlClassData TypeName="TargetConnector" MonikerAttributeName="" SerializeId="true" MonikerElementName="targetConnectorMoniker" ElementName="targetConnector" MonikerTypeName="TargetConnectorMoniker">
+        <ConnectorMoniker Name="TargetConnector" />
+      </XmlClassData>
+      <XmlClassData TypeName="RelationshipReferencesRightModelElement" MonikerAttributeName="" SerializeId="true" MonikerElementName="relationshipReferencesRightModelElementMoniker" ElementName="relationshipReferencesRightModelElement" MonikerTypeName="RelationshipReferencesRightModelElementMoniker">
+        <DomainRelationshipMoniker Name="RelationshipReferencesRightModelElement" />
+      </XmlClassData>
+      <XmlClassData TypeName="RelationshipReferencesRightSubElement" MonikerAttributeName="" SerializeId="true" MonikerElementName="relationshipReferencesRightSubElementMoniker" ElementName="relationshipReferencesRightSubElement" MonikerTypeName="RelationshipReferencesRightSubElementMoniker">
+        <DomainRelationshipMoniker Name="RelationshipReferencesRightSubElement" />
+      </XmlClassData>
+      <XmlClassData TypeName="RelationshipReferencesRightConcept" MonikerAttributeName="" SerializeId="true" MonikerElementName="relationshipReferencesRightConceptMoniker" ElementName="relationshipReferencesRightConcept" MonikerTypeName="RelationshipReferencesRightConceptMoniker">
+        <DomainRelationshipMoniker Name="RelationshipReferencesRightConcept" />
+      </XmlClassData>
+      <XmlClassData TypeName="RelationshipReferencesRightConceptElement" MonikerAttributeName="" SerializeId="true" MonikerElementName="relationshipReferencesRightConceptElementMoniker" ElementName="relationshipReferencesRightConceptElement" MonikerTypeName="RelationshipReferencesRightConceptElementMoniker">
+        <DomainRelationshipMoniker Name="RelationshipReferencesRightConceptElement" />
+      </XmlClassData>
+      <XmlClassData TypeName="RelationshipReferencesRightConceptSubElement" MonikerAttributeName="" SerializeId="true" MonikerElementName="relationshipReferencesRightConceptSubElementMoniker" ElementName="relationshipReferencesRightConceptSubElement" MonikerTypeName="RelationshipReferencesRightConceptSubElementMoniker">
+        <DomainRelationshipMoniker Name="RelationshipReferencesRightConceptSubElement" />
+      </XmlClassData>
+      <XmlClassData TypeName="OriginConnector" MonikerAttributeName="" SerializeId="true" MonikerElementName="originConnectorMoniker" ElementName="originConnector" MonikerTypeName="OriginConnectorMoniker">
+        <ConnectorMoniker Name="OriginConnector" />
       </XmlClassData>
     </ClassData>
   </XmlSerializationBehavior>
@@ -730,9 +875,9 @@
     </CustomNodeSettings>
   </ExplorerBehavior>
   <ConnectionBuilders>
-    <ConnectionBuilder Name="SubElementReferencesRelationshipBuilder">
+    <ConnectionBuilder Name="SubElementReferencesRightRelationshipsBuilder">
       <LinkConnectDirective>
-        <DomainRelationshipMoniker Name="SubElementReferencesRelationship" />
+        <DomainRelationshipMoniker Name="SubElementReferencesRightRelationships" />
         <SourceDirectives>
           <RolePlayerConnectDirective>
             <AcceptingClass>
@@ -749,9 +894,9 @@
         </TargetDirectives>
       </LinkConnectDirective>
     </ConnectionBuilder>
-    <ConnectionBuilder Name="ConceptReferencesRelationshipBuilder">
+    <ConnectionBuilder Name="ConceptReferencesRightRelationshipsBuilder">
       <LinkConnectDirective>
-        <DomainRelationshipMoniker Name="ConceptReferencesRelationship" />
+        <DomainRelationshipMoniker Name="ConceptReferencesRightRelationships" />
         <SourceDirectives>
           <RolePlayerConnectDirective>
             <AcceptingClass>
@@ -768,9 +913,9 @@
         </TargetDirectives>
       </LinkConnectDirective>
     </ConnectionBuilder>
-    <ConnectionBuilder Name="ConceptElementReferencesRelationshipBuilder">
+    <ConnectionBuilder Name="ConceptElementReferencesRightRelationshipsBuilder">
       <LinkConnectDirective>
-        <DomainRelationshipMoniker Name="ConceptElementReferencesRelationship" />
+        <DomainRelationshipMoniker Name="ConceptElementReferencesRightRelationships" />
         <SourceDirectives>
           <RolePlayerConnectDirective>
             <AcceptingClass>
@@ -787,9 +932,9 @@
         </TargetDirectives>
       </LinkConnectDirective>
     </ConnectionBuilder>
-    <ConnectionBuilder Name="ConceptSubElementReferencesRelationshipBuilder">
+    <ConnectionBuilder Name="ConceptSubElementReferencesRightRelationshipsBuilder">
       <LinkConnectDirective>
-        <DomainRelationshipMoniker Name="ConceptSubElementReferencesRelationship" />
+        <DomainRelationshipMoniker Name="ConceptSubElementReferencesRightRelationships" />
         <SourceDirectives>
           <RolePlayerConnectDirective>
             <AcceptingClass>
@@ -801,6 +946,120 @@
           <RolePlayerConnectDirective>
             <AcceptingClass>
               <DomainClassMoniker Name="Relationship" />
+            </AcceptingClass>
+          </RolePlayerConnectDirective>
+        </TargetDirectives>
+      </LinkConnectDirective>
+    </ConnectionBuilder>
+    <ConnectionBuilder Name="ModelElementReferencesRightRelationshipsBuilder">
+      <LinkConnectDirective>
+        <DomainRelationshipMoniker Name="ModelElementReferencesRightRelationships" />
+        <SourceDirectives>
+          <RolePlayerConnectDirective>
+            <AcceptingClass>
+              <DomainClassMoniker Name="ModelElement" />
+            </AcceptingClass>
+          </RolePlayerConnectDirective>
+        </SourceDirectives>
+        <TargetDirectives>
+          <RolePlayerConnectDirective>
+            <AcceptingClass>
+              <DomainClassMoniker Name="Relationship" />
+            </AcceptingClass>
+          </RolePlayerConnectDirective>
+        </TargetDirectives>
+      </LinkConnectDirective>
+    </ConnectionBuilder>
+    <ConnectionBuilder Name="RelationshipReferencesRightModelElementBuilder">
+      <LinkConnectDirective>
+        <DomainRelationshipMoniker Name="RelationshipReferencesRightModelElement" />
+        <SourceDirectives>
+          <RolePlayerConnectDirective>
+            <AcceptingClass>
+              <DomainClassMoniker Name="Relationship" />
+            </AcceptingClass>
+          </RolePlayerConnectDirective>
+        </SourceDirectives>
+        <TargetDirectives>
+          <RolePlayerConnectDirective>
+            <AcceptingClass>
+              <DomainClassMoniker Name="ModelElement" />
+            </AcceptingClass>
+          </RolePlayerConnectDirective>
+        </TargetDirectives>
+      </LinkConnectDirective>
+    </ConnectionBuilder>
+    <ConnectionBuilder Name="RelationshipReferencesRightSubElementBuilder">
+      <LinkConnectDirective>
+        <DomainRelationshipMoniker Name="RelationshipReferencesRightSubElement" />
+        <SourceDirectives>
+          <RolePlayerConnectDirective>
+            <AcceptingClass>
+              <DomainClassMoniker Name="Relationship" />
+            </AcceptingClass>
+          </RolePlayerConnectDirective>
+        </SourceDirectives>
+        <TargetDirectives>
+          <RolePlayerConnectDirective>
+            <AcceptingClass>
+              <DomainClassMoniker Name="SubElement" />
+            </AcceptingClass>
+          </RolePlayerConnectDirective>
+        </TargetDirectives>
+      </LinkConnectDirective>
+    </ConnectionBuilder>
+    <ConnectionBuilder Name="RelationshipReferencesRightConceptBuilder">
+      <LinkConnectDirective>
+        <DomainRelationshipMoniker Name="RelationshipReferencesRightConcept" />
+        <SourceDirectives>
+          <RolePlayerConnectDirective>
+            <AcceptingClass>
+              <DomainClassMoniker Name="Relationship" />
+            </AcceptingClass>
+          </RolePlayerConnectDirective>
+        </SourceDirectives>
+        <TargetDirectives>
+          <RolePlayerConnectDirective>
+            <AcceptingClass>
+              <DomainClassMoniker Name="Concept" />
+            </AcceptingClass>
+          </RolePlayerConnectDirective>
+        </TargetDirectives>
+      </LinkConnectDirective>
+    </ConnectionBuilder>
+    <ConnectionBuilder Name="RelationshipReferencesRightConceptElementBuilder">
+      <LinkConnectDirective>
+        <DomainRelationshipMoniker Name="RelationshipReferencesRightConceptElement" />
+        <SourceDirectives>
+          <RolePlayerConnectDirective>
+            <AcceptingClass>
+              <DomainClassMoniker Name="Relationship" />
+            </AcceptingClass>
+          </RolePlayerConnectDirective>
+        </SourceDirectives>
+        <TargetDirectives>
+          <RolePlayerConnectDirective>
+            <AcceptingClass>
+              <DomainClassMoniker Name="ConceptElement" />
+            </AcceptingClass>
+          </RolePlayerConnectDirective>
+        </TargetDirectives>
+      </LinkConnectDirective>
+    </ConnectionBuilder>
+    <ConnectionBuilder Name="RelationshipReferencesRightConceptSubElementBuilder">
+      <LinkConnectDirective>
+        <DomainRelationshipMoniker Name="RelationshipReferencesRightConceptSubElement" />
+        <SourceDirectives>
+          <RolePlayerConnectDirective>
+            <AcceptingClass>
+              <DomainClassMoniker Name="Relationship" />
+            </AcceptingClass>
+          </RolePlayerConnectDirective>
+        </SourceDirectives>
+        <TargetDirectives>
+          <RolePlayerConnectDirective>
+            <AcceptingClass>
+              <DomainClassMoniker Name="ConceptSubElement" />
             </AcceptingClass>
           </RolePlayerConnectDirective>
         </TargetDirectives>
@@ -948,9 +1207,55 @@
             </PropertyPath>
           </PropertyDisplayed>
         </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="RelationshipShape/LabelDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Relationship/Label" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
         <GeometryShapeMoniker Name="RelationshipShape" />
       </ShapeMap>
     </ShapeMaps>
+    <ConnectorMaps>
+      <ConnectorMap>
+        <ConnectorMoniker Name="TargetConnector" />
+        <DomainRelationshipMoniker Name="RelationshipReferencesRightModelElement" />
+      </ConnectorMap>
+      <ConnectorMap>
+        <ConnectorMoniker Name="TargetConnector" />
+        <DomainRelationshipMoniker Name="RelationshipReferencesRightConcept" />
+      </ConnectorMap>
+      <ConnectorMap>
+        <ConnectorMoniker Name="TargetConnector" />
+        <DomainRelationshipMoniker Name="RelationshipReferencesRightConceptElement" />
+      </ConnectorMap>
+      <ConnectorMap>
+        <ConnectorMoniker Name="TargetConnector" />
+        <DomainRelationshipMoniker Name="RelationshipReferencesRightConceptSubElement" />
+      </ConnectorMap>
+      <ConnectorMap>
+        <ConnectorMoniker Name="OriginConnector" />
+        <DomainRelationshipMoniker Name="ModelElementReferencesRightRelationships" />
+      </ConnectorMap>
+      <ConnectorMap>
+        <ConnectorMoniker Name="OriginConnector" />
+        <DomainRelationshipMoniker Name="SubElementReferencesRightRelationships" />
+      </ConnectorMap>
+      <ConnectorMap>
+        <ConnectorMoniker Name="OriginConnector" />
+        <DomainRelationshipMoniker Name="ConceptReferencesRightRelationships" />
+      </ConnectorMap>
+      <ConnectorMap>
+        <ConnectorMoniker Name="OriginConnector" />
+        <DomainRelationshipMoniker Name="ConceptElementReferencesRightRelationships" />
+      </ConnectorMap>
+      <ConnectorMap>
+        <ConnectorMoniker Name="OriginConnector" />
+        <DomainRelationshipMoniker Name="ConceptSubElementReferencesRightRelationships" />
+      </ConnectorMap>
+    </ConnectorMaps>
   </Diagram>
   <Designer CopyPasteGeneration="CopyPasteOnly" FileExtension="covp" EditorGuid="d430d989-356e-4935-8012-a5020680189a">
     <RootClass>

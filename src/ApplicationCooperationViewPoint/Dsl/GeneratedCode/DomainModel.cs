@@ -80,11 +80,19 @@ namespace Bb.ApplicationCooperationViewPoint
 				typeof(ConceptHasChildren),
 				typeof(ConceptElementHasChildren),
 				typeof(ModelHasRelationships),
-				typeof(SubElementReferencesRelationship),
-				typeof(ConceptReferencesRelationship),
-				typeof(ConceptElementReferencesRelationship),
-				typeof(ConceptSubElementReferencesRelationship),
+				typeof(SubElementReferencesRightRelationships),
+				typeof(ConceptReferencesRightRelationships),
+				typeof(ConceptElementReferencesRightRelationships),
+				typeof(ConceptSubElementReferencesRightRelationships),
+				typeof(ModelElementReferencesRightRelationships),
+				typeof(RelationshipReferencesRightModelElement),
+				typeof(RelationshipReferencesRightSubElement),
+				typeof(RelationshipReferencesRightConcept),
+				typeof(RelationshipReferencesRightConceptElement),
+				typeof(RelationshipReferencesRightConceptSubElement),
 				typeof(CooperationViewPointDiagram),
+				typeof(TargetConnector),
+				typeof(OriginConnector),
 				typeof(CooperationShape),
 				typeof(CooperationSubShape),
 				typeof(ConceptShape),
@@ -92,6 +100,7 @@ namespace Bb.ApplicationCooperationViewPoint
 				typeof(ConceptSubElementShape),
 				typeof(RelationshipShape),
 				typeof(global::Bb.ApplicationCooperationViewPoint.FixUpDiagram),
+				typeof(global::Bb.ApplicationCooperationViewPoint.ConnectorRolePlayerChanged),
 			};
 		}
 		/// <summary>
@@ -124,7 +133,7 @@ namespace Bb.ApplicationCooperationViewPoint
 				new DomainMemberInfo(typeof(ConceptSubElement), "Name", ConceptSubElement.NameDomainPropertyId, typeof(ConceptSubElement.NamePropertyHandler)),
 				new DomainMemberInfo(typeof(Relationship), "ReferenceSource", Relationship.ReferenceSourceDomainPropertyId, typeof(Relationship.ReferenceSourcePropertyHandler)),
 				new DomainMemberInfo(typeof(Relationship), "Name", Relationship.NameDomainPropertyId, typeof(Relationship.NamePropertyHandler)),
-				new DomainMemberInfo(typeof(Relationship), "Type", Relationship.TypeDomainPropertyId, typeof(Relationship.TypePropertyHandler)),
+				new DomainMemberInfo(typeof(Relationship), "Label", Relationship.LabelDomainPropertyId, typeof(Relationship.LabelPropertyHandler)),
 			};
 		}
 		/// <summary>
@@ -147,14 +156,26 @@ namespace Bb.ApplicationCooperationViewPoint
 				new DomainRolePlayerInfo(typeof(ConceptElementHasChildren), "ConceptSubElement", ConceptElementHasChildren.ConceptSubElementDomainRoleId),
 				new DomainRolePlayerInfo(typeof(ModelHasRelationships), "Model", ModelHasRelationships.ModelDomainRoleId),
 				new DomainRolePlayerInfo(typeof(ModelHasRelationships), "Relationship", ModelHasRelationships.RelationshipDomainRoleId),
-				new DomainRolePlayerInfo(typeof(SubElementReferencesRelationship), "SubElement", SubElementReferencesRelationship.SubElementDomainRoleId),
-				new DomainRolePlayerInfo(typeof(SubElementReferencesRelationship), "Relationship", SubElementReferencesRelationship.RelationshipDomainRoleId),
-				new DomainRolePlayerInfo(typeof(ConceptReferencesRelationship), "Concept", ConceptReferencesRelationship.ConceptDomainRoleId),
-				new DomainRolePlayerInfo(typeof(ConceptReferencesRelationship), "Relationship", ConceptReferencesRelationship.RelationshipDomainRoleId),
-				new DomainRolePlayerInfo(typeof(ConceptElementReferencesRelationship), "ConceptElement", ConceptElementReferencesRelationship.ConceptElementDomainRoleId),
-				new DomainRolePlayerInfo(typeof(ConceptElementReferencesRelationship), "Relationship", ConceptElementReferencesRelationship.RelationshipDomainRoleId),
-				new DomainRolePlayerInfo(typeof(ConceptSubElementReferencesRelationship), "ConceptSubElement", ConceptSubElementReferencesRelationship.ConceptSubElementDomainRoleId),
-				new DomainRolePlayerInfo(typeof(ConceptSubElementReferencesRelationship), "Relationship", ConceptSubElementReferencesRelationship.RelationshipDomainRoleId),
+				new DomainRolePlayerInfo(typeof(SubElementReferencesRightRelationships), "SubElement", SubElementReferencesRightRelationships.SubElementDomainRoleId),
+				new DomainRolePlayerInfo(typeof(SubElementReferencesRightRelationships), "Relationship", SubElementReferencesRightRelationships.RelationshipDomainRoleId),
+				new DomainRolePlayerInfo(typeof(ConceptReferencesRightRelationships), "Concept", ConceptReferencesRightRelationships.ConceptDomainRoleId),
+				new DomainRolePlayerInfo(typeof(ConceptReferencesRightRelationships), "Relationship", ConceptReferencesRightRelationships.RelationshipDomainRoleId),
+				new DomainRolePlayerInfo(typeof(ConceptElementReferencesRightRelationships), "ConceptElement", ConceptElementReferencesRightRelationships.ConceptElementDomainRoleId),
+				new DomainRolePlayerInfo(typeof(ConceptElementReferencesRightRelationships), "Relationship", ConceptElementReferencesRightRelationships.RelationshipDomainRoleId),
+				new DomainRolePlayerInfo(typeof(ConceptSubElementReferencesRightRelationships), "ConceptSubElement", ConceptSubElementReferencesRightRelationships.ConceptSubElementDomainRoleId),
+				new DomainRolePlayerInfo(typeof(ConceptSubElementReferencesRightRelationships), "Relationship", ConceptSubElementReferencesRightRelationships.RelationshipDomainRoleId),
+				new DomainRolePlayerInfo(typeof(ModelElementReferencesRightRelationships), "ModelElement", ModelElementReferencesRightRelationships.ModelElementDomainRoleId),
+				new DomainRolePlayerInfo(typeof(ModelElementReferencesRightRelationships), "Relationship", ModelElementReferencesRightRelationships.RelationshipDomainRoleId),
+				new DomainRolePlayerInfo(typeof(RelationshipReferencesRightModelElement), "Relationship", RelationshipReferencesRightModelElement.RelationshipDomainRoleId),
+				new DomainRolePlayerInfo(typeof(RelationshipReferencesRightModelElement), "ModelElement", RelationshipReferencesRightModelElement.ModelElementDomainRoleId),
+				new DomainRolePlayerInfo(typeof(RelationshipReferencesRightSubElement), "Relationship", RelationshipReferencesRightSubElement.RelationshipDomainRoleId),
+				new DomainRolePlayerInfo(typeof(RelationshipReferencesRightSubElement), "SubElement", RelationshipReferencesRightSubElement.SubElementDomainRoleId),
+				new DomainRolePlayerInfo(typeof(RelationshipReferencesRightConcept), "Relationship", RelationshipReferencesRightConcept.RelationshipDomainRoleId),
+				new DomainRolePlayerInfo(typeof(RelationshipReferencesRightConcept), "Concept", RelationshipReferencesRightConcept.ConceptDomainRoleId),
+				new DomainRolePlayerInfo(typeof(RelationshipReferencesRightConceptElement), "Relationship", RelationshipReferencesRightConceptElement.RelationshipDomainRoleId),
+				new DomainRolePlayerInfo(typeof(RelationshipReferencesRightConceptElement), "ConceptElement", RelationshipReferencesRightConceptElement.ConceptElementDomainRoleId),
+				new DomainRolePlayerInfo(typeof(RelationshipReferencesRightConceptSubElement), "Relationship", RelationshipReferencesRightConceptSubElement.RelationshipDomainRoleId),
+				new DomainRolePlayerInfo(typeof(RelationshipReferencesRightConceptSubElement), "ConceptSubElement", RelationshipReferencesRightConceptSubElement.ConceptSubElementDomainRoleId),
 			};
 		}
 		#endregion
@@ -176,7 +197,7 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 			if (createElementMap == null)
 			{
-				createElementMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(14);
+				createElementMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(16);
 				createElementMap.Add(typeof(Model), 0);
 				createElementMap.Add(typeof(ModelElement), 1);
 				createElementMap.Add(typeof(SubElement), 2);
@@ -185,12 +206,14 @@ namespace Bb.ApplicationCooperationViewPoint
 				createElementMap.Add(typeof(ConceptSubElement), 5);
 				createElementMap.Add(typeof(Relationship), 6);
 				createElementMap.Add(typeof(CooperationViewPointDiagram), 7);
-				createElementMap.Add(typeof(CooperationShape), 8);
-				createElementMap.Add(typeof(CooperationSubShape), 9);
-				createElementMap.Add(typeof(ConceptShape), 10);
-				createElementMap.Add(typeof(ConceptElementShape), 11);
-				createElementMap.Add(typeof(ConceptSubElementShape), 12);
-				createElementMap.Add(typeof(RelationshipShape), 13);
+				createElementMap.Add(typeof(TargetConnector), 8);
+				createElementMap.Add(typeof(OriginConnector), 9);
+				createElementMap.Add(typeof(CooperationShape), 10);
+				createElementMap.Add(typeof(CooperationSubShape), 11);
+				createElementMap.Add(typeof(ConceptShape), 12);
+				createElementMap.Add(typeof(ConceptElementShape), 13);
+				createElementMap.Add(typeof(ConceptSubElementShape), 14);
+				createElementMap.Add(typeof(RelationshipShape), 15);
 			}
 			int index;
 			if (!createElementMap.TryGetValue(elementType, out index))
@@ -226,24 +249,26 @@ namespace Bb.ApplicationCooperationViewPoint
 				// A constructor was not generated for CooperationViewPointDiagram because it had HasCustomConstructor
 				// set to true. Please provide the constructor below.
 				case 7: return new CooperationViewPointDiagram(partition, propertyAssignments);
+				case 8: return new TargetConnector(partition, propertyAssignments);
+				case 9: return new OriginConnector(partition, propertyAssignments);
 				// A constructor was not generated for CooperationShape because it had HasCustomConstructor
 				// set to true. Please provide the constructor below.
-				case 8: return new CooperationShape(partition, propertyAssignments);
+				case 10: return new CooperationShape(partition, propertyAssignments);
 				// A constructor was not generated for CooperationSubShape because it had HasCustomConstructor
 				// set to true. Please provide the constructor below.
-				case 9: return new CooperationSubShape(partition, propertyAssignments);
+				case 11: return new CooperationSubShape(partition, propertyAssignments);
 				// A constructor was not generated for ConceptShape because it had HasCustomConstructor
 				// set to true. Please provide the constructor below.
-				case 10: return new ConceptShape(partition, propertyAssignments);
+				case 12: return new ConceptShape(partition, propertyAssignments);
 				// A constructor was not generated for ConceptElementShape because it had HasCustomConstructor
 				// set to true. Please provide the constructor below.
-				case 11: return new ConceptElementShape(partition, propertyAssignments);
+				case 13: return new ConceptElementShape(partition, propertyAssignments);
 				// A constructor was not generated for ConceptSubElementShape because it had HasCustomConstructor
 				// set to true. Please provide the constructor below.
-				case 12: return new ConceptSubElementShape(partition, propertyAssignments);
+				case 14: return new ConceptSubElementShape(partition, propertyAssignments);
 				// A constructor was not generated for RelationshipShape because it had HasCustomConstructor
 				// set to true. Please provide the constructor below.
-				case 13: return new RelationshipShape(partition, propertyAssignments);
+				case 15: return new RelationshipShape(partition, propertyAssignments);
 				default: return null;
 			}
 		}
@@ -266,17 +291,23 @@ namespace Bb.ApplicationCooperationViewPoint
 	
 			if (createElementLinkMap == null)
 			{
-				createElementLinkMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(10);
+				createElementLinkMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(16);
 				createElementLinkMap.Add(typeof(ModelHasElements), 0);
 				createElementLinkMap.Add(typeof(ModelElementHasChildren), 1);
 				createElementLinkMap.Add(typeof(ModelHasConcepts), 2);
 				createElementLinkMap.Add(typeof(ConceptHasChildren), 3);
 				createElementLinkMap.Add(typeof(ConceptElementHasChildren), 4);
 				createElementLinkMap.Add(typeof(ModelHasRelationships), 5);
-				createElementLinkMap.Add(typeof(SubElementReferencesRelationship), 6);
-				createElementLinkMap.Add(typeof(ConceptReferencesRelationship), 7);
-				createElementLinkMap.Add(typeof(ConceptElementReferencesRelationship), 8);
-				createElementLinkMap.Add(typeof(ConceptSubElementReferencesRelationship), 9);
+				createElementLinkMap.Add(typeof(SubElementReferencesRightRelationships), 6);
+				createElementLinkMap.Add(typeof(ConceptReferencesRightRelationships), 7);
+				createElementLinkMap.Add(typeof(ConceptElementReferencesRightRelationships), 8);
+				createElementLinkMap.Add(typeof(ConceptSubElementReferencesRightRelationships), 9);
+				createElementLinkMap.Add(typeof(ModelElementReferencesRightRelationships), 10);
+				createElementLinkMap.Add(typeof(RelationshipReferencesRightModelElement), 11);
+				createElementLinkMap.Add(typeof(RelationshipReferencesRightSubElement), 12);
+				createElementLinkMap.Add(typeof(RelationshipReferencesRightConcept), 13);
+				createElementLinkMap.Add(typeof(RelationshipReferencesRightConceptElement), 14);
+				createElementLinkMap.Add(typeof(RelationshipReferencesRightConceptSubElement), 15);
 			}
 			int index;
 			if (!createElementLinkMap.TryGetValue(elementLinkType, out index))
@@ -297,10 +328,16 @@ namespace Bb.ApplicationCooperationViewPoint
 				case 3: return new ConceptHasChildren(partition, roleAssignments, propertyAssignments);
 				case 4: return new ConceptElementHasChildren(partition, roleAssignments, propertyAssignments);
 				case 5: return new ModelHasRelationships(partition, roleAssignments, propertyAssignments);
-				case 6: return new SubElementReferencesRelationship(partition, roleAssignments, propertyAssignments);
-				case 7: return new ConceptReferencesRelationship(partition, roleAssignments, propertyAssignments);
-				case 8: return new ConceptElementReferencesRelationship(partition, roleAssignments, propertyAssignments);
-				case 9: return new ConceptSubElementReferencesRelationship(partition, roleAssignments, propertyAssignments);
+				case 6: return new SubElementReferencesRightRelationships(partition, roleAssignments, propertyAssignments);
+				case 7: return new ConceptReferencesRightRelationships(partition, roleAssignments, propertyAssignments);
+				case 8: return new ConceptElementReferencesRightRelationships(partition, roleAssignments, propertyAssignments);
+				case 9: return new ConceptSubElementReferencesRightRelationships(partition, roleAssignments, propertyAssignments);
+				case 10: return new ModelElementReferencesRightRelationships(partition, roleAssignments, propertyAssignments);
+				case 11: return new RelationshipReferencesRightModelElement(partition, roleAssignments, propertyAssignments);
+				case 12: return new RelationshipReferencesRightSubElement(partition, roleAssignments, propertyAssignments);
+				case 13: return new RelationshipReferencesRightConcept(partition, roleAssignments, propertyAssignments);
+				case 14: return new RelationshipReferencesRightConceptElement(partition, roleAssignments, propertyAssignments);
+				case 15: return new RelationshipReferencesRightConceptSubElement(partition, roleAssignments, propertyAssignments);
 				default: return null;
 			}
 		}
@@ -421,6 +458,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			
 			DslModeling::RuleManager ruleManager = store.RuleManager;
 			ruleManager.EnableRule(typeof(global::Bb.ApplicationCooperationViewPoint.FixUpDiagram));
+			ruleManager.EnableRule(typeof(global::Bb.ApplicationCooperationViewPoint.ConnectorRolePlayerChanged));
 		}
 		
 		/// <summary>
@@ -432,6 +470,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			
 			DslModeling::RuleManager ruleManager = store.RuleManager;
 			ruleManager.DisableRule(typeof(global::Bb.ApplicationCooperationViewPoint.FixUpDiagram));
+			ruleManager.DisableRule(typeof(global::Bb.ApplicationCooperationViewPoint.ConnectorRolePlayerChanged));
 		}
 		#endregion
 	}

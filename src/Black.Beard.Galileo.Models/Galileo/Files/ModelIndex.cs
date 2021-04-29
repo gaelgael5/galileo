@@ -11,9 +11,10 @@ namespace Bb.Galileo.Files
     internal class ModelIndex
     {
 
-        public ModelIndex(ModelRepository parent)
+        public ModelIndex(ModelRepository parent, string targetName)
         {
             this._parent = parent;
+            this.TargetName = targetName;
             _items = new Dictionary<string, ReferentialBase>();
         }
 
@@ -87,6 +88,9 @@ namespace Bb.Galileo.Files
         public IEnumerable<ReferentialBase> Values { get => this._items.Values; }
 
         private readonly ModelRepository _parent;
+
+        public string TargetName { get; }
+
         private Dictionary<string, ReferentialBase> _items;
 
         private volatile object _lock = new object();

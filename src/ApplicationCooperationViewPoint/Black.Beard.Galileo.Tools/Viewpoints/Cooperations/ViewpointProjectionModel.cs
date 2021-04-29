@@ -38,8 +38,11 @@ namespace Bb.Galileo.Viewpoints.Cooperations
     public class ViewpointProjectionRelationship
     {
 
-        public ReferentialRelationship Relationship { get; }
+        public ReferentialRelationship Relationship { get; set; }
 
+        public ViewpointItem Kind { get; internal set; }
+
+        public ReferentialEntity TargetEntity { get; internal set; }
     }
 
 }

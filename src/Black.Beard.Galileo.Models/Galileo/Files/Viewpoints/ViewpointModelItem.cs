@@ -42,13 +42,13 @@ namespace Bb.Galileo.Files.Viewpoints
 
                 if (rel.Origin.Name == Definition.Name)
                 {
-                    this._references.Add(new ReferenceItem() { SourceDefinition = Definition, Target = rel.GetTargetDefinition() });
+                    this._references.Add(new ReferenceItem() { SourceDefinition = Definition, RelationshipDefinition = rel });
                     result++;
                 }
 
                 else if (rel.Target.Name == Definition.Name)
                 {
-                    this._references.Add(new ReferenceItem() { SourceDefinition = Definition, Target = rel.GetOriginDefinition() });
+                    this._references.Add(new ReferenceItem() { SourceDefinition = Definition, RelationshipDefinition = rel });
                     result++;
                 }
 

@@ -47,6 +47,15 @@ namespace Bb.Galileo.Files.Datas
                     yield return item;
         }
 
+        public IEnumerable<ReferentialRelationship> GetRelationships(RelationshipDefinition relationshipDefinition)
+        {
+
+            var relationships = relationshipDefinition.GetRelationships().Where(c => c.Origin.Name == this.Name)
+                .ToList();
+
+            return relationships;
+
+        }
 
 
     }

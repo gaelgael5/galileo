@@ -14,7 +14,7 @@ namespace Bb.Galileo.Files
         public TargetListIndex GetByTypename(string typename)
         {
             if (!_items.TryGetValue(typename, out TargetListIndex result))
-                _items.Add(typename, (result = new TargetListIndex(this._parent)));
+                _items.Add(typename, (result = new TargetListIndex(this._parent, typename)));
 
             return result;
         }
@@ -35,16 +35,17 @@ namespace Bb.Galileo.Files
     internal class TargetListIndex
     {
 
-        public TargetListIndex(ModelRepository parent)
+        public TargetListIndex(ModelRepository parent, string typeEntity)
         {
             this._parent = parent;
+            this.TypeEntity = typeEntity;
             _items = new Dictionary<string, ModelIndex>();
         }
 
-        public ModelIndex Get(string typename)
+        public ModelIndex Get(string targetName)
         {
-            if (!_items.TryGetValue(typename, out ModelIndex result))
-                _items.Add(typename, (result = new ModelIndex(this._parent)));
+            if (!_items.TryGetValue(targetName, out ModelIndex result))
+                _items.Add(targetName, (result = new ModelIndex(this._parent, targetName)));
 
             return result;
         }
@@ -52,6 +53,9 @@ namespace Bb.Galileo.Files
         public IEnumerable<ModelIndex> Values { get => _items.Values; }
 
         private readonly ModelRepository _parent;
+
+        public string TypeEntity { get; }
+
         private readonly Dictionary<string, ModelIndex> _items;
 
     }

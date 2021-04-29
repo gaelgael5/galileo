@@ -97,6 +97,91 @@ namespace Bb.ApplicationCooperationViewPoint
 			return true;
 		}
 		
+		/// <summary>
+		/// Called during view fixup to configure the given child element, after it has been created.
+		/// </summary>
+		/// <remarks>
+		/// Custom code for choosing the shapes attached to either end of a connector is called from here.
+		/// </remarks>
+		protected override void OnChildConfiguring(DslDiagrams::ShapeElement child, bool createdDuringViewFixup)
+		{
+			DslDiagrams::NodeShape sourceShape;
+			DslDiagrams::NodeShape targetShape;
+			DslDiagrams::BinaryLinkShape connector = child as DslDiagrams::BinaryLinkShape;
+			if(connector == null)
+			{
+				base.OnChildConfiguring(child, createdDuringViewFixup);
+				return;
+			}
+			this.GetSourceAndTargetForConnector(connector, out sourceShape, out targetShape);
+			
+			global::System.Diagnostics.Debug.Assert(sourceShape != null && targetShape != null, "Unable to find source and target shapes for connector.");
+			connector.Connect(sourceShape, targetShape);
+		}
+		
+		/// <summary>
+		/// helper method to find the shapes for either end of a connector, including calling the user's custom code
+		/// </summary>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		internal void GetSourceAndTargetForConnector(DslDiagrams::BinaryLinkShape connector, out DslDiagrams::NodeShape sourceShape, out DslDiagrams::NodeShape targetShape)
+		{
+			sourceShape = null;
+			targetShape = null;
+			
+			if (sourceShape == null || targetShape == null)
+			{
+				DslDiagrams::NodeShape[] endShapes = GetEndShapesForConnector(connector);
+				if(sourceShape == null)
+				{
+					sourceShape = endShapes[0];
+				}
+				if(targetShape == null)
+				{
+					targetShape = endShapes[1];
+				}
+			}
+		}
+		
+		/// <summary>
+		/// Helper method to find shapes for either end of a connector by looking for shapes associated with either end of the relationship mapped to the connector.
+		/// </summary>
+		private DslDiagrams::NodeShape[] GetEndShapesForConnector(DslDiagrams::BinaryLinkShape connector)
+		{
+			DslModeling::ElementLink link = connector.ModelElement as DslModeling::ElementLink;
+			DslDiagrams::NodeShape sourceShape = null, targetShape = null;
+			if (link != null)
+			{
+				global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::ModelElement> linkedElements = link.LinkedElements;
+				if (linkedElements.Count == 2)
+				{
+					DslDiagrams::Diagram currentDiagram = this.Diagram;
+					DslModeling::LinkedElementCollection<DslDiagrams::PresentationElement> presentationElements = DslDiagrams::PresentationViewsSubject.GetPresentation(linkedElements[0]);
+					foreach (DslDiagrams::PresentationElement presentationElement in presentationElements)
+					{
+						DslDiagrams::NodeShape shape = presentationElement as DslDiagrams::NodeShape;
+						if (shape != null && shape.Diagram == currentDiagram)
+						{
+							sourceShape = shape;
+							break;
+						}
+					}
+					
+					presentationElements = DslDiagrams::PresentationViewsSubject.GetPresentation(linkedElements[1]);
+					foreach (DslDiagrams::PresentationElement presentationElement in presentationElements)
+					{
+						DslDiagrams::NodeShape shape = presentationElement as DslDiagrams::NodeShape;
+						if (shape != null && shape.Diagram == currentDiagram)
+						{
+							targetShape = shape;
+							break;
+						}
+					}
+		
+				}
+			}
+			
+			return new DslDiagrams::NodeShape[] { sourceShape, targetShape };
+		}
 		
 		/// <summary>
 		/// Creates a new shape for the given model element as part of view fixup
@@ -139,6 +224,51 @@ namespace Bb.ApplicationCooperationViewPoint
 			{
 				global::Bb.ApplicationCooperationViewPoint.RelationshipShape newShape = new global::Bb.ApplicationCooperationViewPoint.RelationshipShape(this.Partition);
 				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
+				return newShape;
+			}
+			if(element is global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement)
+			{
+				global::Bb.ApplicationCooperationViewPoint.TargetConnector newShape = new global::Bb.ApplicationCooperationViewPoint.TargetConnector(this.Partition);
+				return newShape;
+			}
+			if(element is global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept)
+			{
+				global::Bb.ApplicationCooperationViewPoint.TargetConnector newShape = new global::Bb.ApplicationCooperationViewPoint.TargetConnector(this.Partition);
+				return newShape;
+			}
+			if(element is global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement)
+			{
+				global::Bb.ApplicationCooperationViewPoint.TargetConnector newShape = new global::Bb.ApplicationCooperationViewPoint.TargetConnector(this.Partition);
+				return newShape;
+			}
+			if(element is global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement)
+			{
+				global::Bb.ApplicationCooperationViewPoint.TargetConnector newShape = new global::Bb.ApplicationCooperationViewPoint.TargetConnector(this.Partition);
+				return newShape;
+			}
+			if(element is global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships)
+			{
+				global::Bb.ApplicationCooperationViewPoint.OriginConnector newShape = new global::Bb.ApplicationCooperationViewPoint.OriginConnector(this.Partition);
+				return newShape;
+			}
+			if(element is global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships)
+			{
+				global::Bb.ApplicationCooperationViewPoint.OriginConnector newShape = new global::Bb.ApplicationCooperationViewPoint.OriginConnector(this.Partition);
+				return newShape;
+			}
+			if(element is global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships)
+			{
+				global::Bb.ApplicationCooperationViewPoint.OriginConnector newShape = new global::Bb.ApplicationCooperationViewPoint.OriginConnector(this.Partition);
+				return newShape;
+			}
+			if(element is global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships)
+			{
+				global::Bb.ApplicationCooperationViewPoint.OriginConnector newShape = new global::Bb.ApplicationCooperationViewPoint.OriginConnector(this.Partition);
+				return newShape;
+			}
+			if(element is global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships)
+			{
+				global::Bb.ApplicationCooperationViewPoint.OriginConnector newShape = new global::Bb.ApplicationCooperationViewPoint.OriginConnector(this.Partition);
 				return newShape;
 			}
 			return base.CreateChildShape(element);
@@ -261,6 +391,9 @@ namespace Bb.ApplicationCooperationViewPoint
 				
 				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Bb.ApplicationCooperationViewPoint.Relationship.NameDomainPropertyId);
 				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Bb.ApplicationCooperationViewPoint.Relationship.LabelDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "LabelDecorator").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		
@@ -340,6 +473,15 @@ namespace Bb.ApplicationCooperationViewPoint
 		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.ConceptSubElement), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
 		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.Concept), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
 		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.Relationship), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
 		internal sealed partial class FixUpDiagram : FixUpDiagramBase
 		{
 			[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
@@ -351,6 +493,10 @@ namespace Bb.ApplicationCooperationViewPoint
 				if (this.SkipFixup(childElement))
 					return;
 				DslModeling::ModelElement parentElement;
+				if(childElement is DslModeling::ElementLink)
+				{
+					parentElement = GetParentForRelationship((DslModeling::ElementLink)childElement);
+				} else
 				if(childElement is global::Bb.ApplicationCooperationViewPoint.ModelElement)
 				{
 					parentElement = GetParentForModelElement((global::Bb.ApplicationCooperationViewPoint.ModelElement)childElement);
@@ -438,7 +584,153 @@ namespace Bb.ApplicationCooperationViewPoint
 				if ( result == null ) return null;
 				return result;
 			}
+			private static DslModeling::ModelElement GetParentForRelationship(DslModeling::ElementLink elementLink)
+			{
+				global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::ModelElement> linkedElements = elementLink.LinkedElements;
+	
+				if (linkedElements.Count == 2)
+				{
+					DslDiagrams::ShapeElement sourceShape = linkedElements[0] as DslDiagrams::ShapeElement;
+					DslDiagrams::ShapeElement targetShape = linkedElements[1] as DslDiagrams::ShapeElement;
+	
+					if(sourceShape == null)
+					{
+						DslModeling::LinkedElementCollection<DslDiagrams::PresentationElement> presentationElements = DslDiagrams::PresentationViewsSubject.GetPresentation(linkedElements[0]);
+						foreach (DslDiagrams::PresentationElement presentationElement in presentationElements)
+						{
+							DslDiagrams::ShapeElement shape = presentationElement as DslDiagrams::ShapeElement;
+							if (shape != null)
+							{
+								sourceShape = shape;
+								break;
+							}
+						}
+					}
+					
+					if(targetShape == null)
+					{
+						DslModeling::LinkedElementCollection<DslDiagrams::PresentationElement> presentationElements = DslDiagrams::PresentationViewsSubject.GetPresentation(linkedElements[1]);
+						foreach (DslDiagrams::PresentationElement presentationElement in presentationElements)
+						{
+							DslDiagrams::ShapeElement shape = presentationElement as DslDiagrams::ShapeElement;
+							if (shape != null)
+							{
+								targetShape = shape;
+								break;
+							}
+						}
+					}
+					
+					if(sourceShape == null || targetShape == null)
+					{
+						global::System.Diagnostics.Debug.Fail("Unable to find source and/or target shape for view fixup.");
+						return null;
+					}
+	
+					DslDiagrams::ShapeElement sourceParent = sourceShape.ParentShape;
+					DslDiagrams::ShapeElement targetParent = targetShape.ParentShape;
+	
+					while (sourceParent != targetParent && sourceParent != null)
+					{
+						DslDiagrams::ShapeElement curParent = targetParent;
+						while (sourceParent != curParent && curParent != null)
+						{
+							curParent = curParent.ParentShape;
+						}
+	
+						if(sourceParent == curParent)
+						{
+							break;
+						}
+						else
+						{
+							sourceParent = sourceParent.ParentShape;
+						}
+					}
+	
+					while (sourceParent != null)
+					{
+						// ensure that the parent can parent connectors (i.e., a diagram or a swimlane).
+						if(sourceParent is DslDiagrams::Diagram || sourceParent is DslDiagrams::SwimlaneShape)
+						{
+							break;
+						}
+						else
+						{
+							sourceParent = sourceParent.ParentShape;
+						}
+					}
+	
+					global::System.Diagnostics.Debug.Assert(sourceParent != null && sourceParent.ModelElement != null, "Unable to find common parent for view fixup.");
+					return sourceParent.ModelElement;
+				}
+	
+				return null;
+			}
 		}
 		
 	
+		/// <summary>
+		/// Reroute a connector when the role players of its underlying relationship change
+		/// </summary>
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		internal sealed class ConnectorRolePlayerChanged : DslModeling::RolePlayerChangeRule
+		{
+			/// <summary>
+			/// Reroute a connector when the role players of its underlying relationship change
+			/// </summary>
+			public override void RolePlayerChanged(DslModeling::RolePlayerChangedEventArgs e)
+			{
+				if (e == null) throw new global::System.ArgumentNullException("e");
+	
+				global::System.Collections.ObjectModel.ReadOnlyCollection<DslDiagrams::PresentationViewsSubject> connectorLinks = DslDiagrams::PresentationViewsSubject.GetLinksToPresentation(e.ElementLink);
+				foreach (DslDiagrams::PresentationViewsSubject connectorLink in connectorLinks)
+				{
+					// Fix up any binary link shapes attached to the element link.
+					DslDiagrams::BinaryLinkShape linkShape = connectorLink.Presentation as DslDiagrams::BinaryLinkShape;
+					if (linkShape != null)
+					{
+						global::Bb.ApplicationCooperationViewPoint.CooperationViewPointDiagram diagram = linkShape.Diagram as global::Bb.ApplicationCooperationViewPoint.CooperationViewPointDiagram;
+						if (diagram != null)
+						{
+							if (e.NewRolePlayer != null)
+							{
+								DslDiagrams::NodeShape fromShape;
+								DslDiagrams::NodeShape toShape;
+								diagram.GetSourceAndTargetForConnector(linkShape, out fromShape, out toShape);
+								if (fromShape != null && toShape != null)
+								{
+									if (!object.Equals(fromShape, linkShape.FromShape))
+									{
+										linkShape.FromShape = fromShape;
+									}
+									if (!object.Equals(linkShape.ToShape, toShape))
+									{
+										linkShape.ToShape = toShape;
+									}
+								}
+								else
+								{
+									// delete the connector if we cannot find an appropriate target shape.
+									linkShape.Delete();
+								}
+							}
+							else
+							{
+								// delete the connector if the new role player is null.
+								linkShape.Delete();
+							}
+						}
+					}
+				}
+			}
+		}
 	}

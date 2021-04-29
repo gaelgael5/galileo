@@ -927,6 +927,38 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 		}
 		#endregion
+		#region RightRelationships opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of RightRelationships.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships.ModelElement
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<Relationship> RightRelationships
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships.ModelElementDomainRoleId);
+			}
+		}
+		#endregion
+		#region LeftRelationships opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of LeftRelationships.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement.ModelElement
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<Relationship> LeftRelationships
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement.ModelElementDomainRoleId);
+			}
+		}
+		#endregion
 		#region ElementGroupPrototype Merge methods
 		/// <summary>
 		/// Returns a value indicating whether the source element represented by the
@@ -1371,19 +1403,35 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 		}
 		#endregion
-		#region Relationship opposite domain role accessor
+		#region RightRelationships opposite domain role accessor
 		
 		/// <summary>
-		/// Gets a list of Relationship.
+		/// Gets a list of RightRelationships.
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.SubElement
+		/// Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships.SubElement
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<Relationship> Relationship
+		public virtual DslModeling::LinkedElementCollection<Relationship> RightRelationships
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.SubElementDomainRoleId);
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships.SubElementDomainRoleId);
+			}
+		}
+		#endregion
+		#region LeftRelationships opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of LeftRelationships.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement.SubElement
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<Relationship> LeftRelationships
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement.SubElementDomainRoleId);
 			}
 		}
 		#endregion
@@ -1751,19 +1799,35 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 		}
 		#endregion
-		#region Relationship opposite domain role accessor
+		#region RightRelationships opposite domain role accessor
 		
 		/// <summary>
-		/// Gets a list of Relationship.
+		/// Gets a list of RightRelationships.
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.Concept
+		/// Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships.Concept
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<Relationship> Relationship
+		public virtual DslModeling::LinkedElementCollection<Relationship> RightRelationships
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.ConceptDomainRoleId);
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships.ConceptDomainRoleId);
+			}
+		}
+		#endregion
+		#region LeftRelationships opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of LeftRelationships.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept.Concept
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<Relationship> LeftRelationships
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept.ConceptDomainRoleId);
 			}
 		}
 		#endregion
@@ -2232,19 +2296,35 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 		}
 		#endregion
-		#region Relationship opposite domain role accessor
+		#region RightRelationships opposite domain role accessor
 		
 		/// <summary>
-		/// Gets a list of Relationship.
+		/// Gets a list of RightRelationships.
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.ConceptElement
+		/// Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships.ConceptElement
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<Relationship> Relationship
+		public virtual DslModeling::LinkedElementCollection<Relationship> RightRelationships
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.ConceptElementDomainRoleId);
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships.ConceptElementDomainRoleId);
+			}
+		}
+		#endregion
+		#region LeftRelationships opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of LeftRelationships.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement.ConceptElement
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<Relationship> LeftRelationships
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement.ConceptElementDomainRoleId);
 			}
 		}
 		#endregion
@@ -2697,19 +2777,35 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 		}
 		#endregion
-		#region Relationship opposite domain role accessor
+		#region RightRelationships opposite domain role accessor
 		
 		/// <summary>
-		/// Gets a list of Relationship.
+		/// Gets a list of RightRelationships.
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.ConceptSubElement
+		/// Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships.ConceptSubElement
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<Relationship> Relationship
+		public virtual DslModeling::LinkedElementCollection<Relationship> RightRelationships
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.ConceptSubElementDomainRoleId);
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships.ConceptSubElementDomainRoleId);
+			}
+		}
+		#endregion
+		#region LeftRelationships opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of LeftRelationships.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement.ConceptSubElement
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<Relationship> LeftRelationships
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Relationship>, Relationship>(global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement.ConceptSubElementDomainRoleId);
 			}
 		}
 		#endregion
@@ -2954,60 +3050,60 @@ namespace Bb.ApplicationCooperationViewPoint
 		}
 		
 		#endregion
-		#region Type domain property code
+		#region Label domain property code
 		
 		/// <summary>
-		/// Type domain property Id.
+		/// Label domain property Id.
 		/// </summary>
-		public static readonly global::System.Guid TypeDomainPropertyId = new global::System.Guid(0xb7c9cb49, 0xd73d, 0x4820, 0x93, 0xe5, 0x47, 0x1e, 0x8b, 0xf8, 0x20, 0xc0);
+		public static readonly global::System.Guid LabelDomainPropertyId = new global::System.Guid(0xb7c9cb49, 0xd73d, 0x4820, 0x93, 0xe5, 0x47, 0x1e, 0x8b, 0xf8, 0x20, 0xc0);
 		
 		/// <summary>
-		/// Storage for Type
+		/// Storage for Label
 		/// </summary>
-		private global::System.String typePropertyStorage = string.Empty;
+		private global::System.String labelPropertyStorage = string.Empty;
 		
 		/// <summary>
-		/// Gets or sets the value of Type domain property.
-		/// Description de Bb.ApplicationCooperationViewPoint.Relationship.Type
+		/// Gets or sets the value of Label domain property.
+		/// Description de Bb.ApplicationCooperationViewPoint.Relationship.Label
 		/// </summary>
-		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Relationship/Type.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Relationship/Type.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.Relationship/Label.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.Relationship/Label.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
 		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainObjectId("b7c9cb49-d73d-4820-93e5-471e8bf820c0")]
-		public global::System.String Type
+		public global::System.String Label
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return typePropertyStorage;
+				return labelPropertyStorage;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				TypePropertyHandler.Instance.SetValue(this, value);
+				LabelPropertyHandler.Instance.SetValue(this, value);
 			}
 		}
 		/// <summary>
-		/// Value handler for the Relationship.Type domain property.
+		/// Value handler for the Relationship.Label domain property.
 		/// </summary>
-		internal sealed partial class TypePropertyHandler : DslModeling::DomainPropertyValueHandler<RelationshipBase, global::System.String>
+		internal sealed partial class LabelPropertyHandler : DslModeling::DomainPropertyValueHandler<RelationshipBase, global::System.String>
 		{
-			private TypePropertyHandler() { }
+			private LabelPropertyHandler() { }
 		
 			/// <summary>
-			/// Gets the singleton instance of the Relationship.Type domain property value handler.
+			/// Gets the singleton instance of the Relationship.Label domain property value handler.
 			/// </summary>
-			public static readonly TypePropertyHandler Instance = new TypePropertyHandler();
+			public static readonly LabelPropertyHandler Instance = new LabelPropertyHandler();
 		
 			/// <summary>
-			/// Gets the Id of the Relationship.Type domain property.
+			/// Gets the Id of the Relationship.Label domain property.
 			/// </summary>
 			public sealed override global::System.Guid DomainPropertyId
 			{
 				[global::System.Diagnostics.DebuggerStepThrough]
 				get
 				{
-					return TypeDomainPropertyId;
+					return LabelDomainPropertyId;
 				}
 			}
 			
@@ -3019,7 +3115,7 @@ namespace Bb.ApplicationCooperationViewPoint
 			public override sealed global::System.String GetValue(RelationshipBase element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-				return element.typePropertyStorage;
+				return element.labelPropertyStorage;
 			}
 		
 			/// <summary>
@@ -3035,7 +3131,7 @@ namespace Bb.ApplicationCooperationViewPoint
 				if (newValue != oldValue)
 				{
 					ValueChanging(element, oldValue, newValue);
-					element.typePropertyStorage = newValue;
+					element.labelPropertyStorage = newValue;
 					ValueChanged(element, oldValue, newValue);
 				}
 			}
@@ -3062,67 +3158,203 @@ namespace Bb.ApplicationCooperationViewPoint
 			}
 		}
 		#endregion
-		#region SubElement opposite domain role accessor
-		
+		#region LeftSubElement opposite domain role accessor
 		/// <summary>
-		/// Gets a list of SubElement.
+		/// Gets or sets LeftSubElement.
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.Relationship
+		/// Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships.Relationship
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<SubElement> SubElement
+		public virtual SubElement LeftSubElement
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<SubElement>, SubElement>(global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.RelationshipDomainRoleId);
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships.RelationshipDomainRoleId) as SubElement;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships.RelationshipDomainRoleId, value);
 			}
 		}
 		#endregion
-		#region Concept opposite domain role accessor
-		
+		#region LeftConcept opposite domain role accessor
 		/// <summary>
-		/// Gets a list of Concept.
+		/// Gets or sets LeftConcept.
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.Relationship
+		/// Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships.Relationship
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<Concept> Concept
+		public virtual Concept LeftConcept
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<Concept>, Concept>(global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.RelationshipDomainRoleId);
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships.RelationshipDomainRoleId) as Concept;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships.RelationshipDomainRoleId, value);
 			}
 		}
 		#endregion
-		#region ConceptElement opposite domain role accessor
-		
+		#region LeftConceptElement opposite domain role accessor
 		/// <summary>
-		/// Gets a list of ConceptElement.
+		/// Gets or sets LeftConceptElement.
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.Relationship
+		/// Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships.Relationship
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<ConceptElement> ConceptElement
+		public virtual ConceptElement LeftConceptElement
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<ConceptElement>, ConceptElement>(global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.RelationshipDomainRoleId);
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships.RelationshipDomainRoleId) as ConceptElement;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships.RelationshipDomainRoleId, value);
 			}
 		}
 		#endregion
-		#region ConceptSubElement opposite domain role accessor
-		
+		#region LeftConceptSubElement opposite domain role accessor
 		/// <summary>
-		/// Gets a list of ConceptSubElement.
+		/// Gets or sets LeftConceptSubElement.
 		/// Description de
-		/// Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.Relationship
+		/// Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships.Relationship
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<ConceptSubElement> ConceptSubElement
+		public virtual ConceptSubElement LeftConceptSubElement
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<ConceptSubElement>, ConceptSubElement>(global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.RelationshipDomainRoleId);
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships.RelationshipDomainRoleId) as ConceptSubElement;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships.RelationshipDomainRoleId, value);
+			}
+		}
+		#endregion
+		#region LeftModelElement opposite domain role accessor
+		/// <summary>
+		/// Gets or sets LeftModelElement.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships.Relationship
+		/// </summary>
+		public virtual ModelElement LeftModelElement
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships.RelationshipDomainRoleId) as ModelElement;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships.RelationshipDomainRoleId, value);
+			}
+		}
+		#endregion
+		#region RightModelElement opposite domain role accessor
+		/// <summary>
+		/// Gets or sets RightModelElement.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement.Relationship
+		/// </summary>
+		public virtual ModelElement RightModelElement
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement.RelationshipDomainRoleId) as ModelElement;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement.RelationshipDomainRoleId, value);
+			}
+		}
+		#endregion
+		#region RightSubElement opposite domain role accessor
+		/// <summary>
+		/// Gets or sets RightSubElement.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement.Relationship
+		/// </summary>
+		public virtual SubElement RightSubElement
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement.RelationshipDomainRoleId) as SubElement;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement.RelationshipDomainRoleId, value);
+			}
+		}
+		#endregion
+		#region RightConcept opposite domain role accessor
+		/// <summary>
+		/// Gets or sets RightConcept.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept.Relationship
+		/// </summary>
+		public virtual Concept RightConcept
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept.RelationshipDomainRoleId) as Concept;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept.RelationshipDomainRoleId, value);
+			}
+		}
+		#endregion
+		#region RightConceptElement opposite domain role accessor
+		/// <summary>
+		/// Gets or sets RightConceptElement.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement.Relationship
+		/// </summary>
+		public virtual ConceptElement RightConceptElement
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement.RelationshipDomainRoleId) as ConceptElement;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement.RelationshipDomainRoleId, value);
+			}
+		}
+		#endregion
+		#region RightConceptSubElement opposite domain role accessor
+		/// <summary>
+		/// Gets or sets RightConceptSubElement.
+		/// Description de
+		/// Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement.Relationship
+		/// </summary>
+		public virtual ConceptSubElement RightConceptSubElement
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement.RelationshipDomainRoleId) as ConceptSubElement;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement.RelationshipDomainRoleId, value);
 			}
 		}
 		#endregion

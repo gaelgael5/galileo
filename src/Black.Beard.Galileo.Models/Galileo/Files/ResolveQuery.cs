@@ -175,6 +175,11 @@ namespace Bb.Galileo.Files
                 this.Kind = ElementEnum.RestrictionDefinition;
                 this.TypeName = r2.Name;
             }
+            else if (item is ReferentialRelationshipLink l)
+            {
+                this.Kind = ElementEnum.Entity;
+                this.Identifier = "n:" + l.Name;
+            }
             else
                 throw new NotImplementedException(item.GetType().Name);
 
@@ -207,7 +212,7 @@ namespace Bb.Galileo.Files
                     if (!string.IsNullOrEmpty(this.TypeName))
                         query.AddTypeName(this.TypeName);
                     break;
-                
+
                 case ElementEnum.RelationshipDefinition:
                     type = typeof(RelationshipDefinition);
                     if (!string.IsNullOrEmpty(this.TypeName))
@@ -217,7 +222,7 @@ namespace Bb.Galileo.Files
                 case ElementEnum.EntityDefinition:
                     type = typeof(EntityDefinition);
                     if (!string.IsNullOrEmpty(this.TypeName) && this.TypeName != "*")
-                        query.AddName(this.TypeName); 
+                        query.AddName(this.TypeName);
                     break;
 
                 case ElementEnum.RestrictionDefinition:
@@ -250,7 +255,7 @@ namespace Bb.Galileo.Files
 
         }
 
-        public static implicit operator  ResolveQuery(string txt)
+        public static implicit operator ResolveQuery(string txt)
         {
             return new ResolveQuery(txt);
         }

@@ -15,7 +15,7 @@ namespace Bb.ApplicationCooperationViewPoint
 	/// <summary>
 	/// ConnectionBuilder class to provide logic for constructing connections between elements.
 	/// </summary>
-	public static partial class SubElementReferencesRelationshipBuilder
+	public static partial class SubElementReferencesRightRelationshipsBuilder
 	{
 		#region Accept Connection Methods
 		/// <summary>
@@ -89,7 +89,8 @@ namespace Bb.ApplicationCooperationViewPoint
 					{
 						global::Bb.ApplicationCooperationViewPoint.SubElement sourceSubElement = (global::Bb.ApplicationCooperationViewPoint.SubElement)candidateSource;
 						global::Bb.ApplicationCooperationViewPoint.Relationship targetRelationship = (global::Bb.ApplicationCooperationViewPoint.Relationship)candidateTarget;
-						if(targetRelationship == null || sourceSubElement == null || global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship.GetLinks(sourceSubElement, targetRelationship).Count > 0) return false;
+						if(targetRelationship == null || global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships.GetLinkToLeftSubElement(targetRelationship) != null) return false;
+						if(targetRelationship == null || sourceSubElement == null || global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships.GetLinks(sourceSubElement, targetRelationship).Count > 0) return false;
 						return true;
 					}
 				}
@@ -127,7 +128,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					{
 						global::Bb.ApplicationCooperationViewPoint.SubElement sourceAccepted = (global::Bb.ApplicationCooperationViewPoint.SubElement)source;
 						global::Bb.ApplicationCooperationViewPoint.Relationship targetAccepted = (global::Bb.ApplicationCooperationViewPoint.Relationship)target;
-						DslModeling::ElementLink result = new global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRelationship(sourceAccepted, targetAccepted);
+						DslModeling::ElementLink result = new global::Bb.ApplicationCooperationViewPoint.SubElementReferencesRightRelationships(sourceAccepted, targetAccepted);
 						if (DslModeling::DomainClassInfo.HasNameProperty(result))
 						{
 							DslModeling::DomainClassInfo.SetUniqueName(result);
@@ -145,7 +146,7 @@ namespace Bb.ApplicationCooperationViewPoint
 	/// <summary>
 	/// ConnectionBuilder class to provide logic for constructing connections between elements.
 	/// </summary>
-	public static partial class ConceptReferencesRelationshipBuilder
+	public static partial class ConceptReferencesRightRelationshipsBuilder
 	{
 		#region Accept Connection Methods
 		/// <summary>
@@ -219,7 +220,8 @@ namespace Bb.ApplicationCooperationViewPoint
 					{
 						global::Bb.ApplicationCooperationViewPoint.Concept sourceConcept = (global::Bb.ApplicationCooperationViewPoint.Concept)candidateSource;
 						global::Bb.ApplicationCooperationViewPoint.Relationship targetRelationship = (global::Bb.ApplicationCooperationViewPoint.Relationship)candidateTarget;
-						if(targetRelationship == null || sourceConcept == null || global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship.GetLinks(sourceConcept, targetRelationship).Count > 0) return false;
+						if(targetRelationship == null || global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships.GetLinkToLeftConcept(targetRelationship) != null) return false;
+						if(targetRelationship == null || sourceConcept == null || global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships.GetLinks(sourceConcept, targetRelationship).Count > 0) return false;
 						return true;
 					}
 				}
@@ -257,7 +259,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					{
 						global::Bb.ApplicationCooperationViewPoint.Concept sourceAccepted = (global::Bb.ApplicationCooperationViewPoint.Concept)source;
 						global::Bb.ApplicationCooperationViewPoint.Relationship targetAccepted = (global::Bb.ApplicationCooperationViewPoint.Relationship)target;
-						DslModeling::ElementLink result = new global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRelationship(sourceAccepted, targetAccepted);
+						DslModeling::ElementLink result = new global::Bb.ApplicationCooperationViewPoint.ConceptReferencesRightRelationships(sourceAccepted, targetAccepted);
 						if (DslModeling::DomainClassInfo.HasNameProperty(result))
 						{
 							DslModeling::DomainClassInfo.SetUniqueName(result);
@@ -275,7 +277,7 @@ namespace Bb.ApplicationCooperationViewPoint
 	/// <summary>
 	/// ConnectionBuilder class to provide logic for constructing connections between elements.
 	/// </summary>
-	public static partial class ConceptElementReferencesRelationshipBuilder
+	public static partial class ConceptElementReferencesRightRelationshipsBuilder
 	{
 		#region Accept Connection Methods
 		/// <summary>
@@ -349,7 +351,8 @@ namespace Bb.ApplicationCooperationViewPoint
 					{
 						global::Bb.ApplicationCooperationViewPoint.ConceptElement sourceConceptElement = (global::Bb.ApplicationCooperationViewPoint.ConceptElement)candidateSource;
 						global::Bb.ApplicationCooperationViewPoint.Relationship targetRelationship = (global::Bb.ApplicationCooperationViewPoint.Relationship)candidateTarget;
-						if(targetRelationship == null || sourceConceptElement == null || global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship.GetLinks(sourceConceptElement, targetRelationship).Count > 0) return false;
+						if(targetRelationship == null || global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships.GetLinkToLeftConceptElement(targetRelationship) != null) return false;
+						if(targetRelationship == null || sourceConceptElement == null || global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships.GetLinks(sourceConceptElement, targetRelationship).Count > 0) return false;
 						return true;
 					}
 				}
@@ -387,7 +390,7 @@ namespace Bb.ApplicationCooperationViewPoint
 					{
 						global::Bb.ApplicationCooperationViewPoint.ConceptElement sourceAccepted = (global::Bb.ApplicationCooperationViewPoint.ConceptElement)source;
 						global::Bb.ApplicationCooperationViewPoint.Relationship targetAccepted = (global::Bb.ApplicationCooperationViewPoint.Relationship)target;
-						DslModeling::ElementLink result = new global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRelationship(sourceAccepted, targetAccepted);
+						DslModeling::ElementLink result = new global::Bb.ApplicationCooperationViewPoint.ConceptElementReferencesRightRelationships(sourceAccepted, targetAccepted);
 						if (DslModeling::DomainClassInfo.HasNameProperty(result))
 						{
 							DslModeling::DomainClassInfo.SetUniqueName(result);
@@ -405,7 +408,7 @@ namespace Bb.ApplicationCooperationViewPoint
 	/// <summary>
 	/// ConnectionBuilder class to provide logic for constructing connections between elements.
 	/// </summary>
-	public static partial class ConceptSubElementReferencesRelationshipBuilder
+	public static partial class ConceptSubElementReferencesRightRelationshipsBuilder
 	{
 		#region Accept Connection Methods
 		/// <summary>
@@ -479,7 +482,8 @@ namespace Bb.ApplicationCooperationViewPoint
 					{
 						global::Bb.ApplicationCooperationViewPoint.ConceptSubElement sourceConceptSubElement = (global::Bb.ApplicationCooperationViewPoint.ConceptSubElement)candidateSource;
 						global::Bb.ApplicationCooperationViewPoint.Relationship targetRelationship = (global::Bb.ApplicationCooperationViewPoint.Relationship)candidateTarget;
-						if(targetRelationship == null || sourceConceptSubElement == null || global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship.GetLinks(sourceConceptSubElement, targetRelationship).Count > 0) return false;
+						if(targetRelationship == null || global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships.GetLinkToLeftConceptSubElement(targetRelationship) != null) return false;
+						if(targetRelationship == null || sourceConceptSubElement == null || global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships.GetLinks(sourceConceptSubElement, targetRelationship).Count > 0) return false;
 						return true;
 					}
 				}
@@ -517,7 +521,793 @@ namespace Bb.ApplicationCooperationViewPoint
 					{
 						global::Bb.ApplicationCooperationViewPoint.ConceptSubElement sourceAccepted = (global::Bb.ApplicationCooperationViewPoint.ConceptSubElement)source;
 						global::Bb.ApplicationCooperationViewPoint.Relationship targetAccepted = (global::Bb.ApplicationCooperationViewPoint.Relationship)target;
-						DslModeling::ElementLink result = new global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRelationship(sourceAccepted, targetAccepted);
+						DslModeling::ElementLink result = new global::Bb.ApplicationCooperationViewPoint.ConceptSubElementReferencesRightRelationships(sourceAccepted, targetAccepted);
+						if (DslModeling::DomainClassInfo.HasNameProperty(result))
+						{
+							DslModeling::DomainClassInfo.SetUniqueName(result);
+						}
+						return result;
+					}
+				}
+				
+			}
+			global::System.Diagnostics.Debug.Fail("Having agreed that the connection can be accepted we should never fail to make one.");
+			throw new global::System.InvalidOperationException();
+		}
+		#endregion
+ 	}
+	/// <summary>
+	/// ConnectionBuilder class to provide logic for constructing connections between elements.
+	/// </summary>
+	public static partial class ModelElementReferencesRightRelationshipsBuilder
+	{
+		#region Accept Connection Methods
+		/// <summary>
+		/// Test whether a given model element is acceptable to this ConnectionBuilder as the source of a connection.
+		/// </summary>
+		/// <param name="candidate">The model element to test.</param>
+		/// <returns>Whether the element can be used as the source of a connection.</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		public static bool CanAcceptSource(DslModeling::ModelElement candidate)
+		{
+			if (candidate == null) return false;
+			else if (candidate is global::Bb.ApplicationCooperationViewPoint.ModelElement)
+			{ 
+				return true;
+			}
+			else
+				return false;
+		}
+
+		/// <summary>
+		/// Test whether a given model element is acceptable to this ConnectionBuilder as the target of a connection.
+		/// </summary>
+		/// <param name="candidate">The model element to test.</param>
+		/// <returns>Whether the element can be used as the target of a connection.</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		public static bool CanAcceptTarget(DslModeling::ModelElement candidate)
+		{
+			if (candidate == null) return false;
+			else if (candidate is global::Bb.ApplicationCooperationViewPoint.Relationship)
+			{ 
+				return true;
+			}
+			else
+				return false;
+		}
+		
+		/// <summary>
+		/// Test whether a given pair of model elements are acceptable to this ConnectionBuilder as the source and target of a connection
+		/// </summary>
+		/// <param name="candidateSource">The model element to test as a source</param>
+		/// <param name="candidateTarget">The model element to test as a target</param>
+		/// <returns>Whether the elements can be used as the source and target of a connection</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
+		public static bool CanAcceptSourceAndTarget(DslModeling::ModelElement candidateSource, DslModeling::ModelElement candidateTarget)
+		{
+			// Accepts null, null; source, null; source, target but NOT null, target
+			if (candidateSource == null)
+			{
+				if (candidateTarget != null)
+				{
+					throw new global::System.ArgumentNullException("candidateSource");
+				}
+				else // Both null
+				{
+					return false;
+				}
+			}
+			bool acceptSource = CanAcceptSource(candidateSource);
+			// If the source wasn't accepted then there's no point checking targets.
+			// If there is no target then the source controls the accept.
+			if (!acceptSource || candidateTarget == null)
+			{
+				return acceptSource;
+			}
+			else // Check combinations
+			{
+				if (candidateSource is global::Bb.ApplicationCooperationViewPoint.ModelElement)
+				{
+					if (candidateTarget is global::Bb.ApplicationCooperationViewPoint.Relationship)
+					{
+						global::Bb.ApplicationCooperationViewPoint.ModelElement sourceModelElement = (global::Bb.ApplicationCooperationViewPoint.ModelElement)candidateSource;
+						global::Bb.ApplicationCooperationViewPoint.Relationship targetRelationship = (global::Bb.ApplicationCooperationViewPoint.Relationship)candidateTarget;
+						if(targetRelationship == null || global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships.GetLinkToLeftModelElement(targetRelationship) != null) return false;
+						if(targetRelationship == null || sourceModelElement == null || global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships.GetLinks(sourceModelElement, targetRelationship).Count > 0) return false;
+						return true;
+					}
+				}
+				
+			}
+			return false;
+		}
+		#endregion
+
+		#region Connection Methods
+		/// <summary>
+		/// Make a connection between the given pair of source and target elements
+		/// </summary>
+		/// <param name="source">The model element to use as the source of the connection</param>
+		/// <param name="target">The model element to use as the target of the connection</param>
+		/// <returns>A link representing the created connection</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
+		public static DslModeling::ElementLink Connect(DslModeling::ModelElement source, DslModeling::ModelElement target)
+		{
+			if (source == null)
+			{
+				throw new global::System.ArgumentNullException("source");
+			}
+			if (target == null)
+			{
+				throw new global::System.ArgumentNullException("target");
+			}
+			
+			if (CanAcceptSourceAndTarget(source, target))
+			{
+				if (source is global::Bb.ApplicationCooperationViewPoint.ModelElement)
+				{
+					if (target is global::Bb.ApplicationCooperationViewPoint.Relationship)
+					{
+						global::Bb.ApplicationCooperationViewPoint.ModelElement sourceAccepted = (global::Bb.ApplicationCooperationViewPoint.ModelElement)source;
+						global::Bb.ApplicationCooperationViewPoint.Relationship targetAccepted = (global::Bb.ApplicationCooperationViewPoint.Relationship)target;
+						DslModeling::ElementLink result = new global::Bb.ApplicationCooperationViewPoint.ModelElementReferencesRightRelationships(sourceAccepted, targetAccepted);
+						if (DslModeling::DomainClassInfo.HasNameProperty(result))
+						{
+							DslModeling::DomainClassInfo.SetUniqueName(result);
+						}
+						return result;
+					}
+				}
+				
+			}
+			global::System.Diagnostics.Debug.Fail("Having agreed that the connection can be accepted we should never fail to make one.");
+			throw new global::System.InvalidOperationException();
+		}
+		#endregion
+ 	}
+	/// <summary>
+	/// ConnectionBuilder class to provide logic for constructing connections between elements.
+	/// </summary>
+	public static partial class RelationshipReferencesRightModelElementBuilder
+	{
+		#region Accept Connection Methods
+		/// <summary>
+		/// Test whether a given model element is acceptable to this ConnectionBuilder as the source of a connection.
+		/// </summary>
+		/// <param name="candidate">The model element to test.</param>
+		/// <returns>Whether the element can be used as the source of a connection.</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		public static bool CanAcceptSource(DslModeling::ModelElement candidate)
+		{
+			if (candidate == null) return false;
+			else if (candidate is global::Bb.ApplicationCooperationViewPoint.Relationship)
+			{ 
+				return true;
+			}
+			else
+				return false;
+		}
+
+		/// <summary>
+		/// Test whether a given model element is acceptable to this ConnectionBuilder as the target of a connection.
+		/// </summary>
+		/// <param name="candidate">The model element to test.</param>
+		/// <returns>Whether the element can be used as the target of a connection.</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		public static bool CanAcceptTarget(DslModeling::ModelElement candidate)
+		{
+			if (candidate == null) return false;
+			else if (candidate is global::Bb.ApplicationCooperationViewPoint.ModelElement)
+			{ 
+				return true;
+			}
+			else
+				return false;
+		}
+		
+		/// <summary>
+		/// Test whether a given pair of model elements are acceptable to this ConnectionBuilder as the source and target of a connection
+		/// </summary>
+		/// <param name="candidateSource">The model element to test as a source</param>
+		/// <param name="candidateTarget">The model element to test as a target</param>
+		/// <returns>Whether the elements can be used as the source and target of a connection</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
+		public static bool CanAcceptSourceAndTarget(DslModeling::ModelElement candidateSource, DslModeling::ModelElement candidateTarget)
+		{
+			// Accepts null, null; source, null; source, target but NOT null, target
+			if (candidateSource == null)
+			{
+				if (candidateTarget != null)
+				{
+					throw new global::System.ArgumentNullException("candidateSource");
+				}
+				else // Both null
+				{
+					return false;
+				}
+			}
+			bool acceptSource = CanAcceptSource(candidateSource);
+			// If the source wasn't accepted then there's no point checking targets.
+			// If there is no target then the source controls the accept.
+			if (!acceptSource || candidateTarget == null)
+			{
+				return acceptSource;
+			}
+			else // Check combinations
+			{
+				if (candidateSource is global::Bb.ApplicationCooperationViewPoint.Relationship)
+				{
+					if (candidateTarget is global::Bb.ApplicationCooperationViewPoint.ModelElement)
+					{
+						global::Bb.ApplicationCooperationViewPoint.Relationship sourceRelationship = (global::Bb.ApplicationCooperationViewPoint.Relationship)candidateSource;
+						global::Bb.ApplicationCooperationViewPoint.ModelElement targetModelElement = (global::Bb.ApplicationCooperationViewPoint.ModelElement)candidateTarget;
+						if(sourceRelationship == null || global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement.GetLinkToRightModelElement(sourceRelationship) != null) return false;
+						if(targetModelElement == null || sourceRelationship == null || global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement.GetLinks(sourceRelationship, targetModelElement).Count > 0) return false;
+						return true;
+					}
+				}
+				
+			}
+			return false;
+		}
+		#endregion
+
+		#region Connection Methods
+		/// <summary>
+		/// Make a connection between the given pair of source and target elements
+		/// </summary>
+		/// <param name="source">The model element to use as the source of the connection</param>
+		/// <param name="target">The model element to use as the target of the connection</param>
+		/// <returns>A link representing the created connection</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
+		public static DslModeling::ElementLink Connect(DslModeling::ModelElement source, DslModeling::ModelElement target)
+		{
+			if (source == null)
+			{
+				throw new global::System.ArgumentNullException("source");
+			}
+			if (target == null)
+			{
+				throw new global::System.ArgumentNullException("target");
+			}
+			
+			if (CanAcceptSourceAndTarget(source, target))
+			{
+				if (source is global::Bb.ApplicationCooperationViewPoint.Relationship)
+				{
+					if (target is global::Bb.ApplicationCooperationViewPoint.ModelElement)
+					{
+						global::Bb.ApplicationCooperationViewPoint.Relationship sourceAccepted = (global::Bb.ApplicationCooperationViewPoint.Relationship)source;
+						global::Bb.ApplicationCooperationViewPoint.ModelElement targetAccepted = (global::Bb.ApplicationCooperationViewPoint.ModelElement)target;
+						DslModeling::ElementLink result = new global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightModelElement(sourceAccepted, targetAccepted);
+						if (DslModeling::DomainClassInfo.HasNameProperty(result))
+						{
+							DslModeling::DomainClassInfo.SetUniqueName(result);
+						}
+						return result;
+					}
+				}
+				
+			}
+			global::System.Diagnostics.Debug.Fail("Having agreed that the connection can be accepted we should never fail to make one.");
+			throw new global::System.InvalidOperationException();
+		}
+		#endregion
+ 	}
+	/// <summary>
+	/// ConnectionBuilder class to provide logic for constructing connections between elements.
+	/// </summary>
+	public static partial class RelationshipReferencesRightSubElementBuilder
+	{
+		#region Accept Connection Methods
+		/// <summary>
+		/// Test whether a given model element is acceptable to this ConnectionBuilder as the source of a connection.
+		/// </summary>
+		/// <param name="candidate">The model element to test.</param>
+		/// <returns>Whether the element can be used as the source of a connection.</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		public static bool CanAcceptSource(DslModeling::ModelElement candidate)
+		{
+			if (candidate == null) return false;
+			else if (candidate is global::Bb.ApplicationCooperationViewPoint.Relationship)
+			{ 
+				return true;
+			}
+			else
+				return false;
+		}
+
+		/// <summary>
+		/// Test whether a given model element is acceptable to this ConnectionBuilder as the target of a connection.
+		/// </summary>
+		/// <param name="candidate">The model element to test.</param>
+		/// <returns>Whether the element can be used as the target of a connection.</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		public static bool CanAcceptTarget(DslModeling::ModelElement candidate)
+		{
+			if (candidate == null) return false;
+			else if (candidate is global::Bb.ApplicationCooperationViewPoint.SubElement)
+			{ 
+				return true;
+			}
+			else
+				return false;
+		}
+		
+		/// <summary>
+		/// Test whether a given pair of model elements are acceptable to this ConnectionBuilder as the source and target of a connection
+		/// </summary>
+		/// <param name="candidateSource">The model element to test as a source</param>
+		/// <param name="candidateTarget">The model element to test as a target</param>
+		/// <returns>Whether the elements can be used as the source and target of a connection</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
+		public static bool CanAcceptSourceAndTarget(DslModeling::ModelElement candidateSource, DslModeling::ModelElement candidateTarget)
+		{
+			// Accepts null, null; source, null; source, target but NOT null, target
+			if (candidateSource == null)
+			{
+				if (candidateTarget != null)
+				{
+					throw new global::System.ArgumentNullException("candidateSource");
+				}
+				else // Both null
+				{
+					return false;
+				}
+			}
+			bool acceptSource = CanAcceptSource(candidateSource);
+			// If the source wasn't accepted then there's no point checking targets.
+			// If there is no target then the source controls the accept.
+			if (!acceptSource || candidateTarget == null)
+			{
+				return acceptSource;
+			}
+			else // Check combinations
+			{
+				if (candidateSource is global::Bb.ApplicationCooperationViewPoint.Relationship)
+				{
+					if (candidateTarget is global::Bb.ApplicationCooperationViewPoint.SubElement)
+					{
+						global::Bb.ApplicationCooperationViewPoint.Relationship sourceRelationship = (global::Bb.ApplicationCooperationViewPoint.Relationship)candidateSource;
+						global::Bb.ApplicationCooperationViewPoint.SubElement targetSubElement = (global::Bb.ApplicationCooperationViewPoint.SubElement)candidateTarget;
+						if(sourceRelationship == null || global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement.GetLinkToRightSubElement(sourceRelationship) != null) return false;
+						if(targetSubElement == null || sourceRelationship == null || global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement.GetLinks(sourceRelationship, targetSubElement).Count > 0) return false;
+						return true;
+					}
+				}
+				
+			}
+			return false;
+		}
+		#endregion
+
+		#region Connection Methods
+		/// <summary>
+		/// Make a connection between the given pair of source and target elements
+		/// </summary>
+		/// <param name="source">The model element to use as the source of the connection</param>
+		/// <param name="target">The model element to use as the target of the connection</param>
+		/// <returns>A link representing the created connection</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
+		public static DslModeling::ElementLink Connect(DslModeling::ModelElement source, DslModeling::ModelElement target)
+		{
+			if (source == null)
+			{
+				throw new global::System.ArgumentNullException("source");
+			}
+			if (target == null)
+			{
+				throw new global::System.ArgumentNullException("target");
+			}
+			
+			if (CanAcceptSourceAndTarget(source, target))
+			{
+				if (source is global::Bb.ApplicationCooperationViewPoint.Relationship)
+				{
+					if (target is global::Bb.ApplicationCooperationViewPoint.SubElement)
+					{
+						global::Bb.ApplicationCooperationViewPoint.Relationship sourceAccepted = (global::Bb.ApplicationCooperationViewPoint.Relationship)source;
+						global::Bb.ApplicationCooperationViewPoint.SubElement targetAccepted = (global::Bb.ApplicationCooperationViewPoint.SubElement)target;
+						DslModeling::ElementLink result = new global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightSubElement(sourceAccepted, targetAccepted);
+						if (DslModeling::DomainClassInfo.HasNameProperty(result))
+						{
+							DslModeling::DomainClassInfo.SetUniqueName(result);
+						}
+						return result;
+					}
+				}
+				
+			}
+			global::System.Diagnostics.Debug.Fail("Having agreed that the connection can be accepted we should never fail to make one.");
+			throw new global::System.InvalidOperationException();
+		}
+		#endregion
+ 	}
+	/// <summary>
+	/// ConnectionBuilder class to provide logic for constructing connections between elements.
+	/// </summary>
+	public static partial class RelationshipReferencesRightConceptBuilder
+	{
+		#region Accept Connection Methods
+		/// <summary>
+		/// Test whether a given model element is acceptable to this ConnectionBuilder as the source of a connection.
+		/// </summary>
+		/// <param name="candidate">The model element to test.</param>
+		/// <returns>Whether the element can be used as the source of a connection.</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		public static bool CanAcceptSource(DslModeling::ModelElement candidate)
+		{
+			if (candidate == null) return false;
+			else if (candidate is global::Bb.ApplicationCooperationViewPoint.Relationship)
+			{ 
+				return true;
+			}
+			else
+				return false;
+		}
+
+		/// <summary>
+		/// Test whether a given model element is acceptable to this ConnectionBuilder as the target of a connection.
+		/// </summary>
+		/// <param name="candidate">The model element to test.</param>
+		/// <returns>Whether the element can be used as the target of a connection.</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		public static bool CanAcceptTarget(DslModeling::ModelElement candidate)
+		{
+			if (candidate == null) return false;
+			else if (candidate is global::Bb.ApplicationCooperationViewPoint.Concept)
+			{ 
+				return true;
+			}
+			else
+				return false;
+		}
+		
+		/// <summary>
+		/// Test whether a given pair of model elements are acceptable to this ConnectionBuilder as the source and target of a connection
+		/// </summary>
+		/// <param name="candidateSource">The model element to test as a source</param>
+		/// <param name="candidateTarget">The model element to test as a target</param>
+		/// <returns>Whether the elements can be used as the source and target of a connection</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
+		public static bool CanAcceptSourceAndTarget(DslModeling::ModelElement candidateSource, DslModeling::ModelElement candidateTarget)
+		{
+			// Accepts null, null; source, null; source, target but NOT null, target
+			if (candidateSource == null)
+			{
+				if (candidateTarget != null)
+				{
+					throw new global::System.ArgumentNullException("candidateSource");
+				}
+				else // Both null
+				{
+					return false;
+				}
+			}
+			bool acceptSource = CanAcceptSource(candidateSource);
+			// If the source wasn't accepted then there's no point checking targets.
+			// If there is no target then the source controls the accept.
+			if (!acceptSource || candidateTarget == null)
+			{
+				return acceptSource;
+			}
+			else // Check combinations
+			{
+				if (candidateSource is global::Bb.ApplicationCooperationViewPoint.Relationship)
+				{
+					if (candidateTarget is global::Bb.ApplicationCooperationViewPoint.Concept)
+					{
+						global::Bb.ApplicationCooperationViewPoint.Relationship sourceRelationship = (global::Bb.ApplicationCooperationViewPoint.Relationship)candidateSource;
+						global::Bb.ApplicationCooperationViewPoint.Concept targetConcept = (global::Bb.ApplicationCooperationViewPoint.Concept)candidateTarget;
+						if(sourceRelationship == null || global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept.GetLinkToRightConcept(sourceRelationship) != null) return false;
+						if(targetConcept == null || sourceRelationship == null || global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept.GetLinks(sourceRelationship, targetConcept).Count > 0) return false;
+						return true;
+					}
+				}
+				
+			}
+			return false;
+		}
+		#endregion
+
+		#region Connection Methods
+		/// <summary>
+		/// Make a connection between the given pair of source and target elements
+		/// </summary>
+		/// <param name="source">The model element to use as the source of the connection</param>
+		/// <param name="target">The model element to use as the target of the connection</param>
+		/// <returns>A link representing the created connection</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
+		public static DslModeling::ElementLink Connect(DslModeling::ModelElement source, DslModeling::ModelElement target)
+		{
+			if (source == null)
+			{
+				throw new global::System.ArgumentNullException("source");
+			}
+			if (target == null)
+			{
+				throw new global::System.ArgumentNullException("target");
+			}
+			
+			if (CanAcceptSourceAndTarget(source, target))
+			{
+				if (source is global::Bb.ApplicationCooperationViewPoint.Relationship)
+				{
+					if (target is global::Bb.ApplicationCooperationViewPoint.Concept)
+					{
+						global::Bb.ApplicationCooperationViewPoint.Relationship sourceAccepted = (global::Bb.ApplicationCooperationViewPoint.Relationship)source;
+						global::Bb.ApplicationCooperationViewPoint.Concept targetAccepted = (global::Bb.ApplicationCooperationViewPoint.Concept)target;
+						DslModeling::ElementLink result = new global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConcept(sourceAccepted, targetAccepted);
+						if (DslModeling::DomainClassInfo.HasNameProperty(result))
+						{
+							DslModeling::DomainClassInfo.SetUniqueName(result);
+						}
+						return result;
+					}
+				}
+				
+			}
+			global::System.Diagnostics.Debug.Fail("Having agreed that the connection can be accepted we should never fail to make one.");
+			throw new global::System.InvalidOperationException();
+		}
+		#endregion
+ 	}
+	/// <summary>
+	/// ConnectionBuilder class to provide logic for constructing connections between elements.
+	/// </summary>
+	public static partial class RelationshipReferencesRightConceptElementBuilder
+	{
+		#region Accept Connection Methods
+		/// <summary>
+		/// Test whether a given model element is acceptable to this ConnectionBuilder as the source of a connection.
+		/// </summary>
+		/// <param name="candidate">The model element to test.</param>
+		/// <returns>Whether the element can be used as the source of a connection.</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		public static bool CanAcceptSource(DslModeling::ModelElement candidate)
+		{
+			if (candidate == null) return false;
+			else if (candidate is global::Bb.ApplicationCooperationViewPoint.Relationship)
+			{ 
+				return true;
+			}
+			else
+				return false;
+		}
+
+		/// <summary>
+		/// Test whether a given model element is acceptable to this ConnectionBuilder as the target of a connection.
+		/// </summary>
+		/// <param name="candidate">The model element to test.</param>
+		/// <returns>Whether the element can be used as the target of a connection.</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		public static bool CanAcceptTarget(DslModeling::ModelElement candidate)
+		{
+			if (candidate == null) return false;
+			else if (candidate is global::Bb.ApplicationCooperationViewPoint.ConceptElement)
+			{ 
+				return true;
+			}
+			else
+				return false;
+		}
+		
+		/// <summary>
+		/// Test whether a given pair of model elements are acceptable to this ConnectionBuilder as the source and target of a connection
+		/// </summary>
+		/// <param name="candidateSource">The model element to test as a source</param>
+		/// <param name="candidateTarget">The model element to test as a target</param>
+		/// <returns>Whether the elements can be used as the source and target of a connection</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
+		public static bool CanAcceptSourceAndTarget(DslModeling::ModelElement candidateSource, DslModeling::ModelElement candidateTarget)
+		{
+			// Accepts null, null; source, null; source, target but NOT null, target
+			if (candidateSource == null)
+			{
+				if (candidateTarget != null)
+				{
+					throw new global::System.ArgumentNullException("candidateSource");
+				}
+				else // Both null
+				{
+					return false;
+				}
+			}
+			bool acceptSource = CanAcceptSource(candidateSource);
+			// If the source wasn't accepted then there's no point checking targets.
+			// If there is no target then the source controls the accept.
+			if (!acceptSource || candidateTarget == null)
+			{
+				return acceptSource;
+			}
+			else // Check combinations
+			{
+				if (candidateSource is global::Bb.ApplicationCooperationViewPoint.Relationship)
+				{
+					if (candidateTarget is global::Bb.ApplicationCooperationViewPoint.ConceptElement)
+					{
+						global::Bb.ApplicationCooperationViewPoint.Relationship sourceRelationship = (global::Bb.ApplicationCooperationViewPoint.Relationship)candidateSource;
+						global::Bb.ApplicationCooperationViewPoint.ConceptElement targetConceptElement = (global::Bb.ApplicationCooperationViewPoint.ConceptElement)candidateTarget;
+						if(sourceRelationship == null || global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement.GetLinkToRightConceptElement(sourceRelationship) != null) return false;
+						if(targetConceptElement == null || sourceRelationship == null || global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement.GetLinks(sourceRelationship, targetConceptElement).Count > 0) return false;
+						return true;
+					}
+				}
+				
+			}
+			return false;
+		}
+		#endregion
+
+		#region Connection Methods
+		/// <summary>
+		/// Make a connection between the given pair of source and target elements
+		/// </summary>
+		/// <param name="source">The model element to use as the source of the connection</param>
+		/// <param name="target">The model element to use as the target of the connection</param>
+		/// <returns>A link representing the created connection</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
+		public static DslModeling::ElementLink Connect(DslModeling::ModelElement source, DslModeling::ModelElement target)
+		{
+			if (source == null)
+			{
+				throw new global::System.ArgumentNullException("source");
+			}
+			if (target == null)
+			{
+				throw new global::System.ArgumentNullException("target");
+			}
+			
+			if (CanAcceptSourceAndTarget(source, target))
+			{
+				if (source is global::Bb.ApplicationCooperationViewPoint.Relationship)
+				{
+					if (target is global::Bb.ApplicationCooperationViewPoint.ConceptElement)
+					{
+						global::Bb.ApplicationCooperationViewPoint.Relationship sourceAccepted = (global::Bb.ApplicationCooperationViewPoint.Relationship)source;
+						global::Bb.ApplicationCooperationViewPoint.ConceptElement targetAccepted = (global::Bb.ApplicationCooperationViewPoint.ConceptElement)target;
+						DslModeling::ElementLink result = new global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptElement(sourceAccepted, targetAccepted);
+						if (DslModeling::DomainClassInfo.HasNameProperty(result))
+						{
+							DslModeling::DomainClassInfo.SetUniqueName(result);
+						}
+						return result;
+					}
+				}
+				
+			}
+			global::System.Diagnostics.Debug.Fail("Having agreed that the connection can be accepted we should never fail to make one.");
+			throw new global::System.InvalidOperationException();
+		}
+		#endregion
+ 	}
+	/// <summary>
+	/// ConnectionBuilder class to provide logic for constructing connections between elements.
+	/// </summary>
+	public static partial class RelationshipReferencesRightConceptSubElementBuilder
+	{
+		#region Accept Connection Methods
+		/// <summary>
+		/// Test whether a given model element is acceptable to this ConnectionBuilder as the source of a connection.
+		/// </summary>
+		/// <param name="candidate">The model element to test.</param>
+		/// <returns>Whether the element can be used as the source of a connection.</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		public static bool CanAcceptSource(DslModeling::ModelElement candidate)
+		{
+			if (candidate == null) return false;
+			else if (candidate is global::Bb.ApplicationCooperationViewPoint.Relationship)
+			{ 
+				return true;
+			}
+			else
+				return false;
+		}
+
+		/// <summary>
+		/// Test whether a given model element is acceptable to this ConnectionBuilder as the target of a connection.
+		/// </summary>
+		/// <param name="candidate">The model element to test.</param>
+		/// <returns>Whether the element can be used as the target of a connection.</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		public static bool CanAcceptTarget(DslModeling::ModelElement candidate)
+		{
+			if (candidate == null) return false;
+			else if (candidate is global::Bb.ApplicationCooperationViewPoint.ConceptSubElement)
+			{ 
+				return true;
+			}
+			else
+				return false;
+		}
+		
+		/// <summary>
+		/// Test whether a given pair of model elements are acceptable to this ConnectionBuilder as the source and target of a connection
+		/// </summary>
+		/// <param name="candidateSource">The model element to test as a source</param>
+		/// <param name="candidateTarget">The model element to test as a target</param>
+		/// <returns>Whether the elements can be used as the source and target of a connection</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
+		public static bool CanAcceptSourceAndTarget(DslModeling::ModelElement candidateSource, DslModeling::ModelElement candidateTarget)
+		{
+			// Accepts null, null; source, null; source, target but NOT null, target
+			if (candidateSource == null)
+			{
+				if (candidateTarget != null)
+				{
+					throw new global::System.ArgumentNullException("candidateSource");
+				}
+				else // Both null
+				{
+					return false;
+				}
+			}
+			bool acceptSource = CanAcceptSource(candidateSource);
+			// If the source wasn't accepted then there's no point checking targets.
+			// If there is no target then the source controls the accept.
+			if (!acceptSource || candidateTarget == null)
+			{
+				return acceptSource;
+			}
+			else // Check combinations
+			{
+				if (candidateSource is global::Bb.ApplicationCooperationViewPoint.Relationship)
+				{
+					if (candidateTarget is global::Bb.ApplicationCooperationViewPoint.ConceptSubElement)
+					{
+						global::Bb.ApplicationCooperationViewPoint.Relationship sourceRelationship = (global::Bb.ApplicationCooperationViewPoint.Relationship)candidateSource;
+						global::Bb.ApplicationCooperationViewPoint.ConceptSubElement targetConceptSubElement = (global::Bb.ApplicationCooperationViewPoint.ConceptSubElement)candidateTarget;
+						if(sourceRelationship == null || global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement.GetLinkToRightConceptSubElement(sourceRelationship) != null) return false;
+						if(targetConceptSubElement == null || sourceRelationship == null || global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement.GetLinks(sourceRelationship, targetConceptSubElement).Count > 0) return false;
+						return true;
+					}
+				}
+				
+			}
+			return false;
+		}
+		#endregion
+
+		#region Connection Methods
+		/// <summary>
+		/// Make a connection between the given pair of source and target elements
+		/// </summary>
+		/// <param name="source">The model element to use as the source of the connection</param>
+		/// <param name="target">The model element to use as the target of the connection</param>
+		/// <returns>A link representing the created connection</returns>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
+		public static DslModeling::ElementLink Connect(DslModeling::ModelElement source, DslModeling::ModelElement target)
+		{
+			if (source == null)
+			{
+				throw new global::System.ArgumentNullException("source");
+			}
+			if (target == null)
+			{
+				throw new global::System.ArgumentNullException("target");
+			}
+			
+			if (CanAcceptSourceAndTarget(source, target))
+			{
+				if (source is global::Bb.ApplicationCooperationViewPoint.Relationship)
+				{
+					if (target is global::Bb.ApplicationCooperationViewPoint.ConceptSubElement)
+					{
+						global::Bb.ApplicationCooperationViewPoint.Relationship sourceAccepted = (global::Bb.ApplicationCooperationViewPoint.Relationship)source;
+						global::Bb.ApplicationCooperationViewPoint.ConceptSubElement targetAccepted = (global::Bb.ApplicationCooperationViewPoint.ConceptSubElement)target;
+						DslModeling::ElementLink result = new global::Bb.ApplicationCooperationViewPoint.RelationshipReferencesRightConceptSubElement(sourceAccepted, targetAccepted);
 						if (DslModeling::DomainClassInfo.HasNameProperty(result))
 						{
 							DslModeling::DomainClassInfo.SetUniqueName(result);

@@ -6,6 +6,251 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-//
-// This file is empty because the DSL definition does not define any Connectors.
-//
+
+using DslModeling = global::Microsoft.VisualStudio.Modeling;
+using DslDesign = global::Microsoft.VisualStudio.Modeling.Design;
+using DslDiagrams = global::Microsoft.VisualStudio.Modeling.Diagrams;
+
+namespace Bb.ApplicationCooperationViewPoint
+{
+	/// <summary>
+	/// DomainClass TargetConnector
+	/// Description de Bb.ApplicationCooperationViewPoint.TargetConnector
+	/// </summary>
+	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.TargetConnector.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.TargetConnector.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainObjectId("c83e0401-57de-41d2-a758-62e2f5283ae4")]
+	public partial class TargetConnector : DslDiagrams::BinaryLinkShape
+	{
+		#region DiagramElement boilerplate
+		private static DslDiagrams::StyleSet classStyleSet;
+		private static global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields;
+		private static global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators;
+		
+		/// <summary>
+		/// Per-class style set for this shape.
+		/// </summary>
+		protected override DslDiagrams::StyleSet ClassStyleSet
+		{
+			get
+			{
+				if (classStyleSet == null)
+				{
+					classStyleSet = CreateClassStyleSet();
+				}
+				return classStyleSet;
+			}
+		}
+		
+		/// <summary>
+		/// Per-class ShapeFields for this shape.
+		/// </summary>
+		public override global::System.Collections.Generic.IList<DslDiagrams::ShapeField> ShapeFields
+		{
+			get
+			{
+				if (shapeFields == null)
+				{
+					shapeFields = CreateShapeFields();
+				}
+				return shapeFields;
+			}
+		}
+		
+		/// <summary>
+		/// Event fired when decorator initialization is complete for this shape type.
+		/// </summary>
+		public static event global::System.EventHandler DecoratorsInitialized;
+		
+		/// <summary>
+		/// List containing decorators used by this type.
+		/// </summary>
+		public override global::System.Collections.Generic.IList<DslDiagrams::Decorator> Decorators
+		{
+			get 
+			{
+				if(decorators == null)
+				{
+					decorators = CreateDecorators();
+					
+					// fire this event to allow the diagram to initialize decorator mappings for this shape type.
+					if(DecoratorsInitialized != null)
+					{
+						DecoratorsInitialized(this, global::System.EventArgs.Empty);
+					}
+				}
+				
+				return decorators; 
+			}
+		}
+		
+		/// <summary>
+		/// Finds a decorator associated with TargetConnector.
+		/// </summary>
+		public static DslDiagrams::Decorator FindTargetConnectorDecorator(string decoratorName)
+		{	
+			if(decorators == null) return null;
+			return DslDiagrams::ShapeElement.FindDecorator(decorators, decoratorName);
+		}
+		
+		#endregion
+		
+		#region Connector styles
+		/// <summary>
+		/// Initializes resources associated with this connector instance.
+		/// </summary>
+		protected override void InitializeInstanceResources()
+		{
+			base.InitializeInstanceResources();
+			this.SetDecorators(null, new DslDiagrams::SizeD(0.1,0.1), DslDiagrams::LinkDecorator.DecoratorFilledArrow, new DslDiagrams::SizeD(0.1,0.1), false);
+		}
+		
+		#endregion
+		
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// TargetConnector domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xc83e0401, 0x57de, 0x41d2, 0xa7, 0x58, 0x62, 0xe2, 0xf5, 0x28, 0x3a, 0xe4);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public TargetConnector(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public TargetConnector(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+	}
+}
+namespace Bb.ApplicationCooperationViewPoint
+{
+	/// <summary>
+	/// DomainClass OriginConnector
+	/// Description de Bb.ApplicationCooperationViewPoint.OriginConnector
+	/// </summary>
+	[DslDesign::DisplayNameResource("Bb.ApplicationCooperationViewPoint.OriginConnector.DisplayName", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Bb.ApplicationCooperationViewPoint.OriginConnector.Description", typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel), "Bb.ApplicationCooperationViewPoint.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Bb.ApplicationCooperationViewPoint.ApplicationCooperationViewPointDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainObjectId("67bf83a3-b3c0-4c85-8dec-264330f71dd6")]
+	public partial class OriginConnector : DslDiagrams::BinaryLinkShape
+	{
+		#region DiagramElement boilerplate
+		private static DslDiagrams::StyleSet classStyleSet;
+		private static global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields;
+		private static global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators;
+		
+		/// <summary>
+		/// Per-class style set for this shape.
+		/// </summary>
+		protected override DslDiagrams::StyleSet ClassStyleSet
+		{
+			get
+			{
+				if (classStyleSet == null)
+				{
+					classStyleSet = CreateClassStyleSet();
+				}
+				return classStyleSet;
+			}
+		}
+		
+		/// <summary>
+		/// Per-class ShapeFields for this shape.
+		/// </summary>
+		public override global::System.Collections.Generic.IList<DslDiagrams::ShapeField> ShapeFields
+		{
+			get
+			{
+				if (shapeFields == null)
+				{
+					shapeFields = CreateShapeFields();
+				}
+				return shapeFields;
+			}
+		}
+		
+		/// <summary>
+		/// Event fired when decorator initialization is complete for this shape type.
+		/// </summary>
+		public static event global::System.EventHandler DecoratorsInitialized;
+		
+		/// <summary>
+		/// List containing decorators used by this type.
+		/// </summary>
+		public override global::System.Collections.Generic.IList<DslDiagrams::Decorator> Decorators
+		{
+			get 
+			{
+				if(decorators == null)
+				{
+					decorators = CreateDecorators();
+					
+					// fire this event to allow the diagram to initialize decorator mappings for this shape type.
+					if(DecoratorsInitialized != null)
+					{
+						DecoratorsInitialized(this, global::System.EventArgs.Empty);
+					}
+				}
+				
+				return decorators; 
+			}
+		}
+		
+		/// <summary>
+		/// Finds a decorator associated with OriginConnector.
+		/// </summary>
+		public static DslDiagrams::Decorator FindOriginConnectorDecorator(string decoratorName)
+		{	
+			if(decorators == null) return null;
+			return DslDiagrams::ShapeElement.FindDecorator(decorators, decoratorName);
+		}
+		
+		#endregion
+		
+		#region Connector styles
+		#endregion
+		
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// OriginConnector domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x67bf83a3, 0xb3c0, 0x4c85, 0x8d, 0xec, 0x26, 0x43, 0x30, 0xf7, 0x1d, 0xd6);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public OriginConnector(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public OriginConnector(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+	}
+}
